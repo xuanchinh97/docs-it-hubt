@@ -1,0 +1,17 @@
+******** Quản trị mạng **********
+
+- Các loại mạng : Lan Wan , Internet,..
+
+- Các loại dây mạng: cáp quang, cáp xoắn đôi, cáp đồng trục, mạng không dây
+
+Mô hình OIS gồm 7 layer
+
+ + 1 physic
+ + 2 data link
+ + 3 net work
+ + 4 transform
+ + 5 session 
+ + 6
+ + 7 application
+
+- Giao thức TCP / IP
