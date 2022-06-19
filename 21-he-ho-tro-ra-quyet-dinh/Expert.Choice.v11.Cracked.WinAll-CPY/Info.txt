@@ -1,0 +1,21 @@
+[0m
+[1;33m
+
+Expert Choice v11.0
+===================
+
+- Instalar Expert Choice 11.
+- Usar el serial para continuar con la instalación : 11111K90811-0000080000A010116022816 
+- Cuando se termine la instalación copiar ECcomponent.dll en la carpeta donde se instalo el programa y reemplazar por el existente.
+
+Listo!!!!!
+
+
+[0;32m
+[1;32m
+subido por jimmy_criptoy
+
+	Para mas cosas educativas.... 
+
+		visita : http://intercambiosvirtuales.org
+
