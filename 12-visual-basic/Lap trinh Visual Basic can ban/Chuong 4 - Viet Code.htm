@@ -1,0 +1,650 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://www.bangden.com/soncuoc/Visualbasic/VB6Chapter4.htm -->
+<!-- saved from url=(0051)http://www.vovisoft.com/VisualBasic/VB6Chapter4.htm --><HTML><HEAD><TITLE>Writing Code</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 4 - Viet Code_files/topbottom.css" type=text/css rel=stylesheet>
+<META content="t, default" name="Microsoft Border"></HEAD>
+<BODY leftMargin=0 topMargin=65 marginwidth="0" marginheight="0"><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+      height=20 cellSpacing=0 cellPadding=0 width="130%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="51%" bgColor=#0000ff height=20><B><FONT face=Verdana 
+            color=#ffff00 size=2><SPAN style="BACKGROUND-COLOR: #0000ff">Trung 
+            tâm Dạy nghề và Phổ cập Tin học Miền núi ABC - Tỉnh Yên Bái 
+            </SPAN></FONT></B></TD>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="35%" height=20><FONT face=Verdana><IMG height=20 src="" 
+            width=136 border=0></FONT></TD></TR></TBODY></TABLE>
+      <P 
+      style="MARGIN: 0px; WORD-SPACING: 0px; TEXT-INDENT: 0px; LINE-HEIGHT: 100%"><FONT 
+      face=Verdana size=2><A 
+      href="http://www.bangden.com/soncuoc/index.htm">&lt;Home&gt;&nbsp;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Tho.htm">&lt;Thơ&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/laptrinh.htm">&lt;Lập trình&gt;</A> 
+      <A href="http://www.bangden.com/soncuoc/giaoan.htm">&lt;Giáo 
+      án&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/BaiViet.htm">&lt;Bài 
+      viết&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Vui.htm">&lt;Chuyện 
+      vui&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Traodoi.htm">&lt;Trao 
+      đổi&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/lienket.htm">&lt;Liên kết&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/moi.htm">&lt;Bài 
+      Mới&gt;</A></FONT></P></TD></TR><!--msnavigation--></TBODY></TABLE><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=top>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE>&nbsp;</BLOCKQUOTE></BLOCKQUOTE>
+      <CENTER>
+      <H1><FONT face=Verdana color=#000000>Khóa Hàm Thụ Visual Basic 
+      6.0</FONT></H1>
+      <H2><FONT face=Verdana color=#800000>Chương Bốn - Viết 
+      Code</FONT></H2></CENTER>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE><FONT face=Verdana><FONT color=green size=6>T</FONT>rong 
+          ba chương đầu chúng ta đã học qua ba bộ phận chánh của một chương 
+          trình Visual Basic 6.0. Đó là:<BR>
+          <UL>
+            <LI><B>Forms</B> là cái nền hay khung để ta xây dựng User Interface. 
+
+            <LI><B>Controls</B> là những viên gạch để ta dùng xây dựng User 
+            Interface. 
+            <LI><B>Event procedures</B> là code nằm phía sau những hình ảnh, nó 
+            là chất keo dùng để dán các Controls lại với nhau để tạo thành 
+            chương trình áp dụng của ta. </LI></UL>Như ta đã thấy, tất cả các code 
+          được xử lý (executed) khi có một Event xãy ra. Thí dụ như khi User 
+          click một CommandButton (Event Click) hay type nút Tab để di chuyển 
+          Cursor từ Textbox nầy (Event Lostfocus) qua Textbox khác (Event 
+          GotFocus). Các nhóm code xử lý là :<BR>
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Command1_Click() 
+   ... 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Text1_LostFocus() 
+   ... 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+và 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Text2_GotFocus() 
+   ... 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Trong khi lập 
+          trình, mỗi lần ta double click lên một Control của một Form là VB6 IDE 
+          tự động generate cho ta cái vỏ từ hàng <B>Private Sub 
+          <I>Control_Event</I>()</B> cho đến <B>End Sub</B> để chúng ta điền 
+          những hàng code của mình vào chính giữa.<BR>
+          <H3><FONT face=Verdana color=green>Điều khiển thứ tự xử lý các dòng 
+          code </FONT></H3><FONT face=Verdana>Giả dụ ta viết một chương trình 
+          Vb6 đơn giản như trong hình nầy với hai Textbox tên txtName, txtAge và 
+          một nút tên CmdEnter nằm trong một form tên Form1: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=162 
+              src="Chuong 4 - Viet Code_files/NameAge.jpg" 
+          width=327></BLOCKQUOTE></BLOCKQUOTE>Thông thường các dòng code được xử 
+          lý theo thứ tự từ trên xuống dưới. Thí dụ như để kiểm xem các dữ kiện 
+          vừa được cho vào các Textbox có tương đối hợp lý hay không, khi User 
+          click nút CmdEnter, ta xử lý Sub dưới đây:<BR>
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdEnter_Click() 
+   <FONT color=green>' Make sure the Name field is not blank</FONT>
+   <FONT color=blue>If</FONT> txtName.Text = "" <FONT color=blue>Then</FONT> 
+      MsgBox "Please enter Name" 
+      <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT>  <FONT color=green>' Terminate this Sub</FONT>
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=green>' Make sure a number is supplied for Age</FONT>
+   <FONT color=blue>If</FONT> <FONT color=blue>Not</FONT> IsNumeric(txtAge.Text) <FONT color=blue>Then</FONT> 
+      MsgBox "Please enter a number for Age" 
+      <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT>  <FONT color=green>' Terminate this Sub</FONT>
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Cái Sub nói trên 
+          có chữ <B>Private</B> nằm phía trước, ý nói chỉ nội trong cùng một 
+          form chứa Control CmdEnter (tức là Form1 trong trường hợp nầy) ta mới 
+          có thể gọi (dùng) Sub CmdEnter_Click().<BR>Thí dụ ta muốn khi User bấm 
+          key "Enter" trên bàn phím sau khi cho vào chi tiết ở Textbox txtAge 
+          thì coi như User đã click nút CmdEnter. Ta viết như sau: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> txtAge_KeyPress(KeyAscii <FONT color=blue>As</FONT> Integer) 
+   <FONT color=blue>If</FONT> KeyAscii = 13 <FONT color=blue>Then</FONT> 
+      KeyAscii = 0  <FONT color=green>' swallow Key Enter to avoid side effect</FONT>
+      CmdEnter_Click  <FONT color=green>' Call Private Sub CmdEnter_Click from the same form</FONT>
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Khi ta dùng câu 
+          <B>CmdEnter_Click</B> làm một dòng code (còn gọi là gọi Sub 
+          CmdEnter_Click) thì coi như tương đương với nhét tất cả 10 dòng codes 
+          giữa hai hàng <B>Private Sub CmdEnter_Click()</B> và <B>End Sub</B> 
+          tại chỗ câu CmdEnter_Click, như viết lại dưới đây:<BR>
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> txtAge_KeyPress(KeyAscii <FONT color=blue>As</FONT> Integer) 
+   <FONT color=blue>If</FONT> KeyAscii = 13 <FONT color=blue>Then</FONT> 
+      KeyAscii = 0  <FONT color=green>' Swallow Key Enter to avoid side effect</FONT>
+      <FONT color=green>' Make sure the Name field is not blank</FONT>
+      <FONT color=blue>If</FONT> txtName.Text = "" <FONT color=blue>Then</FONT> 
+         MsgBox "Please enter Name" 
+         <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT>  <FONT color=green>' Terminate this Sub</FONT>
+      <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+      <FONT color=green>' Make sure a number is supplied for Age</FONT>
+      <FONT color=blue>If</FONT> <FONT color=blue>Not</FONT> IsNumeric(txtAge.Text) <FONT color=blue>Then</FONT> 
+         MsgBox "Please enter a number for Age" 
+         <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT>  <FONT color=green>' Terminate this Sub</FONT>
+      <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Có một cách nói 
+          khác là khi execution đi đến hàng <B>CmdEnter_Click</B> thì nó nhảy 
+          vào <B>Private Sub CmdEnter_Click()</B> để execute cho đến hết rồi 
+          nhảy trở lại hàng kế tiếp trong <B>Private Sub 
+          txtAge_KeyPress(KeyAscii As Integer)</B> Trong <B>Private Sub 
+          CmdEnter_Click()</B> nếu User không đánh gì vào Textbox txtName thì 
+          chương trình sẽ display message "Please enter Name" rồi <B>Exit 
+          Sub</B>. Đây là cách nhảy ngay ra khỏi Sub chớ không đợi phải execute 
+          xuống tới hàng chót.</FONT><BR>
+          <H3><FONT face=Verdana color=green>Dùng IF....THEN statement 
+          </FONT></H3><FONT face=Verdana>Trong <B>Private Sub 
+          CmdEnter_Click()</B> ở trên ta thấy có hai chỗ dùng <B>IF...THEN 
+          </B>để thử xem một điều kiện gì có được thỏa mãn không. Nếu điều kiện 
+          là đúng vậy, tức là <B>True</B> thì ta thực hiện những gì đuợc viết từ 
+          hàng <B>IF...THEN </B>cho đến hàng <B>END IF</B>. Ngược lại, nếu điều 
+          kiện không đúng thì execution nhảy xuống tới dòng code nằm ngay dưới 
+          dòng <B>END IF</B>. Tức là có khi execution sẽ đi ngang qua, có khi 
+          không đi ngang qua những dòng code ở giữa câu <B>IF...THEN </B>và câu 
+          <B>END IF</B>. Điều kiện trong IF Statement là phần nằm giữa hai chữ 
+          <B>IF</B> và <B>THEN</B>. Nó đuợc gọi là <B>Logical Expression</B>. Ta 
+          có:<BR>
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE>   txtName.text = ""  <FONT color=green>' content of Textbox txtName is nothing, i.e. an empty string</FONT>
+và 
+   NOT IsNumeric(txtAge.text)  <FONT color=green>' content of TextBox txtAge is not a number</FONT>
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Trong Logical 
+          Expression thứ nhì ta dùng Function IsNumeric để được cho biết rằng 
+          txtAge.text có phải là một con số hay không. Vì ta chỉ than phiền khi 
+          txtAge không phải là một con số nên ta phải để thêm chữ NOT phía 
+          truớc. Tức là khi<BR>
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE>   IsNumeric(txtAge.text) = <FONT color=blue>False</FONT> 
+thì 
+   NOT IsNumeric(txtAge.text) = <FONT color=blue>True</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Nếu giữa 
+          <B>IF...THEN </B>và <B>END IF</B> chỉ có một dòng code bạn có thể nhập 
+          dòng code lên với <B>IF...THEN </B>và không dùng <B>END IF</B>. Tức 
+          là: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>   If</FONT> theColorYouLike = vbRed <FONT color=blue>Then</FONT> 
+      MsgBox "You <FONT color=green>'re a lucky person!"</FONT>
+<FONT color=blue>   End</FONT> <FONT color=blue>If</FONT> 
+is equivalent with 
+<FONT color=blue>   If</FONT> theColorYouLike = vbRed <FONT color=blue>Then</FONT> MsgBox "You <FONT color=green>'re a lucky person!"</FONT>
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Một Logical 
+          Expression có thể đơn giản (simple) như trong các thí dụ trên hay rắc 
+          rối hơn nếu ta ráp nhiều simple Logical Expression lại với nhau bằng 
+          cách dùng những từ <B>OR</B> và <B>AND</B>. Khi hai Logical Expression 
+          được ráp lại bằng chữ <B>OR (HAY)</B> thì chỉ cần ít nhất một trong 
+          hai Expression là TRUE là Logical Expression tổng hợp cũng là TRUE. 
+          Cái TRUE Table cho OR như sau:<BR>
+          <BLOCKQUOTE>
+            <TABLE cellPadding=5 bgColor=#eeeeff border=1>
+              <TBODY>
+              <TR>
+                <TD bgColor=#ccccff><B>A</B></TD>
+                <TD bgColor=#ccccff><B>B</B></TD>
+                <TD bgColor=#ccccff><B>A OR B</B></TD></TR>
+              <TR>
+                <TD>FALSE</TD>
+                <TD>FALSE</TD>
+                <TD>FALSE</TD></TR>
+              <TR>
+                <TD>FALSE</TD>
+                <TD>TRUE</TD>
+                <TD>TRUE</TD></TR>
+              <TR>
+                <TD>TRUE</TD>
+                <TD>FALSE</TD>
+                <TD>TRUE</TD></TR>
+              <TR>
+                <TD>TRUE</TD>
+                <TD>TRUE</TD>
+                <TD>TRUE</TD></TR></TBODY></TABLE></BLOCKQUOTE>Trong thí dụ dưới đây 
+          nếu một người 25 tuổi trở lên HAY có lợi tức trên 30 ngàn đô la một 
+          năm thì cho mượn tiền được :<BR>
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>If</FONT> (PersonAge &gt;= 25) <FONT color=blue>Or</FONT> (PersonIncome &gt;= 30000) <FONT color=blue>Then</FONT> 
+   LendPersonMoney 
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Để ý cách dùng các 
+          dấu ngoặc đơn giống như trong toán đại số. Thông thường hể cái gì nằm 
+          trong ngoặc thì mình tính trước. Nếu có nhiều lớp dấu ngoặc thì tính 
+          theo thứ tự từ trong ra ngoài. Như trong bài trên ta tính xem 
+          <B>PersonAge &gt;= 25</B> xem là TRUE hay FALSE, rồi tính xem 
+          <B>PersonIncome &gt;= 30000</B> xem là TRUE hay FALSE, trước khi tính 
+          kết quả tổng hợp, dựa vào cái TRUE table cho OR.<BR><BR>Khi hai 
+          Logical Expression được ráp lại bằng chữ <B>AND (Và)</B> thì chỉ khi 
+          nào cả hai Expression đều là TRUE, Logical Expression tổng hợp mới là 
+          TRUE. Cái TRUE Table cho AND như sau:<BR>
+          <BLOCKQUOTE>
+            <TABLE cellPadding=5 bgColor=#eeeeff border=1>
+              <TBODY>
+              <TR>
+                <TD bgColor=#ccccff><B>A</B></TD>
+                <TD bgColor=#ccccff><B>B</B></TD>
+                <TD bgColor=#ccccff><B>A AND B</B></TD></TR>
+              <TR>
+                <TD>FALSE</TD>
+                <TD>FALSE</TD>
+                <TD>FALSE</TD></TR>
+              <TR>
+                <TD>FALSE</TD>
+                <TD>TRUE</TD>
+                <TD>FALSE</TD></TR>
+              <TR>
+                <TD>TRUE</TD>
+                <TD>FALSE</TD>
+                <TD>FALSE</TD></TR>
+              <TR>
+                <TD>TRUE</TD>
+                <TD>TRUE</TD>
+                <TD>TRUE</TD></TR></TBODY></TABLE></BLOCKQUOTE>Trong thí dụ dưới đây 
+          nếu học sinh 18 tuổi trở lên và cha mẹ kiếm 100 ngàn trở lên một năm 
+          thì đăng ký học sinh ở một đại học tư:<BR>
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>If</FONT> (StudentAge &gt;= 18) <FONT color=blue>And</FONT> (ParentIncome &gt;= 100000) <FONT color=blue>Then</FONT> 
+   EnrollStudentAtPrivateUniversity 
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Một Logical 
+          Expression có thể tập hợp cả OR lẫn AND như trong thí dụ dưới đây nếu 
+          học sinh 18 tuổi trở lên và cha mẹ kiếm 100 ngàn trở lên một năm HAY 
+          học sinh có Intelligent Quotient cao hơn 160 thì đăng ký học sinh ở 
+          một đại học tư: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>If</FONT> <B>(</B>(StudentAge &gt;= 18) <FONT color=blue>And</FONT> (ParentIncome &gt;= 100000)<B>)</B> <FONT color=blue>Or</FONT> (StudentIQ &gt; 160) <FONT color=blue>Then</FONT> 
+   EnrollStudentAtPrivateUniversity 
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Hai dấu ngoặc đơn 
+          nằm bên ngoài của:<BR></FONT>
+          <BLOCKQUOTE><PRE>  <B>(</B>(StudentAge &gt;= 18 ) <FONT color=blue>And</FONT> (ParentIncome &gt;= 100000)<B>)</B>
+</PRE></BLOCKQUOTE><PRE></PRE>không cần thiết vì theo qui ước, ta tính AND expression 
+          trước khi tính OR expression, nhưng nó giúp ta đọc dễ hơn. 
+          <H3><FONT face=Verdana color=green>Dùng IF....THEN..ELSE statement 
+          </FONT></H3><FONT face=Verdana>Hãy xem thí dụ: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>If</FONT> (StudentPassmark &gt; 75) <FONT color=blue>Then</FONT> 
+   <FONT color=green>' Part A</FONT>
+   EnrollStudentAtPublicSchool 
+<FONT color=blue>Else</FONT> 
+   <FONT color=green>' Part B</FONT>
+   EnrollStudentAtPrivateSchool 
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Nếu học sinh đậu 
+          với số điểm trên 75 thì cho học trường công, NẾU KHÔNG thì phải học 
+          trường tư. Tức là nếu <B>StudentPassmark &gt; 75</B> là TRUE thì xử lý 
+          phần A, nếu không thì xử lý phần B. Để ý phần A gồm những dòng code 
+          nằm giữa dòng <B>If (StudentPassmark &gt; 75) then</B> và <B>else</B>. 
+          Còn phần B gồm những dòng code nằm giữa dòng <B>else</B> và <B>end 
+          if</B>. <BR>Ta có thể ráp chữ <B>ELSE</B> với chữ <B>IF</B> để dùng 
+          như trong thí dụ sau đây: 
+          <BLOCKQUOTE>&lt; 
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>If</FONT> (StudentPassmark &gt; 75) <FONT color=blue>Then</FONT> 
+   EnrollStudentAtPublicSchool 
+<FONT color=blue>ElseIf</FONT> (StudentPassmark &gt;= 55) <FONT color=blue>Then</FONT> 
+   EnrollStudentAtSemipublicSchool 
+<FONT color=blue>Else</FONT> 
+   EnrollStudentAtPrivateSchool 
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Nếu học sinh đậu 
+          với số điểm trên 75 thì cho học trường công, NẾU từ 55 điểm đến 75 
+          điểm thì cho học trường bán công, nếu không (tức là điểm đậu dưới 55) 
+          thì phải học trường tư. <BR>Nếu ở tỉnh nhỏ, không có trường tư, ta 
+          không có quyết định cho học trò đậu dưới 55 điểm học ở đâu thì bỏ phần 
+          <B>ELSE</B> trong thí dụ trên. Phần chương trình trở thành: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>If</FONT> (StudentPassmark &gt; 75) <FONT color=blue>Then</FONT> 
+   EnrollStudentAtPublicSchool 
+<FONT color=blue>ElseIf</FONT> (StudentPassmark &gt;= 55) <FONT color=blue>Then</FONT> 
+   EnrollStudentAtSemipublicSchool 
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Ta có thể dùng 
+          ELSEIF nhiều lần như sau: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>If</FONT> (TheColorYouLike = vbRed) <FONT color=blue>Then</FONT> 
+   MsgBox "You <FONT color=green>'re a lucky person"</FONT>
+<FONT color=blue>ElseIf</FONT> (TheColorYouLike = vbGreen) <FONT color=blue>Then</FONT> 
+   MsgBox "You <FONT color=green>'re a hopeful person"</FONT>
+<FONT color=blue>ElseIf</FONT> (TheColorYouLike = vbBlue) <FONT color=blue>Then</FONT> 
+   MsgBox "You <FONT color=green>'re a brave person"</FONT>
+<FONT color=blue>ElseIf</FONT> (TheColorYouLike = vbMagenta) <FONT color=blue>Then</FONT> 
+   MsgBox "You <FONT color=green>'re a sad person"</FONT>
+<FONT color=blue>Else</FONT> 
+   MsgBox "You <FONT color=green>'re an average person"</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Execution đi lần 
+          lượt từ trên xuống dưới, nếu một điều kiện IF là TRUE thì xử lý phần 
+          của nó rồi nhảy xuống ngay dưới dòng <B>END IF</B>. Chỉ khi một điều 
+          kiện IF không được thỏa mãn ta mới thử một điều kiện IF bên dưới kế 
+          đó. Tức là nếu bạn thích màu đỏ lẫu màu tím (magenta) thì chương trình 
+          sẽ display "You're a lucky person", và không hề biết "You're a sad 
+          person".</FONT> <BR>
+          <H3><FONT face=Verdana color=green>Dùng SELECT CASE statement 
+          </FONT></H3><FONT face=Verdana>Thí dụ có nhiều ELSEIF như trên có thể 
+          được viết lại như sau: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Select</FONT> <FONT color=blue>Case</FONT> TheColorYouLike 
+<FONT color=blue>Case</FONT> vbRed 
+   MsgBox "You <FONT color=green>'re a lucky person"</FONT>
+<FONT color=blue>Case</FONT> vbGreen 
+   MsgBox "You <FONT color=green>'re a hopeful person"</FONT>
+<FONT color=blue>Case</FONT> vbBlue 
+   MsgBox "You <FONT color=green>'re a brave person"</FONT>
+<FONT color=blue>Case</FONT> vbMagenta 
+   MsgBox "You <FONT color=green>'re a sad person"</FONT>
+<FONT color=blue>Else</FONT> 
+   MsgBox "You <FONT color=green>'re an average person"</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Select</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Cách viết nầy 
+          tương đối dễ đọc và ít nhầm lẫn khi viết code hơn là dùng nhiều 
+          ELSEIF. Phần <B>ELSE</B> trong Select Case statement thì optional 
+          (nhiệm ý), tức là có cũng được, không có cũng không sao. Hể khi điều 
+          kiện của một <B>Case</B> được thoả mãn thì những dòng code từ đó cho 
+          đến dòng <B>Case</B> kế dưới hay <B>Else</B> được xử lý và tiếp theo 
+          execution sẽ nhảy xuống dòng nằm ngay dưới dòng <B>End 
+          Select</B>.<BR>Nhớ là dưới cùng ta viết <B>End Select</B>, chớ không 
+          phải <B>End If</B>. Các Expression dùng cho mỗi trường hợp <B>Case</B> 
+          không nhất thiết phải đơn giản như vậy. Để biết thêm chi tiết về cách 
+          dùng Select Case, bạn highlight chữ <B>Case</B> (doubleclick chữ Case) 
+          rồi bấm nút <B>F1</B>. </FONT><BR>
+          <H3><FONT face=Verdana color=green>Dùng FOR statement 
+          </FONT></H3><FONT face=Verdana>Trong lập trình, nói về Flow Control 
+          (điều khiển hướng đi của execution) ta dùng hai loại statement chính: 
+          <B>Branch statements</B> như IF..THEN..ELSE (kể cả Select Case) và 
+          <B>Iterative statements</B> (lập đi, lập lại) như FOR và WHILE LOOP 
+          (Vòng). Ta sẽ nói đến WHILE Loop trong phần kế tiếp. Trong khi Branch 
+          statement cho phép ta execute trong nhánh nầy hay nhánh kia tùy theo 
+          value của Logical Expression thì Iterative statement cho ta execute 
+          một phần code lập đi, lập lại nhiều lần cho đến khi một điều kiện được 
+          thỏa mãn.<BR>Giả dụ ta viết một chương trình đơn giản để tính tổng số 
+          các con số giữa bất cứ hai con số nào (coi chừng lớn quá). Cái form 
+          của chương trình giống như dưới đây: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=161 
+              src="Chuong 4 - Viet Code_files/FromTo.jpg" 
+          width=326></BLOCKQUOTE></BLOCKQUOTE>Sau khi cho hai con số <B>From 
+          (Từ)</B> và <B>To (Cho đến)</B> ta click nút Calculate và thấy kết quả 
+          hiện ra trong Textbox txtTotal. Cái Sub tính tổng số được liệt ra dưới 
+          đây: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdTotal_Click() 
+   <FONT color=blue>Dim</FONT> i, FromNo, ToNo, Total 
+   FromNo = CInt(txtFromNumber.Text)  <FONT color=green>' Convert Text string ra internal number b?ng Function CInt</FONT>
+   ToNo = CInt(txtToNumber.Text)  <FONT color=green>' Convert Text string ra internal number b?ng Function CInt</FONT>
+   Total = 0  <FONT color=green>' Initialise Total value to zero</FONT>
+   <FONT color=blue>For</FONT> i = FromNo <FONT color=blue>To</FONT> ToNo  <FONT color=green>' Iterate from FromNo to ToNo</FONT>
+      Total = Total + i  <FONT color=green>' Add the number to the Total</FONT>
+   <FONT color=blue>Next</FONT> 
+   txtTotal.Text = CStr(Total)  <FONT color=green>' Convert internal number ra Text string</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Trong thí dụ trên, 
+          <B>FOR</B> loop bắt đầu từ dòng <B>For i = FromNo To ToNo</B> và chấm 
+          dứt ở dòng <B>Next</B>. Khi execution bắt đầu Total bằng 0, i bằng 
+          FromNo. Execution sẽ đi qua hết những dòng trong FOR loop rồi value 
+          của i sẽ được tăng lên 1, rồi execution sẽ bắt đầu lại ở đầu loop. 
+          Trong thí dụ nầy vì FromNo=4 và ToNo=6 nên execution sẽ đi qua cái FOR 
+          loop 3 lần. Lần thứ nhất i=4, lần thứ nhì i=5 ,và lần thứ ba thì i=6. 
+          Sau đó, khi i=7 thì nó lớn hơn ToNo (=6) nên execution nhảy ra khỏi 
+          FOR loop. Kết quả là Total=15 và được display trong Textbox txtTotal, 
+          sau khi được converted từ internal number ra text string với Function 
+          CStr.<BR>Nếu ta chỉ muốn cộng những số chẳn từ 4 đến 16 ta có thể làm 
+          cho i tăng value lên 2 (thay vì 1) mỗi khi đến cuối loop. Tức là 
+          i=4,6,8 .v.v..Ta sẽ thêm chữ <B>STEP</B> trong FOR statement như sau: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>For</FONT> i = 4 <FONT color=blue>To</FONT> 16 <FONT color=blue>Step</FONT> 2  <FONT color=green>' Iterate from 4 to 16 with Step=2</FONT>
+   Total = Total + i  <FONT color=green>' Add the number to the Total</FONT>
+<FONT color=blue>Next</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Total sẽ bằng 
+          4+6+8+10+12+14+16= 70. Trong thí dụ trên ta cũng có thể dùng STEP số 
+          âm như sau: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>For</FONT> i = 16 <FONT color=blue>To</FONT> 4 <FONT color=blue>Step</FONT> -2  <FONT color=green>' Iterate from 16 to 4 with Step=-2</FONT>
+   Total = Total + i  <FONT color=green>' Add the number to the Total</FONT>
+<FONT color=blue>Next</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Trong trường hợp 
+          nầy FOR loop bắt đầu với i=16. Khi đến cuối loop lần thứ nhất value 
+          của i bị bớt 2 và trở thành 14. Sau đó i bị giảm giá trị dần dần đến 
+          4. Kế đó i=2 thì nhỏ hơn số cuối cùng (=4) nên execution nhảy ra khỏi 
+          FOR loop. <BR><BR>Giả dụ ta muốn lấy ra tất cả những blank space trong 
+          một text string. Ta biết con số characters trong một text string, còn 
+          gọi là chiều dài của text string có thể tính bằng cách dùng Function 
+          Len(TString). Và để nói đến character thứ i trong một Text string ta 
+          dùng Mid Function. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=162 
+              src="Chuong 4 - Viet Code_files/RemoveBlank.jpg" 
+            width=326></BLOCKQUOTE></BLOCKQUOTE>Khi User click button <B>Remove 
+          Blank Spaces</B> chương trình sẽ execute Sub dưới đây: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdRemoveBlankSpaces_Click() 
+   <FONT color=blue>Dim</FONT> i, TLen, TMess 
+   TMess = ""  <FONT color=green>' Initialise temporary String to null string</FONT>
+   <FONT color=blue>For</FONT> i = 1 <FONT color=blue>To</FONT> Len(txtOriginalString.Text)  <FONT color=green>' Iterate from the first chracter to the last character</FONT>
+      of the string 
+      <FONT color=green>' Check if chracter is NOT a blank space</FONT>
+      <FONT color=blue>If</FONT> Mid(txtOriginalString.Text, i, 1) &lt;&gt; " " <FONT color=blue>Then</FONT> 
+         <FONT color=green>' Character is not a blank space - so append it to TMess</FONT>
+         TMess = TMess &amp; Mid(txtOriginalString.Text, i, 1) 
+      <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=blue>Next</FONT> 
+   txtResultString.Text = TMess  <FONT color=green>' Disaplay TMess by assigning it to txtResultString.text</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Thông thường, ta 
+          dùng FOR loop khi biết trước execution sẽ đi qua loop một số lần nhất 
+          định. Nhưng thỉnh thoảng, khi một điều kiện được thỏa mãn ta có thể ép 
+          execution nhảy ra giữa chừng khỏi FOR loop, chớ không đợi cho đến đủ 
+          số lần đi qua loop. Thí dụ như ta muốn biết phải cộng bao nhiêu số kế 
+          tiếp từ 1 trở lên để được tổng số vừa lớn hơn hay bằng 76. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=208 
+              src="Chuong 4 - Viet Code_files/WantedTotal.jpg" 
+            width=309></BLOCKQUOTE></BLOCKQUOTE>Khi User click button <B>Work 
+          Out</B>, Sub dưới đây sẽ được xử lý: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> cmdWorkOut_Click() 
+   <FONT color=blue>Dim</FONT> i, Total, WantedTotal 
+   WantedTotal = CInt(txtWantedTotal.Text)  <FONT color=green>' Convert Text string ra internal number b?ng Function</FONT>
+   CInt 
+   Total = 0  <FONT color=green>' Initialise Total value to zero</FONT>
+   <FONT color=blue>For</FONT> i = 1 <FONT color=blue>To</FONT> 30 
+      Total = Total + i  <FONT color=green>' Add the number to the Total</FONT>
+      <FONT color=blue>If</FONT> Total &gt;= WantedTotal <FONT color=blue>Then</FONT> <FONT color=blue>Exit</FONT> <FONT color=blue>For</FONT>  <FONT color=green>' Jump out of FOR loop</FONT>
+   <FONT color=blue>Next</FONT> 
+   txtActualTotal.Text = CStr(Total)  <FONT color=green>' Display the Actual Total</FONT>
+   txtUptoNumber.Text = CStr(i)  <FONT color=green>' Display the highest number</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+          <H3><FONT face=Verdana color=green>Dùng DO WHILE Loop statement 
+          </FONT></H3><FONT face=Verdana>Khi ta không biết chắc là execution sẽ 
+          đi qua loop bao nhiêu lần thì tốt nhất là dùng DO WHILE Loop 
+          statement. Khàc với FOR Loop, trong DO WHILE Loop ta phải tự lo 
+          initialisation (tức là mới vô đầu i bằng bao nhiêu) và tự lo tăng 
+          value của parameter i. Nếu Logical Expression là True thì execute 
+          những dòng code từ <B>DO WHILE</B> cho đến <B>Loop</B>. <BR>Thí dụ mới 
+          vừa qua có thể viết lại bằng cách dùng DO WHILE Loop như sau: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> cmdWorkOut_Click() 
+   <FONT color=blue>Dim</FONT> i, Total 
+   WantedTotal = CInt(txtWantedTotal.Text)  <FONT color=green>' Convert Text string ra internal number b?ng Function</FONT>
+   CInt 
+   Total = 0  <FONT color=green>' Initialise Total value to zero</FONT>
+   i = 1  <FONT color=green>' Intialise at the first character</FONT>
+   <FONT color=blue>Do</FONT> <FONT color=blue>While</FONT> (Total &lt; WantedTotal)  <FONT color=green>' Logical Expression is (Total &lt; WantedTotal)</FONT>
+      Total = Total + i  <FONT color=green>' Add the number to the Total</FONT>
+      i = i + 1  <FONT color=green>' Increment the vakue of i</FONT>
+   <FONT color=blue>Loop</FONT> 
+   txtActualtotal.Text = CStr(Total)  <FONT color=green>' Display the Actual Total</FONT>
+   txtUptonumber.Text = CStr(i - 1)  <FONT color=green>' Display the highest number</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>TRong khi Total 
+          hãy còn nhỏ hơn WantedTotal thì ta tiếp tục đi qua While Loop. Giả dụ 
+          ta có các hàng text chứa giá tiền các thứ có thể bỏ vào ổ bánh mì thịt 
+          với giá như sau:<BR>
+          <BLOCKQUOTE><PRE>   Chicken Roll      45c
+   Roast Beef         55c
+   Tomato Sauce        5c
+</PRE></BLOCKQUOTE><PRE></PRE>Bây giờ ta muốn viết code để lấy ra giá tiền từ những hàng 
+          Text string như trên. Ta sẽ đi từ bên phải lần lần qua trái cho đến 
+          khi tìm được một blank space.<BR>
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> WorkOutPrice_Click() 
+   <FONT color=blue>Dim</FONT> i, TStr, PriceInCents, Price 
+   TStr = "Chicken Roll 45c" 
+   i = Len(TStr)  <FONT color=green>' Starting from the rightmost character of the text string</FONT>
+   <FONT color=green>' Going from right to left, look for the first blank character</FONT>
+   <FONT color=blue>Do</FONT> <FONT color=blue>While</FONT> (Mid(TStr, i, 1) &lt;&gt; " ") 
+      i = i - 1  <FONT color=green>' Keep walking to the left</FONT>
+   <FONT color=blue>Loop</FONT> 
+   PriceInCents = Mid(TStr, i + 1)  <FONT color=green>' String including character "c"</FONT>
+   <FONT color=green>' Discard the rightmost character which is "c" and convert the price string to single number</FONT>
+   Price = CSng(Left(PriceInCents, Len(PriceInCents) - 1)) 
+   txtPrice.Text = CStr(Price)  <FONT color=green>' Display the highest number</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+          <H3><FONT face=Verdana color=green>Dùng Function </FONT></H3><FONT 
+          face=Verdana>Function là một dạng subroutine giống giống như Sub. Chỉ 
+          khác ở chỗ Function cho ta một kết quả, cho nên cách dùng Function hơi 
+          khác với Sub. Ta viết một variable bên trái dấu <B>=</B>, được 
+          assigned kết quả của một Function. Thí dụ như ta dùng Trim Function để 
+          loại bỏ những blank space ở hai đầu của text string TString:</FONT> 
+          <BLOCKQUOTE><PRE>     ResultString = Trim(TString)
+</PRE></BLOCKQUOTE><PRE></PRE>Ta đưa cho Function Trim một text string called TString. 
+          Sau khi Function Trim được executed, ta có kết quả nhưng TString không 
+          hề thay đổi. Ngược lại, khi ta gọi một Sub, tất cả những parameter ta 
+          đưa cho Sub đều có thể thay đổi trừ khi ta tuyên bố một parameter nào 
+          đó là ByVal. Trong thí dụ sau, một copy của StringA được đưa cho Sub 
+          nên sau khi execute ProcessString, StringA không hề bị thay đổi. 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Sub</FONT> ProcessString (<FONT color=blue>ByVal</FONT> StringA, ConditionA, ConditionB) 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE><BR>
+          <H3><FONT face=Verdana color=green>Public Sub và Function 
+          </FONT></H3><FONT face=Verdana>Khi ta dùng chữ Public (thay vì 
+          Private) phía trước một Sub hay Function, ta cho phép code nằm ở một 
+          Form hay Basic Module khác có thể gọi (hay dùng) Sub hay Function đó. 
+          Thí dụ trong Form2 ta có định nghĩa DisplayData là: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Public</FONT> <FONT color=blue>Sub</FONT> DisplayData 
+   . . . . 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Trong Form1, ta 
+          gọi DisplayDta như sau: 
+          <BLOCKQUOTE><PRE>     Form2.DisplayData
+</PRE></BLOCKQUOTE>
+          <BLOCKQUOTE><IMG height=14 
+            src="Chuong 4 - Viet Code_files/ball_red.gif" width=14>&nbsp;<A 
+            href="http://www.vovisoft.com/vovisoft/vblinks.htm">Các liên mạng VB 
+            khác</A></BLOCKQUOTE>
+          <BLOCKQUOTE>
+            <P 
+            style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><BR><A 
+            href="http://www.bangden.com/soncuoc/Dang/index.htm">Những câu hỏi 
+            về Visual Basic</A> 
+            <P 
+            style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+            href="http://www.bangden.com/soncuoc/Visualbasic/tipstricks/forms.htm">Những 
+            mẹo vặt của Visual Basic</A></P>
+            <P 
+            style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+            href="http://www.bangden.com/soncuoc/VB.htm"><BR>Lập trình với 
+            VBA</A></P></BLOCKQUOTE><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc --><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc -->
+          <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+          width="100%" border=0>
+            <TBODY>
+            <TR>
+              <TD class=clsRaised width=785 bgColor=#6699cc>
+                <P align=center><FONT face=Verdana color=#ffffff size=1>Được 
+                cung cấp từ Vivosoft</FONT></P></TD></TR></TBODY></TABLE>
+          <P>&nbsp;</P></FONT></FONT></FONT></FONT></BLOCKQUOTE></BLOCKQUOTE>&nbsp;<!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></HTML>

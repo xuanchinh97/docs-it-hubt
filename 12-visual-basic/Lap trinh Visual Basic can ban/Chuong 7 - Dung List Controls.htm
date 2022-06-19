@@ -1,0 +1,530 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://www.bangden.com/soncuoc/Visualbasic/VB6Chapter7.htm -->
+<!-- saved from url=(0051)http://www.vovisoft.com/VisualBasic/VB6Chapter7.htm --><HTML><HEAD><TITLE>Using List Controls</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 7 - Dung List Controls_files/topbottom.css" type=text/css 
+rel=stylesheet>
+<META content="t, default" name="Microsoft Border"></HEAD>
+<BODY leftMargin=0 topMargin=65 marginwidth="0" marginheight="0"><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+      height=20 cellSpacing=0 cellPadding=0 width="130%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="51%" bgColor=#0000ff height=20><B><FONT face=Verdana 
+            color=#ffff00 size=2><SPAN style="BACKGROUND-COLOR: #0000ff">Trung 
+            tâm Dạy nghề và Phổ cập Tin học Miền núi ABC - Tỉnh Yên Bái 
+            </SPAN></FONT></B></TD>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="35%" height=20><FONT face=Verdana><IMG height=20 src="" 
+            width=136 border=0></FONT></TD></TR></TBODY></TABLE>
+      <P 
+      style="MARGIN: 0px; WORD-SPACING: 0px; TEXT-INDENT: 0px; LINE-HEIGHT: 100%"><FONT 
+      face=Verdana size=2><A 
+      href="http://www.bangden.com/soncuoc/index.htm">&lt;Home&gt;&nbsp;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Tho.htm">&lt;Thơ&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/laptrinh.htm">&lt;Lập trình&gt;</A> 
+      <A href="http://www.bangden.com/soncuoc/giaoan.htm">&lt;Giáo 
+      án&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/BaiViet.htm">&lt;Bài 
+      viết&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Vui.htm">&lt;Chuyện 
+      vui&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Traodoi.htm">&lt;Trao 
+      đổi&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/lienket.htm">&lt;Liên kết&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/moi.htm">&lt;Bài 
+      Mới&gt;</A></FONT></P></TD></TR><!--msnavigation--></TBODY></TABLE><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=top>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE>&nbsp;</BLOCKQUOTE></BLOCKQUOTE>
+      <CENTER>
+      <H1><FONT face=Verdana color=#000000>Khóa Hàm Thụ Visual Basic 
+      6.0</FONT></H1>
+      <H2><FONT face=Verdana color=#800000>Chương Bảy - Dùng List 
+      Controls</FONT></H2></CENTER>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE><FONT face=Verdana><FONT color=green size=6>C</FONT>ó hai 
+          loại List controls dùng trong VB6. Ðó là Listbox và Combobox. Cả hai 
+          đều display một số hàng để ta có thể lựa chọn. <BR>Listbox chiếm một 
+          khung chữ nhật, nếu chiều ngang nhỏ thì có khi không display đầy đủ 
+          một hàng, nếu chiều dài không đủ để display tất cả mọi hàng thì 
+          Listbox tự động cho ta một vertical scroll bar để cho biết còn có 
+          nhiều hàng bị che và ta có thể xem các hàng ấy bằng cách dùng vertical 
+          scroll bar. <BR>Combobox thường thường chỉ display một hàng, nhưng ta 
+          có thể chọn display bất cứ hàng nào khác. Combobox giống như một tập 
+          hợp của một Textbox nằm phía trên và một Listbox nằm phía dưới.<BR>
+          <BLOCKQUOTE><IMG height=152 
+            src="Chuong 7 - Dung List Controls_files/ListControls.jpg" width=304 
+            border=0></BLOCKQUOTE><BR>Listbox có rất nhiều công dụng vì nó rất 
+          uyển chuyển. Trong chương nầy ta sẽ học qua các áp dụng sau của 
+          Listbox:<BR>
+          <UL>
+            <LI>Display nhiều sự lựa chọn để User selects bằng cách click hay 
+            drag-drop 
+            <LI>Những cách dùng Property Sorted 
+            <LI>Cách dùng Multiselect 
+            <LI>Dùng để display Events 
+            <LI>Dùng để Search hay process text 
+            <LI>Cách dùng Itemdata song song với các Items của List 
+            <LI>Dùng làm Queue </LI></UL>
+          <H3><FONT face=Verdana color=green>Listbox </FONT></H3>
+          <H4><FONT face=Verdana color=blue>Display nhiều sự lựa chọn 
+          </FONT></H4>Ta hãy bắt đầu viết một chương trình gồm có một Listbox 
+          tên <B>lstNames</B> nằm trong một Form. Trong lstNames ta đánh vào tên 
+          của bảy người, mỗi lần xuống hàng nhớ đánh <B>Ctrl-Enter</B>, thay vì 
+          chỉ <B>Enter</B>, nếu không VB6 tưởng ta đã đánh xong nên close 
+          property List. Các tên nầy là những hàng sẽ hiện ra trong Listbox khi 
+          ta bắt đầu chạy program.<BR>
+          <BLOCKQUOTE><IMG height=489 
+            src="Chuong 7 - Dung List Controls_files/ListContent.jpg" width=754 
+            border=0></BLOCKQUOTE><BR>Ngoài lstNames ta cho thêm một Label với 
+          Caption STUDENTS để trang hoàng, và một Label khác tên <B>lblName</B>. 
+          Mỗi khi User click lên hàng tên nào ta muốn display hàng tên ấy trong 
+          lblName. Sau cùng ta cho vào một CommandButton tên <B>CmdExit</B> để 
+          cho User phương tiện Stop cái program. Ta sẽ có chương trình như 
+          sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> lstNames_Click() 
+   <FONT color=green>' Assign the selected line of Listbox lstNames to Caption of Label lblName</FONT>
+   lblName.Caption = lstNames.List(lstNames.ListIndex)  <FONT color=green>' or = lstNames.text</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdExit_Click() 
+   <FONT color=blue>End</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Giả 
+          sử ta click vào tên John Smith trên Listbox, ta sẽ thấy tên ấy cũng 
+          đuợc display trong Label lblName.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=234 
+              src="Chuong 7 - Dung List Controls_files/ListChoice.jpg" width=394 
+              border=0></BLOCKQUOTE></BLOCKQUOTE><BR>Trong thí dụ nầy, Listbox 
+          lstNames có 7 hàng ( <B>Items</B>). Con số Items nầy là Property 
+          <B>ListCount </B>của Listbox. Các Items của Listbox được đếm từ <B>0 
+          đến ListCount-1</B>. Trong trường hợp nầy là từ 0 đến 6. <BR>Khi User 
+          click lên một hàng, Listbox sẽ generate <B>Event lstNames_Click</B>. 
+          Lúc bấy giờ ta có thể biết được User vừa mới Click hàng nào bằng cách 
+          hỏi Property <B>ListIndex</B> của lstNames, nó sẽ có value từ 0 đến 
+          ListCount-1. Lúc program mới chạy, chưa ai Click lên Item nào của 
+          Listbox thì ListIndex = -1.<BR>Nhũng Items trong Listbox được xem như 
+          một Array của String. Array nầy được gọi là <B>List</B>. Do đó, ta nói 
+          đến Item thứ nhất của Listbox lstNames bằng cách viết 
+          <B>lstNames.List(0)</B> , và tương tợ như vậy, Item cuối cùng là 
+          <B>lstNames.List( lstNames.ListCount-1)</B>. <BR>Ta có thể nói đến 
+          item vừa được Clicked bằng hai cách: hoặc là 
+          lstNames.List(lstNames.ListIndex), hoặc là lstNames.text.<BR>
+          <H4><FONT face=Verdana color=blue>Save content của Listbox 
+          </FONT></H4>Bây giờ để lưu trử content của lstNames, ta thêm một 
+          CommandButton tên <B>CmdSave</B>. Ta sẽ viết code để khi User click 
+          nút CmdSave program sẽ mở một Output text file và viết mọi items của 
+          lstNames vào đó:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdSave_Click() 
+   <FONT color=blue>Dim</FONT> i, FileName, FileNumber 
+   <FONT color=green>' Obtain Folder where this program's EXE file resides</FONT>
+   FileName = App.Path 
+   <FONT color=green>' Make sure FileName ends with a backslash</FONT>
+   <FONT color=blue>If</FONT> Right(FileName, 1) &lt;&gt; "\" <FONT color=blue>Then</FONT> FileName = FileName &amp; "\" 
+   FileName = FileName &amp; "MyList.txt"  <FONT color=green>' name output text file MyList.txt</FONT>
+   <FONT color=green>' Obtain an available filenumber from the operating system</FONT>
+   FileNumber = FreeFile 
+   <FONT color=green>' Open the FileName as an output file , using FileNumber as FileHandle</FONT>
+   Open FileName <FONT color=blue>For</FONT> Output <FONT color=blue>As</FONT> FileNumber 
+   <FONT color=green>' Now iterate through each item of lstNames</FONT>
+   <FONT color=blue>For</FONT> i = 0 <FONT color=blue>To</FONT> lstNames.ListCount - 1 
+      <FONT color=green>' Write the List item to file. Make sure you use symbol # in front of FileNumber</FONT>
+      Print #FileNumber, lstNames.List(i) 
+   <FONT color=blue>Next</FONT> 
+   Close FileNumber  <FONT color=green>' Close the output file</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR><B>App</B> 
+          là một Object đặc biệt đại diện cho chính cái program đang chạy. Ở đây 
+          ta dùng Property <B>Path</B> để biết lúc program đang chạy thì execute 
+          module EXE của nó nằm ở đâu. Lý do là thường thường ta để các files 
+          liên hệ cần thiết cho program lẩn quẩn hoặc ngay trong folder của 
+          program hay trong một subfolder, chẳng hạn như <B>data</B>, 
+          <B>logs</B>, .v.v..<BR>App còn có một số Properties khác cũng rất hữu 
+          dụng như <B>PrevInstance</B>, <B>Title</B>, <B>Revision</B> 
+          ..v.v.<BR>Nếu mới started một program mà thấy App.PrevInstance = True 
+          thì lúc bấy giờ cũng có một copy khác của program đang chạy. Nếu cần 
+          ta End program nầy để tránh chạy 2 copies của program cùng một lúc. 
+          <BR>App.Title và App.Revision cho ta tin tức về Title và Revision của 
+          program đang chạy.<BR>Ðể <B>viết ra một Text file</B> ta cần phải Open 
+          nó trong <B>mode Output</B> và tuyên bố từ rày trở đi sẽ dùng một con 
+          số (FileNumber) để đại diện cái File thay vì dùng chính FileName. Ðể 
+          tránh dùng một FileNumber đã hiện hữu, tốt nhất ta hỏi xin Operating 
+          System cung cấp cho mình một con số chưa ai dùng bằng cách gọi 
+          <B>Function FreeFile</B>. Con số FileNumber nầy còn đuợc gọi là 
+          <B>FileHandle</B> (Handle là tay cầm). Sau khi ta Close FileNumber con 
+          số nầy trở nên FREE và Operating System sẽ có thể dùng nó lại.<BR>Do 
+          đó bạn phải tránh gọi FreeFile liên tiếp hai lần, vì OS sẽ cho bạn 
+          cùng một con số. Tức là, sau khi gọi FreeFile phải dùng nó ngay bằng 
+          cách Open một File rồi mới gọi FreeFile lần kế để có một con số 
+          khác.<BR>Ðể ý cách dùng chữ <B>Input, Output</B> cho files là relative 
+          (tương đối) với vị trí của program (nó nằm trong memory của computer). 
+          Do đó từ trong memory viết ra hard disk thì nói là Output. Ngược lại 
+          đọc từ một Text file nằm trên hard disk vào memory cho program ta thì 
+          gọi là Input.<BR>
+          <H4><FONT face=Verdana color=blue>Load một Text file vào Listbox 
+          </FONT></H4><FONT face=Verdana>Trong bài nầy, thay vì đánh các Items 
+          của Listbox vào Property List của lstNames ta có thể populate (làm 
+          đầy) lstNames bằng cách đọc các Items từ một Text file. Ta thử thêm 
+          một CommandButton tên <B>CmdLoad</B>. Ta sẽ viết code để khi User 
+          click nút CmdLoad program sẽ mở một Input text file và đọc từng hàng 
+          để bỏ vào lstNames:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdLoad_Click() 
+   <FONT color=blue>Dim</FONT> i, FileName, FileNumber, anItem 
+   <FONT color=green>' Obtain Folder where this program's EXE file resides</FONT>
+   FileName = App.Path 
+   <FONT color=green>' Make sure FileName ends with a backslash</FONT>
+   <FONT color=blue>If</FONT> Right(FileName, 1) &lt;&gt; "\" <FONT color=blue>Then</FONT> FileName = FileName &amp; "\" 
+   FileName = FileName &amp; "MyList.txt" 
+   <FONT color=green>' Obtain an available filenumber from the operating system</FONT>
+   FileNumber = FreeFile 
+   <FONT color=green>' Open the FileName as an input file , using FileNumber as FileHandle</FONT>
+   Open FileName <FONT color=blue>For</FONT> Input <FONT color=blue>As</FONT> FileNumber 
+   lstNames.Clear  <FONT color=green>' Clear the Listbox first</FONT>
+   <FONT color=green>' Now read each line until reaching End-Of-File, i.e. no more data</FONT>
+   <FONT color=blue>Do</FONT> <FONT color=blue>While</FONT> NOT EOF(FileNumber) 
+      Line Input #FileNumber, anItem  <FONT color=green>' Read a line from the Text file into variable anItem</FONT>
+      lstNames.AddItem anItem  <FONT color=green>' Add this item to the bottom of lstNames</FONT>
+   <FONT color=blue>Loop</FONT> 
+   Close FileNumber  <FONT color=green>' Close the input file</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Ðể 
+          <B>đọc từ một Text file</B> ta cần phải Open nó trong <B>mode 
+          Input</B>.<BR>Trước khi populate lstNames ta cần phải delete tất cả 
+          mọi items có sẵn bên trong. Ðể thực hiện việc đó ta dùng <B>method 
+          Clear</B> của Listbox.<BR>Sau đó ta dùng <B>method AddItem</B> để cho 
+          thêm từng hàng vào trong Listbox. By default, nếu ta không nói nhét 
+          vào ở chỗ hàng nào thì AddItem nhét Item mới vào dưới chót của 
+          Listbox.<BR>Nếu muốn nhét hàng mới vào ngay trước item thứ 5 
+          (ListIndex = 4), ta viết:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE>lstNames.AddItem newItemString, 4  <FONT color=green>' newItemString contains "Ross Close", for example</FONT>
+<FONT color=green>' To insert a new Item at the beginning of the Listbox, write:</FONT>
+lstNames.AddItem newItemString, 0 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Nhớ 
+          là mỗi lần bạn Add một Item vào Listbox thì ListCount của Listbox 
+          increment by 1.<BR>Muốn delete một item từ Listbox ta dùng <B>method 
+          RemoveItem</B>, thí dụ như muốn delete item thứ ba (ListIndex=2) của 
+          lstNames, ta viết: <BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE>lstNames.RemoveItem 2 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Mỗi 
+          lần bạn RemoveItem từ Listbox the ListCount của Listbox decrement by 
+          1. Do đó nếu bạn dùng cái Test dựa vào ListCount của một ListBox để 
+          nhảy ra khỏi một Loop thì phải coi chừng tránh làm cho value ListCount 
+          thay đổi trong Loop vì AddItem hay RemoveItem.<BR>Ta đọc từng hàng của 
+          một Text file bằng cách dùng <B>Line Input #FileNumber</B>. Khi đọc 
+          đến cuối File, system dẽ cho ta value EOF(FileNumber) = True. Ta dùng 
+          value ấy để cho program nhảy ra khỏi While.. Loop.<BR>Câu <B>Do While 
+          NOT EOF(FileNumber)</B> có nghĩa <B>Trong khi chưa đến End-Of-File của 
+          Text File đại diện bởi FileNumber</B> thì đọc từ hàng và bỏ vào 
+          Listbox. Giống như "Trong khi chưa trả hết nợ nhà vợ thì phải tiếp tục 
+          ở rể".<BR></FONT>
+          <H4><FONT face=Verdana color=blue>Drag-Drop </FONT></H4><FONT 
+          face=Verdana>Ta đã học qua Click Event của Listbox. Bây giờ để dùng 
+          Drag-Drop cho Listbox bạn hãy đặt 2 Labels mới lên Form. Cái thứ nhất 
+          tên gì cũng được nhưng có Caption là <B>Room A</B>. Hãy gọi Label thứ 
+          hai là <B>lblRoom</B> và cho Property <B>BorderStyle</B> của nó bằng 
+          Fixed Single. Kế đến select cả hai Labels (Click a Label then hold 
+          down key Ctrl while clicking the second Label) rồi click copy và paste 
+          lên Form. VB6 sẽ cho bạn Array của hai lblRoom labels.<BR>Ðể cho 
+          lstNames một DragIcon, bạn click lstNames, click Property DragIcon để 
+          pop-up một dialog cho bạn chọn một dragdrop icon từ folder 
+          <B>C:\Program Files\Microsoft Visual 
+          Studio\Common\Graphics\Icons\Dragdrop</B>, chẳng hạn như 
+          DRAG2PG.ICO:<BR><IMG height=369 
+          src="Chuong 7 - Dung List Controls_files/DragIcon.jpg" width=917 
+          border=0><BR><BR>Ta sẽ dùng <B>Event MouseDown</B> của lstNames để 
+          pop-up DragIcon hình 2 trang giấy cho User Drag nó qua bên phải rồi bỏ 
+          xuống lên một trong hai lblRoom. Khi DragIcon rơi lên lblRoom, lblRoom 
+          sẽ generate <B>Event DragDrop</B>. Ta sẽ dùng Event DragDrop nầy để 
+          assign property Text của <B>Source</B> (tức là lstNames, cái control 
+          từ nó phát xuất Drag action) vào Property Caption của lblRoom. Lưu ý 
+          vì ở đây ta dùng cùng một tên cho cả hai lblRoom nên chỉ cần viết code 
+          ở một chỗ để handle Event DragDrop.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> lstNames_MouseDown(Button <FONT color=blue>As</FONT> Integer, Shift <FONT color=blue>As</FONT> Integer, X <FONT color=blue>As</FONT> Single, Y <FONT color=blue>As</FONT> Single) 
+   <FONT color=green>' Start Pop-up DragIcon and start Drag action</FONT>
+   lstNames.Drag 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> lblRoom_DragDrop(Index <FONT color=blue>As</FONT> Integer, Source <FONT color=blue>As</FONT> Control, X <FONT color=blue>As</FONT> Single, Y <FONT color=blue>As</FONT> Single) 
+   <FONT color=green>' Assign Property Text of Source (i.e. lstNames) to Label's Caption</FONT>
+   lblRoom(Index).Caption = Source.Text 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Kết 
+          quả sau khi Drag hai tên từ Listbox qua Labels là như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=233 
+              src="Chuong 7 - Dung List Controls_files/DragDrop.jpg" width=394 
+              border=0></BLOCKQUOTE></BLOCKQUOTE><BR><BR>Bạn có thể <A 
+          href="http://www.vovisoft.com/VisualBasic/MyList.zip">download chương 
+          trình nầy (<B>MyList.zip</B>)</A> để có luôn cả project.<BR></FONT>
+          <H4><FONT face=Verdana color=blue>Dùng Property Sorted 
+          </FONT></H4><FONT face=Verdana>Trong thí dụ trên ta có thể quyết định 
+          vị trí của một Item mới khi ta nhét nó vào Listbox. Ðôi khi ta muốn 
+          các Items của Listbox được tự động sắp theo thứ tự Alphabet. Bạn có 
+          thể set <B>Property Sorted = True</B> để thực hiện chuyện nầy. Có một 
+          giới hạn là bạn phải cho Property Sorted một value (True hay False) 
+          trong lúc design, chớ trong khi chạy program bạn không thể làm cho 
+          Property Sorted của Listbox thay đổi.<BR>Giả dụ ta muốn sort các Items 
+          của một Listbox khi cần. Vậy thì ta làm sao? Giải pháp rất đơn giản. 
+          Bạn tạo một Listbox tên lstTemp chẳng hạn. Cho nó Property Visible= 
+          False (để không ai thấy nó) và Property Sorted=True. Khi cần sort 
+          lstNames chẳng hạn, ta copy content của lstNames bỏ vào lstTemp, đoạn 
+          Clear lstNames rồi copy content (đã được sorted) của lstTemp trở lại 
+          lstNames.<BR>Lưu ý là ta có thể AddItem vào một Listbox với Property 
+          Sorted=True, nhưng không thể xác định nhét Item vào trước hàng nào, vì 
+          vị trí của các Items do Listbox quyết định khi nó sort các 
+          Items.<BR>Ta hãy cho thêm vào Form một CommandButton mới tên 
+          <B>CmdSort</B> và viết code cho Event Click của nó như sau: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdSort_Click() 
+   <FONT color=blue>Dim</FONT> i 
+   lstTemp.Clear  <FONT color=green>' Clear temporary Listbox</FONT>
+   <FONT color=green>' Iterate though every item of lstNames</FONT>
+   <FONT color=blue>For</FONT> i = 0 <FONT color=blue>To</FONT> lstNames.ListCount - 1 
+      <FONT color=green>' Add the lstNames item to lstTemp</FONT>
+      lstTemp.AddItem lstNames.List(i) 
+   <FONT color=blue>Next</FONT> 
+   lstNames.Clear  <FONT color=green>' Clear lstNames</FONT>
+   <FONT color=green>' Iterate though every item of lstTemp</FONT>
+   <FONT color=blue>For</FONT> i = 0 <FONT color=blue>To</FONT> lstTemp.ListCount - 1 
+      <FONT color=green>' Add the lstTemp item to lstNames</FONT>
+      lstNames.AddItem lstTemp.List(i) 
+   <FONT color=blue>Next</FONT> 
+   lstTemp.Clear  <FONT color=green>' Tidy up - clear temporary Listbox</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Nhân 
+          tiện, ta muốn có option để sort các tên theo FirstName hay Surname. 
+          Việc nầy hơi rắc rối hơn một chút, nhưng nguyên tắc vẫn là dùng cái 
+          sorted Listbox vô hình tên lstTemp.<BR>Bạn hãy đặt lên phía trên 
+          lstName hai cál Labels mới tên lblFirstName và lblSurName và cho chúng 
+          Caption "FirstName" và "SurName".<BR>Từ đây ta Load file "MyList.txt" 
+          vào lstNames bằng cách Click button CmdLoad chớ không Edit Property 
+          List của lstNames để enter Items lúc design nữa. Ngoài ra ta dùng dấu 
+          phẩy (,) để tách FirstName khỏi SurName trong mỗi tên chứa trong file 
+          MyList.txt. Content của file MyList.txt bây giờ trở thành như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#eeeeee>
+                <TBODY>
+                <TR>
+                  <TD><PRE>Peter,Jones
+Kevin,White
+Sue,Rose
+John,Smith
+Trevor,Kennedy
+Alan,Wright
+Ron,Bruno
+</PRE></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Ta sẽ 
+          sửa code trong Sub CmdLoad_Click lại để khi nhét tên vào lstNames, 
+          FirstName và SurName mỗi thứ chiếm 10 characters.<BR>Ðể các chữ trong 
+          Items của lstNames sắp hàng ngay ngắn ta đổi Font của lstNames ra 
+          Courier New. Courier New là một loại Font mà chiều ngang của chữ 
+          <B>m</B> bằng chữ <B>i</B>, trong khi hầu hết các Fonts khác như 
+          Arial, Times Roman ..v.v. là <B>Proportional Spacing</B>, có nghĩa là 
+          chữ m rộng hơn chữ i.<BR>Listing mới của Sub CmdLoad_Click trở thành 
+          như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdLoad_Click() 
+   <FONT color=blue>Dim</FONT> i, Pos 
+   <FONT color=blue>Dim</FONT> FileName, FileNumber, anItem 
+   <FONT color=blue>Dim</FONT> sFirstName <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> * 10  <FONT color=green>' fixed length string of 10 characters</FONT>
+   <FONT color=blue>Dim</FONT> sSurName <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> * 10  <FONT color=green>' fixed length string of 10 characters</FONT>
+   <FONT color=green>' Obtain Folder where this program's EXE file resides</FONT>
+   FileName = App.Path 
+   <FONT color=green>' Make sure FileName ends with a backslash</FONT>
+   <FONT color=blue>If</FONT> Right(FileName, 1) &lt;&gt; "\" <FONT color=blue>Then</FONT> FileName = FileName &amp; "\" 
+   FileName = FileName &amp; "MyList.txt" 
+   <FONT color=green>' Obtain an available filenumber from the operating system</FONT>
+   FileNumber = FreeFile 
+   <FONT color=green>' Open the FileName as an input file , using FileNumber as FileHandle</FONT>
+   Open FileName <FONT color=blue>For</FONT> Input <FONT color=blue>As</FONT> FileNumber 
+   lstNames.Clear  <FONT color=green>' Clear the Listbox first</FONT>
+   <FONT color=green>' Now read each line until reaching End-Of-File, i.e. no more data</FONT>
+   <FONT color=blue>Do</FONT> <FONT color=blue>While</FONT> <FONT color=blue>Not</FONT> EOF(FileNumber) 
+      Line Input #FileNumber, anItem  <FONT color=green>' Read a line from the Text file</FONT>
+      <FONT color=green>' Now separate FirstName from SurName</FONT>
+      Pos = InStr(anItem, ",")  <FONT color=green>' Locate the comma ","</FONT>
+      <FONT color=green>' The part before "," is FirstName</FONT>
+      sFirstName = Left(anItem, Pos - 1) 
+      sFirstName = Trim(sFirstName)  <FONT color=green>' Trim off any unwanted blank spaces</FONT>
+      <FONT color=green>' The part after "," is SurName</FONT>
+      sSurName = Mid(anItem, Pos + 1) 
+      sSurName = Trim(sSurName)  <FONT color=green>' Trim off any unwanted blank spaces</FONT>
+      lstNames.AddItem sFirstName &amp; sSurName  <FONT color=green>' Add this item to the bottom of lstNames</FONT>
+   <FONT color=blue>Loop</FONT> 
+   Close FileNumber  <FONT color=green>' Close the input file</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Vì 
+          FirstName nằm ở bên trái của mỗi Item nên sort theo FirstName cũng 
+          giống như sort cả Item. Việc ấy ta đã làm bằng Sub CmdSort_Click rồi, 
+          do đó khi User click Label lblFirstName ta chỉ cần gọi CmdSort_Click 
+          như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#eeeeee>
+                <TBODY>
+                <TR>
+                  <TD><PRE>Private Sub lblFirstName_Click()
+   CmdSort_Click
+End Sub
+</PRE></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Ðể sort 
+          theo SurName ta cần phải tạm thời để SurName qua bên trái của Item 
+          trước khi bỏ vào lstTemp. Ta thực hiện chuyện nầy bằng cách hoán 
+          chuyển vị trí của FirstName và SurName trong Item trước khi bỏ vào 
+          lstTemp. Sau đó, khi copy các Items từ lstTemp để bỏ vô lại lstNames 
+          ta lại nhớ hoán chuyển FirstName và SurName để chúng nằm đúng lại vị 
+          trí. Tức là, cái mánh của ta là muốn biết Item nào phải nằm ở đâu 
+          trong lstNames, chớ dĩ nhiên khi display mỗi Item đều có FisrtName bên 
+          trái. Code để sort tên theo SurName cũng giống như CmdSort_Add nhưng 
+          thêm thắt chút ít như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> lblSurName_Click() 
+   <FONT color=blue>Dim</FONT> i, anItem 
+   <FONT color=blue>Dim</FONT> sFirstName <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> * 10  <FONT color=green>' fixed length string of 10 characters</FONT>
+   <FONT color=blue>Dim</FONT> sSurName <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> * 10  <FONT color=green>' fixed length string of 10 characters</FONT>
+   lstTemp.Clear  <FONT color=green>' Clear temporary Listbox</FONT>
+   <FONT color=green>' Iterate though every item of lstNames</FONT>
+   <FONT color=blue>For</FONT> i = 0 <FONT color=blue>To</FONT> lstNames.ListCount - 1 
+      anItem = lstNames.List(i) 
+      <FONT color=green>' Identify FistName and SurName</FONT>
+      sFirstName = Left(anItem, 10) 
+      sSurName = Mid(anItem, 11) 
+      <FONT color=green>' Swap FirstName/SurName positions before adding to lstTemp</FONT>
+      lstTemp.AddItem sSurName &amp; sFirstName 
+   <FONT color=blue>Next</FONT> 
+   lstNames.Clear  <FONT color=green>' Clear lstNames</FONT>
+   <FONT color=green>' Iterate though every item of lstTemp</FONT>
+   <FONT color=blue>For</FONT> i = 0 <FONT color=blue>To</FONT> lstTemp.ListCount - 1 
+      anItem = lstTemp.List(i) 
+      <FONT color=green>' Identify FistName and SurName</FONT>
+      sSurName = Left(anItem, 10)  <FONT color=green>' SurName now is on the left</FONT>
+      sFirstName = Mid(anItem, 11) 
+      <FONT color=green>' Add FirstName/SurName in correct positions to lstNames</FONT>
+      lstNames.AddItem sFirstName &amp; sSurName 
+   <FONT color=blue>Next</FONT> 
+   lstTemp.Clear  <FONT color=green>' Tidy up - clear temporary Listbox</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Các 
+          Items trong lstNames sorted theo SurName hiện ra như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=234 
+              src="Chuong 7 - Dung List Controls_files/sortedList.jpg" width=422 
+              border=0></BLOCKQUOTE></BLOCKQUOTE><BR><BR>Nhân tiện đây ta sửa cái 
+          Sub CmdSave_Click lại một chút để Save Items theo sorted order mới nếu 
+          cần:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdSave_Click() 
+   <FONT color=blue>Dim</FONT> i, FileName, FileNumber, anItem 
+   <FONT color=green>' Obtain Folder where this program's EXE file resides</FONT>
+   FileName = App.Path 
+   <FONT color=green>' Make sure FileName ends with a backslash</FONT>
+   <FONT color=blue>If</FONT> Right(FileName, 1) &lt;&gt; "\" <FONT color=blue>Then</FONT> FileName = FileName &amp; "\" 
+   <FONT color=green>' Call Output filename "MyList.txt"</FONT>
+   FileName = FileName &amp; "MyList.txt" 
+   <FONT color=green>' Obtain an available filenumber from the operating system</FONT>
+   FileNumber = FreeFile 
+   <FONT color=green>' Open the FileName as an output file , using FileNumber as FileHandle</FONT>
+   Open FileName <FONT color=blue>For</FONT> Output <FONT color=blue>As</FONT> FileNumber 
+   <FONT color=green>' Now iterate through each item of lstNames</FONT>
+   <FONT color=blue>For</FONT> i = 0 <FONT color=blue>To</FONT> lstNames.ListCount - 1 
+      anItem = lstNames.List(i) 
+      anItem = Trim(Left(anItem, 10)) &amp; "," &amp; Trim(Mid(anItem, 11)) 
+      <FONT color=green>' Write the List item to file. Make sure you use symbol # in front of FileNumber</FONT>
+      Print #FileNumber, anItem 
+   <FONT color=blue>Next</FONT> 
+   Close FileNumber  <FONT color=green>' Close the output file</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Bạn 
+          có thể <A 
+          href="http://www.vovisoft.com/VisualBasic/SortedList.zip">download 
+          chương trình nầy (<B>SortedList.zip</B>)</A> để có luôn cả 
+          project.<BR>Trong bài tới ta sẽ học thêm các áp dụng khác của ListBox. 
+          <BR><BR>
+          <BLOCKQUOTE><IMG height=14 
+            src="Chuong 7 - Dung List Controls_files/ball_red.gif" 
+            width=14>&nbsp;<A 
+            href="http://www.vovisoft.com/vovisoft/vblinks.htm">Các liên mạng VB 
+            khác</A></BLOCKQUOTE>
+          <BLOCKQUOTE>
+            <P 
+            style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><BR><A 
+            href="http://www.bangden.com/soncuoc/Dang/index.htm">Những câu hỏi 
+            về Visual Basic</A> 
+            <P 
+            style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+            href="http://www.bangden.com/soncuoc/Visualbasic/tipstricks/forms.htm">Những 
+            mẹo vặt của Visual Basic</A></P>
+            <P 
+            style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+            href="http://www.bangden.com/soncuoc/VB.htm"><BR>Lập trình với 
+            VBA</A></P></BLOCKQUOTE><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc --><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc -->
+          <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+          width="100%" border=0>
+            <TBODY>
+            <TR>
+              <TD class=clsRaised width=785 bgColor=#6699cc>
+                <P align=center><FONT face=Verdana color=#ffffff size=1>Được 
+                cung cấp từ Vivosoft</FONT></P></TD></TR></TBODY></TABLE>
+          <P>&nbsp;</P></FONT></FONT></BLOCKQUOTE></BLOCKQUOTE>&nbsp;<!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></HTML>

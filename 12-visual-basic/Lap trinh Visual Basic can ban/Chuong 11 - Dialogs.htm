@@ -1,0 +1,659 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://www.bangden.com/soncuoc/visualbasic/VB6Chapter11.htm -->
+<!-- saved from url=(0052)http://www.vovisoft.com/VisualBasic/VB6Chapter11.htm --><HTML><HEAD><TITLE>Using Dialogs</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 11 - Dialogs_files/topbottom.css" type=text/css rel=stylesheet>
+<META content="t, default" name="Microsoft Border"></HEAD>
+<BODY leftMargin=0 marginwidth="0" marginheight="0"><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+      height=20 cellSpacing=0 cellPadding=0 width="130%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="51%" bgColor=#0000ff height=20><B><FONT face=Verdana 
+            color=#ffff00 size=2><SPAN style="BACKGROUND-COLOR: #0000ff">Trung 
+            tâm Dạy nghề và Phổ cập Tin học Miền núi ABC - Tỉnh Yên Bái 
+            </SPAN></FONT></B></TD>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="35%" height=20><FONT face=Verdana><IMG height=20 src="" 
+            width=136 border=0></FONT></TD></TR></TBODY></TABLE>
+      <P 
+      style="MARGIN: 0px; WORD-SPACING: 0px; TEXT-INDENT: 0px; LINE-HEIGHT: 100%"><FONT 
+      face=Verdana size=2><A 
+      href="http://www.bangden.com/soncuoc/index.htm">&lt;Home&gt;&nbsp;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Tho.htm">&lt;Thơ&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/laptrinh.htm">&lt;Lập trình&gt;</A> 
+      <A href="http://www.bangden.com/soncuoc/giaoan.htm">&lt;Giáo 
+      án&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/BaiViet.htm">&lt;Bài 
+      viết&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Vui.htm">&lt;Chuyện 
+      vui&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Traodoi.htm">&lt;Trao 
+      đổi&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/lienket.htm">&lt;Liên kết&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/moi.htm">&lt;Bài 
+      Mới&gt;</A></FONT></P></TD></TR><!--msnavigation--></TBODY></TABLE><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=top>
+      <CENTER><BR>
+      <H1><FONT face=Verdana color=#000000>Khóa Hàm Thụ Visual Basic 
+      6.0</FONT></H1>
+      <H2><FONT face=Verdana color=#800000>Chương Mười Một - Dùng 
+      Dialogs</FONT></H2></CENTER>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE><FONT face=Verdana><FONT color=green size=6>D</FONT>ialogs 
+          (giao thoại) được dùng để hiển thị tin tức và nhận mouse hay keyboard 
+          input từ users tùy theo tình huống. Chúng được dùng để tập trung sự 
+          chú ý của users vào công tác đương thời của program nên rất hữu dụng 
+          trong các chương trình của Windows.<BR><BR>Có nhiều dạng Dialogs, mỗi 
+          thứ áp dụng cho một hoàn cảnh riêng biệt. Trong chương nầy ta sẽ bàn 
+          qua 4 loại Dialogs chính và nghiên cứu về khi nào và cách nào ta dùng 
+          chúng:<BR><BR>
+          <OL>
+            <LI>Message Boxes 
+            <LI>Input Boxes 
+            <LI>Common Dialogs 
+            <LI>Custom Dialogs </LI></OL>
+          <H3><FONT face=Verdana color=blue>Message Boxes</FONT></H3><B>Message 
+          Boxes</B> được dùng để nhắc nhở user một chuyện gì, và đòi hỏi một 
+          phản ứng nào đó từ user. Thí dụ như khi ta chấm dứt program MSWord mà 
+          chưa lưu trử hồ sơ thì MSWord sẽ nhắc ta lưu trử nó bằng Dialog dưới 
+          đây:<BR><BR>
+          <BLOCKQUOTE><IMG height=347 
+            src="Chuong 11 - Dialogs_files/MessageBox.gif" 
+          width=586></BLOCKQUOTE><BR>Trong trường hợp nầy user có thể click một 
+          trong 3 buttons. Nếu click <B>Yes</B> thì sẽ xúc tiến việc lưu trử hồ 
+          sơ trước khi kết thúc program MSWord. Nếu click <B>No</B> thì MSWord 
+          sẽ lặng lẽ kết thúc. Nếu click <B>Cancel</B> thì có nghĩa user đổi ý 
+          việc chấm dứt program và trở lại tiếp tục dùng MSWord.<BR><BR>Ta dùng 
+          routine <B>MsgBox</B> để hiển thị Message Box như coding trong hình 
+          dưới đây:<BR><BR>
+          <BLOCKQUOTE><IMG height=224 
+            src="Chuong 11 - Dialogs_files/CloseProgram.gif" 
+          width=685></BLOCKQUOTE>Parameter (thông số) thứ nhất của MsgBox là 
+          text message <B>Close the program down?</B>, parameter thứ nhì là tập 
+          hợp của icon (vbQuestion) và số buttons (vbOKCancel) bằng cách cộng 
+          hai constants: <B>vbQuestion + vbOKCancel</B> (hai buttons OK và 
+          Cancel), parameter thứ ba là title (tiêu đề) của Dialog.<BR><BR>Trong 
+          thí dụ MSWord bên trên Constant của icon và buttons là 
+          <B>vbExclamation + vbYesNoCancel</B> (ba buttons Yes, No và 
+          Cancel).<BR><BR>Ta chọn số và loại buttons theo bảng dưới đây:<BR>
+          <BLOCKQUOTE>
+            <TABLE cellSpacing=2 cellPadding=10 bgColor=#dedede border=1>
+              <TBODY>
+              <TR>
+                <TD><FONT color=blue><B>Constant</B></FONT></TD>
+                <TD><FONT color=blue><B>Các buttons</B></FONT></TD></TR>
+              <TR>
+                <TD><B>vbOKOnly</B></TD>
+                <TD><B>OK</B></TD></TR>
+              <TR>
+                <TD><B>vbOKCancel</B></TD>
+                <TD><B>OK&nbsp;&nbsp;&nbsp;Cancel</B></TD></TR>
+              <TR>
+                <TD><B>vbYesNo</B></TD>
+                <TD><B>Yes&nbsp;&nbsp;&nbsp;No</B></TD></TR>
+              <TR>
+                <TD><B>vbRetryCancel</B></TD>
+                <TD><B>Retry&nbsp;&nbsp;&nbsp;Cancel</B></TD></TR>
+              <TR>
+                <TD><B>vbYesNoCancel</B></TD>
+                <TD><B>Yes&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;Cancel</B></TD></TR>
+              <TR>
+                <TD><B>vbAbortRetryIgnore</B></TD>
+                <TD><B>Abort&nbsp;&nbsp;&nbsp;Retry&nbsp;&nbsp;&nbsp;Ignore</B></TD></TR></TBODY></TABLE></BLOCKQUOTE>Constant 
+          của các icons ta có thể dùng là <B>vbCritical, vbQuestion, 
+          vbExclamation</B> và <B>vbInformation</B>. <BR><BR>Khi một Message Box 
+          được mở ra, cả program ngừng lại và đợi user phản ứng. Ta nói Message 
+          Box được hiển thị trong <B>Modal Mode</B>, nó dành mọi sự chú ý và tạm 
+          ngưng các execution khác trong cùng program. Sau khi user click một 
+          button, Message Box sẽ biến mất và program sẽ tiếp tục chạy từ hàng 
+          code ngay dưới hàng MsgBox.<BR><BR>Trong thí dụ trên ta dùng MsgBox 
+          như một Sub, nhưng ta cũng có thể dùng MsgBox như một Function để biết 
+          user vừa mới click button nào. Function MsgBox returns một value (trả 
+          về một giá trị) mà ta có thể thử biết để theo đó thi hành. Thí dụ 
+          như:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdPrompt_Click() 
+   <FONT color=blue>Dim</FONT> ReturnValue <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   ReturnValue = MsgBox("Close the program down", vbQuestion + vbOKCancel, "Exit Program") 
+   <FONT color=blue>Select</FONT> <FONT color=blue>Case</FONT> ReturnValue 
+   <FONT color=blue>Case</FONT> vbOK 
+      MsgBox "You clicked OK" 
+   <FONT color=blue>Case</FONT> vbCancel 
+      MsgBox "You clicked Cancel" 
+   <FONT color=blue>End</FONT> <FONT color=blue>Select</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Các trị số Visual Basic 
+          intrinsic constants mà Function MsgBox returns là:<BR>
+          <BLOCKQUOTE>
+            <TABLE cellSpacing=2 cellPadding=10 bgColor=#d0ffff border=1>
+              <TBODY>
+              <TR>
+                <TD><FONT color=blue><B>Trị số</B></FONT></TD>
+                <TD><FONT color=blue><B>Tên</B></FONT></TD>
+                <TD><FONT color=blue><B>Const</B></FONT></TD></TR>
+              <TR>
+                <TD><B>1</B></TD>
+                <TD><B>OK</B></TD>
+                <TD><B>vbOK</B></TD></TR>
+              <TR>
+                <TD><B>2</B></TD>
+                <TD><B>Cancel</B></TD>
+                <TD><B>vbCancel</B></TD></TR>
+              <TR>
+                <TD><B>3</B></TD>
+                <TD><B>Abort</B></TD>
+                <TD><B>vbAbort</B></TD></TR>
+              <TR>
+                <TD><B>4</B></TD>
+                <TD><B>Retry</B></TD>
+                <TD><B>vbRetry</B></TD></TR>
+              <TR>
+                <TD><B>5</B></TD>
+                <TD><B>Ignore</B></TD>
+                <TD><B>vbIgnore</B></TD></TR>
+              <TR>
+                <TD><B>6</B></TD>
+                <TD><B>Yes</B></TD>
+                <TD><B>vbYes</B></TD></TR>
+              <TR>
+                <TD><B>7</B></TD>
+                <TD><B>No</B></TD>
+                <TD><B>vbNo</B></TD></TR></TBODY></TABLE></BLOCKQUOTE>Bạn có thể hiển 
+          thị Text message trong Message Box thành nhiều hàng bằng cách dùng 
+          Constant <B>vbCrLf</B> (CarriageReturn và LineFeed) để đánh dấu những 
+          chỗ ngắt khúc như sau:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE>MsgBox "This is the first line" &amp; vbCrLf &amp; " followed by the second line" 
+</PRE></FONT></TD></TR></TBODY></TABLE>Nếu bạn thấy mình thường dùng 
+          MsgBox với cùng một icon và những buttons, nhưng có Text message khác 
+          nhau, bạn có thể viết một Global Subroutine trong .BAS module để dùng 
+          lại nhiều lần. Thí dụ bạn có một Global Sub như sau:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Public</FONT> <FONT color=blue>Sub</FONT> DisplayError(<FONT color=blue>ByVal</FONT> ErrMess <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> ) 
+   MsgBox ErrMess, vbCritical + vbOKOnly, "Error" 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Mỗi lần muốn hiển thị một Error 
+          message bạn chỉ cần gọi Sub DisplayError với Text message mà không sợ 
+          dùng lầm lẫn icon. Sau nầy muốn đổi cách hiển thị Error message chỉ 
+          cần edit ở một chỗ. Nếu user muốn bạn lưu trữ tất cả mọi errors xẩy ra 
+          lúc run-time, bạn chỉ cần thêm vài hàng code trong Sub DisplayError để 
+          viết Error message vào một text file. 
+          <H3><FONT face=Verdana color=blue>Input Boxes</FONT></H3>Với Message 
+          Boxes, user chỉ có thể click lên một button. Đôi khi ta muốn user đánh 
+          vào thêm một ít dữ kiện, trong trường hợp ấy ta có thể dùng <B>Input 
+          Boxes</B>.<BR><BR>Input Boxes giống giống Message Box, nhưng nó chuyên 
+          nhận input data từ user và không hiển thị một icon. Thí dụ:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdGreeting_Click() 
+   <FONT color=blue>Dim</FONT> strReply <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   strReply = InputBox$("Please enter your name", "What 's your name?", "John", 2000, 1000)
+   MsgBox "Hi " &amp; strReply &amp; ", it 's great to meet you!", vbOKOnly, "Hello"
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Để ý các parameters của 
+          <B>Function InputBox$</B>. Parameter thứ nhất là Text message, 
+          parameter thứ hai là Title của Dialog, parameter thứ ba là Default 
+          Input Value. Đây là value được hiển thị sẵn trong Input Box khi nó 
+          xuất hiện, nếu đó là input user thường đánh vào thì user chỉ cần click 
+          nút <B>OK</B> là đủ. Hai parameters cuối cùng là Optional (nhiệm ý, có 
+          cũng được, không có cũng không sao). Nó là X,Y coordinates của Input 
+          Box trong đơn vị <B>twips</B>. Hệ thống tọa độ lấy góc trên bên trái 
+          làm chuẩn với X=0, Y=0.<BR><BR>
+          <BLOCKQUOTE><IMG height=152 
+            src="Chuong 11 - Dialogs_files/InputBox.gif" 
+          width=363></BLOCKQUOTE><BR>Input Box có hai dạng Functions:<BR>
+          <UL>
+            <LI><B>InputBox$</B> - returns một String đàng hoàng 
+            <LI><B>InputBox</B> - returns một String nằm trong Variant variable 
+            </LI></UL>Nếu bạn click nút Cancel thì returned Value là empty string, 
+          bạn có thể test empty string để nhận diện trường hợp nầy.<BR><BR>Dưới 
+          đây là một thí dụ dùng Function InputBox:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdFortuneTeller_Click() 
+   <FONT color=blue>Dim</FONT> varValue <FONT color=blue>As</FONT> <FONT color=blue>Variant</FONT> 
+   <FONT color=blue>Dim</FONT> intAge <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   varValue = InputBox("Please enter your age", "How old are you?", "18") 
+   <FONT color=blue>If</FONT> IsNumeric(varValue) <FONT color=blue>Then</FONT> 
+      intAge = Val(varValue) 
+      <FONT color=blue>If</FONT> intAge &lt; 20 <FONT color=blue>Then</FONT> 
+         MsgBox "You are a young and ambitious person", vbOKOnly, "Observation" 
+      <FONT color=blue>Else</FONT> 
+         MsgBox "You are a matured and wise person", vbOKOnly, "Observation" 
+      <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=blue>Else</FONT> 
+      MsgBox "Oh oh! - please type your age!", vbCritical + vbOKOnly, "Input Error" 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>
+          <H3><FONT face=Verdana color=#800000>Khi nào nên dùng Input 
+          Boxes</FONT></H3>Mặc dầu Input Boxes rất dễ dùng, trên thực tế rất ít 
+          khi ta dùng nó vì những lý do sau đây:<BR>
+          <UL>
+            <LI>Ta không thể làm gì được trong lúc user input data, phải đợi sau 
+            khi user click OK thì mới bắt đầu xử lý input textstring. Ngược lại 
+            nếu ta dùng một Textbox trong một Form thông thường, ta có thể code 
+            trong các Event handlers của Events <B>KeyPress</B> hay 
+            <B>Change</B> để kiểm soát các keystrokes của user. 
+            <LI>Input Boxes chỉ cho ta đánh vào một text string duy nhất. Nhiều 
+            khi ta muốn user đánh vào nhiều thứ nên cần phải có một form riêng. 
+            <LI>Sau cùng, Input Boxes xem không đẹp mắt. Program dùng Input 
+            Boxes có vẻ như không chuyên nghiệp, do đó ta cần phải dùng 
+            <B>Custom Dialogs</B>. </LI></UL>
+          <H3><FONT face=Verdana color=blue>Common Dialogs</FONT></H3>Bạn có để 
+          ý thấy hầu như mọi programs trong Windows đều có cùng những dialogs để 
+          Open và Save files ? Và hầu như tất cả programs đều có cùng dialogs để 
+          chọn màu, font chữ hay để in ? Đó là vì các Dialogs thông dụng ấy 
+          thuộc về Common Dialog Library của MSWindows và cho phép các program 
+          gọi. <BR><BR>Muốn dùng các Dialogs ấy trong VB6 ta phải reference 
+          <B>Comdlg32.ocx</B> bằng IDE Menu command <B>Project | 
+          Components...</B> rồi chọn và Apply <B>Microsoft Common Dialog Control 
+          6.0</B>.<BR><BR>
+          <BLOCKQUOTE><IMG height=411 
+            src="Chuong 11 - Dialogs_files/CommonDialogComp.gif" 
+          width=455></BLOCKQUOTE><BR>Microsoft Common Dialog Control 6.0 cho ta 
+          sáu dạng Dialogs tùy theo gọi Method nào:<BR><BR>
+          <BLOCKQUOTE>
+            <TABLE cellSpacing=2 cellPadding=10 bgColor=#d0ffff border=1>
+              <TBODY>
+              <TR>
+                <TD><FONT color=blue><B>Tên</B></FONT></TD>
+                <TD><FONT color=blue><B>Method</B></FONT></TD></TR>
+              <TR>
+                <TD>Open File</TD>
+                <TD><B>ShowOpen</B></TD></TR>
+              <TR>
+                <TD>Save File</TD>
+                <TD><B>ShowSave</B></TD></TR>
+              <TR>
+                <TD>Color</TD>
+                <TD><B>ShowColor</B></TD></TR>
+              <TR>
+                <TD>Font</TD>
+                <TD><B>ShowFont</B></TD></TR>
+              <TR>
+                <TD>Print</TD>
+                <TD><B>ShowPrinter</B></TD></TR>
+              <TR>
+                <TD>Help</TD>
+                <TD><B>ShowHelp</B></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+          <H3><FONT face=Verdana color=green>Open và Save File 
+          Dialogs</FONT></H3>Bạn hãy mở một Project mới với một button tên 
+          CmdOpen trong Form1 và đánh vào code sau đây cho Sub 
+          CmdOpen_Click:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdOpen_Click() 
+   <FONT color=blue>On</FONT> <FONT color=blue>Error</FONT> GoTo DialogError 
+   <FONT color=blue>With</FONT> CommonDialog1 
+      .CancelError = <FONT color=blue>True</FONT>  <FONT color=green>' Generate Error number cdlCancel if user click Cancel</FONT>
+      .InitDir = "E:\VB6"   <FONT color=green>' Initial (i.e. default ) Folder </FONT>  
+      .Filter = "Executables (*.exe) | *.exe| Batch Files (*.bat)| *.bat" 
+      .FilterIndex = 1  <FONT color=green>' Select ""Executables (*.exe) | *.exe" as default</FONT>
+      .DialogTitle = "Select a program to run" 
+      .ShowOpen   <FONT color=green>' Lauch the Open Dialog</FONT>
+      MsgBox "You selected " &amp; .FileName, vbOKOnly + vbInformation, "Open Dialog" 
+   <FONT color=blue>End</FONT> <FONT color=blue>With</FONT> 
+   <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+DialogError: 
+   <FONT color=blue>If</FONT> Err.Number = cdlCancel <FONT color=blue>Then</FONT> 
+      MsgBox "You clicked Cancel!", vbOKOnly + vbInformation, "Open Dialog" 
+      <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+   <FONT color=blue>Else</FONT> 
+      MsgBox "Error in Dialog's use: " &amp; Err.Description, vbOKOnly + vbCritical, "Error"
+      <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE><BR>Hãy chạy program ấy và 
+          click button <B>Open</B>, program sẽ hiển thị error message dưới 
+          đây:<BR>
+          <BLOCKQUOTE><IMG height=126 
+            src="Chuong 11 - Dialogs_files/ObjectRequired.gif" 
+          width=251></BLOCKQUOTE><BR>Đó là vì ta quên bỏ một Microsoft Common 
+          Dialog Control 6.0 vào Form1. Vậy bạn hãy doubleclick icon của nó 
+          trong ToolBox. Bây giờ hãy chạy program lại và click button Open để 
+          hiển thị <B>Open Dialog</B>.<BR>
+          <BLOCKQUOTE><IMG height=416 
+            src="Chuong 11 - Dialogs_files/OpenDialog.gif" 
+          width=563></BLOCKQUOTE><BR>Bạn có thể chọn folder nào tùy ý bằng cách 
+          di chuyển từ folder nầy qua folder khác hay thay đổi disk drive. Nếu 
+          bạn click vào bên phải của combobox <B>File of type</B>, nó sẽ 
+          dropdown để cho thấy bạn có thể chọn một trong hai loại Files như liệt 
+          kê trong statement:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE>      .Filter = "Executables (*.exe) | *.exe| Batch Files (*.bat)| *.bat" 
+</PRE></FONT></TD></TR></TBODY></TABLE><BR>Sau khi chọn một Filename 
+          có sẵn hay đánh một tên vào <B>File name</B> textbox, bạn click 
+          <B>Open</B>. Sau đó, CommonDialog1.Filename sẽ chứa tên file bạn đã 
+          chọn hay đánh vào. 
+          <BLOCKQUOTE><IMG height=126 
+            src="Chuong 11 - Dialogs_files/YouSelected.gif" 
+          width=278></BLOCKQUOTE><BR>Vì ta cho <B>.CancelError = True</B> nên 
+          nếu user click Cancel program sẽ generate một Error số <B>32755 
+          (cdlCancel)</B>. Ở đây ta bắt Error ấy bằng cách dùng <B>On Error GoTo 
+          DialogError </B>và thử Err.Number= cdlCancel để hiển thị Error message 
+          dưới đây:<BR><BR>
+          <BLOCKQUOTE><IMG height=126 
+            src="Chuong 11 - Dialogs_files/ClickCancel.gif" 
+          width=167></BLOCKQUOTE><BR><B>Save Dialog</B> cũng tương tự như Open 
+          Dialog, ta dùng method <B>ShowSave</B> để hiển thị nó. 
+          <BLOCKQUOTE><IMG height=416 
+            src="Chuong 11 - Dialogs_files/SaveDialog.gif" 
+          width=563></BLOCKQUOTE><BR>Trong thí dụ trên ta định nghĩa các 
+          properties của CommonDialog1 bằng code. Bạn cũng có thể dùng 
+          Properties Windows để định nghĩa chúng như dưới đây:<BR><BR>
+          <BLOCKQUOTE><IMG height=356 
+            src="Chuong 11 - Dialogs_files/OpenDialogProperties.gif" 
+          width=345></BLOCKQUOTE><BR>Ngoài ra, bạn cũng có thể dùng các trang 
+          Properties của CommonDialog1 để định nghĩa Properties lúc thiết kế 
+          bằng cách right click Commondialog1 trên Form1 rồi chọn 
+          <B>Properties</B>:<BR><BR>
+          <BLOCKQUOTE><IMG height=356 
+            src="Chuong 11 - Dialogs_files/PropertyPages.gif" 
+          width=322></BLOCKQUOTE><BR>Properties Pages Dialog sẽ hiển thị với Tab 
+          <B>Open/Save As </B>có sẵn lúc đầu, bạn có thể đánh các tin tức như 
+          sau:<BR><BR>
+          <BLOCKQUOTE><IMG height=286 
+            src="Chuong 11 - Dialogs_files/DialogProperties.gif" 
+          width=403></BLOCKQUOTE><BR>
+          <H3><FONT face=Verdana color=green>Color Dialog</FONT></H3><B>Color 
+          Dialog</B> cho user một cách chọn màu rất dễ dùng. Ngoài những màu có 
+          sẵn, user có thể tự tạo ra một màu rồi cho nó thêm vào trong bảng màu 
+          được cung cấp, gọi là <B>Windows Palette</B> bằng cách click button 
+          <B>Add to Custom Colors</B>.<BR>
+          <BLOCKQUOTE><IMG height=358 
+            src="Chuong 11 - Dialogs_files/ColorDialog.gif" 
+          width=771></BLOCKQUOTE><BR>Bạn tạo ra một màu bằng cách click chỗ có 
+          màu theo ý trong bảng màu lớn hình vuông rồi nắm hình tam giác bên 
+          phải kéo lên, kéo xuống để thay đổi độ đậm của màu như hiển thị trong 
+          hộp vuông <B>Color|Solid</B>. Khi vừa ý với màu hiển thị, bạn click 
+          button <B>Add to Custom Colors</B>, màu ấy sẽ được cho thêm vào nhóm 
+          <B>Custom Colors</B> nằm phía dưới, bên trái.<BR>
+          <BLOCKQUOTE><IMG height=331 
+            src="Chuong 11 - Dialogs_files/AddColor.gif" 
+          width=453></BLOCKQUOTE><BR>Ta dùng method <B>ShowColor</B> để hiển thị 
+          Color Dialog. Sau khi user đã chọn một màu rồi, ta có thể trực tiếp 
+          assign nó cho property ForeColor hay BackColor của một control. Trong 
+          thí dụ dưới đây cái màu mà user vừa chọn được assigned cho background 
+          của picturebox Picture1:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdSelectColor_Click() 
+   <FONT color=blue>On</FONT> <FONT color=blue>Error</FONT> GoTo NoColorChosen 
+   <FONT color=blue>With</FONT> CommonDialog1 
+      .CancelError = <FONT color=blue>True</FONT> 
+      <FONT color=green>' Entire dialog box is displayed, including the Define Custom Colors section</FONT>
+      .Flags = cdlCCFullOpen 
+      .ShowColor  <FONT color=green>' Launch the Color Dialog</FONT>
+      Picture1.BackColor = .Color  <FONT color=green>' Assign selected color to background of Picture1</FONT>
+      <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+   <FONT color=blue>End</FONT> <FONT color=blue>With</FONT> 
+NoColorChosen: 
+   <FONT color=green>' Get here if user clicks the Cancel button</FONT>
+   MsgBox "You did not select a color!", vbInformation, "Cancelled" 
+   <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Bạn có thể <A 
+          href="http://www.vovisoft.com/VisualBasic/ColorDialog.zip">download 
+          source code của program ColorDialog</A> nầy.<BR><BR>
+          <H3><FONT face=Verdana color=green>Font Dialog</FONT></H3><B>Font 
+          Dialog</B> cho ta chọn Font cho màn ảnh hay printer và chọn màu để 
+          dùng cho chữ của Font. Ta dùng method <B>ShowFont</B> để hiển thị 
+          FontDialog. Các chi tiết trình bày trong Font Dialog tùy thuộc vào trị 
+          số của Flags như sau:<BR><BR>
+          <BLOCKQUOTE>
+            <TABLE cellSpacing=2 cellPadding=10 bgColor=#dedede border=1>
+              <TBODY>
+              <TR>
+                <TD><FONT color=blue><B>Constant</B></FONT></TD>
+                <TD><FONT color=blue><B>Trị số</B></FONT></TD>
+                <TD><FONT color=blue><B>Hiệu quả</B></FONT></TD></TR>
+              <TR>
+                <TD><B>cdlCFScreenFonts</B></TD>
+                <TD><B>1</B></TD>
+                <TD><B>Chỉ hiển thị các Fonts printer hổ trợ</B></TD></TR>
+              <TR>
+                <TD><B>cdlCFPrinterFonts</B></TD>
+                <TD><B>2</B></TD>
+                <TD><B>Chỉ hiển thị các Fonts của màn ảnh, chưa chắc tất cả 
+                  đều được printer hổ trợ</B></TD></TR>
+              <TR>
+                <TD><B>cdlCFBoth</B></TD>
+                <TD><B>3</B></TD>
+                <TD><B>Hiiển thị các Fonts màn ảnh và printer</B></TD></TR>
+              <TR>
+                <TD><B>cdlCFScalableOnly</B></TD>
+                <TD><B>&amp;H20000</B></TD>
+                <TD><B>Chỉ hiển thị các scalable Fonts như TrueType fonts mà 
+                  bạn đã cài vào máy</B></TD></TR></TBODY></TABLE></BLOCKQUOTE>Nếu bạn 
+          muốn cho user nhiệm ý để chọn màu thì thêm 256 vào trị số của 
+          Flags.<BR><BR>
+          <BLOCKQUOTE><IMG height=508 
+            src="Chuong 11 - Dialogs_files/FontDialog.gif" 
+          width=456></BLOCKQUOTE><BR>Dưới đây là code để cho user chọn Font và 
+          màu của Label1.<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdSelectFont_Click() 
+   <FONT color=blue>On</FONT> <FONT color=blue>Error</FONT> GoTo NoFontChosen 
+   CommonDialog1.CancelError = <FONT color=blue>True</FONT> 
+   <FONT color=green>' Causes the dialog box to list only the screen fonts supported by the system.</FONT>
+   CommonDialog1.Flags = cdlCFScreenFonts + 256  <FONT color=green>' Add 256 to include Color option</FONT>
+   CommonDialog1.ShowFont  <FONT color=green>' Launch the Font Dialog</FONT>
+   <FONT color=blue>With</FONT> Label1.Font 
+      .Bold = CommonDialog1.FontBold 
+      .Italic = CommonDialog1.FontItalic 
+      .Name = CommonDialog1.FontName 
+      .Size = CommonDialog1.FontSize 
+      .Strikethrough = CommonDialog1.FontStrikethru 
+      .Underline = CommonDialog1.FontUnderline 
+   <FONT color=blue>End</FONT> <FONT color=blue>With</FONT> 
+   Label1.ForeColor = CommonDialog1.Color 
+   Label1.Caption = "Hello world!!!, this is a Font Dialog Demo" 
+   <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+NoFontChosen: 
+   MsgBox "No font was chosen!", vbInformation, "Cancelled" 
+   <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Chú ý: Nếu bạn quên cho Flags 
+          một trong những hằng số nói trên program sẽ cho một Error message như 
+          sau:<BR><BR>
+          <BLOCKQUOTE><IMG height=126 
+            src="Chuong 11 - Dialogs_files/NoFonts.gif" 
+          width=368></BLOCKQUOTE><BR>Bạn có thể <A 
+          href="http://www.vovisoft.com/VisualBasic/FontDialog.zip">download 
+          source code của program FontDialog</A> nầy.<BR><BR>
+          <H3><FONT face=Verdana color=green>Print Dialog</FONT></H3><B>Print 
+          Font</B> cho ta một giao diện cũng giống như trong Microsoft Office để 
+          chọn những nhiệm ý về việc in. Với Print Dialog ta có thể chọn printer 
+          nào với những đặc tính nào bằng cách click button <B>Properties</B> 
+          hay button <B>Preferences</B>. Ta cũng có thể quyết định in từ trang 
+          nào đến trang nào của document và in bao nhiêu copies. Chỉ có điều 
+          phải lưu ý là nếu user dùng Print Dialog để chọn một Printer khác mà 
+          trong Print Dialog ta đã chọn Property <B>PrinterDefault = True</B> 
+          thì Printer ấy sẽ trở thành Default Printer và nó cũng sẽ có hiệu lực 
+          vĩnh viễn trong cả Windows cho đến khi user thay đổi lại.<BR><BR>Khác 
+          với Color và Font Dialogs, Print Dialog không đòi hỏi ta phải cho một 
+          trị số của Property Flags. Ta chỉ cần dùng Method <B>ShowPrinter</B> 
+          để hiển thị Print Dialog. Ba properties thường được dùng nhất sau khi 
+          user chọn các nhiệm ý của Print Dialog là <B>Copies, FromPage</B> và 
+          <B>ToPage</B>. Để cho user các default values của những properties 
+          nầy, bạn có thể để sẵn các trị số trước khi hiển thị Print Dialog.<BR>
+          <BLOCKQUOTE><IMG height=423 
+            src="Chuong 11 - Dialogs_files/PrintDialog.gif" 
+          width=464></BLOCKQUOTE><BR>Dưới đây là code mẫu dùng print 
+          Dialog:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdSelectPrinter_Click() 
+   <FONT color=blue>With</FONT> CommonDialog1 
+      .FromPage = 1 
+      .ToPage = 1 
+      .Copies = 1 
+      .ShowPrinter 
+   <FONT color=blue>End</FONT> <FONT color=blue>With</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>
+          <H3><FONT face=Verdana color=green>Help Dialog</FONT></H3>Ta dùng 
+          method <B>ShowHelp</B> để hiển thị các thông tin giúp đỡ, nhưng nhớ 
+          phải cho CommonDialog ít nhất trị số của các properties 
+          <B>HelpFile</B> và <B>HelpCommand</B>.<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdHelp_Click() 
+   CommonDialog1.HelpFile = "YourProgram.hlp" 
+   CommonDialog1.HelpCommand = cdlHelpContents 
+   CommonDialog1.ShowHelp 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Để biết thêm chi tiết về cách 
+          dùng ShowHelp, highlight chữ <B>HelpContext</B> trong source code VB6 
+          rồi ấn phím <B>F1</B> và chọn <B>MsComDlg</B>.<BR>
+          <H3><FONT face=Verdana color=blue>Custom Dialogs</FONT></H3>Nhiều khi 
+          Message Box, Input Box hay các dạng Common Dialogs vẫn không thích hợp 
+          cho hoàn cảnh lập trình. Trong trường hợp ấy bạn có thể dùng một Form 
+          bình thường để làm thành một Dialog cây nhà, lá vườn. Nó hơi mất công 
+          hơn một chút, nhưng thứ nhất nó có những màu sắc giống như các Forms 
+          khác trong chương trình, và thứ hai ta muốn làm gì tùy ý. Chỉ có cái 
+          bất lợi là chương trình sẽ dùng nhiều tài nguyên hơn, nói thẳng ra là 
+          cần thêm một ít memory.<BR><BR>Sau đây ta thử triển khai một Login 
+          Form tổng quát, có thể dùng trong nhiều trường hợp. Khi khởi động, 
+          program nầy sẽ hiển thị một Login form yêu cầu user đánh vào tên và 
+          mật khẩu. Sau đó, nếu tên và mật khẩu hợp lệ thì cái Form chính của 
+          program mới hiện ra. Cách ta thực hiện là cho program khởi động với 
+          một <B>Sub Main</B> trong .BAS Module. Sub Main sẽ gọi <B>Sub 
+          GetUserInfo</B> (cũng nằm trong cùng Module) để hiển thị form frmLogin 
+          trong Modal mode để nó làm việc cùng một cách như Message Box, Input 
+          Box hay Common Dialogs.<BR><BR>Khi form frmLogin được dấu kín bằng 
+          statement <B>Me.Hide</B> thì execution trong Sub GetUserInfo sẽ tiếp 
+          tục để chi tiết điền vào các textboxes txtUserName và txtPassword được 
+          trả về local variables strUserName và strPassword. Mã nguồn của Sub 
+          Main và Sub GetUserInfo được liệt ra dưới đây:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Sub</FONT> Main() 
+   <FONT color=blue>Dim</FONT> strUserName <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   <FONT color=blue>Dim</FONT> strPassword <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   <FONT color=green>' Call local Sub getUserInfo to obtain UserName and Password</FONT>
+   GetUserInfo strUserName, strPassword 
+   <FONT color=blue>If</FONT> strUserName = "" <FONT color=blue>Then</FONT> 
+      MsgBox "Login failed or aborted", vbInformation, "login Aborted" 
+   <FONT color=blue>Else</FONT> 
+      MsgBox "User " &amp; strUserName &amp; " logged in with password " &amp; strPassword, vbInformation, "Login accepted" 
+      <FONT color=green>' Check UserName and Password here</FONT>
+      <FONT color=green>' If valid password then show the Main form of the program which is implemented separately...</FONT>
+      <FONT color=green>' frmMain.Show</FONT>
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT>
+ 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> GetUserInfo(<FONT color=blue>ByRef</FONT> sUserName <FONT color=blue>As</FONT> String, <FONT color=blue>ByRef</FONT> sPassword <FONT color=blue>As</FONT> String) 
+   <FONT color=green>' Invoke frmLogin form in Modal mode</FONT>
+   frmLogin.Show vbModal 
+   <FONT color=green>' As soon as frmLogin is hidden, the execution gets here</FONT>
+   sUserName = frmLogin.txtUserName  <FONT color=green>' assign the form's txtUserName to sUserName</FONT>
+   sPassword = frmLogin.txtPassword  <FONT color=green>' assign the form's txtPassword to sPassword</FONT>
+   Unload frmLogin  <FONT color=green>' Unload form frmLogin</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Login form được hiển thị như 
+          dưới đây:<BR><BR>
+          <BLOCKQUOTE><IMG height=122 
+            src="Chuong 11 - Dialogs_files/CDLogin.gif" 
+          width=396></BLOCKQUOTE><BR>Sau khi user điền chi tiết và click 
+          <B>OK</B>, tạm thời ta chỉ hiển thị một thông điệp để xác nhận các chi 
+          tiết ấy. <BR><BR>
+          <BLOCKQUOTE><IMG height=126 
+            src="Chuong 11 - Dialogs_files/CDLoginOK.gif" 
+          width=335></BLOCKQUOTE><BR>Trong tương lai, bạn có thể viết thêm code 
+          để kiểm tra xem tên và mật khẩu có hiệu lực không. Có một vài chi tiết 
+          về form frmLogin để nó làm việc giống giống một Common Dialog: 
+          <UL>
+            <LI>Ta cho <B>property BorderStyle</B> của frmLogin là <B>Fixed 
+            Dialog</B>. 
+            <LI>Ta cho <B>Property PasswordChar</B> của textbox txtPassword bằng 
+            "*" để khi user điền mật khẩu, ta chỉ thấy một hàng dấu hoa thị. 
+            <LI>Ta cho <B>Property StartupPosition</B> của form là 
+            <B>CenterScreen</B>. 
+            <LI><B>Property Default</B> của button <B>cmdOK</B> là True để khi 
+            user ấn phím <B>Enter</B> trong form là coi như tương đương với 
+            click button cmdOK. 
+            <LI>Tương tợ như thế, <B>Property Cancel</B> của button 
+            <B>cmdCancel</B> là True để khi user ấn phím <B>Esc</B> trong form 
+            là coi như tương đương với click button cmdCancel. </LI></UL>Tạm thời 
+          coding của event click của cmdOK và cmdCancel chỉ đơn giản như liệt kê 
+          dưới đây:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdCancel_Click() 
+   <FONT color=green>' Clear txtUserName and txtPassword</FONT>
+   txtUserName = "" 
+   txtPassword = "" 
+   <FONT color=green>' Hide the Form to get out of Modal mode</FONT>
+   Me.Hide 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdOK_Click() 
+   <FONT color=green>' Hide the Form to get out of Modal mode</FONT>
+   Me.Hide 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE><BR>Bạn có thể <A 
+          href="http://www.vovisoft.com/VisualBasic/CustomDialog.zip">download 
+          source code của program CustomDialog</A> 
+        nầy.<BR><BR><BR><BR></FONT></BLOCKQUOTE></BLOCKQUOTE>
+      <BLOCKQUOTE><FONT face=Verdana><IMG height=14 
+        src="Chuong 11 - Dialogs_files/ball_red.gif" width=14>&nbsp;<A 
+        href="http://www.vovisoft.com/vovisoft/vblinks.htm">Các liên mạng VB 
+        khác</A></FONT></BLOCKQUOTE><FONT face=Verdana>
+      <BLOCKQUOTE>
+        <P 
+        style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><BR><A 
+        href="http://www.bangden.com/soncuoc/Dang/index.htm">Những câu hỏi về 
+        Visual Basic</A></FONT> <FONT face=Verdana>
+        <P 
+        style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+        href="http://www.bangden.com/soncuoc/visualbasic/tipstricks/forms.htm">Những 
+        mẹo vặt của Visual Basic</A></P></FONT>
+        <P 
+        style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><FONT 
+        face=Verdana><A href="http://www.bangden.com/soncuoc/VB.htm"><BR>Lập 
+        trình với VBA</A></FONT></P></BLOCKQUOTE><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc --><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc -->
+      <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+      width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD class=clsRaised width=785 bgColor=#6699cc>
+            <P align=center><FONT face=Verdana color=#ffffff size=1>Được cung 
+            cấp từ Vivosoft</FONT></P></TD></TR></TBODY></TABLE>&nbsp;<!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></HTML>

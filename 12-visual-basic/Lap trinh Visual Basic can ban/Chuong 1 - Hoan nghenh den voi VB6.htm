@@ -1,0 +1,351 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://www.bangden.com/soncuoc/Visualbasic/VB6Chapter1.htm -->
+<!-- saved from url=(0051)http://www.vovisoft.com/visualbasic/VB6Chapter1.htm --><HTML><HEAD><TITLE>VB6 Chapter 1</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, FrontPage 2000, XML, Ms Office 2000" 
+name=keywords><LINK 
+href="Chuong 1 - Hoan nghenh den voi VB6_files/topbottom.css" type=text/css 
+rel=stylesheet>
+<META content="t, default" name="Microsoft Border"></HEAD>
+<BODY leftMargin=0 topMargin=0 marginwidth="0" marginheight="0"><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+      height=20 cellSpacing=0 cellPadding=0 width="130%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="51%" bgColor=#0000ff height=20><B><FONT face=Verdana 
+            color=#ffff00 size=2><SPAN style="BACKGROUND-COLOR: #0000ff">Trung 
+            tâm Dạy nghề và Phổ cập Tin học Miền núi ABC - Tỉnh Yên Bái 
+            </SPAN></FONT></B></TD>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="35%" height=20><FONT face=Verdana><IMG height=20 src="" 
+            width=136 border=0></FONT></TD></TR></TBODY></TABLE>
+      <P 
+      style="MARGIN: 0px; WORD-SPACING: 0px; TEXT-INDENT: 0px; LINE-HEIGHT: 100%"><FONT 
+      face=Verdana size=2><A 
+      href="http://www.bangden.com/soncuoc/index.htm">&lt;Home&gt;&nbsp;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Tho.htm">&lt;Thơ&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/laptrinh.htm">&lt;Lập trình&gt;</A> 
+      <A href="http://www.bangden.com/soncuoc/giaoan.htm">&lt;Giáo 
+      án&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/BaiViet.htm">&lt;Bài 
+      viết&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Vui.htm">&lt;Chuyện 
+      vui&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Traodoi.htm">&lt;Trao 
+      đổi&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/lienket.htm">&lt;Liên kết&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/moi.htm">&lt;Bài 
+      Mới&gt;</A></FONT></P></TD></TR><!--msnavigation--></TBODY></TABLE><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=top><!-- End of Top Menu --><!-- Cut and paste your content after this line -->
+      <CENTER>
+      <H1><FONT face=Verdana color=#000000>Khóa Hàm Thụ Visual Basic 
+      6.0</FONT></H1>
+      <H2><FONT face=Verdana color=#800000>Chương Một - Hoan nghênh đến với 
+      VB6</FONT></H2></CENTER>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE>
+          <H3><FONT face=Verdana color=green>Chào mừng bạn đến với Visual Basic 
+          6</FONT></H3><FONT face=Verdana>Dùng VB6 là cách nhanh và tốt nhất để 
+          lập trình cho Microsoft Windows. Cho dù bạn là chuyên nghiệp hay mới 
+          mẻ đối với chương trình Windows, VB6 sẽ cung cấp cho bạn một bộ công 
+          cụ hoàn chỉnh để đơn giản hóa việc triển khai lập trình ứng dụng cho 
+          MSWindows.<BR><B>Visual Basic là gì?</B> Phần <B>"Visual"</B> đề cập 
+          đến phương phàp được sử dụng để tạo giao diện đồ họa người dùng 
+          (Graphical User Interface hay viết tắc là GUI) . Có sẵn những bộ phận 
+          hình ảnh, gọi là controls, bạn tha hồ sắp đặt vị trí và quyết định các 
+          đặc tính của chúng trên một khung màn hình, gọi là form. Nếu bạn đã 
+          từng sử dụng chương trình vẽ chẳng hạn như Paint, bạn đã có sẵn các kỹ 
+          năng cần thiết để tạo một GUI cho VB6.<BR>Phần <B>"Basic"</B> đề cập 
+          đến ngôn ngữ BASIC (Beginners All-Purpose Symbolic Instruction Code), 
+          một ngôn ngữ lập trình đơn giản, dễ học, được chế ra cho các khoa học 
+          gia (những người không có thì giờ để học lập trình điện toán) 
+          dùng.<BR>Visual Basic đã được ra từ MSBasic, do Bill Gates viết từ 
+          thời dùng cho máy tính 8 bits 8080 hay Z80. Hiện nay nó chứa đến hàng 
+          trăm câu lệnh (commands), hàm (functions) và từ khóa (keywords). Rất 
+          nhiều commands, functions liên hệ trực tiếp đến MSWindows GUI. Những 
+          người mới bắt đầu có thể viết chương trình bằng cách học chỉ một vài 
+          commands, functions và keywords. Khả năng của ngôn ngữ này cho phép 
+          những người chuyên nghiệp hoàn thành bất kỳ điều gì nhờ sử dụng ngôn 
+          ngữ lập trình MSWindows nào khác.<BR>Người mang lại phần "Visual" cho 
+          VB là ông Alan Cooper. Ông đã gói môi trường hoạt động của Basic trong 
+          một phạm vi dễ hiểu, dễ dùng, không cần phải chú ý đến sự tinh xảo của 
+          MSWindows, nhưng vẫn dùng các chức năng của MSWindows một cách hiệu 
+          quả. Do đó, nhiều người xem ông Alan Cooper là cha già của Visual 
+          Basic.<BR>Visual Basic còn có hai dạng khác: <B>Visual Basic for 
+          Application (VBA)</B> và <B>VBScript</B>. VBA là ngôn ngữ nằm phía sau 
+          các chương trình Word, Excel, MSAccess, MSProject, .v.v.. còn gọi là 
+          Macros. Dùng VBA trong MSOffice, ta có thể làm tăng chức năng bằng 
+          cách tự động hóa các chương trình.<BR>VBScript được dùng cho Internet 
+          và chính Operating System.<BR>Dù cho mục đích của bạn là tạo một tiện 
+          ích nhỏ cho riêng bạn, trong một nhóm làm việc của bạn, trong một công 
+          ty lớn, hay cần phân bố chương trình ứng dụng rộng rãi trên thế giới 
+          qua Internet, VB6 cũng sẽ có các công cụ lập trình mà bạn cần 
+          thiết.<BR></FONT>
+          <H3><FONT face=Verdana color=green>Các ấn bản Visual Basic 
+          6</FONT></H3><FONT face=Verdana>Có ba ấn bản VB6: Learning, 
+          Professional và Enterprise. Chúng ta hãy gát qua ấn bản Learning. Bạn 
+          có thể dùng ấn bản Professional hay Enterprise.<BR>Ấn bản Professional 
+          cung cấp đầy đủ những gì bạn cần để học và triển khai một chương trình 
+          VB6, nhất là các control ActiveX, những bộ phận lập trình tiền chế và 
+          rất hữu dụng cho các chương trình ứng dụng (application programs) của 
+          bạn trong tương lai. Ngoài đĩa compact chính cho VB6, tài liệu đính 
+          kèm gồm có sách Visual Studio Professional Features và hai đĩa CD 
+          Microsoft Developer Network (MSDN).<BR>Ấn bản Enterprise là ấn bản 
+          Professional cộng thêm các công cụ Back Office chẳng hạn như SQL 
+          Server, Microsoft Transaction Server, Internet Information 
+          Server.</FONT><BR>
+          <H3><FONT face=Verdana color=green>Cài đặt VB6</FONT></H3><FONT 
+          face=Verdana>Để cài đặt VB6, máy tính của bạn cần phải có một ổ đĩa 
+          CD-ROM (CD drive) . Bạn cần ít nhất 32 MB RAM, 2 GB hard disk và CPU 
+          Pentium II. Khi bỏ VB6 CD vào CD drive, nó sẽ tự khởi động để display 
+          menu cho bạn chọn những thứ gì cần Setup, hãy click <B>Install Visual 
+          Basic 6.0</B> để cài VB6. Ngoại trừ các file hệ điều hành (Operating 
+          System) trong thư mục (folder) <B>\Os</B>, các file trong đĩa compact 
+          đều không bị nén. Vì thế, bạn có thể sử dụng chúng trực tiếp từ đĩa. 
+          Ví dụ, có nhiều công cụ và thành phần trong folder <B>\Tools</B> vốn 
+          có thể được cài đặt trực tiếp từ CD-ROM.<BR>Ngoài ra, bạn có thể chạy 
+          Setup khi nào cần thiết. Ví dụ, bạn có thể chạy Setup để cài đặt lại 
+          Visual Basic trong folder khác, hoặc để cài đặt thêm bớt các phần của 
+          VB6.<BR>Nếu vì lý do gì hệ thống không install các đĩa compact MSDN 
+          (bạn sẽ khám phá ra điều nầy khi thấy Help không có mặt lúc chạy VB6), 
+          bạn có thể cài đặt chúng trực tiếp từ đĩa số 1 của bộ 
+          MSDN.<BR><BR><B>Để bổ xung và xóa các thành phần VB:</B> 
+          <OL>
+            <LI>Bỏ đĩa compact vào CD drive. 
+            <LI>Nếu menu không tự động hiện lên thì chạy chương trình Setup có 
+            sẵn tong folder gốc trên đĩa compact. 
+            <LI>Chọn nút <B>Custom</B> trong hộp thoại (dialog) <B>Microsoft 
+            Visual Basic 6.0 Setup.</B> 
+            <LI>Chọn hay xóa các thành phần bằng cách check hay uncheck các hộp 
+            danh sách <B>Options</B> của dialog <B>Custom.</B> 
+            <LI>Thực hiện các chỉ dẫn Setup trên màn hình. </LI></OL><I>Ghi chú: 
+          Trong lúc cài VB6, nhớ chọn Graphics nếu không bạn sẽ thiếu một số 
+          hình ảnh như icons, bitmaps v.v... Đáng lẽ Microsoft cho tự động cài 
+          đặt Graphics, tức là Default (không có nói gì) thì cài đặt 
+          Graphics.</I> </FONT><BR>
+          <H3><FONT face=Verdana color=green>Integrated Development Environment 
+          (IDE) của VB6</FONT></H3><FONT face=Verdana>Khi khởi động VB6 bạn sẽ 
+          thấy mở ra nhiều cửa sổ (windows), scrollbars, v.v.. và nằm chồng lên 
+          là <B>New Project</B> dialog. Ở đây VB6 cho bạn chọn một trong nhiều 
+          loại công trình.<BR><BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=426 
+              src="Chuong 1 - Hoan nghenh den voi VB6_files/NewProject.jpg" 
+              width=446><BR><BR></BLOCKQUOTE></BLOCKQUOTE>Chọn Standard EXE. Một lát 
+          sau trên màn ảnh sẽ hiện ra giao diện của môi trường phát triển tích 
+          hợp (Integrated Development Environment - IDE ) giống như dưới 
+          đây:<BR><IMG height=635 
+          src="Chuong 1 - Hoan nghenh den voi VB6_files/Vb6IDE.jpg" 
+          width=923><BR>IDE của VB6 bao gồm các yếu tố sau:<BR>
+          <H3>Menu Bar</H3>Chứa đầy đủ các commands mà bạn sử dụng để làm việc 
+          với VB6, kể cả các menu để truy cập các chức năng đặc biệt dành cho 
+          việc lập trình chẳng hạn như Project, Format, hoặc Debug. Trong Menu 
+          Add-Ins có Add-Ins Manager cho phép bạn gắn thêm những menu con nhiệm 
+          ý để chạy các chương trình lợi ích cho việc lập trình.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=131 
+              src="Chuong 1 - Hoan nghenh den voi VB6_files/AddIns.jpg" 
+              width=158><BR><BR></BLOCKQUOTE></BLOCKQUOTE>Trong Add-Ins Manager 
+          dialog bạn chọn một Add-In rồi check một hay nhiều hộp trong khung 
+          Load behavior: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=370 
+              src="Chuong 1 - Hoan nghenh den voi VB6_files/AddinManager.jpg" 
+              width=483><BR><BR></BLOCKQUOTE></BLOCKQUOTE>
+          <H3>Toolbars (Debug, Edit, form Editor, Standard) </H3>Các toolbars có 
+          hình các icons cho phép bạn click để thực hiện công việc tương đương 
+          với dùng một menu command, nhưng nhanh và tiện hơn. Bạn dùng menu 
+          command <B>View | Toolbars</B> (click lên menu command View cho 
+          popupmenu hiện ra rồi click command con Toolbars) để làm cho các 
+          toolbars hiện ra hay biến mất đi. Bạn có thể thay đổi vị trí một 
+          toolbar bằng cách nắm vào hai gạch vertical nằm bên trái toolbar rồi 
+          dời toolbar đi chỗ khác (nắm ở đây nghĩa là để pointer của mouse lên 
+          chỗ chấm đỏ trong hình phía dưới rồi bấm xuống và giữ nút bên trái của 
+          mouse, trong khi kéo pointer đi nơi khác). <BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=28 
+              src="Chuong 1 - Hoan nghenh den voi VB6_files/editortb.jpg" 
+              width=251><BR><BR></BLOCKQUOTE></BLOCKQUOTE><BR>Ngoài ra bạn cũng có 
+          thể sửa đổi các toolbars theo ý thích bằng cách dùng Menu command 
+          <B>View | Toolbars | Customize...</B> 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=565 
+              src="Chuong 1 - Hoan nghenh den voi VB6_files/ViewMenu.jpg" 
+              width=297><BR><BR></BLOCKQUOTE></BLOCKQUOTE>
+          <H3>Toolbox</H3>Đây là hộp đồ nghề với các công cụ, gọi là controls, 
+          mà bạn có thể đặt lên các form trong lúc thiết kế (design). Nếu 
+          Toolbox biến mất, bạn có thể display nó trở lại bằng cách dùng menu 
+          command <B>View | Toolbox</B>. Bạn có thể khiến toolbox display nhiều 
+          controls hơn bằng cách chọn <B>Components...</B> từ context menu (chọn 
+          Toolbox rồi bấm nút phải của mouse để display context menu) hay dùng 
+          menu command <B>Project | Components</B>. Ngoài việc trình bày Toolbox 
+          mặc định, bạn có thể tạo cách trình bày khác bằng cách chọn <B>Add 
+          Tab...</B> từ context menu và bổ sung các control cho tab từ kết quả. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=366 
+              src="Chuong 1 - Hoan nghenh den voi VB6_files/toolbox.jpg" 
+              width=184><BR><BR></BLOCKQUOTE></BLOCKQUOTE>
+          <H3>Project Explorer</H3>Sẽ liệt kê các forms và các modules trong 
+          project hiện hành của bạn. Một <B><I>project</I></B> là sự tập hợp các 
+          files mà bạn sử dụng để tạo một trình ứng dụng. Tức là, trong VB6, khi 
+          nói viết một program có nghĩa là triển khai một project. 
+          <H3>Properties window</H3>Liệt kê các đặc tính của các forms hoặc 
+          controls được chọn. Một property là một đặc tính của một object chẳng 
+          hạn như size, caption, hoặc color. Khi bạn sửa đổi một property bạn sẽ 
+          thấy hiệu quả ngay lập tức, thí dụ thay đổi property Font của một 
+          Label sẽ thấy Label ấy được display bằng Font chữ mới. Khi bạn chọn 
+          một Property của control hay form trong Properties window, phía bên 
+          phải ở chỗ value của property có thể display ba chấm (<B>. . .</B>) 
+          hay một tam giác chỉa xuống. Bấm vào đó để display một dialog cho bạn 
+          chọn value. Thí dụ dưới đây là dialog để chọn màu cho property 
+          ForeColor của control Label1. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=417 
+              src="Chuong 1 - Hoan nghenh den voi VB6_files/properties.jpg" 
+              width=295><BR><BR></BLOCKQUOTE></BLOCKQUOTE>
+          <H3>Form Layout</H3>Bạn dùng form Layout để chỉnh vị trí của các forms 
+          khi form hiện ra lần đầu lúc chương trình chạy. Dùng context command 
+          <B>Resolution Guides</B> để thấy nếu dùng một màn ảnh với độ mịn 
+          (resolution) tệ hơn, thí dụ như 640 X 480, thì nó sẽ nhỏ như thế nào. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=228 
+              src="Chuong 1 - Hoan nghenh den voi VB6_files/layout.jpg" 
+              width=230><BR><BR></BLOCKQUOTE></BLOCKQUOTE>
+          <H3>Form Designer</H3>Dùng để thiết kế giao diện lập trình. Bạn bổ 
+          sung các controls, các đồ họa (graphics), các hình ảnh và một form để 
+          tạo sự ma sát mà bạn muốn. Mỗi form trong trình ứng dụng của bạn có 
+          designer form riêng của nó. Khi bạn maximise một form designer, nó 
+          chiếm cả khu làm việc. Muốn làm cho nó trở lại cở bình thường và đồng 
+          thời để thấy các form designers khác, click nút Restore Window ở góc 
+          bên phải, phía trên. <BR><BR><IMG height=315 
+          src="Chuong 1 - Hoan nghenh den voi VB6_files/restorebutton.jpg" 
+          width=908><BR><BR>
+          <H3>Immediate Window</H3>Dùng để gở rối (debug) trình ứng dụng của 
+          bạn. Bạn có thể display dữ kiện trong khi chạy chương trình ứng dụng. 
+          Khi chương trình đang tạm ngừng ở một break point, bạn có thể thay đổi 
+          giá trị các variables hay chạy một dòng chương trình. 
+          <H3>View Code button</H3>Click lên nút nầy để xem code của một form mà 
+          bạn đã chọn. Window của code giống như dưới đây:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=226 
+              src="Chuong 1 - Hoan nghenh den voi VB6_files/codewindow.jpg" 
+              width=529><BR><BR></BLOCKQUOTE></BLOCKQUOTE>Trong Code window bạn có 
+          thể chọn display tất cả Sub của code cùng một lúc như trong hình hay 
+          display mỗi lần chỉ một Sub bằng cách click button có hình ba dòng nằm 
+          ở góc bên trái phía dưới. 
+          <H3>View form button</H3>Click lên nút nầy để xem form của một form mà 
+          bạn đã chọn. <BR><BR><I>Ghi chú: Nhiều windows trong IDE như Toolbars, 
+          Toolbox, Project Explorer .v.v..có thể trôi lình bình (floating) hay 
+          đậu ở bến (docked). Bạn có thể thay đổi vị trí chúng bằng cách nắm vào 
+          Title Bar của window rồi dời đi. Dĩ nhiên bạn cũng có thể mở rộng hay 
+          làm nhỏ một window bằng cách dời một cạnh vertical hay horizontal của 
+          nó. Khi để một window lên trên một window khác chúng có thể tìm cách 
+          dính nhau.<BR>Trong hình dưới đây, Properties Window và Form Layout đã 
+          được kéo ra ngoài cho floating.</I><BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=392 
+              src="Chuong 1 - Hoan nghenh den voi VB6_files/floatingwindows.jpg" 
+              width=397><BR><BR></BLOCKQUOTE></BLOCKQUOTE></FONT>
+          <H3><FONT face=Verdana color=green>Nhận trợ giúp trong khi đang làm 
+          việc</FONT></H3><FONT face=Verdana>Trong khi lập trình bạn có thể cần 
+          tìm hiểu các thông tin liên quan đến các commands, functions .v.v.. 
+          của VB6. Bạn có thể khởi động <B>Microsoft Developer Network | MSDN 
+          Library Visual Studio 6.0</B> từ nút Start, hay click <B>Help | 
+          Contents</B> từ Menu Bar của VB6, hay chọn một keyword (highlight 
+          keyword) rồi ấn F1 để đọc Help.<BR>
+          <BLOCKQUOTE><IMG height=404 
+            src="Chuong 1 - Hoan nghenh den voi VB6_files/msdn.jpg" 
+            width=739><BR><BR></BLOCKQUOTE><BR>Nội dung Help bao gồm nhiều đặc 
+          điểm được thiết kế để thực hiện việc tìm kiếm thông tin dễ dàng hơn. 
+          Bạn có thể dựa trên <B>Contents</B> để đọc tài liệu như một quyễn 
+          sách, <B>Index</B> để đọc những đoạn có nhắc đến một keyword hay 
+          <B>Search</B> để tìm một tài liệu nhanh hơn. Ví dụ, việc gở rối thông 
+          tin bắt nguồn từ nhiều đặc tính khác nhau phụ thuộc vào loại đề án mà 
+          bạn đang làm việc. Các liên kết được mô tả trong phần nầy thực hiện 
+          việc tìm kiếm dễ dàng hơn.<BR>Ngoài ra, bạn cũng có thể click <B>See 
+          Also</B> dưới tiêu đề của chủ điểm để xem các tiêu đề của các chủ điểm 
+          mà bạn có thể đi đến hoặc liên hệ đến nhiều thông tin.<BR></FONT>
+          <H3><FONT face=Verdana color=green>Context Sensitive Help (trợ giúp 
+          trong đúng tình huống)</FONT></H3><FONT face=Verdana>Nhiều phần của 
+          VB6 là <B>context sensitive</B>, có nghĩa là lúc bối rối chỉ cần ấn 
+          nút F1 hoặc highlight keyword rồi nhấn F1 là được thông tin những gì 
+          liên hệ trực tiếp với tình huống hiện giờ của bạn.<BR>Bạn có thể nhấn 
+          F1 từ bất kỳ phần context sensitive nào của giao diện VB6 để display 
+          thông tin Help về phần đó. Các phần context sensitive là:<BR>
+          <UL>
+            <LI>Các Windows của VB6 như Properties, Code .v.v.. 
+            <LI>Các control trong Toolbox. 
+            <LI>Các Object trên một form hoặc Object tài liệu. 
+            <LI>Các đặc tính trong Window Properties. 
+            <LI>Các keywords của VB6 
+            <LI>Các thông báo lỗi (error messages) </LI></UL>Ngoài ra, trong Help 
+          thường có <B>Example</B>. Bạn click lên chữ Example để display một thí 
+          dụ minh họa cách dùng một function hay property. 
+          <H3><FONT face=Verdana color=green>Microsoft on the Web</FONT></H3>Web 
+          site của Microsoft chứa nhiều thông tin cập nhật cho những người lập 
+          trình VB6. Trang chủ Visual Basic đặt tại URL 
+          http://www.microsoft.com/vbasic/. Thông tin có sẵn tại địa chỉ nầy bao 
+          gồm: 
+          <UL>
+            <LI>Cập nhật các đặc tính mới, các phiên bản sản phẩm, các sản phẩm 
+            liên hệ, các thuyết trình (seminar) và các hoạt động (event) đặc 
+            biệt. 
+            <LI>Thông tin bổ sung trên các đặc tính VB6 chứa trong các bài viết 
+            gọi là White Papers, các mách nước (tips) và các trình trợ giáo, 
+            nguồn đào tạo. 
+            <LI>Sản phẩm mới tải xuống (download) bao gồm sự cập nhật đến các 
+            file chương trình, các cập nhật trợ giúp, các trình điều khiển, và 
+            các file liên hệ khác của VB6.<BR></LI></UL>Để truy cập Web site của 
+          Microsoft, từ menu Help chọn <B>Microsoft on the Web</B> rồi chọn menu 
+          con tùy thích như dưới đây.<BR><BR><BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=328 
+              src="Chuong 1 - Hoan nghenh den voi VB6_files/onlinehelp.jpg" 
+              width=396><BR><BR></BLOCKQUOTE></BLOCKQUOTE>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><I>Ghi chú: Một số nội dung trên Web site của 
+              Microsoft được tối ưu hóa dành cho Microsoft Internet Explorer và 
+              không thể display đầy đủ trong một bộ trình duyệt (browser) khác. 
+              Do đó bạn nên chỉ dùng Internet Explorer làm browser trên máy bạn 
+              mà thôi.</I> </BLOCKQUOTE></BLOCKQUOTE></BLOCKQUOTE>
+        <BLOCKQUOTE><IMG height=14 
+          src="Chuong 1 - Hoan nghenh den voi VB6_files/ball_red.gif" 
+          width=14>&nbsp;<A 
+          href="http://www.vovisoft.com/vovisoft/vblinks.htm">Các liên mạng VB 
+          khác</A></BLOCKQUOTE>
+        <BLOCKQUOTE>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><BR><A 
+          href="http://www.bangden.com/soncuoc/Dang/index.htm">Những câu hỏi về 
+          Visual Basic</A> 
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/Visualbasic/tipstricks/forms.htm">Những 
+          mẹo vặt của Visual Basic</A></P>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/VB.htm"><BR>Lập trình với 
+          VBA</A></P></BLOCKQUOTE><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc --><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc -->
+        <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+        width="100%" border=0>
+          <TBODY>
+          <TR>
+            <TD class=clsRaised width=785 bgColor=#6699cc>
+              <P align=center><FONT face=Verdana color=#ffffff size=1>Được cung 
+              cấp từ Vivosoft</FONT></P></TD></TR></TBODY></TABLE>
+        <P>&nbsp;</P></FONT></BLOCKQUOTE>&nbsp;<!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></HTML>

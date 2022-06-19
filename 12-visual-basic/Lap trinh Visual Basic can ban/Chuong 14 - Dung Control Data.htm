@@ -1,0 +1,395 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://www.vovisoft.com/visualbasic/VB6Chapter14.htm -->
+<HTML><HEAD><TITLE>Using Data Control</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 14 - Dung Control Data_files/topbottom.css" type=text/css 
+rel=stylesheet></HEAD>
+<BODY leftMargin=0 marginheight="0" marginwidth="0">
+<CENTER><A href="http://www.vovisoft.com/"><IMG height=77 alt="Logo of Vovisoft" 
+src="Chuong 14 - Dung Control Data_files/vs-logo4_10.gif" width=102 border=0> 
+</A><BR>
+<H1><FONT face=Tahoma color=#000000>Khóa Hàm Thụ Visual Basic 6.0</FONT></H1>
+<H2><FONT face=Tahoma color=#800000>Chương Mười Bốn - Dùng Control 
+Data</FONT></H2></CENTER>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <H3><FONT face=Tahoma color=green>Control <I>Data</I></FONT></H3><FONT 
+    face=Tahoma>Từ VB5, Visual Basic cho lập trình viên một control để truy cập 
+    cơ sỡ dữ liệu, tên nó chỉ đơn sơ là <B>Data</B>. Như ta biết, có một cơ sỡ 
+    dữ liệu Microsoft gói kèm khi ta mua VB6 - đó là <B>Jet Database Engine</B>. 
+    Jet Database Engine là cái <B>"phòng máy"</B> của chính MS Access Database 
+    Management System. <BR><BR>Cho đến thời VB5, Microsoft cho ta ba kỹ thuật 
+    chính: 
+    <UL>
+      <LI><B>DAO (Data Acess Objects)</B>: DAO là kỹ thuật bí truyền của 
+      Microsoft, chỉ để dùng với Jet Database Engine. Nó rất dễ dùng, hiệu năng 
+      và tiện, nhưng bị giới hạn trong phạm vi MS Access. Dầu vậy, nó rất thịnh 
+      hành vì có lợi ích thực tiển. 
+      <LI><B>ODBC (Open Database Connectivity)</B>: ODBC được thiết kế để cho 
+      phép users nối với đủ loại databases mà chỉ dùng một method duy nhất. Điều 
+      nầy cất bớt gánh nặng cho lập trình viên, để chỉ cần học một kỹ thuật lập 
+      trình duy nhất mà có thể làm việc với bất cứ loại database nào. Nhất là 
+      khi sau nầy nếu cần phải thay đổi loại database, như nâng cấp từ Access 
+      lên SQLServer chẳng hạn, thì sự sửa đổi về coding rất ít. Khi dùng ODBC 
+      chung với DAO, ta có thể cho Access Database nối với các databases khác. 
+      Có một bất lợi của ODBC là nó rắc rối. 
+      <LI><B>RDO (Remote Data Object)</B>: Một trong những lý do chính để RDO 
+      được thiết kế là giải quyết khó khăn về sự rắc rối của ODBC. Cách lập 
+      trình với RDO đơn giản như DAO, nhưng thật ra nó dùng ODBC nên cho phép 
+      users nối với nhiều databases. Tuy nhiên, RDO không được thịnh hành lắm. 
+      </LI></UL>VB6 tiếp tục hổ trợ các kỹ thuật nói trên, và cho thêm một kỹ 
+    thuật truy cập database mới, rất quan trọng, đó là <B>ADO (ActiveX Data 
+    Objects)</B>. Trong một bài tới ta sẽ học về ADO với những ưu điểm của nó. 
+    Tuy nhiên, vì DAO rất đơn giản và hiệu năng nên ta vẫn có thể tiếp tục dùng 
+    nó rất hữu hiệu trong hầu hết các áp dụng. Do đó bài nầy và bài kế sẽ tập 
+    trung vào những kỹ thuật lập trình phổ biến với DAO.<BR><BR>Cách dùng giản 
+    tiện của control Data là đặt nó lên một Form rồi làm việc với những 
+    Properties của nó. Bạn hãy bắt đầu một dự án VB6 mới, cho nó tên 
+    <B>DataControl</B> bằng cách click tên project trong Project Explorer bên 
+    phải rồi edit property Name trong Properties Window.<BR><BR>DoubleClick lên 
+    Icon của Control Data trong Toolbox. Một Control Data tên <B>Data1</B> sẽ 
+    hiện ra trên Form. Muốn cho nó nằm bên dưới Form, giống như một StatusBar, 
+    hãy set <B>property Align</B> của nó trong Properties Window thành 
+    <B>2&nbsp;-&nbsp;Align Bottom</B>.<BR><BR>Click bên phải hàng <B>property 
+    DatabaseName</B>, kế đó click lên nút browse có ba chấm để chọn một file 
+    Access dabase từ giao thoại cho Data1. Ở đây ta chọn <B>E:\Program 
+    Files\Microsoft Visual Studio\VB98\BIBLIO.MDB </B>, trong computer của bạn 
+    có thể nó nằm trên disk <B>C</B> hay <B>D</B>. <BR><BR><IMG height=562 
+    src="Chuong 14 - Dung Control Data_files/datacontrol.gif" 
+    width=912><BR><BR>Trong chương trình nầy ta muốn làm việc với <B>table 
+    Titles</B> của database BIBLIO.MDB, để xem và edit các records. Để ý 
+    <B>property DefaultType</B> của Data1 có trị số <B>2- UseJet</B>, tức là 
+    dùng kỹ thuật DAO, thay vì dùng kỹ thuật ODBC.<BR><BR>Khi bạn click lên 
+    <B>property Recordsource</B> của Data1, rồi click lên cái tam giác nhỏ bên 
+    phải, một ComboBox sẽ mở ra cho ta thấy danh sách các tables trong database. 
+    Bạn hãy chọn <B>Titles</B>. Để ý <B>property RecordsetType</B> của Data1 có 
+    trị số là <B>0 - Table</B>: <BR><BR><IMG height=250 
+    src="Chuong 14 - Dung Control Data_files/recordsource.gif" 
+    width=440><BR><BR>Cái từ mới mà ta sẽ dùng thường xuyên khi truy cập dữ liệu 
+    trong VB6 là <B>Recordset</B> (bộ records). Recordset là một <B>Set of 
+    records</B>, nó có thể chứa một số records hay không có record nào cả. Một 
+    record trong Recordset có thể là một record lấy từ một Table. Trong trường 
+    hợp ấy có thể ta lấy về tất cả records trong table hay chỉ những records 
+    thỏa đúng một điều kiện, thí dụ như ta chỉ muốn lấy các records của những 
+    sách xuất bản trước năm 1990 (Year&nbsp;Published &lt; 1990).<BR><BR>Một 
+    Record trong Recordset cũng có thể là tập hợp các cột (columns) từ hai (hay 
+    ba) tables qua các mối liên hệ one-to-one và one-to-many. Thí dụ như khi lấy 
+    các records từ table Titles, ta muốn có thêm chi tiết tên công ty (Company 
+    Name) và điện thoại (Telephone) của nhà xuất bản (table Publishers) bằng 
+    cách dùng <B>Foreign Key PubID</B> trong table Titles làm <B>Primary Key</B> 
+    trong table Publishers để lấy các chi tiết ấy. Nếu bạn chưa nắm vững ý niệm 
+    Foreign Key thì hãy đọc lại bài <A 
+    href="http://www.vovisoft.com/visualbasic/VB6Chapter13.htm">Database</A>.<BR><BR>Trong 
+    trường hợp ấy ta có thể xem như có một <B>virtual (ảo) table</B> là tập hợp 
+    của hai tables Titles và Publishers.<BR><BR>Bây giờ bạn hãy đặt lên Form 4 
+    labels với captions: <B>Title, Year Published, ISBN</B> và <B>Publisher 
+    ID</B>. Kế đó cho thêm 4 textboxes tương ứng và đặt tên chúng là 
+    <B>txtTitle, txtYearPublished, txtISBN</B> và 
+    <B>txtPublisherID</B>.<BR><BR>Chọn textbox txtTitle, rồi set <B>property 
+    Datasource</B> của nó trong Properties Window thành <B>Data1</B>. Khi click 
+    lên <B>property Datafield</B> của txtTitle và mở ComboBox ra bạn sẽ thấy 
+    liệt kê tên các Fields trong table Titles. Đó là vì Data1 được coi như trung 
+    gian lấy table Titles từ database. Ở đây ta sẽ chọn cột </B>Title</B>. 
+    <BR><BR>Lập lại công tác nầy cho 3 textboxes kia, và chọn các cột Year 
+    Published (năm xuất bản), ISBN (số lý lịch trong thư viện quốc tế), và PubID 
+    (số lý lịch nhà xuất bản) làm Datafield cho chúng. <BR><BR><IMG height=311 
+    src="Chuong 14 - Dung Control Data_files/DatafieldTitle.gif" 
+    width=711><BR><BR>Tới đây, mặc dầu chưa viết một hàng code, ta có thể chạy 
+    chương trình được rồi. Nó sẽ hiển thị chi tiết của record đầu tiên trong 
+    table Titles như dưới đây: 
+    <BLOCKQUOTE><IMG height=260 
+      src="Chuong 14 - Dung Control Data_files/frmDatacontrol.gif" 
+    width=320></BLOCKQUOTE>Bạn có thể bấm các nút di chuyển <B>Navigator 
+    Buttons</B> để đi đến các record <B>đầu (first), trước (previous), kế 
+    (next)</B> và <B>cuối (last)</B>. Mỗi lần bạn di chuyển đến một record mới 
+    là chi tiết của record ấy sẽ hiển thị. Nếu không dùng các Navigator Buttons, 
+    ta cũng có thể code để làm công tác tương đưong bằng cách gọi các Recordset 
+    <B>methods MoveFirst, MovePrevious, MoveNext</B> và 
+    <B>MoveLast</B>.<BR><BR>Khi record cuối của Recordset đang hiển thị, nếu ta 
+    gọi method MoveLast thì <B>property EOF (End-Of-File)</B> của Recordset trở 
+    thành True. Tương tự như vậy, khi record thứ nhất của Recordset đang hiển 
+    thị, nếu ta gọi method MovePrevious thì <B>property BOF (Begin-Of-File)</B> 
+    của Recordset trở thành True. Nếu một Recordset không có chứa một record nào 
+    cả thì cả hai properties EOF và BOF đều là True. <BR><BR>Đặc tính hiển thị 
+    dữ liệu trong các textboxex theo đúng record hiện thời (<B>current 
+    record</B>) được gọi là <B>data binding</B> hay <B>data bound</B> (buộc vào 
+    dữ liệu) và control TextBox hỗ trợ chức năng nầy được nói là <B>Data 
+    Aware</B> (biết bà con dữ liệu).<BR><BR>Khi record đầu tiên đang hiển thị, 
+    nếu bạn edit <B>Year Published</B> để đổi từ 1985 thành <B>1983</B> rồi 
+    click Navigator button Next để hiển thị record thứ nhì, kế đó click 
+    Navigator button Previous để hiển thị lại record đầu tiên thì bạn sẽ thấy là 
+    field Year Published của record đầu tiên đã thật sự được thay đổi (updated) 
+    thành 1983.<BR><BR>Điều nầy có nghĩa rằng khi Data1 navigates từ record nầy 
+    đến record khác thì nếu record nầy đã có sự thay đổi vì user edited, nó lưu 
+    trữ sự thay đổi đó trước khi di chuyển. Chưa chắc là bạn muốn điều nầy, do 
+    đó, nếu bạn không muốn user tình cờ edit một record thì bạn có thể set 
+    <B>property Locked</B> của các textboxes ấy thành True để user không thể 
+    edit các textboxes như trong hình dưới đây: <BR><BR><IMG height=310 
+    src="Chuong 14 - Dung Control Data_files/lockedTextboxes.gif" 
+    width=709><BR><BR>Bạn có thể tải về cái chương trình tài tử nầy từ đây <A 
+    href="http://www.vovisoft.com/visualbasic/Datacontrol.zip">Datacontrol.zip</A>. 
+    <BR><BR>
+    <H3><FONT face=Tahoma color=blue>Chỉ định vị trí Database lúc chạy chương 
+    trình</FONT></H3>Cách chỉ định tên DatabaseName trong giai đoạn thiết kế (at 
+    design time) ta đã dùng trước đây tuy tiện lợi nhưng hơi nguy hiểm, vì khi 
+    ta cài chương trình nầy lên computer của khách, chưa chắc file database ấy 
+    nằm trong một folder có cùng tên. Thí dụ trên computer mình thì database nằm 
+    trong folder E:\Program Files\Microsoft Visual Studio\VB98, nhưng trên 
+    computer của khách thì database nằm trong folder C:\VB6\DataControl chẳng 
+    hạn. Do đó, khi chương trình khởi động ta nên xác định lại vị trí của 
+    database. Giả dụ ta muốn để database trong cùng một folder với chương trình 
+    đang chạy, ta có thể dùng <B>property Path</B> của Application Object 
+    <B>App</B> như sau: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Dim</FONT> AppFolder <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_Load() 
+   <FONT color=green>' Fetch Folder where this program EXE resides</FONT>
+   AppFolder = App.Path 
+   <FONT color=green>' make sure it ends with a back slash</FONT>
+   <FONT color=blue>If</FONT> Right(AppFolder, 1) &lt;&gt; "\" <FONT color=blue>Then</FONT> AppFolder = AppFolder &amp; "\" 
+   <FONT color=green>' Assign Full path database filename to Data1</FONT>
+   Data1.DatabaseName = AppFolder &amp; "BIBLIO.MDB" 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Với cách code nói trên 
+    ta sẽ đảm bảo chương trình tìm thấy file database đúng chỗ, không cần biết 
+    người ta cài chương trình bạn ở đâu trong hard disk của computer 
+    khách.<BR><BR>Nếu bạn đang học VB6 từ xa, khi nộp bài database cho giám thị 
+    VB6 mà bạn hardcode (viết chết cứng) vị trí của file database trong lúc 
+    thiết kế thì giám thị (tutor) cũng gặp cùng sự khó khăn nầy vì chưa chắc 
+    giám thị sẽ chứa database trong một folder có cùng tên như trong harddisk 
+    của bạn. 
+    <H3><FONT face=Tahoma color=blue>Thêm bớt các Records</FONT></H3>Chương 
+    trình trên dùng cũng tạm đựợc, nhưng nó không cho ta phương tiện để thêm 
+    (add), bớt (delete) các records. Bây giờ bạn hãy để vào Form 5 buttons tên: 
+    <B>cmdEdit, cmdNew, cmdDelete, cmdUpdate</B> và <B>cmdCancel</B>.<BR><BR>Mặc 
+    dầu bạn không thấy, nhưng thật ra Control Data <B>Data1</B> có một 
+    <B>property Recordset</B> và khi ta dùng Navigator buttons là di chuyển từ 
+    record nầy đến record khác trong Recordset ấy. Ta có thể nói đến nó bằng 
+    Notation (cách viết) <B>Data1.Recordset</B>, và mỗi lần muốn lấy Recordset 
+    mới nhất từ database ta dùng <B>method Refresh</B> như 
+    <B>Data1.Recordset.Refresh</B>.<BR><BR>Lúc chuơng trình mới khởi động, user 
+    đang xem (browsing) các records thì hai buttons <B>Update</B> và 
+    <B>Cancel</B> không cần phải làm việc. Do đó ta sẽ nhân tiện Lock (khóa) các 
+    textboxes và disable (làm cho bất lực) hai buttons nầy vì không cần dùng 
+    chúng.<BR><BR>Trong <B>Sub SetControls</B> dưới đây, ta dùng một parameter 
+    gọi là <B>Editing</B> với trị số False hay True tùy theo user đang Browse 
+    hay Edit, ta gọi là <B>Browse mode</B> và <B>Edit mode</B>. Trong <B>Edit 
+    mode</B>, các Textboxes được unlocked (mở khóa) và các nút <B>cmdNew, 
+    cmdDelete</B> và <B>cmdEdit</B> trở nên bất lực: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Sub</FONT> SetControls(<FONT color=blue>ByVal</FONT> Editing <FONT color=blue>As</FONT> Boolean) 
+   <FONT color=green>' Lock/Unlock textboxes</FONT>
+   txtTitle.Locked = <FONT color=blue>Not</FONT> Editing 
+   txtYearPublished.Locked = <FONT color=blue>Not</FONT> Editing 
+   txtISBN.Locked = <FONT color=blue>Not</FONT> Editing 
+   txtPublisherID.Locked = <FONT color=blue>Not</FONT> Editing 
+   <FONT color=green>' Enable/Disable buttons</FONT>
+   CmdUpdate.Enabled = Editing 
+   CmdCancel.Enabled = Editing 
+   CmdDelete.Enabled = <FONT color=blue>Not</FONT> Editing 
+   cmdNew.Enabled = <FONT color=blue>Not</FONT> Editing 
+   CmdEdit.Enabled = <FONT color=blue>Not</FONT> Editing 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Trong <B>Browse 
+    mode</B>, Form có dạng như sau: 
+    <BLOCKQUOTE><IMG height=278 
+      src="Chuong 14 - Dung Control Data_files/browsemode.gif" 
+    width=386></BLOCKQUOTE>Sub SetControls được gọi trong <B>Sub Form_Load</B> 
+    khi chương trình khởi động và trong <B>Sub CmdEdit</B> khi user click nút 
+    <B>Edit</B> như sau: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_Load() 
+   <FONT color=green>' Fetch Folder where this program EXE resides</FONT>
+   AppFolder = App.Path 
+   <FONT color=green>' make sure it ends with a back slash</FONT>
+   <FONT color=blue>If</FONT> Right(AppFolder, 1) &lt;&gt; "\" <FONT color=blue>Then</FONT> AppFolder = AppFolder &amp; "\" 
+   <FONT color=green>' Assign Full path database filename to Data1</FONT>
+   Data1.DatabaseName = AppFolder &amp; "BIBLIO.MDB" 
+  <FONT color=green>' Place controls in Browse Mode</FONT>
+   SetControls (False) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdEdit_Click() 
+  <FONT color=green>' Place controls in Edit Mode</FONT>
+  SetControls (True) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Khi ta Delete một record 
+    trong recordset, vị trí của record hiện tại (current record) vẫn không thay 
+    đổi. Do đó, sau khi delete một record ta phải <B>MoveNext</B>. Khổ nổi, nếu 
+    ta vừa delete record cuối của Recordset thì sau khi MoveNext, <B>property 
+    EOF</B> của Recordset sẽ thành True. Thành ra ta phải kiểm tra điều đó, nếu 
+    đúng vậy thì lại phải <B>MoveLast</B> để hiển thị record cuối của Recordset 
+    như trong code của <B>Sub cmdDelete_Click</B> dưới đây: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdDelete_Click() 
+   <FONT color=blue>On</FONT> <FONT color=blue>Error</FONT> GoTo DeleteErr 
+   <FONT color=blue>With</FONT> Data1.Recordset 
+      <FONT color=green>' Delete new record</FONT>
+      .Delete 
+      <FONT color=green>' Move to next record</FONT>
+      .MoveNext 
+      <FONT color=blue>If</FONT> .EOF <FONT color=blue>Then</FONT> .MoveLast 
+      <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+   <FONT color=blue>End</FONT> <FONT color=blue>With</FONT> 
+DeleteErr: 
+   MsgBox Err.Description 
+   <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Trong lúc code, ta 
+    Update (cập nhật hóa) một record trong Recordset bằng method <B>Update</B>. 
+    Nhưng ta chỉ có thể gọi method Update của một Recordset khi Recordset đang ở 
+    trong <B>Edit hay AddNew mode</B>. Ta đặt một Recordset vào Edit mode bằng 
+    cách gọi <B>method Edit</B> của Recordset, thí dụ như 
+    <B>Data1.Recordset.Edit</B>. Tương tự như vậy, ta đặt một Recordset vào 
+    AddNew mode bằng cách gọi <B>method AddNew</B> của Recordset, thí dụ như 
+    <B>Data1.Recordset.AddNew</B>. 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> cmdNew_Click() 
+   <FONT color=green>' Place Recordset into Recordset AddNew mode</FONT>
+   Data1.Recordset.AddNew 
+   <FONT color=green>' Place controls in Edit Mode</FONT>
+   SetControls (True) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Sau khi Recordset gọi 
+    method Update thì Recordset ấy ra khỏi AddNew hay Edit modes. Ta cũng có thể 
+    tự thoát ra khỏi AddNew hay Edit modes, hay nói cho đúng hơn là hủy bỏ mọi 
+    pending (đang chờ đợi) Update bằng cách gọi <B>method CancelUpdate</B>, thí 
+    dụ như <B>Data1.Recordset.CancelUpdate</B>.<BR><BR>Bạn có thể tải về chương 
+    trình nầy từ đây <A 
+    href="http://www.vovisoft.com/visualbasic/DataEdit.zip">DataEdit.zip</A>. 
+    <H3><FONT face=Tahoma color=blue>Dùng DataBound Combo</FONT></H3>Trong 
+    chương trình hiện tại ta chỉ hiển thị lý lịch nhà xuất bản (PubID) của 
+    Title, chớ không có thêm chi tiết. Phải chi mặc dầu chương trình lưu trữ 
+    <B>PubID</B>, nhưng hiển thị được <B>Company Name</B> của nhà xuất bản cho 
+    ta làm việc để khỏi phải nhớ các con số thì hay quá. Ta có thể thực hiện 
+    điều đó bằng cách dùng Control <B>DBCombo (Data Bound Combo)</B>. Bạn hãy 
+    dùng IDE Menu Command <B>Project | Components...</B> để chọn <B>Microsoft 
+    Data Bound List Controls 6.0</B> rồi click <B>Apply</B>. <BR><BR><IMG 
+    height=411 src="Chuong 14 - Dung Control Data_files/DataBoundList.gif" 
+    width=455><BR><BR>Kế đó, thêm một DBCombo tên <B>DBCombo1</B> vào Form. Vì 
+    ta cần một Recordset khác để cung cấp Table Publisher cho DBCombo1, nên bạn 
+    hãy thêm một control Data thứ nhì tên <B>Data2</B> vào Form. Cho Data2, hãy 
+    set property DatabaseName thành <B>E:\Program Files\Microsoft Visual 
+    Studio\VB98\BIBLIO.MDB </B>và property RecordSource thành <B>Publishers</B>. 
+    Để không cho người ta thấy hình Data2 lúc run-time, bạn hãy set <B>property 
+    Visible</B> nó thành False. <BR><BR><IMG height=343 
+    src="Chuong 14 - Dung Control Data_files/DBCombo1.gif" width=882><BR><BR>Cái 
+    mục đích của chúng ta khi dùng DBCombo1 là hiển thị Company Name của nhà 
+    xuất bản, nhưng đằng sau lưng thì không có gì thay đổi, tức là ta vẫn làm 
+    việc với PubID cho các record Title của Data1. Khi user click lên DBCombo1 
+    để chọn một nhà xuất bản, thì ta theo Company Name đó mà chứa PubID tương 
+    ứng trong record Title của Data1. Do đó có nhiều thứ ta phải sắp đặt cho 
+    DBCombo1 như sau:<BR><BR>
+    <TABLE id=AutoNumber1 style="BORDER-COLLAPSE: collapse" borderColor=#111111 
+    cellSpacing=0 cellPadding=10 width="84%" border=1>
+      <TBODY>
+      <TR>
+        <TD align=middle width="17%" bgColor=#808080><FONT 
+          color=#ffffff><B>Property</B></FONT></TD>
+        <TD align=middle width="16%" bgColor=#808080><FONT 
+          color=#ffffff><B>Value</B></FONT></TD>
+        <TD align=middle width="67%" bgColor=#808080><FONT 
+          color=#ffffff><B>Chú thích</B></FONT></TD></TR>
+      <TR>
+        <TD width="17%" bgColor=#fefad8><B>RowSource</B></TD>
+        <TD width="16%" bgColor=#fefad8>Data2</TD>
+        <TD width="67%" bgColor=#fefad8>Đây là datasource của chính DBCombo1. 
+          Nó cung cấp table Publishers.</TD></TR>
+      <TR>
+        <TD width="17%" bgColor=#fefad8><B>Listfield</B></TD>
+        <TD width="16%" bgColor=#fefad8>Company Name</TD>
+        <TD width="67%" bgColor=#fefad8>Khi RowSource phía trên đã được chọn 
+          rồi, Combo của property Listfield nầy sẽ hiển thị các fields của table 
+          Publishers.&nbsp; Company Name là field của RowSource mà ta muốn hiển 
+          thị trên DBCombo1.</TD></TR>
+      <TR>
+        <TD width="17%" bgColor=#fefad8><B>DataSource</B></TD>
+        <TD width="16%" bgColor=#fefad8>Data1</TD>
+        <TD width="67%" bgColor=#fefad8>Đây là datasource của record mà ta 
+          muốn. edit, tức là record của table Titles</TD></TR>
+      <TR>
+        <TD width="17%" bgColor=#fefad8><B>Datafield</B></TD>
+        <TD width="16%" bgColor=#fefad8>PubID</TD>
+        <TD width="67%" bgColor=#fefad8>Field (của record Title) sẽ được thay 
+          đổi.</TD></TR>
+      <TR>
+        <TD width="17%" bgColor=#fefad8><B>BoundColumn</B></TD>
+        <TD width="16%" bgColor=#fefad8>PubID</TD>
+        <TD width="67%" bgColor=#fefad8>Field trong RowSource (table 
+          Publishers) tương ứng với item user chọn trong DBCombo1 (Company 
+        Name).</TD></TR></TBODY></TABLE><BR><BR>Khi trong Edit mode user chọn một 
+    Company Name khác trong DBCombo1 rồi click nút Update bạn sẽ thấy Textbox 
+    txtPublisherID cũng đổi theo và hiển thị con số lý lịch PubID mới. Nếu trước 
+    khi Update bạn muốn thấy PubID mới hiển thị trong Textbox txtPublisherID thì 
+    bạn có thể dùng Event Click của DBCombo1 như sau: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> DBCombo1_Click(Area <FONT color=blue>As</FONT> Integer) 
+   <FONT color=green>' Display new PuBID</FONT>
+   txtPublisherID.Text = DBCombo1.BoundText 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE><B>Property 
+    BoundText</B> của DBCombo1 là trị số của BoundColumn mà ta có thể truy cập 
+    (viết hay đọc) được. Thí dụ như bạn muốn mỗi khi thêm một record Title mới 
+    thì default PubID là 324, tức là Company Name= "GLOBAL ENGINEERING". Bạn có 
+    thể assign trị số 324 vào property BoundText của DBCombo1 trong Sub 
+    cmdNew_Click như sau: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> cmdNew_Click() 
+   <FONT color=green>' Place Recordset into Recordset AddNew mode</FONT>
+   Data1.Recordset.AddNew 
+   <FONT color=green>' Default Publisher is "GLOBAL ENGINEERING", i.e. PubID=324</FONT>
+   DBCombo1.BoundText = 324 
+   <FONT color=green>' Place controls in Edit Mode</FONT>
+   SetControls (True) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Bạn có thể tải về chương 
+    trình nầy từ đây <A 
+    href="http://www.vovisoft.com/visualbasic/DataBound.zip">DataBound.zip</A>.<BR><BR>Trong 
+    bài tới ta sẽ học thêm về cách coding để dùng Recordset trong kỹ thuật DAO. 
+  </BLOCKQUOTE><A href="http://www.vovisoft.com/"><IMG height=40 
+  src="Chuong 14 - Dung Control Data_files/homejump.gif" 
+  width=40><A>&nbsp;&nbsp;<A 
+  href="http://www.vovisoft.com/visualbasic/default.htm">Học Microsoft Visual 
+  Basic 6.0</A><BR><BR></BLOCKQUOTE>&nbsp; 
+<TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=clsRaised width=785 bgColor=#6699cc colSpan=5>
+      <P align=center><FONT face=Tahoma color=#ffffff size=1>Vovisoft © 2000. 
+      All rights reserved.</FONT></P></TD></TR>
+  <TR>
+    <TD width=256>
+      <P align=center><FONT face=Tahoma size=1>&nbsp;&nbsp; Last Updated: 6 May 
+      2002 </FONT></P></TD>
+    <TD width=181><FONT face=Tahoma size=1>&nbsp;</FONT></TD>
+    <TD width=258>
+      <P align=center><A href="mailto:dixon@vovisoft.com"><FONT face=Tahoma 
+      size=1>Webmaster</FONT></A></P></TD></TR></TBODY></TABLE></FONT></BODY></HTML>

@@ -1,0 +1,315 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://www27.brinkster.com/chauky/Hocvb/Bai10.htm -->
+<!-- saved from url=(0052)http://www.vovisoft.com/visualbasic/VB6Chapter10.htm --><HTML><HEAD><TITLE>Using Menu</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 10 - Dung Menu_files/topbottom.css" type=text/css 
+rel=stylesheet></HEAD>
+<BODY leftMargin=0 marginwidth="0" marginheight="0">
+<CENTER>
+<H2>&nbsp;</H2>
+<H2><FONT face=Tahoma color=#800000>Chương Mười - Dùng Menu</FONT></H2></CENTER>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><FONT face=Tahoma><FONT color=green size=6>M</FONT>enu trong 
+    Windows là nơi tất cả các commands của một program được sắp xếp thứ tự theo 
+    từng loại để giúp ta dùng dễ dàng.<BR>Có hai loại menu ta thường gặp: 
+    <B>drop-down (thả xuống)</B> menu và <B>pop-up (hiện lên)</B> menu. Ta dùng 
+    drop-down menu làm Menu chánh cho chương trình. Thông thường nó nằm ở phía 
+    trên chóp màn ảnh. Nằm dọc theo chiều ngang là Menu Bar, nếu ta click lên 
+    một command trong Menu Bar thì program sẽ thả xuống một menu với những 
+    MenuItems nằm dọc theo chiều thẳng đứng. Nếu ta click lên MenuItem nào có 
+    dấu hình tam giác nhỏ bên phải thì program sẽ popup một Menu như trong hình 
+    dưới đây (khi ta click <B>Format | Make Same Size</B>):<BR>
+    <BLOCKQUOTE><IMG height=258 
+      src="Chuong 10 - Dung Menu_files/VB6IDEMenu.gif" width=548></BLOCKQUOTE><BR>
+    <H3><FONT face=Tahoma color=green>Main Menu</FONT></H3>Ta dùng <B>Menu 
+    Editor</B> để tạo hoặc sữa một Menu cho program. Menu thuộc về một Form. Do 
+    đó, trước hết ta select một Form để làm việc với Designer của nó (chớ không 
+    phải code của Form). Kế đó ta dùng Menu Command <B>Tools | Menu Editor</B> 
+    hay click lên icon của Menu Editor trên Toolbar để làm cho Menu Editor hiện 
+    ra.<BR><BR>
+    <BLOCKQUOTE><IMG height=210 
+      src="Chuong 10 - Dung Menu_files/GetMenuEditor.gif" 
+    width=512></BLOCKQUOTE><BR>Đầu tiên có một vệt màu xanh nằm trong khung 
+    trắng của Menu Editor, nơi sẽ hiển thị Caption của Menu Command đầu tiên của 
+    Form. Khi ta đánh chữ <B>&amp;File</B> vào Textbox <B>Caption</B>, nó cũng 
+    hiện ra trên vệt xanh nói trên. Kế đó, bạn có thể đánh tên của Menu Command 
+    vào Textbox <B>Name</B>. Dù ta cho Menu Command một tên nhưng ta ít khi dùng 
+    nó, trừ trường hợp muốn nó visible/invisible (hiện ra/biến mất). Bình thường 
+    ta dùng tên của MenuItems nhiều hơn.<BR><BR>
+    <BLOCKQUOTE><IMG height=373 
+      src="Chuong 10 - Dung Menu_files/StartMenu.gif" 
+    width=366></BLOCKQUOTE><BR>Để có một Menu như trong hình dưới đây ta còn 
+    phải edit thêm vào các MenuItems Open, Save, Close và Exit. 
+    <BLOCKQUOTE><IMG height=302 src="Chuong 10 - Dung Menu_files/FileMenu.gif" 
+      width=451></BLOCKQUOTE><BR>Hình dưới đây cho thấy tất cả các MenuItems của 
+    Menu Command File đều nằm thụt qua bên phải với bốn dấu chấm (....) ở phía 
+    trước. Khi ta click dấu tên chỉ qua phải thì MenuItem ta đang Edit sẽ có 
+    thêm bốn dấu chấm, tức là thụt một bậc trong Menu (Nested). 
+    <BLOCKQUOTE><IMG height=373 src="Chuong 10 - Dung Menu_files/FullMenu.gif" 
+      width=366></BLOCKQUOTE>Tương tự như vậy, khi ta click dấu tên chỉ qua trái 
+    thì MenuItem ta đang Edit sẽ mất bốn dấu chấm, tức là trồi một bậc trong 
+    Menu.<BR><BR>Nếu muốn cho User dùng Alt key để xử dụng Menu, bạn đánh thêm 
+    dấu <B>&amp;</B> trước character bạn muốn trong menu Caption. Thí dụ 
+    <B>Alt-F</B> sẽ thả xuống Menu của Menu Command File.<BR><BR>Nếu bạn đặt cho 
+    MenuItem <B>&amp;Open</B> tên <B>mnuOpen</B>, thì khi bạn Click lên Caption 
+    nó trên Form trong lúc thiết kế, VB6 IDE sẽ hiển thị cái vỏ của <B>Sub 
+    mnuOpen_Click()</B>, giống như Sub cmdButton_Click() của một CommandButton: 
+    <BR><BR>
+    <TABLE bgColor=#f6f6f6>
+      <TBODY>
+      <TR>
+        <TD><FONT size=3><PRE><FONT color=blue>Private Sub</FONT> mnuOpen_Click()
+    MsgBox "You clicked mnuOpen"
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Trong thí dụ trên ta đánh thêm một 
+    Statement để hiển thị một message đơn giản <B>"You clicked mnuOpen"</B>. Bạn 
+    có thể đặt cho một MenuItem tên gì cũng được, nhưng người ta thường dùng 
+    prefix <B>mnu</B> để dễ phân biệt một menuItem Event với một CommandButton 
+    Event. Do đó, ta có những tên mnuFile, mnuOpen, mnuSave, mnuClose, 
+    mnuExit.<BR><BR>Cái gạch ngang giữa MenuItems Close và Exit được gọi là 
+    <B>Menu Separator</B>. Bạn có thể nhét một Menu Separator bằng cách cho 
+    Caption nó bằng <B>dấu trừ ( - )</B>.<BR><BR>Ngoài Alt key ta còn có thể cho 
+    User dùng Shortcut của menuItem. Để cho MenuItem một Shortcut, bạn chọn cho 
+    nó một Shortcut từ ComboBox <B>Shortcut</B> trong Menu Editor.<BR>Trong hình 
+    dưới đây ta chọn <B>Ctrl+O</B> cho mnuOpen. 
+    <BLOCKQUOTE><IMG height=276 src="Chuong 10 - Dung Menu_files/Shortcut.gif" 
+      width=363></BLOCKQUOTE><BR>By default, menuItem được Enabled và Visible. Lúc 
+    thiết kế bạn có thể cho MenuItem giá trị khởi đầu của Enabled và Visible 
+    bằng cách dùng Checkboxes Enabled và Visible.<BR>Trong khi chạy program (at 
+    runtime), bạn cũng có thể thay đổi các values Enabled và Visible như 
+    sau:<BR><BR>
+    <TABLE bgColor=#f6f6f6>
+      <TBODY>
+      <TR>
+        <TD><FONT size=3><PRE>mnuSave.Enabled = <FONT color=blue>False</FONT> 
+mnuOpen.Visible = <FONT color=blue>False</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Khi một MenuItem có Enabled=False thì 
+    nó bị mờ và user không dùng được.<BR><BR>Bạn dùng các dấu mũi tên chỉ lên và 
+    xuống để di chuyển MenuItem đã được selected lên và xuống trong danh sách 
+    các MenuItems. Bạn dùng button <B>Delete</B> để hủy bỏ MenuItem đã được 
+    selected, <B>Insert</B> để nhét một MenuItem mới ngay trên MenuItem đã được 
+    selected và <B>Next</B> để chọn MenuItem ngay dưới MenuItem đã được 
+    selected. 
+    <BLOCKQUOTE><IMG height=373 src="Chuong 10 - Dung Menu_files/Menucopy.gif" 
+      width=366></BLOCKQUOTE><BR>
+    <H3><FONT face=Tahoma color=green>Pop-up Menu</FONT></H3>Đối với User, đang 
+    khi làm việc với một Object trong Windows tiện nhất là ta có thể làm hiển 
+    thị <B>Context Menu</B> (Menu áp dụng cho đúng tình huống) bằng một Mouse 
+    click. Thông thường đó là Right Click và cái Context Menu còn được gọi là 
+    <B>Pop-up Menu</B>. Chính cái Pop-Up menu thật ra là Drop-down menu của một 
+    Menu Bar Command. Bình thường Menu Bar Command ấy có thể visible hay 
+    invisible (tàn hình). <BR><BR>Trong hình dưới đây, khi User Right click trên 
+    Form, mnuEdit sẽ hiện lên. Nếu bình thường bạn không muốn cho User dùng nó 
+    trong Main Menu thì bạn cho nó invisible: 
+    <BLOCKQUOTE><IMG height=302 src="Chuong 10 - Dung Menu_files/PopUp.gif" 
+      width=451></BLOCKQUOTE><BR>Code làm cho Popup menu hiện lên được viết trong 
+    Event Mousedown của một Object mà tình cờ ở đây là của chính cái Form:<BR>
+    <TABLE bgColor=#f6f6f6>
+      <TBODY>
+      <TR>
+        <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_MouseDown(Button <FONT color=blue>As</FONT> Integer, Shift <FONT color=blue>As</FONT> Integer, X <FONT color=blue>As</FONT> Single, Y <FONT color=blue>As</FONT> Single) 
+   <FONT color=green>' Popup the Edit Menu if User clicked the Right Button of the Mouse</FONT>
+   <FONT color=blue>If</FONT> Button = vbRightButton <FONT color=blue>Then</FONT> 
+      PopupMenu mnuEdit 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Ngay cả khi bạn muốn cho mnuEdit bình 
+    thường là invisible, bạn cũng nên để cho nó visible trong lúc đầu để tiện bỏ 
+    code vào dùng để xử lý Click Events của những MenuItems thuộc về mnuEdit như 
+    mnuCopy, mnuCut và mnuPaste. 
+    <H3><FONT face=Tahoma color=green>Chứa menu Settings trong 
+    Registry</FONT></H3>Giả tỉ program bạn cho User một Option WordWrap như dưới 
+    đây:<BR>
+    <BLOCKQUOTE><IMG height=302 src="Chuong 10 - Dung Menu_files/WordWrap.gif" 
+      width=451></BLOCKQUOTE><BR>Bạn muốn Program nhớ Option mà User đã chọn, để 
+    lần tới khi User khởi động program thì Option WordWrap còn giữ nguyên giá 
+    trị như cũ.<BR><BR>Cách tiện nhất là chứa value của Option WordWrap như một 
+    <B>Key</B> trong <B>Registry</B>. Registry là một loại cơ sở dữ liệu đặc 
+    biệt của Windows Operating System dùng để chứa những dữ kiện liên hệ đến 
+    Users, Hardware, Configurations, ActiveX Components ..v.v. dùng trong 
+    computer. Trong Registry, data được sắp đặt theo từng loại theo đẳng cấp. 
+    Bạn có thể Edit trực tiếp trị số các Keys trong Registry bằng cách dùng 
+    <B>Registry Editor</B>.<BR>
+    <BLOCKQUOTE><IMG height=276 
+      src="Chuong 10 - Dung Menu_files/RegistryEditor.gif" 
+    width=694></BLOCKQUOTE><BR>Trong program nầy ta cũng nhân tiện bắt program 
+    nhớ luôn vị trí của Form khi program ngừng lại, để lần tới khi User khởi 
+    động program thì program sẽ có vị trí lúc đầu giống y như trước.<BR><BR>Ta 
+    sẽ dùng <B>Sub SaveSetting</B> để chứa <B>Checked</B> value của mnuWordWrap 
+    và <B>Left, Top</B> của Form. Code ấy ta sẽ để trong <B>Sub 
+    Form_QueryUnload</B> vì nó sẽ được executed trước khi Form Unload.<BR><BR>
+    <TABLE bgColor=#f6f6f6>
+      <TBODY>
+      <TR>
+        <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_QueryUnload(Cancel <FONT color=blue>As</FONT> Integer, UnloadMode <FONT color=blue>As</FONT> Integer) 
+   SaveSettings 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> <BR>
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> SaveSettings() 
+   <FONT color=green>' Save Location of the form</FONT>
+   SaveSetting App.Title, "Location", "Left", Me.Left 
+   SaveSetting App.Title, "Location", "Top", Me.Top 
+   <FONT color=green>' Save the setting of WordWrap in menu</FONT>
+   SaveSetting App.Title, "Settings", "WordWrap", mnuWordWrap.Checked 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>App.Title là Tựa đề của program. 
+    Thông thường nó là tên của VB Project, nhưng bạn có thể sữa nó trong 
+    <B>Project Property Dialog</B> (Tab <B>Make</B>) :<BR>
+    <BLOCKQUOTE><IMG height=384 
+      src="Chuong 10 - Dung Menu_files/ProjectProperty.gif" 
+    width=418></BLOCKQUOTE><BR>Khi chứa value của một thứ gì (ta gọi là 
+    <B>Key</B>) vào Registry bạn có thể sắp đặt cho nó nằm trong <B>Section</B> 
+    nào tùy ý. Ở đây ta đặt ra hai Sections tên <B>Location</B> để chứa Top,Left 
+    của Form và tên <B>Settings</B> để chứa Key mnuWordWrap.Checked.<BR><BR>Muốn 
+    cho program có các giá trị của Keys chứa trong Registry khi nó khởi động ta 
+    chỉ cần dùng <B>Function GetSetting</B> trong <B>Sub Form_Load</B> để đọc 
+    vào từ Registry như dưới đây:<BR><BR>
+    <TABLE bgColor=#f6f6f6>
+      <TBODY>
+      <TR>
+        <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_Load() 
+   <FONT color=green>' Initialise Location of the form by reading the Settings from the Registry</FONT>
+   Me.Left = Val(GetSetting(App.Title, "Location", "Left", "0")) 
+   Me.Top = Val(GetSetting(App.Title, "Location", "Top", "0")) 
+   <FONT color=green>' Initialise setting of WordWrap in the menu</FONT>
+   mnuWordWrap.Checked = ( GetSetting(App.Title, "Settings", "WordWrap", "False") = "True" )
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Lúc đầu khi chưa có gì trong Registry 
+    thì <B>"0"</B> (string "0" được converted bởi Val ra 0) là default value cho 
+    Left và Top, còn <B>"False"</B> là default value của 
+    mnuWordWrap.Checked.<BR><BR>Ngoài ra ta cũng muốn program nhớ tên của ba 
+    Files User dùng gần đây nhất. Tức là trong Drop-down của Menu Command File 
+    sẽ có MenuItem <B>Recent Files</B> để hiển thị từ một đến ba tên Files, cái 
+    mới nhất nằm trên hết. Trước hết, ta cần tạo ra 3 SubmenuItem có cùng tên 
+    mnuRFile nhưng mang <B>Index</B> bằng 0,1 và 2 (bạn đánh vào Textbox 
+    <B>Index</B>). Ta sẽ dùng Captions của chúng để hiển thị tên các Files. Lúc 
+    chưa có Filename nào cả thì MenuItem <B>Recent Files</B> sẽ bị làm mờ đi 
+    (tức là mnuRecentFiles.Enabled = False ). <BR><BR>Ta sẽ chứa tên các Files 
+    như một String trong Section Settings của Registry. Ta phân cách tên các 
+    Files bằng delimiter character <B>|</B>. Thí dụ: 
+    "LattestFileName.txt<B>|</B>OldFileName.txt<B>|</B>OldestFilename.txt"<BR>Mỗi 
+    lần User Open một File ta sẽ thêm tên File ấy vào trong Registry và bất cứ 
+    lúc nào chỉ giữ lại tên của 3 Files mới dùng nhất.<BR>
+    <BLOCKQUOTE><IMG height=373 
+      src="Chuong 10 - Dung Menu_files/IndexMenu.gif" 
+    width=366></BLOCKQUOTE><BR>Dưới đây là code dùng để thêm tên File mới dùng 
+    nhất vào Registry:<BR><BR>
+    <TABLE bgColor=#f6f6f6>
+      <TBODY>
+      <TR>
+        <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> mnuOpen_Click() 
+   <FONT color=green>' Initialise Folder in Common Dialog</FONT>
+   CommonDialog1.InitDir = App.Path 
+   <FONT color=green>' Launch the dialog</FONT>
+   CommonDialog1.ShowOpen 
+   <FONT color=green>' Save the Filename in the Registry, using Object myRecentFiles</FONT>
+   myRecentFiles.AddFile CommonDialog1.FileName 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE><BR>Code dùng trong Sub Form_Load để 
+    đọc tên RecentFiles và hiển thị trong Menu:<BR>
+    <TABLE bgColor=#f6f6f6>
+      <TBODY>
+      <TR>
+        <TD><FONT size=3><PRE><FONT color=green>'</FONT>
+   <FONT color=blue>Set</FONT> myRecentFiles = <FONT color=blue>New</FONT> clsRecentFiles 
+   <FONT color=green>' Pass the form handle to it</FONT>
+   <FONT color=green>' This effectively loads the most recently used FileNames to menu</FONT>
+   myRecentFiles.Init Me 
+</PRE></FONT></TD></TR></TBODY></TABLE>
+    <BLOCKQUOTE><IMG height=302 
+      src="Chuong 10 - Dung Menu_files/RecentFiles.gif" 
+    width=451></BLOCKQUOTE><BR>Ta sẽ dùng một Class tên <B>clsRecentFiles</B> để 
+    đặc biệt lo việc chứa tên Files vào Registry và hiển thị tên các Files ấy 
+    trong Menu. Bên trong clsRecentFiles ta cũng dùng clsString, là một Class 
+    giúp ta ngắt khúc String trong Registry ra tên của các Files dựa vào chỗ các 
+    delimiter character <B>|</B>. 
+    <TABLE bgColor=#f6f6f6>
+      <TBODY>
+      <TR>
+        <TD><FONT size=3><PRE><FONT color=green>' Author: Le Duc Hong http://www.vovisoft.com</FONT>
+<FONT color=green>' Class Name: clsRecentFiles</FONT>
+<FONT color=green>' This Class saves the most Recent FileNames used in the Registry in form of</FONT>
+<FONT color=green>' a String delimited by |.</FONT>
+<FONT color=green>' Up to MaxFiles Filenames maybe stored.</FONT>
+<FONT color=green>' You need to pass the Form that contains the menu to it.</FONT>
+<FONT color=green>' The assumption is that you have created an array of MenuItems named mnuRFile</FONT>
+<FONT color=green>' to display the FileNames</FONT>
+<FONT color=green>'</FONT>
+<FONT color=blue>Const</FONT> MaxFiles = 3  <FONT color=green>' Maximum number of FileNames to remember</FONT>
+<FONT color=blue>Private</FONT> myForm <FONT color=blue>As</FONT> Form 
+<FONT color=blue>Private</FONT> RecentFiles <FONT color=blue>As</FONT> clsString 
+<FONT color=blue>Public</FONT> <FONT color=blue>Sub</FONT> Init(TForm <FONT color=blue>As</FONT> frmMenu) 
+   <FONT color=blue>Set</FONT> myForm = TForm 
+   <FONT color=blue>Set</FONT> RecentFiles = <FONT color=blue>New</FONT> clsString 
+   <FONT color=green>' Read the Most Recent Filename String from the Registry</FONT>
+   RecentFiles.Text = GetSetting(App.Title, "Settings", "RecentFiles", "") 
+   <FONT color=green>' Assign the Delimiter character and tokennise the String (i.e. split it) into FileNames</FONT>
+   RecentFiles.Delimiter = "|" 
+   UpdateMenu 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> <BR>
+<FONT color=blue>Public</FONT> <FONT color=blue>Sub</FONT> AddFile(FileName <FONT color=blue>As</FONT> String) 
+   <FONT color=green>' Add the latest FileName to the list and update the Registry</FONT>
+   <FONT color=green>' Prefix the FileName to the existing MostRecentFileName String</FONT>
+   RecentFiles.Text = FileName &amp; "|" &amp; RecentFiles.Text 
+   <FONT color=green>' Discard the oldest FileNames if the total number is greater than MaxFiles</FONT>
+   <FONT color=blue>If</FONT> RecentFiles.TokenCount &gt; MaxFiles <FONT color=blue>Then</FONT> 
+      <FONT color=blue>Dim</FONT> TStr <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+      <FONT color=blue>Dim</FONT> i <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+      <FONT color=green>' Reconstitute the String that contains only the most recent MaxFiles FileNames</FONT>
+      <FONT color=blue>For</FONT> i = 1 <FONT color=blue>To</FONT> MaxFiles 
+         TStr = TStr &amp; RecentFiles.TokenAt(i) &amp; "|" 
+      <FONT color=blue>Next</FONT> 
+      <FONT color=green>' Remove the last delimiter character on the right</FONT>
+      RecentFiles.Text = Left(TStr, Len(TStr) - 1) 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=green>' Update the String in the Registry</FONT>
+   SaveSetting App.Title, "Settings", "RecentFiles", RecentFiles.Text 
+   UpdateMenu 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT><BR> 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> UpdateMenu() 
+   <FONT color=green>' Display the most recent Filenames in the menu</FONT>
+   <FONT color=blue>Dim</FONT> i <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=green>' If there is no FileNames to display then disable the MenuItem entry</FONT>
+   <FONT color=blue>If</FONT> RecentFiles.TokenCount = 0 <FONT color=blue>Then</FONT> 
+      myForm.mnuRecentFiles.Enabled = <FONT color=blue>False</FONT> 
+      <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+   <FONT color=blue>Else</FONT> 
+      <FONT color=green>' Otherwise enable the MenuItem entry</FONT>
+      myForm.mnuRecentFiles.Enabled = <FONT color=blue>True</FONT> 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=green>' Assign FileName to Caption of mnuRFile array and make the MenuItem elements visible</FONT>
+   <FONT color=blue>For</FONT> i = 1 <FONT color=blue>To</FONT> RecentFiles.TokenCount 
+      myForm.mnuRFile(i - 1).Caption = RecentFiles.TokenAt(i)  <FONT color=green>' Assign to Caption</FONT>
+      myForm.mnuRFile(i - 1).Visible = <FONT color=blue>True</FONT>  <FONT color=green>' Make the MenuItem visible</FONT>
+      <FONT color=blue>If</FONT> i = MaxFiles <FONT color=blue>Then</FONT> <FONT color=blue>Exit</FONT> <FONT color=blue>For</FONT>  <FONT color=green>' This line maybe unnecessary</FONT>
+   <FONT color=blue>Next</FONT> 
+   <FONT color=green>' Make the rest of the MenuItem array mnuRFile invisible if there are less than MaxFiles</FONT>
+   <FONT color=blue>If</FONT> RecentFiles.TokenCount &lt; MaxFiles <FONT color=blue>Then</FONT> 
+      <FONT color=blue>For</FONT> i = RecentFiles.TokenCount <FONT color=blue>To</FONT> MaxFiles - 1 
+         myForm.mnuRFile(i).Visible = <FONT color=blue>False</FONT> 
+      <FONT color=blue>Next</FONT> 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Bạn có thể chạy Line Command 
+    <B>RegEdit</B> sau khi click <B>Start | Run </B>
+    <BLOCKQUOTE><IMG height=186 
+      src="Chuong 10 - Dung Menu_files/RunRegEdit.gif" 
+    width=347></BLOCKQUOTE><BR>để xem chi tiết của các Keys mà program đã chứa 
+    trong Sections <B>Location</B> và <B>Settings</B> của Folder 
+    <B>HKEY_CURRENT_USER\Software\VB and VBA Program Settings\Menu</B> 
+    <BLOCKQUOTE><IMG height=515 src="Chuong 10 - Dung Menu_files/Registry.gif" 
+      width=809></BLOCKQUOTE><BR>&nbsp;</BLOCKQUOTE></BLOCKQUOTE>
+<TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=clsRaised width=785 bgColor=#6699cc colSpan=5>&nbsp;</TD></TR>
+  <TR>
+    <TD width=256>&nbsp;</TD>
+    <TD width=181>&nbsp;</TD>
+    <TD width=258>&nbsp;</TD></TR></TBODY></TABLE></FONT></BODY></HTML>

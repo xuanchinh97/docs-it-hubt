@@ -1,0 +1,346 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://www.bangden.com/soncuoc/visualbasic/VB6Chapter7C.htm -->
+<!-- saved from url=(0052)http://www.vovisoft.com/VisualBasic/VB6Chapter7C.htm --><HTML><HEAD><TITLE>Using List Controls (Part III)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 7 - Dung List Controls (bai thu ba)_files/topbottom.css" 
+type=text/css rel=stylesheet>
+<META content="t, default" name="Microsoft Border"></HEAD>
+<BODY leftMargin=0 topMargin=65 marginwidth="0" marginheight="0"><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+      height=20 cellSpacing=0 cellPadding=0 width="130%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="51%" bgColor=#0000ff height=20><B><FONT face=Verdana 
+            color=#ffff00 size=2><SPAN style="BACKGROUND-COLOR: #0000ff">Trung 
+            tâm Dạy nghề và Phổ cập Tin học Miền núi ABC - Tỉnh Yên Bái 
+            </SPAN></FONT></B></TD>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="35%" height=20><FONT face=Verdana><IMG height=20 src="" 
+            width=136 border=0></FONT></TD></TR></TBODY></TABLE>
+      <P 
+      style="MARGIN: 0px; WORD-SPACING: 0px; TEXT-INDENT: 0px; LINE-HEIGHT: 100%"><FONT 
+      face=Verdana size=2><A 
+      href="http://www.bangden.com/soncuoc/index.htm">&lt;Home&gt;&nbsp;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Tho.htm">&lt;Thơ&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/laptrinh.htm">&lt;Lập trình&gt;</A> 
+      <A href="http://www.bangden.com/soncuoc/giaoan.htm">&lt;Giáo 
+      án&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/BaiViet.htm">&lt;Bài 
+      viết&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Vui.htm">&lt;Chuyện 
+      vui&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Traodoi.htm">&lt;Trao 
+      đổi&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/lienket.htm">&lt;Liên kết&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/moi.htm">&lt;Bài 
+      Mới&gt;</A></FONT></P></TD></TR><!--msnavigation--></TBODY></TABLE><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=top>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE>&nbsp;</BLOCKQUOTE></BLOCKQUOTE>
+      <CENTER>
+      <H1><FONT face=Verdana color=#000000>Khóa Hàm Thụ Visual Basic 
+      6.0</FONT></H1>
+      <H2><FONT face=Verdana color=#800000>Chương Bảy - Dùng List Controls (bài 
+      thứ ba)</FONT></H2></CENTER>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE><FONT face=Verdana>
+          <H3><FONT face=Verdana color=green>Listbox </FONT></H3>
+          <H4><FONT face=Verdana color=blue>Search trong Text File 
+          </FONT></H4>Ta biết rằng ListBox có thể chứa rất nhiều hàng text (con 
+          số hàng tối đa là 65535). Ta đã quen với việc hiển thị content của một 
+          text file trong một Listbox. Ta đã dùng ListBox để display các Events 
+          (sự cố) xãy ra trong real-time. Giả dụ, ta ghi lại tất cả mọi Events 
+          xãy ra trong real-time của một hệ thống an ninh, tức là ta biết ai ra, 
+          vào cửa nào, lúc mấy giờ. Các Events nầy vừa đuợc log xuống một Text 
+          file, vừa được cho vào một ListBox để luôn luôn hiển thị Event mới 
+          nhất ở cuối ListBox.<BR>Khi đã có mọi Events nằm trong ListBox, ta có 
+          thể Search (tìm kiếm) xem một người nào đã đi qua những cửa nào của 
+          building bằng cách iterate qua từng hàng trong ListBox và nhận diện 
+          một Text Pattern hàng với <B>Function InStr</B>.<BR>Trong bài mẫu dưới 
+          đây, ta đánh tên của một người vào trong TextBox rồi click nút 
+          <B>Find</B> và sau đó <B>Find Next</B> để highlight những Events trong 
+          ListBox cho thấy những lúc tên người đó xuất hiện. Trong khi tìm kiếm 
+          một Text Pattern ta có thể cho phép cả chữ Hoa , lẫn chữ Thường bằng 
+          cách covert mọi text ra Uppercase trước khi làm việc với 
+          chúng.<BR><BR><IMG height=557 
+          src="Chuong 7 - Dung List Controls (bai thu ba)_files/Find.gif" 
+          width=839 border=0><BR><BR>Listing của Sub Find_Click như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdFind_Click() 
+   <FONT color=blue>Dim</FONT> i, ALine, FText 
+   <FONT color=green>' Get out if the Listbox is empty</FONT>
+   <FONT color=blue>If</FONT> EventList.ListCount = 0 <FONT color=blue>Then</FONT> 
+      MsgBox "There <FONT color=green>'s no text available"</FONT>
+      <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=green>' Check if user has entered the Text Pattern</FONT>
+   <FONT color=blue>If</FONT> Trim(txtFind) = "" <FONT color=blue>Then</FONT> 
+      MsgBox "Please enter the <FONT color=blue>Text</FONT> Pattern to search for" 
+      <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=green>' Clear all selected lines</FONT>
+   <FONT color=blue>For</FONT> i = 0 <FONT color=blue>To</FONT> EventList.ListCount - 1 
+      EventList.Selected(i) = <FONT color=blue>False</FONT> 
+   <FONT color=blue>Next</FONT> 
+   <FONT color=green>' Convert the Text Pattern to Uppercase</FONT>
+   FText = UCase(txtFind.Text) 
+   <FONT color=green>' Iterate through every line in the ListBox</FONT>
+   <FONT color=blue>For</FONT> i = 0 <FONT color=blue>To</FONT> EventList.ListCount - 1 
+      <FONT color=green>' Convert this line to Uppercase</FONT>
+      ALine = UCase(EventList.List(i)) 
+      <FONT color=green>' If pattern exists in this line then highlight it</FONT>
+      <FONT color=blue>If</FONT> InStr(ALine, FText) &gt; 0 <FONT color=blue>Then</FONT> 
+         EventList.Selected(i) = <FONT color=blue>True</FONT>  <FONT color=green>' Highlight the line</FONT>
+         <FONT color=green>' Mark Current line as the Starting line for FindNext operation</FONT>
+         <FONT color=blue>If</FONT> i &lt; EventList.ListCount - 1 <FONT color=blue>Then</FONT> CurrentLine = i + 1 
+         <FONT color=green>' get out</FONT>
+         <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+      <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=blue>Next</FONT> 
+   <FONT color=green>' Only get here if Not found</FONT>
+   MsgBox "Not found!" 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE>Trong 
+          bài nầy ta có dùng một <B>DriveListBox</B> để cho User chọn một Disk 
+          drive, một <B>DirListBox</B> để user chọn một Folder/Directory và một 
+          <B>FileListBox</B> để hiển thị tên của những Files trong một 
+          Folder.<BR>Cả ba loại ListBoxes nầy liên kết nhau để cho ta thấy sự 
+          thay đổi ăn nhịp mỗi khi User đổi từ Disk Drive nầy qua Disk Drive 
+          khác, hay từ Folder nầy qua Folder khác. Các hàng codes thực hiện việc 
+          nầy rất đơn giản như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Drive1_Change() 
+   <FONT color=green>' Make Path of Folder same as new Drive</FONT>
+   Dir1.Path = Drive1.Drive 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Dir1_Change() 
+   <FONT color=green>' Make Path of FileList same as new Path of Folder</FONT>
+   <FONT color=green>' The filenames in the Folder will be displayed automatically in FileListBox</FONT>
+   FileList.Path = Dir1.Path 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE>Ta có 
+          thể chọn lựa chỉ những Filenames có một Extension nào đó (thí dụ như 
+          <B>log</B>) bằng cách cho <B>Property Pattern</B> của FileListBox 
+          value "<B>*.log</B>".<BR><BR>Mỗi khi User click lên tên của một File, 
+          program sẽ load content của File ấy vào ListBox <B>EventList</B> bên 
+          phải. <BR><BR>Sau khi selected một số hàng rồi, User có thể hoặc Print 
+          chúng ra bằng cách Click nút <B>Print</B>, hoặc Copy chúng vào 
+          Clipboard bằng cách Click nút <B>Copy</B>. <BR><BR>Bạn có thể <A 
+          href="http://www.vovisoft.com/VisualBasic/LogFile.zip">download source 
+          code của program <B>LogFile.zip</B> nầy</A> để có đầy đủ. <BR>
+          <H4><FONT face=Verdana color=blue>Dùng ItemData </FONT></H4><FONT 
+          face=Verdana>Nếu <B>Property List</B> của ListBox được xem như một 
+          Text Array thì <B>ItemData</B> là một Number Array, và 
+          <B>List1.ItemData(i)</B> đi cặp với <B>List1.List(i)</B>. Tức là trong 
+          khi List1.List(i) hiển thị như mặt trước của một tấm bản thì 
+          List1.ItemData(i) được coi như nằm ở mặt sau của tấm bản ấy. Khi một 
+          List item thay đổi vị trí trong Listbox vì có sự biến đổi trong 
+          ListBox (thí dụ Items bị removed hay được cho thêm vào) thì ItemData 
+          của List item đó cũng đi theo với nó. <BR><BR>Ta thử xem thí dụ sau. 
+          Cho vào một <B>Sorted</B> Listbox tên của các nhân viên trong sở. Ngay 
+          sau khi tên một nhân viên được cho vào Listbox thì Property 
+          <B>NewIndex</B> chứa vị trí của item mới được cho vào ấy trong 
+          ListBox. Ta dùng giá trị NewIndex để assign ItemData với Số nhân viên 
+          ID. Khi User clicks lên một tên trong Listbox, program sẽ hiển thị cả 
+          Số nhân viên ID lẫn tên nhân viên. Ðể thử thí dụ nầy, bạn có thể Paste 
+          phần code dưới đây vào phần Declaration của một Form có chứa một 
+          Listbox và một Label. Nhớ set property Sorted của List1 ra 
+          True.<BR><BR>
+          <BLOCKQUOTE><IMG height=222 
+            src="Chuong 7 - Dung List Controls (bai thu ba)_files/ItemData.gif" 
+            width=254></BLOCKQUOTE>
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_Load() 
+   <FONT color=green>' Fill List1 and ItemData array with</FONT>
+   <FONT color=green>' corresponding items in sorted order.</FONT>
+   List1.AddItem "John Green"  <FONT color=green>' Add an employee name</FONT>
+   <FONT color=green>' Use NewIndex to synchronise with Employee ID</FONT>
+   <FONT color=green>' Assign Employee ID to ItemData of the List Item</FONT>
+   List1.ItemData(List1.NewIndex) = 62310 
+   List1.AddItem "Tran The Tam" 
+   List1.ItemData(List1.NewIndex) = 42859 
+   List1.AddItem "Alan Bradshaw" 
+   List1.ItemData(List1.NewIndex) = 63732 
+   List1.AddItem "Peter Costello" 
+   List1.ItemData(List1.NewIndex) = 34127 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> List1_Click() 
+   <FONT color=green>' Fetch the employee number</FONT>
+   Msg = List1.ItemData(List1.ListIndex) &amp; " " 
+   <FONT color=green>' Concatenate it with the employee name.</FONT>
+   Msg = Msg &amp; List1.List(List1.ListIndex) 
+   <FONT color=green>' Assign string to Label to display</FONT>
+   Label1.Caption = Msg 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE><BR></FONT>
+          <H4><FONT face=Verdana color=blue>Dùng ListBox làm Queue 
+          </FONT></H4><FONT face=Verdana>Khi đi coi hát, ta thường phải đứng sắp 
+          hàng để mua vé. Cái hàng đó gọi là <B>Queue</B>. Mục đích của việc 
+          dùng Queue là để cho số người đông cần một dịch vụ sẽ được phục vụ lần 
+          lượt theo thứ tự ai đến trước sẽ được giải quyết trước. Nguyên tắc của 
+          Queue như thế được gọi là <B>First-In-First-Out </B>( vào trước nhất, 
+          ra trước nhất). Ngược lại, nếu ai cũng muốn được phục vụ trước nhất ta 
+          sẽ có sự náo loạn, và rốt cuộc có thể chẳng có ai được giải 
+          quyết.<BR><BR>Thí dụ ta có một Form tên frmServer, mà trong đó có một 
+          Listbox tên List1. Nếu có nhiều Forms khác trong cùng một chương trình 
+          muốn nhờ frmServer phục vụ một chuyện gì, chúng sẽ Queue bằng cách Add 
+          một Item vào cuối List1. Trong Item có chứa những chi tiết mà 
+          frmServer sẽ cần biết để phục vụ. 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdAddToQueue_Click() 
+   <FONT color=blue>Dim</FONT> myRequest <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   <FONT color=blue>Dim</FONT> PersonId <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> * 5 
+   <FONT color=blue>Dim</FONT> PersonName <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> * 20 
+   <FONT color=green>' Assign PersonId to fixed length text</FONT>
+   PersonId = txtPersonId.Text 
+   <FONT color=green>' Assign PersonName to fixed length text</FONT>
+   PersonName = txtPersonName.Text 
+   <FONT color=green>' Concatenate Id and Name</FONT>
+   myRequest = PersonId &amp; PersonName 
+   <FONT color=green>' Queue the request</FONT>
+   frmServer.List1.AddItem myRequest 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Bên frmServer, cứ 
+          mỗi 3 giây nó sẽ Remove Item trên hết ( tức là Index=0) trong List1 và 
+          xử lý Item ấy. Trong bài nầy ta chỉ Remove Item 0 rồi Add nó vào 
+          List2. 
+          <BLOCKQUOTE><BR>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Timer1_Timer() 
+   <FONT color=blue>Dim</FONT> Item 
+   <FONT color=blue>If</FONT> List1.ListCount &gt; 0 <FONT color=blue>Then</FONT> 
+      <FONT color=green>' Look at the item at the head of the queue</FONT>
+      Item = List1.List(0) 
+      <FONT color=green>' Process Item - just add it to List2 here</FONT>
+      List2.AddItem Item 
+      <FONT color=green>' Remove item from queue</FONT>
+      List1.RemoveItem 0 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+          <BLOCKQUOTE><IMG height=227 
+            src="Chuong 7 - Dung List Controls (bai thu ba)_files/Queue.gif" 
+            width=409></BLOCKQUOTE>Bạn có thể <A 
+          href="http://www.vovisoft.com/VisualBasic/QueueServer.zip">download 
+          source code của program QueueServer.zip</A> nầy để chạy 
+thử.<BR></FONT>
+          <H4><FONT face=Verdana color=blue>CheckBox Listbox </FONT></H4><FONT 
+          face=Verdana>Nếu bạn chọn value của Property <B>Style</B> của Listbox 
+          là <B>CheckBox</B> thay vì <B>Standard</B> thì mọi items trong Listbox 
+          sẽ có một hộp vuông phía trước để User có thể chọn lúc chạy program. 
+          Hộp vuông của item nào được checked (đánh dấu) thì Item ấy được 
+          Selected.<BR><BR>Giả sử ta có một Listbox List1 với Style Checkbox và 
+          có nhiều Items để mua trong siêu thị. Khi chạy progarm user chọn một 
+          số items rồi click nút <B>Process</B>, program sẽ hiển thị các item đã 
+          được chọn.<BR><BR>Listing của <B>Sub CmdProcess_Click</B> như sau: 
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdProcess_Click() 
+   <FONT color=blue>Dim</FONT> Mess <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   <FONT color=green>' get out if there's nothing in the list</FONT>
+   <FONT color=blue>If</FONT> List1.ListCount = 0 <FONT color=blue>Then</FONT> <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+   <FONT color=green>' Iterate through every item of the checkBox Listbox</FONT>
+   <FONT color=blue>For</FONT> i = 0 <FONT color=blue>To</FONT> List1.ListCount - 1 
+      <FONT color=green>' If item is selected then include it in the shopping list</FONT>
+      <FONT color=blue>If</FONT> List1.Selected(i) <FONT color=blue>Then</FONT> 
+         <FONT color=green>' Append Item and a Carriage Return-LineFeed</FONT>
+         Mess = Mess &amp; List1.List(i) &amp; vbCrLf 
+      <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=blue>Next</FONT> 
+   <FONT color=green>' Display shopping list</FONT>
+   MsgBox Mess, vbInformation, "Selected Shopping Items" 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+          <BLOCKQUOTE><IMG height=289 
+            src="Chuong 7 - Dung List Controls (bai thu ba)_files/Checked.gif" 
+            width=230></BLOCKQUOTE>
+          <H4><FONT face=Verdana color=blue>Listbox với nhiều cột 
+          </FONT></H4>Listbox có một Property gọi là Columns. Bình thường, 
+          Property Columns có giá trị 0. Nhưng nếu bạn cho nó bằng 3 chẳng hạn, 
+          thì Listbox sẽ cố gắng hiển thị 4 cột trong phạm vi chiều ngang của 
+          Listbox. Nếu như thế vẫn không đủ hiển thị hết mọi Items trong Listbox 
+          thì sẽ có một Horizontal Scrollbar hiện ra, và khi bạn click nó qua 
+          bên phải Listbox sẽ cho hiển thị thêm các columns còn lại. 
+          <BLOCKQUOTE><IMG height=224 
+            src="Chuong 7 - Dung List Controls (bai thu ba)_files/Multicolumn.gif" 
+            width=513></BLOCKQUOTE>
+          <H3><FONT face=Verdana color=green>Combobox </FONT></H3>Combobox rất 
+          giống như Listbox. Nó là tập hợp của một Textbox nằm phía trên để User 
+          cho vào data và một Listbox chứa các items mà User có thể lựa chọn khi 
+          mở nó ra. Combo box cũng có những methods như <B>Clear, AddItem và 
+          RemoveItem</B>. Tuy nhiên, Combobox không có <B>Property Selected</B>, 
+          vì khi User chọn Item nào thì Item ấy được hiển thị trong Textbox phía 
+          trên.<BR><BR>Combobox có 3 styles. <B>Drop-down Combo</B> Style là 
+          thông dụng nhất. Nó cho User nhiệm ý hoặc chọn một Item từ List hoặc 
+          đánh data vào Textbox. Trong hình dưới đây User đánh vào chữ Elephant 
+          thay vì chọn từ các Items có sẵn. 
+          <BLOCKQUOTE><IMG height=150 
+            src="Chuong 7 - Dung List Controls (bai thu ba)_files/ComboBox.gif" 
+            width=264></BLOCKQUOTE><B>Drop-down List</B> bắt buộc User phải chọn 
+          một trong những Item nằm trong List, chớ không được đánh data mới vào 
+          Textbox. Ngay cả trong lúc chạy program (at run-time) bạn cũng không 
+          thể Assign một value vào property Text của Combobox loại nầy. Nhưng 
+          bạn có thể làm cho Combobox hiển thị Item thứ 3 chẳng hạn bằng cách 
+          set property ListIndex của Combo bằng 2.<BR></BLOCKQUOTE>
+        <BLOCKQUOTE><IMG height=14 
+          src="Chuong 7 - Dung List Controls (bai thu ba)_files/ball_red.gif" 
+          width=14>&nbsp;<A 
+          href="http://www.vovisoft.com/vovisoft/vblinks.htm">Các liên mạng VB 
+          khác</A></BLOCKQUOTE>
+        <BLOCKQUOTE>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><BR><A 
+          href="http://www.bangden.com/soncuoc/Dang/index.htm">Những câu hỏi về 
+          Visual Basic</A> 
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/visualbasic/tipstricks/forms.htm">Những 
+          mẹo vặt của Visual Basic</A></P>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/VB.htm"><BR>Lập trình với 
+          VBA</A></P></BLOCKQUOTE><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc --><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc -->
+        <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+        width="100%" border=0>
+          <TBODY>
+          <TR>
+            <TD class=clsRaised width=785 bgColor=#6699cc>
+              <P align=center><FONT face=Verdana color=#ffffff size=1>Được cung 
+              cấp từ Vivosoft</FONT></P></TD></TR></TBODY></TABLE>
+        <P>&nbsp;</P></FONT></FONT></BLOCKQUOTE>&nbsp;<!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></HTML>

@@ -1,0 +1,418 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://www.bangden.com/soncuoc/visualbasic/VB6Chapter9.htm -->
+<!-- saved from url=(0051)http://www.vovisoft.com/VisualBasic/VB6Chapter9.htm --><HTML><HEAD><TITLE>Debug</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 9 - Debug_files/topbottom.css" type=text/css rel=stylesheet>
+<META content="t, default" name="Microsoft Border"></HEAD>
+<BODY leftMargin=0 marginwidth="0" marginheight="0"><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+      height=20 cellSpacing=0 cellPadding=0 width="130%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="51%" bgColor=#0000ff height=20><B><FONT face=Verdana 
+            color=#ffff00 size=2><SPAN style="BACKGROUND-COLOR: #0000ff">Trung 
+            tâm Dạy nghề và Phổ cập Tin học Miền núi ABC - Tỉnh Yên Bái 
+            </SPAN></FONT></B></TD>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="35%" height=20><FONT face=Verdana><IMG height=20 src="" 
+            width=136 border=0></FONT></TD></TR></TBODY></TABLE>
+      <P 
+      style="MARGIN: 0px; WORD-SPACING: 0px; TEXT-INDENT: 0px; LINE-HEIGHT: 100%"><FONT 
+      face=Verdana size=2><A 
+      href="http://www.bangden.com/soncuoc/index.htm">&lt;Home&gt;&nbsp;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Tho.htm">&lt;Thơ&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/laptrinh.htm">&lt;Lập trình&gt;</A> 
+      <A href="http://www.bangden.com/soncuoc/giaoan.htm">&lt;Giáo 
+      án&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/BaiViet.htm">&lt;Bài 
+      viết&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Vui.htm">&lt;Chuyện 
+      vui&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Traodoi.htm">&lt;Trao 
+      đổi&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/lienket.htm">&lt;Liên kết&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/moi.htm">&lt;Bài 
+      Mới&gt;</A></FONT></P></TD></TR><!--msnavigation--></TBODY></TABLE><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=top>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE>&nbsp;</BLOCKQUOTE></BLOCKQUOTE>
+      <CENTER>
+      <H1><FONT face=Verdana color=#000000>Khóa Hàm Thụ Visual Basic 
+      6.0</FONT></H1>
+      <H2><FONT face=Verdana color=#800000>Chương Chín - 
+      Debug</FONT></H2></CENTER>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE><FONT face=Verdana><FONT color=green size=6>B</FONT>ugs là 
+          những lỗi lầm của program mà ta phát hiện khi chạy nó. Debug là công 
+          việc loại tất cả những lỗi lầm trong chương trình để nó chạy êm xuôi 
+          trong mọi hoàn cảnh.<BR>Thông thường muốn fix một cái bug nào trước 
+          hết ta phải tìm hiểu lý do khiến nó xuất hiện. Một khi đã biết được 
+          duyên cớ rồi ta sẽ nghĩ ra cách giải quyết. Nói chung, có hai loại 
+          bugs: <BR>
+          <OL>
+            <LI>Hoặc là program không làm đúng chuyện cần phải làm vì programmer 
+            hiểu lầm <B>Specifications</B> hay được cho tin tức sai lạc, hoặc là 
+            program bỏ sót chi tiết cần phải có. Trường hợp nầy ta giải quyết 
+            bằng cách giảm thiểu sự hiểu lầm qua sự nâng cấp khả năng truyền 
+            thông. 
+            <LI>Program không thực hiện đúng như ý programmer muốn. Tức là 
+            programmer muốn một đàng mà bảo chương trình làm một ngã vì vô tình 
+            không viết lập trình đúng cách. Trường hợp nầy ta giải quyết bằng 
+            cách dùng những Software Tools (kể cả ngôn ngữ lập trình) thích hợp, 
+            và có những quá trình làm việc có hệ thống. </LI></OL>Trong hãng xe 
+          hơi người ta dùng từ <B>Quality Control</B> để nói đến việc chế ra 
+          chiếc xe không có lỗi lầm gì cả. Để đạt mục tiêu ấy, chẳng những cần 
+          có người kiểm phẩm mà chính các nhân viên lấp ráp thận trọng để công 
+          việc chính của người kiểm phẩm là xác nhận kết quả tốt chớ không phải 
+          tìm lỗi lầm.<BR><BR>Có nhiều yếu tố ảnh hưởng đến chất lượng của một 
+          program như chức năng của program, cấu trúc của các bộ phận, kỹ thuật 
+          lập trình và phương pháp debug. Debug không hẳn nằm ở giai đoạn cuối 
+          của dự án mà tùy thuộc rất nhiều vào các yếu tố kể trước trong mọi 
+          giai đoạn triển khai.<BR>
+          <H3><FONT color=green>Chức năng của chương trình (Program 
+          Specifications)</FONT></H3>Dầu program lớn hay nhỏ, trước hết ta phải 
+          xác nhận rõ ràng và tỉ mỉ nó cần phải làm gì, bao nhiêu người dùng, 
+          mạng như thế nào, database lớn bao nhiêu, phải chạy nhanh đến mức nào 
+          .v.v..<BR>Có nhiều chương trình phải bị thay đổi nữa chừng vì 
+          programmers hiểu lầm điều khách hàng muốn. Khổ nhất là lúc gần giao 
+          hàng mới khám phá ra có nhiều điểm trong chương trình khách muốn một 
+          đàng mà ta làm một ngã. Do đó trong sự liên hệ với khách hàng ta cần 
+          phải hỏi đi, hỏi lại, phản hồi với khách hàng nhiều lần điều ta hiểu 
+          bằng thư từ, tài liệu, để khách xác nhận là ta biết đúng ý họ trước 
+          khi xúc tiến việc thiết kế chương trình. Nếu sau nầy khách đổi ý, đó 
+          là quyền của họ, nhưng họ phải trả tiền thay đổi 
+          (<B>variation</B>).<BR><BR>
+          <H3><FONT color=green>Cấu trúc các bộ phận</FONT></H3>Program nào cũng 
+          có một kiến trúc tương tự như một căn nhà. Mỗi bộ phận càng đơn giản 
+          càng tốt và cách ráp các bộ phận phải như thế nào để ta dễ thử. Trong 
+          khi thiết kế ta phải biết trước những yếu điểm của mỗi bộ phận nằm ở 
+          đâu để ta chuẩn bị cách thử chúng. Ta sẽ không hề tin bộ phận nào hoàn 
+          hảo cho đến khi đã thử nó, dù nó đơn sơ đến đâu.<BR><BR>Nếu ta muốn 
+          dùng một kỹ thuật gì trong một hoàn cảnh nào mà ta không biết chắc nó 
+          chạy không thì nên thử riêng rẽ nó trước. Phương pháp ấy được gọi là 
+          <B>Prototype</B>. <BR><BR>Ngoài ra, ta cũng nên kế hoạch cho những 
+          trường hợp bất ngờ, điển hình là bad data - khi user bấm lung tung hay 
+          database chứa rác rến. <BR><BR>Nếu chương trình chạy trong 
+          <B>real-time</B> (tức là data thu nhập qua Serial Comm Port, Data 
+          Acquisition Card hay mạng), bạn cần phải lưu ý những trường hợp khác 
+          nhau tùy theo việc gì xẩy ra trước, việc gì xẩy ra sau. Lúc bấy giờ 
+          Logic của chương trình sẽ tùy thuộc vào trạng thái (<B>State</B>) của 
+          data. Tốt nhất là nghĩ đến những <B>Scenarios</B> (diễn tiến của những 
+          hoàn cảnh) để có thể thử từng giai đoạn và tình huống.<BR><BR>Ngày nay 
+          với kỹ thuật Đối Tượng, ở giai đoạn thiết kế nầy là lúc quyết định các 
+          Data Structures (tables, records ..v.v.) và con số Forms với Classes. 
+          Nhớ rằng mỗi Class gồm có một Data Structure và những 
+          Subs/Functions/Properties làm việc (operate) trên data ấy. Data 
+          structure phải chứa đầy đủ những chi tiết (data fields, variables) ta 
+          cần. Kế đó là những cách chương trình process data. Subs/Functions nào 
+          có thể cho bên ngoài gọi thì ta cho nó <B>Public</B>, còn những 
+          Subs/Functions khác hiện hữu để phục vụ bên trong class thì ta cho nó 
+          <B>Private</B>.<BR><BR>
+          <H3><FONT color=green>Kỹ thuật lập trình</FONT></H3>Căn bản của 
+          programmers và các thói quen của họ rất quan trọng. Nói chung, những 
+          người hấp tấp, nhảy vào viết chương trình trước khi suy nghĩ hay cân 
+          nhắc chính chắn thì sau nầy bugs lòi ra khắp nơi là chuyện tự 
+          nhiên.<BR>
+          <H3><FONT color=blue>Dùng Subs và Functions</FONT></H3>Nếu ở giai đoạn 
+          thiết kế kiến trúc của chương trình ta chia ra từng Class, thì khi lập 
+          trình ta lại thiết kế chi tiết về Subs, Functions .v.v.., mỗi thứ sẽ 
+          cần phải thử như thế nào. Nếu ta có thể chia công việc ra từng giai 
+          đoạn thì mỗi giai đoạn có thể mà một call đến một <B>Sub</B>. Thứ gì 
+          cần phải tính ra hay lấy từ nơi khác thì có thể được thực hiện bằng 
+          một <B>Function</B>. <BR><BR>Thí dụ như công việc trong một tiệm giặt 
+          ủi có thể gồm có các bước sau:<BR>
+          <OL>
+            <LI>Nhận hàng 
+            <LI>Phân chia từng loại 
+            <LI>Tẩy 
+            <LI>Giặt 
+            <LI>Ủi 
+            <LI>Vô bao 
+            <LI>Tính tiền 
+            <LI>Giao hàng </LI></OL>Trong đó các bước 1,2,6 và 8 có thể là những 
+          Subs. Còn các bước 3,4,5 và 7 những Functions, thí dụ như khi ta giao 
+          cho <B>Function Giặt</B> một cái áo dơ ta sẽ lấy lại một cái áo 
+          sạch.<BR><BR>Nhớ rằng điểm khác biệt chính giữa một Sub và một 
+          Function là Function cho ta một kết quả mà không làm thay đổi những 
+          <B>parameters</B> ta đưa cho nó. Trong khi đó, dầu rằng Sub không cho 
+          ta gì một cách rõ ràng nhưng nó có thể thay đổi trị số (value) của bất 
+          cứ parameters nào ta pass cho nó <B>ByRef</B>. Nhắc lại là khi ta pass 
+          một parameter <B>ByVal</B> cho một Sub thì giống như ta đưa một 
+          <B>copy</B> (bản sao) của variable đó cho Sub, Sub có thể sữa đổi nó 
+          nhưng nó sẽ bị bỏ qua, không ảnh hưởng gì đến <B>original</B> (bản 
+          chính) variable.<BR>Ngược lại khi ta pass một parameter <B>ByRef</B> 
+          cho một Sub thì giống như ta đưa bản chính của variable cho Sub để nó 
+          có thể sữa đổi vậy.<BR><BR>Do đó để tránh trường hợp vô tình làm cho 
+          trị số một variable bị thay đổi vì ta dùng nó trong một Sub/Function 
+          bạn nên dùng ByVal khi pass nó như một parameter vào một 
+          Sub/Function.<BR><BR>Thật ra, bạn có thể dùng ByRef cho một parameter 
+          pass vào một Function. Trong trường hợp đó dĩ nhiên variable ấy có thể 
+          bị sữa đổi. Điều nầy gọi là phản ứng phụ (<B>side effect</B>), vì bình 
+          thường ít ai làm vậy. Do đó, nếu bạn thật sự muốn vượt ngoài qui ước 
+          thông thường thì nên Comment rõ ràng để cảnh cáo người sẽ đọc chương 
+          trình bạn sau nầy.<BR><BR>Ngoài ra, mỗi programmer thường có một 
+          <B>Source Code Library</B> của những Subs/Functions ưng ý. Bạn nên 
+          dùng các Subs/Functions trong Library của bạn càng nhiều càng tốt, vì 
+          chúng đã được thử nghiệm rồi.<BR>
+          <H3><FONT color=blue>Đừng sợ Error</FONT></H3>Mỗi khi chương trình có 
+          một Error, hoặc là <B>Compilation Error</B> (vì ta viết code không 
+          đúng văn phạm, ngữ vựng), hoặc là Error trong khi chạy chương trình, 
+          thì bạn không nên sợ nó. Hãy bình tĩnh đọc cái <B>Error Message</B> để 
+          xem nó muốn nói gì. Nếu không hiểu ngay thì đọc đi đọc lại vài lần và 
+          suy nghiệm xem có tìm được mách nước nào không. Nghề programming của 
+          chúng ta sẽ gặp Errors như ăn cơm bữa, nên bạn phải tập bình tĩnh đối 
+          diện với chúng.<BR><BR>
+          <H3><FONT color=blue>Dùng Comment (Chú thích)</FONT></H3>Lúc viết code 
+          nhớ thêm <B>Comment</B> đầy đủ để bất cứ khi nào trở lại đọc đoạn code 
+          ấy trong tương lai bạn không cần phải dựa vào tài liệu nào khác mà có 
+          thể hiểu ngay lập tức mục đích của một Sub/Function hay đoạn 
+          code.<BR>Như thế không nhất thiết bạn phải viết rất nhiều Comment 
+          nhưng hễ có điểm nào khác thường, bí hiểm thì bạn cần thông báo và 
+          giải thích tại sao bạn làm cách ấy. Có thể sau nầy ta khám phá ra đoạn 
+          code có bugs; lúc đọc lại có thể ta sẽ thấy dầu rằng ý định và thiết 
+          kế đúng nhưng cách lập trình có phần thiếu soát chẳng hạn.<BR><BR>Tính 
+          ra trung bình một programmer chỉ làm việc 18 tháng ở mỗi chỗ. Tức là, 
+          gần như chắc chắn code bạn viết sẽ được người khác đọc và bảo trì ( 
+          debug và thêm bớt). Do đó, code phải càng đơn giản, dễ hiểu càng tốt. 
+          Đừng lo ngại là chương trình sẽ chạy chậm hay chiếm nhiều bộ nhớ, vì 
+          ngày nay computer chạy rất nhanh và bộ nhớ rất rẻ. Khi nào ta thật sự 
+          cần phải quan tâm về vận tốc và bộ nhớ thì điều đó cần được thiết kế 
+          cẩn thận chớ không phải dựa vào những tiểu xảo về lập trình.<BR><BR>
+          <H3><FONT color=blue>Đặt tên các variables có ý nghĩa</FONT></H3>Khổ 
+          nhất là làm việc với các variables có tên vắn tắt như K, L, AA, XY. Ta 
+          không có một chút ý niệm chúng là ai, hiện hữu để làm gì. Thay vào đó, 
+          nếu ta đặt các tên variables như NumberOfItems, PricePerUnit, Discount 
+          .v.v.. thì sẽ dễ hiểu hơn.<BR><BR>Một trong những bugs khó thấy nhất 
+          là ta dùng cùng một tên cho <B>local variable</B> (variable declared 
+          trong Sub/Function) và <B>global variable</B> (variable declared trong 
+          Form hay Basic Module). Local variable sẽ che đậy global variable cùng 
+          tên, nên nếu bạn muốn nói đến global variable trong hoàn cảnh ấy bạn 
+          sẽ dùng lầm local variable.<BR><BR>
+          <H3><FONT color=blue>Dùng Option Explicit</FONT></H3>Bạn nên trung tín 
+          dùng <B>Option Explicit</B> ở đầu mỗi Form, Class hay Module. Nếu có 
+          variable nào đánh vần trật VB6 IDE sẽ cho bạn biết ngay. Nếu bạn không 
+          dùng Option Explicit, một variable đánh vần trật được xem như một 
+          variable mới với giá trị 0 hay "" (empty string).<BR><BR>Nói chung bạn 
+          nên thận trọng khi assign một data type cho một variable với data type 
+          khác. Bạn phải biết rõ bạn đang làm gì để khỏi bị phản ứng phụ (side 
+          effect).<BR><BR>
+          <H3><FONT color=blue>Desk Check</FONT></H3>Kiểm lại code trước khi 
+          compile. Khi ta compile code, nếu không có error chỉ có nghĩa là 
+          Syntax của code đúng, không có nghĩa là logic đúng. Do đó ta cần phải 
+          biết chắc là code ta viết sẽ làm đúng điều ta muốn bằng cách đọc lại 
+          code trước khi compile nó lần đầu tiên. Công việc nầy gọi là <B>Desk 
+          Check</B> (Kiểm trên bàn). Một chương trình được Desk Checked kỹ sẽ 
+          cần ít debug và chứa ít bugs không ngờ trước. Lý do là mọi scenarios 
+          đã được tiên liệu chu đáo.<BR><BR>
+          <H3><FONT color=blue>Soạn một Test Plan</FONT></H3><B>Test Plan</B> 
+          liệt kê tất cả những gì ta muốn thử và cách thử chúng. Khi thử theo 
+          Test Plan ta sẽ khám phá ra những bug và tìm cách loại chúng ra. Hồ sơ 
+          ghi lại lịch sử của Test Plan (trục trặc gì xẩy ra, bạn đã dùng biện 
+          pháp nào để giải quyết) sẽ bổ ích trên nhiều phương diện. Ta sẽ học 
+          được từ kinh nghiệm Debug và biết rõ những thứ gì trong dự án đã được 
+          thử theo cách nào.<BR><BR>
+          <H3><FONT color=blue>Xử lý Error lúc Run time</FONT></H3>Khi EXE của 
+          một chương trình viết bằng VB6 đang chạy, nếu gặp Error, nó sẽ hiển 
+          thị một <B>Error Dialog</B> cho biết lý do vắn tắc. Sau khi bạn click 
+          OK, chương trình sẽ ngưng. Nếu bạn chạy chương trình trong VB6 IDE, 
+          bạn có dịp bảo program ngừng ở trong source code chỗ có Error bằng 
+          cách bấm button <B>Debug</B> trong Error Dialog. Tiếp theo đó bạn có 
+          thể tìm hiểu trị số các variables để đoán nguyên do của Error. Do đó, 
+          nếu bạn bắt đầu cho dùng một program bạn viết trong sở, nếu tiện thì 
+          trong vài tuần đầu, thay gì chạy EXE của chương trình, bạn chạy source 
+          code trong VB6 IDE. Nếu có bug nào xẩy ra, bạn có thể cho program 
+          ngừng trong source code để debug.<BR><BR>Khi bạn dùng 
+          statement:<BR>&nbsp;&nbsp;&nbsp;&nbsp;<B>On Error Resume 
+          Next</B><BR>thì từ chỗ đó trở đi, nếu chương trình gặp Error, nó sẽ bỏ 
+          qua (ignore) hoàn toàn. Điểm nầy tiện ở chỗ giúp chương trình EXE của 
+          ta tránh bị té cái ạch rồi biến mất, rất là "quê" với khách hàng. 
+          Nhưng nó cũng bất lợi là khi khách hàng cho hay họ gặp những trường 
+          hợp lạ, không giải thích được (vì Error bị ignored mà không ai để ý), 
+          thì ta cũng bí luôn, có thể không biết bắt đầu từ đâu để debug. Do đó, 
+          dĩ nhiên trong lúc debug ta không nên dùng nó, nhưng trước khi giao 
+          cho khách hàng bạn nên cân nhắc kỹ trước khi dùng.<BR><BR>
+          <H3><FONT color=blue>Dùng Breakpoints</FONT></H3>Cách hay nhất để theo 
+          dõi execution của program là dùng <B>Breakpoint</B> để làm cho program 
+          ngừng lại ở một chỗ ta muốn ở trong code, rồi sau đó ta cho program 
+          bước từng bước. Trong dịp nầy ta sẽ xem xét trị số của những variables 
+          để coi chúng có đúng như dự định không.<BR><BR>Bạn đoán trước 
+          execution sẽ đi qua chỗ nào trong code, chọn một chỗ thích hợp rồi 
+          click bên trái của hàng code, chỗ dấu chấm tròn đỏ như trong hình dưới 
+          đây:<BR><BR>
+          <BLOCKQUOTE><IMG height=176 
+            src="Chuong 9 - Debug_files/BreakPoint.gif" 
+          width=458></BLOCKQUOTE><BR><BR>Nếu bạn click lên dấu chấm tròn đỏ một 
+          lần nữa thì là hủy bỏ nó. Một cách khác để đặt một breakpoint là để 
+          editor cursor lên hàng code rồi bấm <B>F9</B>. Nếu bạn bấm F9 lần nữa 
+          khi cursor nằm trên hàng đó thì là hủy bỏ break point.<BR><BR>Lúc 
+          program đang dừng lại, bạn có thể xem trị số của một variable bằng 
+          cách để cursor lên trên variable ấy, tooltip sẽ hiên ra như trong hình 
+          dưới đây:<BR><BR>
+          <BLOCKQUOTE><IMG height=120 
+            src="Chuong 9 - Debug_files/ToolTipValue.gif" 
+          width=275></BLOCKQUOTE><BR><BR>Có một số chuyện khác bạn có thể làm 
+          trong lúc nầy. Bạn có thể nắm dấu chấm tròn đỏ kéo (drag) nó ngược lên 
+          một hay nhiều hàng code để nó sẽ execute trở lại vài hàng code. Bạn 
+          cho program execute từng hàng code bằng cách bấm <B>F8</B>. Menu 
+          command tương đương với nó là <B>Debug | Step Into</B>. Sẽ có lúc bạn 
+          không muốn program bước vào bên trong một Sub/Function mà muốn việc 
+          execute một Sub/Function như một bước đơn giản. Trong trường hợp đó, 
+          bạn dùng Menu command <B>Debug | Step Over</B> hay 
+          <B>Shift-F8</B>.<BR><BR>
+          <BLOCKQUOTE><IMG height=120 
+            src="Chuong 9 - Debug_files/MoveBreakpoint.gif" 
+          width=245></BLOCKQUOTE><BR><BR>Nhớ là để cho program chạy lại bạn bấm 
+          <B>F5</B>, tương đương với Menu command <B>Run | Continue</B>.<BR>Có 
+          khi bạn muốn program ngừng ở giữa một For Loop khi Iterator value có 
+          một trị số khá lớn. Nếu ta để sẵn một breakpoint ở đó rồi cứ bấm F5 
+          nhiều lần thì hơi bất tiện. Có một mánh lới là dùng một IF statement 
+          để thử khi Iterator value có trị số ấy thì ta ngừng ở breakpoint tại 
+          statement <B>Beep</B> (thay gì statement <B>Print ICounter</B>) như 
+          trong hình dưới đây:<BR><BR>
+          <BLOCKQUOTE><IMG height=163 
+            src="Chuong 9 - Debug_files/BeepBreakpoint.gif" 
+          width=282></BLOCKQUOTE><BR><BR>Muốn hủy bỏ mọi breakpoints bạn dùng 
+          Menu command <B>Debug | Clear All Breakpoints</B>.<BR>Để tiện việc 
+          debug, bạn có thể dùng <B>Debug Toolbar</B> bằng cách hiển thị nó với 
+          Menu command <B>View | Toolbars | Debug</B> 
+          <BLOCKQUOTE><IMG height=197 
+            src="Chuong 9 - Debug_files/ViewDebug.gif" 
+          width=365></BLOCKQUOTE><BR><BR>VB6 IDE sẽ hiển thị Debug Toolbar như 
+          sau:<BR><BR>
+          <BLOCKQUOTE><IMG height=236 
+            src="Chuong 9 - Debug_files/DebugToolBar.gif" 
+          width=593></BLOCKQUOTE><BR>
+          <H3><FONT color=blue>Dùng Immediate Window</FONT></H3><B>Immediate 
+          Window</B> cho phép ta execute những VB statement strong khi program 
+          đang dừng lại. Ta có thể dùng một Print statement để hiển thị trị số 
+          của một variable hay kết quả của một Function, gọi một Sub hay thay 
+          đổi trị số một variable trước khi tiếp tục cho chương trình chạy 
+          lại.<BR><BR>Để hiển thị Immediate Window, dùng Menu command <B>View | 
+          Immediate Window</B>. 
+          <BLOCKQUOTE><IMG height=139 
+            src="Chuong 9 - Debug_files/ImmediateWindow.gif" 
+          width=487></BLOCKQUOTE><BR>Thay vì đánh <B>"Print ICounter"</B> bạn 
+          cũng có thể đánh <B>"? ICounter"</B>. Nhớ là mỗi VB Statement bạn đánh 
+          trong Immediate Window sẽ được executed ngay khi bạn bấm <B>Enter</B>. 
+          Bạn có thể dùng lại bất cứ VB statement nào trong Immediate Window, 
+          chỉ cần bấm Enter ở cuối hàng ấy.<BR><BR>
+          <H3><FONT color=blue>Theo dấu chân chương trình 
+          (Tracing)</FONT></H3>Đôi khi không tiện để ngừng program nhưng bạn vẫn 
+          muốn biết program đang làm gì trong một Sub. Bạn có thể để giữa code 
+          của một Sub/Function một statement giống như dưới 
+          đây:<BR><BR><B>Debug.Print Format ( Now,"hh:mm:ss ") &amp; "(Sub 
+          ProcessInput) Current Status:" &amp; Status </B>để program hiển thị 
+          trong Immediate Window value của Status khi nó execute bên trong Sub 
+          ProcessInput lúc mấy giờ.<BR><BR>Có một cách khác là thay vì cho hiển 
+          thị trong Immediate Window bạn cho viết xuống (<B>Log</B>) vào trong 
+          một text file. Dưới đây là một Sub điển hình bạn có thể dùng để Log 
+          một Event message:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Sub</FONT> LogEvent(<FONT color=blue>ByVal</FONT> GivenFileName, <FONT color=blue>ByVal</FONT> Msg <FONT color=blue>As</FONT> String, HasFolder <FONT color=blue>As</FONT> Boolean, IncludeTimeDate <FONT color=blue>As</FONT> Integer) 
+   <FONT color=green>' Append event message Msg to a text Logfile GivenFileName</FONT>
+   <FONT color=green>' If GivenFileName is fullPathName then HasFolder is true</FONT>
+   <FONT color=green>' IncludeTimeDate = 0 : No Time or Date</FONT>
+   <FONT color=green>'  = 1 : Prefix with Time</FONT>
+   <FONT color=green>'  = 2 : Prefix with Time and Date</FONT>
+   <FONT color=blue>Dim</FONT> FileNo, LogFileName, theFolder 
+   <FONT color=blue>If</FONT> HasFolder <FONT color=blue>Then</FONT> 
+      LogFileName = GivenFileName 
+   <FONT color=blue>Else</FONT> 
+      <FONT color=blue>If</FONT> Right(App.Path, 1) &lt;&gt; "\" <FONT color=blue>Then</FONT> 
+         theFolder = App.Path &amp; "\" 
+      <FONT color=blue>Else</FONT> 
+         theFolder = App.Path 
+      <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+      LogFileName = theFolder &amp; GivenFileName 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   FileNo = FreeFile 
+   <FONT color=blue>If</FONT> Dir(LogFileName) &lt;&gt; "" <FONT color=blue>Then</FONT> 
+      <FONT color=blue>Open</FONT> LogFileName <FONT color=blue>For</FONT> <FONT color=blue>Append</FONT> <FONT color=blue>As</FONT> FileNo 
+   <FONT color=blue>Else</FONT> 
+      <FONT color=blue>Open</FONT> LogFileName <FONT color=blue>For</FONT> <FONT color=blue>Output</FONT> <FONT color=blue>As</FONT> FileNo 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=blue>Select</FONT> <FONT color=blue>Case</FONT> IncludeTimeDate 
+   <FONT color=blue>Case</FONT> 0  <FONT color=green>' No Time or Date</FONT>
+      Print #FileNo, Msg 
+   <FONT color=blue>Case</FONT> 1  <FONT color=green>' Time only</FONT>
+      Print #FileNo, Format(Now, "hh:nn:ss ") &amp; Msg 
+   <FONT color=blue>Case</FONT> 2  <FONT color=green>' Date &amp; Time</FONT>
+      Print #FileNo, Format(Now, "dd/mm/yyyy hh:nn:ss ") &amp; Msg 
+   <FONT color=blue>End</FONT> <FONT color=blue>Select</FONT> 
+   <FONT color=blue>Close</FONT> FileNo 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>
+          <H3><FONT color=blue>Dùng Watch Window</FONT></H3>Đôi khi bạn muốn 
+          program ngừng không phải ở một chỗ nào nhất định, nhưng khi trị số của 
+          một variable hay của một expression là bao nhiêu, có thể là bạn không 
+          biết tại sao một variable tự nhiên có một trị số như vậy. Câu hỏi: 
+          <B>Ai là thủ phạm?</B> . Thí dụ bạn muốn program ngừng lại khi 
+          <B>ICounter = 15</B>. Bạn có thể dùng Menu command <B>Debug | Add 
+          Watch</B>. VB6 IDE sẽ hiển thị dialog dưới đây. Bạn đánh <B>ICounter = 
+          15</B> vào textbox <B>Expression</B> và click option box <B>Break When 
+          Value Is True</B> trong hộp <B>Watch Type</B>. Làm như vậy có nghĩa là 
+          ta muốn program ngừng khi ICounter bằng 15.<BR><BR>
+          <BLOCKQUOTE><IMG height=284 
+            src="Chuong 9 - Debug_files/AddWatch.gif" width=384></BLOCKQUOTE><BR>
+          <H3><FONT color=blue>Dùng Phương Pháp Triệt Khai (Elimination 
+          Method)</FONT></H3>Có một phương pháp rất thông dụng khi debug là 
+          Comment Out những hàng code nghi ngờ để xem bug có biến mất không. Nó 
+          được gọi là <B>Elimination Method</B>. Nếu bug biến mất thì những hàng 
+          code đã được comment out là thủ phạm. Bạn có thể Comment Out một số 
+          hàng cùng một lúc bằng cách highlight các hàng ấy rồi click <B>Comment 
+          Block</B> trên Edit ToolBar. 
+          <BLOCKQUOTE><IMG height=151 
+            src="Chuong 9 - Debug_files/CommentBlock.gif" 
+          width=507></BLOCKQUOTE><BR>Khi dùng Elimination Method bạn phải cân 
+          nhắc Logic của code bạn trong khi quyết định Comment Out những hàng 
+          nào, nếu không, đó là một phương pháp khá nguy hiểm.<BR><BR>Ngoài ra, 
+          Menu Command <B>View | Locals Window</B> liệt kê cho bạn trị số của 
+          tất cả variables trong một Sub/Function và <B>View | Call Stack</B> 
+          liệt kê thứ bậc các Sub gọi lần lượt từ ngoài vào trong cho đến vị trí 
+          code đang ngừng hiện thời. </BLOCKQUOTE>
+        <BLOCKQUOTE><IMG height=14 src="Chuong 9 - Debug_files/ball_red.gif" 
+          width=14>&nbsp;<A 
+          href="http://www.vovisoft.com/vovisoft/vblinks.htm">Các liên mạng VB 
+          khác</A></BLOCKQUOTE>
+        <BLOCKQUOTE>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><BR><A 
+          href="http://www.bangden.com/soncuoc/Dang/index.htm">Những câu hỏi về 
+          Visual Basic</A> 
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%">&nbsp;</P>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/visualbasic/tipstricks/forms.htm">Những 
+          mẹo vặt của Visual Basic</A></P>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/visualbasic/tipstricks/forms.htm"><BR>Lập 
+          trình với VBA</A></P></BLOCKQUOTE><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc --><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc -->
+        <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+        width="100%" border=0>
+          <TBODY>
+          <TR>
+            <TD class=clsRaised width=785 bgColor=#6699cc>
+              <P align=center><FONT face=Verdana color=#ffffff size=1>Được cung 
+              cấp từ Vivosoft</FONT></P></TD></TR></TBODY></TABLE>
+        <P>&nbsp;</P></FONT></BLOCKQUOTE>&nbsp;<!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></HTML>

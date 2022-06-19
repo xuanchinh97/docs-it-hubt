@@ -1,0 +1,549 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://www.bangden.com/soncuoc/Visualbasic/VB6Chapter5.htm -->
+<!-- saved from url=(0051)http://www.vovisoft.com/VisualBasic/VB6Chapter5.htm --><HTML><HEAD><TITLE>Data Types</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 5 - Cac loai du kien_files/topbottom.css" type=text/css 
+rel=stylesheet>
+<META content="t, default" name="Microsoft Border"></HEAD>
+<BODY leftMargin=0 topMargin=65 marginwidth="0" marginheight="0"><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+      height=20 cellSpacing=0 cellPadding=0 width="130%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="51%" bgColor=#0000ff height=20><B><FONT face=Verdana 
+            color=#ffff00 size=2><SPAN style="BACKGROUND-COLOR: #0000ff">Trung 
+            tâm Dạy nghề và Phổ cập Tin học Miền núi ABC - Tỉnh Yên Bái 
+            </SPAN></FONT></B></TD>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="35%" height=20><FONT face=Verdana><IMG height=20 src="" 
+            width=136 border=0></FONT></TD></TR></TBODY></TABLE>
+      <P 
+      style="MARGIN: 0px; WORD-SPACING: 0px; TEXT-INDENT: 0px; LINE-HEIGHT: 100%"><FONT 
+      face=Verdana size=2><A 
+      href="http://www.bangden.com/soncuoc/index.htm">&lt;Home&gt;&nbsp;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Tho.htm">&lt;Thơ&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/laptrinh.htm">&lt;Lập trình&gt;</A> 
+      <A href="http://www.bangden.com/soncuoc/giaoan.htm">&lt;Giáo 
+      án&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/BaiViet.htm">&lt;Bài 
+      viết&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Vui.htm">&lt;Chuyện 
+      vui&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Traodoi.htm">&lt;Trao 
+      đổi&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/lienket.htm">&lt;Liên kết&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/moi.htm">&lt;Bài 
+      Mới&gt;</A></FONT></P></TD></TR><!--msnavigation--></TBODY></TABLE><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=top>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE>&nbsp;</BLOCKQUOTE></BLOCKQUOTE>
+      <CENTER>
+      <H1><FONT face=Verdana color=#000000>Khóa Hàm Thụ Visual Basic 
+      6.0</FONT></H1>
+      <H2><FONT face=Verdana color=#800000>Chương Năm - Các loại dữ 
+      kiện</FONT></H2></CENTER>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE><FONT face=Verdana><FONT color=green size=6>C</FONT>ông 
+          việc chính của tất cả các chương trình VB6 chúng ta viết là chế biến 
+          các dữ kiện để trình bày. Thí dụ một thầy giáo dùng một chương trình 
+          để tính điểm trung bình của học sinh trong một môn thi. Thầy tuần tự 
+          cho điểm của từng học sinh vào và sau cùng bấm một nút bảo chuơng 
+          trình tính điểm trung bình cho cả lớp. Chương trình sẽ display điểm 
+          thi của từng học sinh bên cạnh tên của học sinh ấy, tổng số học sinh, 
+          tổng số điểm, điểm thấp nhất, điểm cao nhất và điểm trung bình: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE cellPadding=5 bgColor=#eeeeee border=2>
+                <TBODY>
+                <TR>
+                  <TD width="30%" bgColor=#dddddd><B>Tên họ</B></TD>
+                  <TD width="15%" bgColor=#dddddd><B>Ðiểm</B></TD></TR>
+                <TR>
+                  <TD>Lê Quang Vinh</TD>
+                  <TD>15.50</TD></TR>
+                <TR>
+                  <TD>Trần văn Thành</TD>
+                  <TD>16.00</TD></TR>
+                <TR>
+                  <TD>Nguyễn Thị Hương</TD>
+                  <TD>17.50</TD></TR>
+                <TR>
+                  <TD>Võ Tự Cường</TD>
+                  <TD>14.00</TD></TR>
+                <TR>
+                  <TD>Phạm Văn Khá</TD>
+                  <TD>18.00</TD></TR>
+                <TR>
+                  <TD>Cao Xuân Tiên</TD>
+                  <TD>13.00</TD></TR>
+                <TR>
+                  <TD align=right><B>Tổng số học sinh:</B></TD>
+                  <TD>6</TD></TR>
+                <TR>
+                  <TD align=right><B>Tổng số điểm:</B></TD>
+                  <TD>94.00</TD></TR>
+                <TR>
+                  <TD align=right><B>Ðiểm thấp nhất:</B></TD>
+                  <TD>13.00</TD></TR>
+                <TR>
+                  <TD align=right><B>Ðiểm cao nhất:</B></TD>
+                  <TD>18.00</TD></TR>
+                <TR>
+                  <TD align=right><B>Ðiểm trung bình:</B></TD>
+                  <TD>15.66</TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE>Ta có thể 
+          tạm chia quá trình xử lý của một chương trình ra làm ba giai đoạn:<BR>
+          <OL>
+            <LI><B>Tiếp nhận dữ kiện:</B> Ðây là giai đoạn ta cho dữ kiện vào 
+            chương trình (<B>Input data</B>) hoặc bằng cách điền vào một form, 
+            hoặc đọc dữ kiện từ một cơ sỡ dữ kiện (<B>Database</B>) hoặc nhận dữ 
+            kiện qua đường dây viển thông, .v.v.. 
+            <LI><B>Chế biến dữ kiện:</B> Một khi đã có dữ kiện đầy đủ rồi ta sẽ 
+            sắp xếp, cộng, trừ, nhân, chia theo cách đã định trước để đi đến kết 
+            quả. 
+            <LI><B>Trình bày, báo cáo:</B> Kết quả cần phải được display trên 
+            màn ảnh cách gọn ghẽ, thứ tự hay được in ra, ta còn gọi là 
+            <B>Report</B>. </LI></OL>Như vậy trong mọi giai đoạn của chương trình 
+          ta đều làm việc với dữ kiện. Trong thí dụ nói trên ta làm việc với hai 
+          loại dữ kiện: <B>"dòng chữ" (text string)</B> cho tên học sinh và 
+          <B>"số" (number)</B> cho các điểm. Sở dĩ ta phải phân biệt các data 
+          types vì mỗi loại data có những chức năng riêng của nó. Thí dụ ta 
+          không thể cộng hai text string lại với nhau như hai con số, nhưng ta 
+          có thể ghép hai text string lại với nhau, thí dụ như ghép chữ 
+          <B>house</B> với chữ <B>wife</B> thành ra chữ <B>housewife</B>. Chốc 
+          nữa ta sẽ bàn thêm về data types, nhưng bây giờ ta thử tìm hiểu data 
+          được chứa trong computer như thế nào.<BR></FONT>
+          <H3><FONT face=Verdana color=green>Dữ kiện được chứa theo quy ước 
+          </FONT></H3><FONT face=Verdana>Rốt cuộc lại, tất cả data đều được chứa 
+          dưới dạng các con số. Mỗi con số đại diện cho một thứ gì đó, tùy theo 
+          quy ước của người dùng. Chúng ta biết bộ trí nhớ (<B>memory</B>) của 
+          computer chứa những <B>byte</B> data, thí dụ như computer của bạn có 
+          32MB, tức là khoảng hơn 32 triệu bytes. Thật ra một byte gồm có 8 
+          <B>bits</B>, mỗi bit đại diện một trong hai trị số: <B>1 và 0</B>, hay 
+          <B>Yes và No</B> , dòng điện chạy qua <B>được hay không được</B> 
+          .v.v.. Bit là đơn vị trí nhớ nhỏ nhất của memory.<BR><BR>Một byte có 
+          thể chứa một con số từ 0 đến 255, tức là 2^8 -1 (2 lũy thừa 8 bớt 1) . 
+          Khi dùng bits ta đếm các số trong hệ thống nhị phân. Nếu bạn chưa biết 
+          nhiều thì hãy đọc bài <A 
+          href="http://www.vovisoft.com/mcse/binarynumber.htm">Hệ thống số nhị 
+          phân</A>.<BR><BR>Thí dụ, khi bạn ấn nút <B>A</B> trên keyboard, 
+          keyboard sẽ gởi về computer con số <B>65 (01000001 trong nhị phân)</B> 
+          . Nếu bạn đang dùng một Notepad chẳng hạn, bạn sẽ thấy chữ <B>A</B> 
+          hiện ra. Bạn hỏi tại sao letter A được biểu diễn bằng số 65? Xin trả 
+          lời rằng đó là quy ước quốc tế. Quy ước đuợc áp dụng cho tất cả các 
+          keys của bàn phím đuợc gọi là <B>ASCII</B>. Theo quy ước nầy digit "1" 
+          được biểu diễn bằng con số 48 (00110001) và nút Enter bằng số 13 
+          (00010011).<BR><BR>Chắc có lẽ bạn đã đoán ra rằng theo quy ước ASCII, 
+          mỗi pattern (dạng) của 8 bits (1 byte) sẽ biểu diễn một text 
+          character. Bây giờ ta thử tính xem các mẫu tự alphabet và digits sẽ 
+          chiếm bao nhiêu patterns trong số 256 patterns ta có thể biểu diễn 
+          bằng 1 byte. Từ A đến Z có 26 characters. Nhân đôi để tính cho 
+          lowercase (chữ thường) và uppercase (chữ hoa) thành ra 52. Cộng với 10 
+          digits từ 0 đến 9 thành ra 62. Cộng thêm chừng ba mươi ngoài các 
+          symbols ta dùng chỉ đến chừng 100 patterns mà thôi. Tức là nói một 
+          cách khác nếu số patterns ta dùng dưới 128 thì chỉ cần 7 bits (chớ 
+          không đến 8 bits) cũng đủ rồi.<BR><BR>Thật ra từ nãy giờ ta chỉ nói 
+          đến các characters có thể display hay in ra đuợc (<B>printable 
+          characters</B>). Các con số ASCII từ 1 đến 31 không in ra đuợc nhưng 
+          đuợc dùng một cách đặc biệt, thí dụ như 7 là BELL (tiếng bíp), 12 là 
+          qua trang mới, 10 là xuống hàng, 13 là Enter/CarriageReturn, .v.v.. 
+          Chúng đuợc gọi là các <B>Control Characters</B>.<BR>Khi xem qua các 
+          Font chữ trong Windows, bạn sẽ thấy cho cùng một con số 65, không phải 
+          Font nào cũng display chữ A. Thí dụ như Font Symbol nó display đủ thứ 
+          dấu hiệu. Ðiểm nầy nhắc chúng ta lại rằng mối liên hệ giữa một con số 
+          bên trong (internal number) và một dấu hiệu được display chẳng qua là 
+          một quy ước mà thôi.<BR><BR>Giả sử chúng ta dùng những con số ASCII 
+          còn trống để biểu diễn các chữ Việt Nam có dấu và chịu khó ngồi vẽ 
+          thêm các Vietnamese characters cần thiết trong Font thì ta có thể 
+          display chữ Việt đuợc. Ðúng vậy, đó là cách các khoa học gia Việt Nam 
+          đã dùng để display tiếng Việt trong MSWindows, điển hình là <B>VPS, 
+          VISCII</B>. <BR><BR>Không phải memory của computer chỉ chứa data 
+          thường mà thôi. Nó còn chứa chính chương trình, gọi là <B>executable 
+          code</B> trong <B>machine language</B> (ngôn ngữ của máy). Ngày xưa, 
+          khi memory của computer còn ít, người ta có thể cho vào từng byte của 
+          code một chương trình. Họ lập trình bằng <B>Assembly language</B>. Mỗi 
+          hàng code trong Assembly language có thể đuợc dịch thẳng ra code trong 
+          machine language. CPU của mỗi manufacturer có một assembly language 
+          khác nhau. Các công ty Computer nổi tiếng ngày xưa là IBM, Digital, 
+          CDC. Ðến thời buổi Microcomputer ta có Motorola, Intel, nhưng tựu 
+          trung, nếu không biết trước code của machine language nào, ta không 
+          thể nhận ra gì cả khi nhìn vào memory dump (in ra snapshot của memory) 
+          của một computer. </FONT>
+          <H3><FONT face=Verdana color=green>Text String </FONT></H3><FONT 
+          face=Verdana>Nếu ta ghép nhiều characters lại với nhau ta có một Text 
+          String. Trong VB6, Text String được viết thành một dãy chữ với dấu 
+          ngoặc kép ở hai đầu, thí dụ: <B>"Hello, world"</B><BR>Tưởng tượng ta 
+          ghép ba mẫu tự alphabet đầu tiên lại với nhau: <B>ABC</B>, trong 
+          memory Text String nầy được biểu diễn bằng con số 
+          010000010100001001000011 (trong binary) hay 414243 (trong Hex, mỗi 
+          nhóm 4 bits tương đuơng với một Hex digit). <BR>VB6 cho ta những 
+          Function rất tiện lợi để làm việc với Text String. Ðể ghép hai Text 
+          String lại với nhau ta dùng operator <B>&amp;</B>. Thí dụ:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>FirstWord = "Hello"<BR>SecondWord = "World" 
+              <BR>Greeting = FirstWord &amp; SecondWord ' <I>Greeting bây giờ 
+              là</I> "HelloWorld"<BR><BR><I>nếu muốn có một blank space ở giữa 
+              hai chữ trên ta viết như sau:</I><BR>Greeting = FirstWord &amp; " 
+              " &amp; SecondWord </BLOCKQUOTE></BLOCKQUOTE>Muốn biết một Text String 
+          đang chứa bao nhiêu characters ta dùng <B>Function Len</B>. Thí dụ: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>Greeting = "Hi John!" <BR><BR>iLen = Len(Greeting) ' 
+              <I>iLen bây giờ bằng 8</I> </BLOCKQUOTE></BLOCKQUOTE>Ðể trích ra một 
+          phần của Text String (tức là trích ra một <B>SubString</B>) ta dùng 
+          các <B>Functions Left, Right và Mid</B>. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>Today = "24/05/2001" <BR><I>' Lấy ra 2 characters từ 
+              bên trái của String Today</I><BR>StrDay = Left(Today,2) ' 
+              <I>StrDay bây giờ bằng "24"</I><BR><I>' Lấy ra 4 characters từ bên 
+              phải của String Today</I><BR>StrYear = Right(Today,4) ' <I>StrYear 
+              bây giờ bằng "2001"</I><BR><I>' Lấy ra 2 characters bắt đầu từ 
+              character thứ tư của String Today, character đầu tiên từ bên trái 
+              là thứ nhất</I><BR>StrMonth = Mid(Today,4,2) ' <I>StrMonth bây giờ 
+              bằng "05"</I><BR><I>' Lấy ra phần còn lại bắt đầu từ character thứ 
+              tư của String Today</I><BR>StrMonthYear = Mid(Today,4) ' 
+              <I>StrMonthYear bây giờ bằng 
+          05/2001"</I><BR></BLOCKQUOTE></BLOCKQUOTE>Trong tất cả các trường hợp 
+          trên Text String Today không hề bị thay đổi, ta chỉ trích ra một 
+          SubString của nó mà thôi.<BR>Nếu ta muốn thay đổi chính Text String 
+          Today ta có thể assign value mới cho nó hay dùng Function Mid ở bên 
+          trái dấu <B>Assign (=)</B>, thí dụ: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>Today = "24/05/2001" <BR><I>' Thay thế character thứ 3 
+              của Today bằng "-"</I><BR>Mid(Today,3,1) = "-" <BR><I>' Thay thế 2 
+              characters bắt đầu từ character thứ 4 của Today bằng 
+              "10"</I><BR>Mid(Today,4,2) = "10" <BR><I>' Thay thế character thứ 
+              6 của Today bằng "-"</I><BR>Mid(Today,6,1) = "-" ' <I>Today bây 
+              giờ bằng "24-10-2001"</I><BR><BR>Ta cũng có thể đạt được kết quả 
+              như trên bằng cách lập trình như sau:<BR><BR>Today = "24/05/2001" 
+              <BR>Today = Left(Today,2) &amp; "-10-" &amp; Right(Today,4) 
+            </BLOCKQUOTE></BLOCKQUOTE>Ngoài ra có hai Function rất thông dụng cho 
+          Text String là <B>Instr</B> và <B>Replace</B>. Instr cho ta vị trí 
+          (position) của một pattern trong một Text String. Thí dụ ta muốn biết 
+          có dấu <B>*</B> trong một Text String hay không:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>myString = "The *rain in Spain mainly..." <BR>Position 
+              = Instr(myString,"*") ' <I>Position sẽ là 5<BR>Nếu trong myString 
+              không có dấu "*" thì Position sẽ bằng 0</I><BR><BR>Bây giờ ta thử 
+              tách ra Key và Value trong thí dụ sau: <BR>KeyValuePair = 
+              "BeatlesSong=Yesterday"<BR>Pos = Instr(KeyValuePair, "=")<BR>Key = 
+              Left(KeyValuePair, Pos-1)<BR>Value = Mid(KeyValuePair, 
+              Pos+1)<BR><BR></BLOCKQUOTE></BLOCKQUOTE>Muốn thay đổi tất cả dấu "/" 
+          thành dấu "-" trong một Text String ta có thể dùng <B>Function 
+          Replace</B> như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>Today = "24/05/2001" <BR>Today = Replace (Today, "/", 
+              "-")<BR></BLOCKQUOTE></BLOCKQUOTE>Muốn biết trị số ASCII của một 
+          character ta dùng <B>Function Asc</B> và ngược lại để có một Text 
+          Character với một trị số ASCII nào đó ta dùng <B>Function Chr</B>.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>ASCIINumberA = Asc("A") ' <I>ASCIINumberA bây giờ bằng 
+              65</I><BR>LineFeedChar = Chr(10)<BR>StrFive = Chr(Asc("0") + 5) ' 
+              ta có digit "5" <BR></BLOCKQUOTE></BLOCKQUOTE>Text String trong VB6 
+          dùng một byte cho mỗi ASCII character. Sau nầy khi ta lập trình trong 
+          VB7, một character có thể là Unicode character, trong trường hợp đó nó 
+          được biểu diễn bằng 2 bytes. VB6 không support Unicode nên không phải 
+          là môi trường thích hợp để lập trình cho Unicode tiếng Việt. Trong VB7 
+          mỗi loại Text String có Encoding method riêng của nó để yểm trợ 
+          Unicode nếu cần. </FONT>
+          <H3><FONT face=Verdana color=green>Các loại số </FONT></H3><FONT 
+          face=Verdana>Từ nãy giờ ta chỉ bàn về Text String và cách chứa của nó 
+          trong memory. Nên nhớ rằng <B>"123"</B> là một Text String và nó được 
+          biểu diễn trong memory bằng con số 001100010011001000110011 trong 
+          Binary hay 313233 trong Hex. Như vậy có cách nào biểu diễn con số 123 
+          mà không dùng Text String không? Dĩ nhiên là được. Con số <B>123 là 7B 
+          trong Hex</B> hay 01111011 trong Binary, và ta có thể chứa con số nầy 
+          vừa tiện lợi để làm toán, vừa ít tốn memory hơn là chứa Text String 
+          "123". Nhớ là ta cần Text String để display hay in ra, còn khi làm 
+          toán cộng, trừ, nhân, chia ta lại cần cái dạng raw number hay internal 
+          number của nó. <BR><BR>Ðể convert một Text String ra Internal number 
+          ta có thể dùng các <B>Functions Val, CInt</B>(ra Integer) hay 
+          <B>CSng</B>(ra Single). Ngược lại, để convert từ internal number ra 
+          Text String ta có thể dùng <B>Function CStr</B>.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#eeeeee>
+                <TBODY>
+                <TR>
+                  <TD>Dollars = "500" <BR>ExchangeRatePerDollar = 
+                    "7000"<BR>tempValue= Val(Dollars) * 
+                    Val(ExchangeRatePerDollar)<BR>VNDong = 
+                    CStr(tempValue)<BR>MsgBox "Amount in VN Dong is " &amp; 
+                    VNDong<BR></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Thật 
+          ra VB6 support nhiều loại data để dùng chứa những con số. Trước hết ta 
+          có số nguyên (<B>Integer</B> và <B>Long</B>). Cùng là số nguyên nhưng 
+          Integer dùng 2 bytes trong memory để chứa một con số nguyên từ -32768 
+          đến 32767. Ðể ý là 32768 = 2^15 (2 lũy thừa 15) , tức là trong memory 
+          các con số từ 32768 đến 65535 được dùng để biểu diễn các số âm. Một 
+          lần nữa, nhớ rằng một con số trong memory để biểu diễn một thứ gì 
+          chẳng qua chỉ là theo quy ước mà thôi.<BR><BR>Còn Long dùng 4 byte để 
+          để chứa một con số nguyên từ -2147483648 đến 2147483647. Nếu bạn dùng 
+          Integer mà bị Oveflow error khi làm toán nhân thì assign các con số 
+          vào một Long variable (sẽ cắt nghĩa variable sau nầy) <B>TRƯỚC KHI</B> 
+          làm toán nhân chớ đừng để kết quả một bài toán nhân quá lớn trước khi 
+          Assign nó vào một Long variable. Thí dụ:<BR><BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><I>' Thay gì viết</I><BR>Dim Result as Long<BR>Result 
+              = 30345 * 100 ' <I>sẽ bị overflow error</I><BR><BR><I>' Hãy viết 
+              như sau:</I><BR>Dim Result as Long<BR>Result = 30345 <BR>Result = 
+              Result * 100 ' <I>không bị overflow 
+          error</I><BR></BLOCKQUOTE></BLOCKQUOTE><BR>Ðể tính toán cho chính xác 
+          ta cần một loại data có thể chứa số sau decimal point. VB6 cho ta 
+          <B>Single</B> và <B>Double</B>. Single dùng 4 bytes, Double dùng 8 
+          bytes. Thông thường, bạn sẽ hiếm khi cần nhắc đến Double.<BR>Khi 
+          display một số Single hay Double bạn cần dùng <B>Function Format</B> 
+          để convert từ Single ra Text String một cách uyển chuyển. Thí dụ<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>Dollars = "500.0" <BR>ExchangeRatePerDollar = 
+              "7000.0"<BR>'<I>Dùng Function CSng để convert String ra 
+              Single</I><BR>tempValue= CSng(Dollars) * 
+              CSng(ExchangeRatePerDollar)<BR>'<I>Dùng Function Format để có các 
+              dấu phẩy ở ngàn và triệu và phải có 2 digits sau decimal 
+              point.</I><BR>VNDong = Format (tempValue, 
+              "#,###,###.00")<BR>MsgBox "Amount in VN Dong is " &amp; 
+            VNDong<BR></BLOCKQUOTE></BLOCKQUOTE><BR>VB6 cho ta hai cách 
+          <B>chia</B>, đó là <B>/</B> dùng cho Single/Double và <B>\</B> dùng 
+          cho Integer.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>5 / 3 cho ta 1.6666666<BR>5 \ 3 cho ta 1 
+          </BLOCKQUOTE></BLOCKQUOTE><BR><B>Function Round</B> đuợc dùng để bỏ 
+          bớt các con số nằm phía sau decimal point. Thí dụ: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>Round ( 12.3456789, 4 )<BR><I>chỉ giữ lại 4 con số sau 
+              decimal point và cho ta 12.3457</I> 
+          </BLOCKQUOTE></BLOCKQUOTE><BR>Numeric data type <B>Currency</B> chỉ 
+          chứa nhất định 4 số sau decimal point. Nó không có ích lợi đặc biệt 
+          gì. </FONT>
+          <H3><FONT face=Verdana color=green>Variable </FONT></H3><FONT 
+          face=Verdana><B>Variable</B> là những chỗ chứa data tạm thời trong 
+          memory để ta dùng trong quá trình biến chế data của chương trình. Khi 
+          ta <B>Declare (khai báo)</B> một variable loại data gì là ta dành ra 
+          một chỗ trong memory để chứa một miếng data loại ấy. Nhớ là tùy theo 
+          loại data ta sẽ cần nhiều hay ít memory, một Interger chỉ cần 2 bytes, 
+          còn một Single cần đến 4 bytes, trong khi một String thì cần nhiều 
+          memory hơn nữa. Thí dụ như:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>Dim strFullName as String<BR>Dim ICount as 
+              Integer<BR>Dim sRate as Single<BR></BLOCKQUOTE></BLOCKQUOTE><BR>Khi 
+          bạn tìm cách cho hai data type khác nhau làm việc, thí dụ như làm toán 
+          chia một Text String bởi một con số thì có thể bị <B>Mixed mode 
+          error</B>. Tuy nhiên nếu Text String ấy gồm những digits thì có thể 
+          VB6 sẽ tự động convert Text String ra một con số trước khi dùng nó 
+          trong một bài toán. Ngược lại, dĩ nhiên ta không thể ghép một con số 
+          vào một Text String, nhưng VB6 có thể convert con số ra một Text 
+          String of digits trước khi ghép Text String ấy vào String kia.<BR>Mặc 
+          dầu VB6 rất tế nhị trong việc đoán ra ý định của chúng ta trong khi 
+          coding nhưng ta phải thận trọng trong cách dùng Data type để tránh gặp 
+          phải những bất ngờ. <BR>Vấn đề đặt tên cho variable rất quan trọng. 
+          Bạn nên đặt tên variable và các Function, Sub như thế nào để khi đọc 
+          code ta thấy dễ hiểu như đọc một bài luận văn. Thường thường, để dễ 
+          nhận diện data type của một variable người ta gắn phía trước tên 
+          variable các <B>prefix</B> như <B>str</B> cho String, <B>I</B> cho 
+          Integer, <B>s</B> cho Single ..v.v.. Khi ráp nhiều chữ rời thành tên 
+          một variable, thường thường người ta làm cho letter đầu tiên của mỗi 
+          chữ thành ra <B>Hoa (Capital)</B>, thí dụ như 
+          <B>TotalSalesOfTheMonth</B>.<BR><BR>Có một Tip nho nhỏ là đừng ngại 
+          đặt tên variable quá dài. Khi đánh máy nữa chừng tên của một variable 
+          bạn có thể đánh <B>Ctrl-Space</B> để IDE đánh nốt phần còn lại của tên 
+          variable, nếu không có sự trùng hợp với một tên variable/Sub/Function 
+          nào khác. <BR><BR>Nếu công tác lập trình giống như nấu ăn, bạn có thể 
+          nghĩ đến variable như các cái rổ, thau ta cần có để việc chuẩn bị thức 
+          ăn được tiện lợi. Trước khi bắt tay vào công tác ta xin với chủ nhà 
+          cho mình bao nhiêu cái rổ, thau, thún .v.v..(đó là <B>Declare 
+          variables</B>). Ta để mỗi loại thức ăn vào một rổ hay thau khác nhau, 
+          chớ không để thịt chung với rau cải (cũng như không thể cộng Text 
+          String với con số). Khi ta bỏ thêm một trái cà vào rổ cà thì số trái 
+          cà trong rổ tăng lên 1. Một lát sau ta lấy ra vài trái cà để dùng thì 
+          số trái cà trong rổ bị giảm đi. Khi không cần dùng nữa ta bỏ hay cất 
+          mấy trái cà còn lại rồi dẹp cái rổ đi chỗ khác.<BR><BR>Trị giá của một 
+          variable thường hay thay đổi trong quá trình xử lý data. Ðến một lúc 
+          nào đó variable không còn hiện hữu. Phạm vi hoạt động của một variable 
+          được gọi là <B>scope</B>. Nếu code nằm ngoài phạm vi của một variable 
+          thì không thể dùng đến variable ấy được. Dưới đây là listing của một 
+          chương trình VB6 ngắn: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Option</FONT> <FONT color=blue>Explicit</FONT> 
+<FONT color=blue>Dim</FONT> iCount <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+<FONT color=blue>Dim</FONT> X <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+<FONT color=blue>Dim</FONT> Y <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdIncreX_Click() 
+   iCount = iCount + 1 
+   X = X + 1 
+   <FONT color=blue>If</FONT> X = 80 <FONT color=blue>Then</FONT> 
+      X = 0 
+      Y = Y + 1 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdIncreY_Click() 
+   <FONT color=blue>Dim</FONT> Y 
+   iCount = iCount + 1 
+   Y = Y + 1 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Trong 
+          listing trên Scope của iCount, X, Y là toàn bộ listing, tức là ở đâu 
+          cũng có thể nói đến, dùng, thấy các variables đó. Tuy nhiên trong Sub 
+          CmdIncreY-Click() có declare một variable Y. Scope của variable nầy là 
+          chỉ nội bộ, tức là bên trong Sub CmdIncreY-Click() mà thôi. Chẳng 
+          những thế, cái <B>local (địa phương)</B> variable Y nầy còn che cái 
+          <B>global</B> variable Y nữa, tức là bên trong Sub CmdIncreY-Click() 
+          ta chỉ thấy local variable Y mà không thấy global variable Y. Một khi 
+          execution trong Sub CmdIncreY-Click() đã kết thúc thì local variable Y 
+          cũng biến mất luôn. Nếu bạn muốn khi trở lại execute Sub 
+          CmdIncreY-Click() mà local variable Y vẫn còn y nguyên với giá trị gì 
+          nó có từ trước, bạn nên Declare rằng nó <B>Static</B>, như: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Static</FONT> Y as <FONT color=blue>Integer</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE>Nói 
+          tóm lại, Local variable của Sub hay Function chỉ hoạt động và hiện hữu 
+          bên trong Sub/Function. Global variable của một Form hay Module thì áp 
+          dụng cho cả Form/Module trừ khi bị che lại bởi một local variable có 
+          cùng tên bên tron một Sub/Function. Ngoài ra khi ta Declare một Global 
+          variable là Public thì các Form/Module khác cũng thấy và dùng nó được 
+          luôn. Theo nguyên tắc của Software Engineering thì vì lý do an ninh ta 
+          chỉ cho phép người khác thấy cái gì cần thấy thôi. Do đó, ta không nên 
+          Declare các variable <B>Public</B> bừa bãi, nhỡ khi có một variable bị 
+          thay đổi value một cách bí mật mà ta không đoán đuợc thủ phạm là ai. 
+          Nhớ rằng Declare Public cũng giống như để nhà không đóng cửa 
+          vậy.<BR><BR>Ngoài ra, câu <B>Option Explicit</B> ở đầu Listing được 
+          dùng để tuyên bố rằng tất cả mọi variables dùng trong Form/Module đều 
+          cần phải được Declare. Nhớ là VB6 không đòi hỏi ta phải Declare một 
+          variable trước khi dùng nó. Thường thường, tùy theo tình huống, VB6 có 
+          thể đoán ra được Data Type của variable khi ta dùng nó lần đầu tiên. 
+          Nếu code đòi hỏi value của một variable khi nó đuợc dùng lần đầu thì 
+          VB6 tự động coi nó như một Empty String (String không có character nào 
+          cả, viết là <B>""</B> ) nếu nó là Text String Data type hay con số 0 
+          nếu nó là một con số. Ðiều nầy rất là tiện lợi. Tuy nhiên, nếu ta sơ ý 
+          đánh vần lộn một variable thì VB6 tự động initialise nó ra Empty 
+          String hay 0. Ðây có thể không phải là điều ta muốn. Nếu có dùng 
+          Option Explicit thì việc nầy sẽ bị lộ tẩy ngay vì tất cả mọi variable 
+          đều phải đuợc tuyên bố chính thức. Do đó, đã là VB6 programmer, bạn 
+          hãy xem việc dùng Option Explicit như là một điều răn của Chúa, hãy 
+          vâng giữ cách trung tín. </FONT>
+          <H3><FONT face=Verdana color=green>Ngày và Giờ </FONT></H3><FONT 
+          face=Verdana>Có một loại data type đuợc dùng để chứ cả ngày lẫn giờ, 
+          đó là Date. Ta có thể biết hiện thời là ngày nào, mấy giờ bằng cách 
+          gọi <B>Function Now</B>. Sau đó ta dùng các Function Day, Month và 
+          Year để lấy ra ngày, tháng và năm như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdCheckDate_Click() 
+   <FONT color=blue>Dim</FONT> dDate <FONT color=blue>As</FONT> <FONT color=blue>Date</FONT> 
+   <FONT color=blue>If</FONT> IsDate(txtDate.Text) <FONT color=blue>Then</FONT>  <FONT color=green>' eg: txtDate = "26/12/01"</FONT>
+      dDate = CVDate(txtDate.Text)  <FONT color=green>' convert a Text String to internal Date using Function CVDate</FONT>
+      <FONT color=green>' Day, Month and Year are automatically converted to String</FONT>
+      MsgBox "Day = " &amp; Day(dDate) &amp; ", Month = " &amp; Month(dDate) &amp; ", Year = " &amp; Year(dDate) 
+   <FONT color=blue>Else</FONT> 
+      MsgBox "Invalid date. Please try again." 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Trong 
+          Listing trên ta dùng Function IsDate để kiểm xem txtDate.text có hợp 
+          lệ không. Lưu ý là IsDate không phân biệt ngày theo Mỹ (dạng mm/dd/yy) 
+          hay theo Âu Châu (dạng dd/mm/yy), do đó dùng IsDate trong công việc 
+          kiểm soát nầy không an toàn lắm.<BR>Ðể display ngày giờ theo đúng cách 
+          mình muốn bạn có thể dùng <B>Function Format</B> như sau: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#eeeeee>
+                <TBODY>
+                <TR>
+                  <TD><PRE>MsgBox "NOW IS " &amp; Format (Now, "ddd dd-mmm-yyyy hh:nn:ss")
+
+' will display  
+    <B>NOW IS Fri 08-Jun-2001 22:10:53</B>
+</PRE></TD></TR></TBODY></TABLE><PRE></PRE></BLOCKQUOTE></BLOCKQUOTE><BR>Bạn có thể dùng <B>mm</B> để 
+          display tháng bằng một con số. Sở dĩ ta dùng <B>nn</B> thay vì 
+          <B>mm</B> cho phút là vì <B>mm</B> đã được dùng cho tháng.<BR>Ta có 
+          thể thêm bớt các đơn vị của ngày, tháng, v.v. bằng cách dùng 
+          <B>Function DateAdd</B>. Thí dụ:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdNextMonth_Click() 
+   txtDate.Text = Format(Now, "dd/mm/yy")  <FONT color=green>' <B>08/06/01</B></FONT>
+   txtNextMonth.Text = DateAdd("m", 1, CVDate(txtDate.Text)) 
+   <FONT color=green>' txtNextMonth.text will show <B>8/07/2001</B></FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Dưới 
+          đây là cách tính ra ngày cuối của tháng nầy: <BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdLastDayOfMonth_Click() 
+   <FONT color=blue>Dim</FONT> dNextMonthDate, dFirstDayNextMonth 
+   dNextMonthDate = DateAdd("m", 1, Now)  <FONT color=green>' Add one month to get same day next month</FONT>
+   <FONT color=green>' Get first day of next month</FONT>
+   dFirstDayNextMonth = 1 &amp; "/" &amp; Month(dNextMonthDate) &amp; "/" &amp; Year(dNextMonthDate) 
+   <FONT color=green>' Subtract one day to get Last day of this month</FONT>
+   txtLastDayOfMonth.Text = DateAdd("d", -1, CVDate(dFirstDayNextMonth)) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Ta 
+          có thể tính khoảng cách giữa hai ngày theo đơn vị ngày, tháng v.v.. 
+          bằng cách dùng <B>Function DateDiff</B>. Kết quả có thể là âm, dương 
+          hay 0 tùy theo ngày nào trể hơn. Thí dụ khoảng cách giữa hai ngày theo 
+          đơn vị tháng: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#eeeeee>
+                <TBODY>
+                <TR>
+                  <TD><PRE>DateDiff("m", Now, CVDate(dNextMonthDate))
+</PRE></TD></TR></TBODY></TABLE><PRE></PRE></BLOCKQUOTE></BLOCKQUOTE><BR>Trong chương tới ta sẽ học về 
+          Data types Boolean, Variant và Data 
+      Array.<BR><BR></FONT></BLOCKQUOTE></BLOCKQUOTE>
+      <BLOCKQUOTE><FONT face=Verdana><IMG height=14 
+        src="Chuong 5 - Cac loai du kien_files/ball_red.gif" width=14>&nbsp;<A 
+        href="http://www.vovisoft.com/vovisoft/vblinks.htm">Các liên mạng VB 
+        khác</A></FONT></BLOCKQUOTE><FONT face=Verdana>
+      <BLOCKQUOTE>
+        <P 
+        style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><BR><A 
+        href="http://www.bangden.com/soncuoc/Dang/index.htm">Những câu hỏi về 
+        Visual Basic</A></FONT> <FONT face=Verdana>
+        <P 
+        style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+        href="http://www.bangden.com/soncuoc/Visualbasic/tipstricks/forms.htm">Những 
+        mẹo vặt của Visual Basic</A></P></FONT>
+        <P 
+        style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><FONT 
+        face=Verdana><A href="http://www.bangden.com/soncuoc/VB.htm"><BR>Lập 
+        trình với VBA</A></FONT></P></BLOCKQUOTE><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc --><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc -->
+      <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+      width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD class=clsRaised width=785 bgColor=#6699cc>
+            <P align=center><FONT face=Verdana color=#ffffff size=1>Được cung 
+            cấp từ Vivosoft</FONT></P></TD></TR></TBODY></TABLE>&nbsp;<!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></HTML>

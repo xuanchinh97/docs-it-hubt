@@ -1,0 +1,604 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://www.bangden.com/soncuoc/Visualbasic/VB6Chapter6.htm -->
+<!-- saved from url=(0051)http://www.vovisoft.com/VisualBasic/VB6Chapter6.htm --><HTML><HEAD><TITLE>Making Data Useful</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 6 - Dung du kien_files/topbottom.css" type=text/css rel=stylesheet>
+<META content="t, default" name="Microsoft Border"></HEAD>
+<BODY leftMargin=0 topMargin=65 marginwidth="0" marginheight="0"><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+      height=20 cellSpacing=0 cellPadding=0 width="130%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="51%" bgColor=#0000ff height=20><B><FONT face=Verdana 
+            color=#ffff00 size=2><SPAN style="BACKGROUND-COLOR: #0000ff">Trung 
+            tâm Dạy nghề và Phổ cập Tin học Miền núi ABC - Tỉnh Yên Bái 
+            </SPAN></FONT></B></TD>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="35%" height=20><FONT face=Verdana><IMG height=20 src="" 
+            width=136 border=0></FONT></TD></TR></TBODY></TABLE>
+      <P 
+      style="MARGIN: 0px; WORD-SPACING: 0px; TEXT-INDENT: 0px; LINE-HEIGHT: 100%"><FONT 
+      face=Verdana size=2><A 
+      href="http://www.bangden.com/soncuoc/index.htm">&lt;Home&gt;&nbsp;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Tho.htm">&lt;Thơ&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/laptrinh.htm">&lt;Lập trình&gt;</A> 
+      <A href="http://www.bangden.com/soncuoc/giaoan.htm">&lt;Giáo 
+      án&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/BaiViet.htm">&lt;Bài 
+      viết&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Vui.htm">&lt;Chuyện 
+      vui&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Traodoi.htm">&lt;Trao 
+      đổi&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/lienket.htm">&lt;Liên kết&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/moi.htm">&lt;Bài 
+      Mới&gt;</A></FONT></P></TD></TR><!--msnavigation--></TBODY></TABLE><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=top>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE>&nbsp;</BLOCKQUOTE></BLOCKQUOTE>
+      <CENTER>
+      <H1><FONT face=Verdana color=#000000>Khóa Hàm Thụ Visual Basic 
+      6.0</FONT></H1>
+      <H2><FONT face=Verdana color=#800000>Chương Sáu - Dùng dữ 
+      kiện</FONT></H2></CENTER>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE><FONT face=Verdana><FONT color=green size=6>T</FONT>rong 
+          chương 5 ta học qua các điểm căn bản về việc dùng variables. Vì công 
+          việc chính của một chương trình là xử lý data chứa trong variables, 
+          cho nên nếu VB6 cho ta càng nhiều phương tiện để làm việc với 
+          variables thì càng tiện lợi. Trong chương nầy ta sẽ học: 
+          <UL>
+            <LI>Boolean variable, tại sao nó hữu dụng 
+            <LI>Variant variable, cách làm việc với nó. 
+            <LI>Cách biến đổi (convert) từ loại data type nầy qua loại data khác 
+
+            <LI>Arrays của variables và Arrays của controls 
+            <LI>Cách tạo một data type theo ý mình </LI></UL>
+          <H3><FONT face=Verdana color=green>Boolean Variables 
+          </FONT></H3><B>Boolean</B> là loại data chỉ có thể lấy một trong hai 
+          values: <B>True</B> hay <B>False</B>. Khi học về Statement 
+          <B>IF...THEN</B> trong chương 4, ta đã nói sơ qua về Boolean data 
+          type. Cái phần ở giữa hai chữ IF và THEN được gọi là <B>Logical 
+          Expression</B> và kết quả của một Logical Expression là một Boolean 
+          value. Nếu điều kiện đuợc thỏa mãn thì value là True, nếu không thì là 
+          False.<BR>Bạn hỏi nếu một variable chỉ có thể có hai values, tại sao 
+          ta không thể dùng Integer và giới hạn cách dùng trong vòng hai values 
+          1 và 0 thôi, cần gì phải đặt ra Boolean data type. Làm như vậy cũng 
+          được, nhưng cái khác biệt chính là khi ta operate trên 2 variables ta 
+          phải biết rõ rằng <I>để làm việc với Integer</I> ta dùng <B>+, -, *, 
+          \</B> trong khi <I>với Boolean</I> ta dùng <B>OR, AND, NOT, XOR</B>. 
+          Thử xem thí dụ dưới đây:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=green>' Use Integer with values 1 or 0</FONT>
+<FONT color=blue>Dim</FONT> IAnumber <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+<FONT color=blue>Dim</FONT> IBnumber <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+<FONT color=blue>Dim</FONT> IAge <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+<FONT color=blue>Dim</FONT> sPersonalWorth <FONT color=blue>As</FONT> <FONT color=blue>Single</FONT> 
+<FONT color=blue>If</FONT> (IAge &gt;= 18) <FONT color=blue>Then</FONT> 
+   IAnumber = 1 
+<FONT color=blue>Else</FONT> 
+   IAnumber = 0 
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>If</FONT> (sPersonalWorth &gt; 1000000) <FONT color=blue>Then</FONT> 
+   IBnumber = 1 
+<FONT color=blue>Else</FONT> 
+   IBnumber = 0 
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>If</FONT> (IAnumber = 1) <FONT color=blue>And</FONT> (IBnumber = 1) <FONT color=blue>Then</FONT> 
+   StandForTheElection 
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=green>'==================================</FONT>
+<FONT color=green>' Use Boolean</FONT>
+<FONT color=blue>Dim</FONT> bAdult <FONT color=blue>As</FONT> <FONT color=blue>Boolean</FONT> 
+<FONT color=blue>Dim</FONT> bRich <FONT color=blue>As</FONT> <FONT color=blue>Boolean</FONT> 
+<FONT color=blue>Dim</FONT> IAge <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+<FONT color=blue>Dim</FONT> sPersonalWorth <FONT color=blue>As</FONT> <FONT color=blue>Single</FONT> 
+bAdult = (IAge &gt;= 18) 
+bRich = (sPersonalWorth &gt; 1000000) 
+<FONT color=blue>If</FONT> bAdult <FONT color=blue>And</FONT> bRich <FONT color=blue>Then</FONT> 
+   StandForTheElection 
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Trong 
+          thí dụ trên, ta lập trình để nếu một người thỏa mãn hai điều kiện: vừa 
+          trưởng thành (18 tuổi trở lên) , vừa giàu có (có trên 1 triệu bạc) thì 
+          có thể ra ứng cử<BR>Nếu ta dùng Integer, thứ nhất chương trình đọc khó 
+          hiểu, thứ hai cái Logical Expression của IF statement vẫn phài làm 
+          việc với operator AND.<BR>Trong khi đó nếu dùng Boolean thì chương 
+          trình có vẻ tự nhiên và dễ đọc như tiếng Anh thông thường. 
+          <H3><FONT face=Verdana color=green>Variant Variables 
+          </FONT></H3><B>Variant</B> variable có thể chứa Text String, Number, 
+          Date, thậm chí cả một Array (một loạt nhiều variables cùng data type). 
+          Nhìn thoáng qua nó rất tiện dụng, nhưng khi một Variant variable được 
+          dùng nhiều chỗ, trong nhiều tình huống khác nhau, bạn phải thận trọng. 
+          Lý do là vì variant variable có thể chứa những loại data types khác 
+          nhau, nên khi bạn operate hai variable có data type khác nhau, Visual 
+          Basic 6 cố gắng biến đổi một trong hai variable thành data type của 
+          variable kia để làm việc, kết quả là thỉnh thoảng bạn sẽ bị 
+          kẹt.<BR>Các tay Software Engineers thuần túy rất ghét lập trình với 
+          data không đuợc Declare rõ ràng. Họ không muốn bị hố vì vô tình. Thà 
+          rằng để Language Compiler bắt gặp trước những trường hợp bạn vô tình 
+          operate trên hai variables có data type khác nhau. Có khi ta bực mình 
+          vì Compiler khó tánh, nhưng sẽ tránh bị những surprise (ngạc nhiên) 
+          tốn kém sau nầy. Các ngôn ngữ lập trình gắt gao ấy đuợc gọi là 
+          <B>strongly typed languages</B>, chẳng hạn như Pascal, C++, Java 
+          .v.v.. Sau nầy nếu ta dùng .NET thì các ngôn ngữ C#, VB.NET (VB7) đều 
+          là strongly typed. Trong VB7, Microsoft cho lưu đài biệt tích Variant 
+          variables của VB6.<BR>Công việc Declare một Variant variable cũng 
+          giống như Declare một data type khác. Chỉ có điều ta có thể biết data 
+          type thật sự đang được chứa bên trong một Varaint variable bằng cách 
+          dùng <B>Function VarType</B> như dưới đây:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> cmdShowDataTypes_Click() 
+   <FONT color=blue>Dim</FONT> sMess <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   <FONT color=blue>Dim</FONT> vVariant <FONT color=blue>As</FONT> <FONT color=blue>Variant</FONT> 
+   vVariant = "Nguoi Tinh khong chan dung"  <FONT color=green>' Assign a String to vVariant</FONT>
+   sMess = VarType(vVariant) &amp; vbCrLf  <FONT color=green>' use vbCrLF to display the next string on a new line</FONT>
+   vVariant = 25  <FONT color=green>' Assign an Integer to vVariant</FONT>
+   sMess = sMess &amp; VarType(vVariant) &amp; vbCrLf 
+   vVariant = <FONT color=blue>True</FONT>  <FONT color=green>' Assign an Boolean value to vVariant</FONT>
+   sMess = sMess &amp; VarType(vVariant) &amp; vbCrLf 
+   <FONT color=green>' Assign an Date to vVariant</FONT>
+   vVariant = #1/1/2001#  <FONT color=green>' enclose a Date string with #, instead of " as for normal Text String</FONT>
+   sMess = sMess &amp; VarType(vVariant) 
+   MsgBox sMess 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Khi 
+          ta click button ShowDataTypes chương trình sẽ display giá trị của các 
+          Data Types trong mỗi trường hợp:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=240 
+              src="Chuong 6 - Dung du kien_files/Datatypes.jpg" width=389 
+              border=0></BLOCKQUOTE></BLOCKQUOTE><BR>Sau đây là bảng liệt kê những 
+          VarTypes thông dụng:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE cellPadding=5 bgColor=#eeeeee border=2>
+                <TBODY>
+                <TR>
+                  <TD width="30%" bgColor=#dddddd><B>Giá trị VarType</B></TD>
+                  <TD width="50%" bgColor=#dddddd><B>Chú thích</B></TD></TR>
+                <TR>
+                  <TD><B>0-vbEmpty</B></TD>
+                  <TD>Không có gì trong variant</TD></TR>
+                <TR>
+                  <TD><B>1-vbNull</B></TD>
+                  <TD>Không có valid (hợp lệ) data trong variant</TD></TR>
+                <TR>
+                  <TD><B>2-vbInteger</B></TD>
+                  <TD></B>Variant chứa Integer</TD></TR>
+                <TR>
+                  <TD><B>4-vbSingle</B></TD>
+                  <TD></B>Variant chứa Single</TD></TR>
+                <TR>
+                  <TD><B>7-vbDate</B></TD>
+                  <TD></B>Variant chứa Date/Time</TD></TR>
+                <TR>
+                  <TD><B>8-vbString</B></TD>
+                  <TD></B>Variant chứa String</TD></TR>
+                <TR>
+                  <TD><B>9-vbObject</B></TD>
+                  <TD></B>Variant chứa một Object</TD></TR>
+                <TR>
+                  <TD><B>11-vbBoolean</B></TD>
+                  <TD></B>Variant chứa 
+          Boolean</TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE>Ðể làm việc 
+          với đủ loại VarTypes bạn có thể dùng Select Case như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Process_Click() 
+   <FONT color=blue>Select</FONT> <FONT color=blue>Case</FONT> VarType(vVariant) 
+   <FONT color=blue>Case</FONT> vbString 
+      <FONT color=green>' ...</FONT>
+   <FONT color=blue>Case</FONT> vbBoolean 
+      <FONT color=green>' ...</FONT>
+   <FONT color=blue>Case</FONT> vbInteger 
+      <FONT color=green>' ...</FONT>
+   <FONT color=blue>Case</FONT> vbDate 
+      <FONT color=green>' ...</FONT>
+   <FONT color=blue>End</FONT> <FONT color=blue>Select</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+          <H3><FONT face=Verdana color=green>Constants (Hằng số) 
+          </FONT></H3><FONT face=Verdana>Variables rất tiện dụng để chúng ta 
+          dùng chứa các data có thể biến đổi value trong suốt quá trình xử lý 
+          của chương trình. Nhưng đôi khi chúng ta muốn có một loại variable mà 
+          value không bao giờ thay đổi, VB6 cho ta <B>Constant</B> để dùng vào 
+          việc nầy. Thí dụ như thay gì dùng trực tiếp môt con số hay một Text 
+          String ở nhiều chỗ trong chương trình, ta đặt tên Constant và cho nó 
+          một value tại một chỗ nhất định. Thí dụ ta viết chương trình cho 5 
+          chiếc xe chạy đua. Ðể khởi hành các chiếc xe ta dùng một FOR...LOOP 
+          đơn giản như:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>For</FONT> ICar = 1 <FONT color=blue>To</FONT> 5 
+   Call StartCar (ICar) 
+<FONT color=blue>Next</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Tương 
+          tự như vậy ở nhiều nơi khác trong chương trình, mỗi lần nói đến con số 
+          các xe ta dùng số 5. Nếu sau nầy muốn thay đổi con số các xe thành ra 
+          10, ta phải tìm và thay đổi tất cả các con số 5 nầy thành ra 10. Nếu 
+          không thận trọng ta có thể thay đổi một con số 5 dùng cho chuyện gì 
+          khác, chớ không phải cho con số các xe, thành ra 10 - như vậy ta vô 
+          tình tạo ra một bug. Ðể tránh vấn đề nầy ta có thể dùng Constant như 
+          sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Const</FONT> NUMBER_OF_CARS = 10 
+<FONT color=blue>For</FONT> ICar = 1 <FONT color=blue>To</FONT> NUMBER_OF_CARS 
+   Call StartCar (ICar) 
+<FONT color=blue>Next</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Sau 
+          nầy muốn thay đổi con số các xe, ta chỉ cần edit value của Constant. 
+          Trong khắp chương trình, nơi nào nhắc đến con số các xe ta dùng chữ 
+          NUMBER_OF_CARS, vừa dễ hiểu, vừa tránh lầm lẫn. </FONT>
+          <H3><FONT face=Verdana color=green>Biến đổi (convert) từ loại data 
+          type nầy qua loại data khác </FONT></H3><FONT face=Verdana>Nhiều lúc 
+          ta cần phải convert data type của một variable từ loại nầy qua loại 
+          khác, VB6 cho ta một số các Functions dưới đây. Xin lưu rằng khi call 
+          các Functions nầy, nếu bạn đưa một data value bất hợp lệ thì có thể bị 
+          error.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE cellPadding=5 bgColor=#eeeeee border=2>
+                <TBODY>
+                <TR>
+                  <TD width="30%" bgColor=#dddddd><B>Conversion 
+Function</B></TD>
+                  <TD width="50%" bgColor=#dddddd><B>Chú thích</B></TD></TR>
+                <TR>
+                  <TD><B>CBool (<PARAMETER>)</B></TD>
+                  <TD>Ðổi parameter ra True hay False. Nếu Integer value khác 
+                    0 thì được đổi thành True</TD></TR>
+                <TR>
+                  <TD><B>CByte (<PARAMETER>)</B></TD>
+                  <TD>Ðổi parameter ra một con số từ 0 đến 255 nếu có thể 
+                    được, nếu không được thì là 0.</TD></TR>
+                <TR>
+                  <TD><B>CDate (<PARAMETER>)</B></TD>
+                  <TD>Ðổi parameter ra Date</TD></TR>
+                <TR>
+                  <TD><B>CDbl (<PARAMETER>)</B></TD>
+                  <TD>Ðổi parameter ra Double precision floating point 
+                  number</TD></TR>
+                <TR>
+                  <TD><B>CInt (<PARAMETER>)</B></TD>
+                  <TD>Ðổi parameter ra Integer </TD></TR>
+                <TR>
+                  <TD><B>CSng (<PARAMETER>)</B></TD>
+                  <TD>Ðổi parameter ra Single precision floating point 
+                  number</TD></TR>
+                <TR>
+                  <TD><B>CStr (<PARAMETER>)</B></TD>
+                  <TD>Ðổi parameter ra 
+          String</TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE>Ngoài các 
+          Function nói trên bạn cũng có thể dùng <B>Function Val</B> để convert 
+          một String ra Number. Lưu ý là khi Function Val process một String nếu 
+          nó gặp một character nào không phải là digit hay decimal point thì nó 
+          không process tiếp nữa. Do đó nếu Input String là "$25.50" thì Val 
+          returns con số 0 vì <B>$</B> không phải là một digit. Nếu Input String 
+          là "62.4B" thì Val returns 62.4.<BR>CDbl là Function dùng để convert 
+          một String ra số an toàn nhất. Input String có thể chứa các dấu 
+          <B>,</B> và <B>.</B> (thí dụ: 1,234,567.89) tùy theo nơi bạn ở trên 
+          thế giới (thí dụ như Âu Châu hay Mỹ). CSng cũng làm việc giống như 
+          CDbl nhưng nếu con số lớn hơn 1 triệu nó có thể bị bug.<BR>Cái bug bực 
+          mình nhất của CSng là nếu Input String không có gì cả (tức là 
+          InputString="") thì Function CSng cho bạn Type Mismatch Error. Do đó 
+          để khắc phục cái khuyết điểm nầy bạn có thể viết cho mình một Function 
+          tạm đặt tên là CSingle để dùng thế cho CSng như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Function</FONT> CSingle(strNumber) <FONT color=blue>As</FONT> <FONT color=blue>Single</FONT> 
+   <FONT color=blue>If</FONT> Trim(strNumber) = "" <FONT color=blue>Then</FONT> 
+      CSingle = 0# 
+   <FONT color=blue>Else</FONT> 
+      CSingle = CSng(strNumber) 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Function</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR></FONT>
+          <H3><FONT face=Verdana color=green>Arrays </FONT></H3><FONT 
+          face=Verdana>Khi bạn có nhiều variables tương tợ nhau, thí dụ như điểm 
+          thi của 10 học sinh, nếu phải đặt tên khác nhau cho từng variable (thí 
+          dụ: HoaMark, TaiMark, SonMark, TamMark, NgaMark, HuongMark .v.v..) thì 
+          thật là cực nhọc và bất tiện. Bạn có thể dùng <B>Array</B> để có một 
+          tên chung cho cả nhóm, rồi nói đến điểm của từng người một bằng cách 
+          dùng một con số gọi là <B>ArrayIndex</B>. Bạn sẽ Declare như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Dim</FONT> myStudentMarks(10) as <FONT color=blue>Integer</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Kế 
+          đó bạn nói đến điểm của mỗi học sinh bằng cách viết 
+          <B>myStudentMarks(i)</B>, mà i là ArrayIndex. Giả dụ ta muốn tính tổng 
+          số điểm: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Sub</FONT> CmdCalculateTotal_Click() 
+   <FONT color=blue>Dim</FONT> myStudentMarks(10) <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT>  <FONT color=green>' Declare array, assuming students' marks are Integers</FONT>
+   <FONT color=blue>Dim</FONT> TotalMark <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT>  <FONT color=green>' Use this variable to accumulate the marks</FONT>
+   <FONT color=blue>Dim</FONT> i <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT>  <FONT color=green>' Use i as ArrayIndex</FONT>
+   myStudentMarks(1) = 6  <FONT color=green>' First student's mark</FONT>
+   myStudentMarks(2) = 7  <FONT color=green>' Second student's mark</FONT>
+   myStudentMarks(3) = 5 
+   myStudentMarks(4) = 9 
+   myStudentMarks(5) = 6 
+   myStudentMarks(6) = 8 
+   myStudentMarks(7) = 9 
+   myStudentMarks(8) = 10 
+   myStudentMarks(9) = 6 
+   myStudentMarks(10) = 7 
+   TotalMark = 0  <FONT color=green>' This statement is not required as VB6 initialises TotalMark to 0</FONT>
+   <FONT color=green>' Go through all students and add each student's mark to the Total</FONT>
+   <FONT color=blue>For</FONT> i = 1 <FONT color=blue>To</FONT> 10 
+      TotalMark = TotalMark + myStudentMarks(i) 
+   <FONT color=blue>Next</FONT> 
+   txtTotal.Text = CStr(TotalMark)  <FONT color=green>' Convert to String for display by assigning to Textbox txtTotal</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=142 
+              src="Chuong 6 - Dung du kien_files/TotalMark.jpg" width=284 
+              border=0></BLOCKQUOTE></BLOCKQUOTE><BR>Khi ta Declare <B>Dim 
+          myStudentMarks(10) as Integer</B> thật ra ra ta có một Array với 11 
+          <B>Array Elements</B> chớ không phải 10, vì Array bắt đầu với 
+          ArrayIndex value=0. Có điều trong thí dụ trên ta cố ý không nhắc đến 
+          ArrayElement 0. Nếu thật sự muốn có chính xác 10 Elements thôi, ta có 
+          thể Declare như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Dim</FONT> myStudentMarks (1 <FONT color=blue>To</FONT> 10 ) <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Loại 
+          Array ta vừa dùng qua là Single Dimention. Nếu trong thí dụ trên ta 
+          muốn tính điểm của học sinh trong 3 lớp học, ta có thể Declare Double 
+          Dimention Array như sau: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=green>' Four classes, each has up to 6 students</FONT>
+<FONT color=blue>Dim</FONT> myStudentMarks(3, 5) <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT>  <FONT color=green>' Note that each dimension starts at 0</FONT>
+<FONT color=green>' or</FONT>
+<FONT color=green>' Three classes, each has up to 5 students</FONT>
+<FONT color=blue>Dim</FONT> myStudentMarks(1 <FONT color=blue>To</FONT> 3, 1 <FONT color=blue>To</FONT> 5) <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Nhân 
+          tiện nói chuyện về Array cho variables, ta cũng có thể dùng Array cho 
+          controls cùng một loại trong một Form. Nếu ta có nhiều Label controls 
+          (hay Textbox controls ) với những chức năng giống nhau trong chương 
+          trình, ta có thể dùng cùng một tên cho các controls, nhưng khác 
+          <B>Property Index</B> value của chúng.<BR>Bạn có thể create một Array 
+          of Labels bằng cách Copy cái Label rồi Paste nó lên Form. VB6 sẽ hỏi 
+          nếu bạn muốn có một Array of controls. Nếu bạn trả lời Yes, VB6 sẽ tự 
+          động cho Label thứ nhất Index value=0 và Label mới vừa được Pasted 
+          Index value=1. Sau đó nếu bạn tiếp tục Paste cái Label đã có Index rồi 
+          thì VB6 không hỏi nữa và vui vẻ tăng Index value lên cho các Labels 
+          sau. Do đó nếu bạn gọi Label thứ nhất là lblClass rồi Copy và Paste nó 
+          2 lần bạn sẽ có một Array of 3 Labels tên lblClass và các Index values 
+          0, 1, 2.<BR>Trong thí dụ sau đây, ta create một Array of Labels tên 
+          <B>lblClass</B> và một Array of Textboxes tên <B>txtClassMark</B>. 
+          Trong Sub Form_Load ta generate Captions của các Labels.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_Load() 
+   <FONT color=blue>Dim</FONT> i <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=blue>For</FONT> i = 0 <FONT color=blue>To</FONT> 2 
+      <FONT color=green>' Label Index starts at 0, but Class number starts at 1</FONT>
+      lblClass(i) = "Mark of Class " &amp; CStr(i + 1) 
+   <FONT color=blue>Next</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Sub</FONT> CmdCalculateTotal_Click() 
+   <FONT color=green>' Three classes, each has up to 5 students</FONT>
+   <FONT color=blue>Dim</FONT> myStudentMarks(1 <FONT color=blue>To</FONT> 3, 1 <FONT color=blue>To</FONT> 5) <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=blue>Dim</FONT> TotalMark <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=blue>Dim</FONT> ClassMark <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=blue>Dim</FONT> i <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT>  <FONT color=green>' Use as ArrayIndex for Class</FONT>
+   <FONT color=blue>Dim</FONT> j <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT>  <FONT color=green>' Use as ArrayIndex for StudentMark</FONT>
+   <FONT color=green>' Students' marks of first class</FONT>
+   myStudentMarks(1, 1) = 6 
+   myStudentMarks(1, 2) = 7 
+   myStudentMarks(1, 3) = 5 
+   myStudentMarks(1, 4) = 9 
+   myStudentMarks(1, 5) = 6 
+   <FONT color=green>' Students' marks of second class</FONT>
+   myStudentMarks(2, 1) = 8 
+   myStudentMarks(2, 2) = 8 
+   myStudentMarks(2, 3) = 6 
+   <FONT color=green>' Students' marks third class</FONT>
+   myStudentMarks(3, 1) = 5 
+   myStudentMarks(3, 2) = 7 
+   myStudentMarks(3, 3) = 8 
+   myStudentMarks(3, 4) = 6 
+   <FONT color=blue>For</FONT> i = 1 <FONT color=blue>To</FONT> 3 
+      ClassMark = 0  <FONT color=green>' Intialise ClassMark of class i to 0</FONT>
+      <FONT color=green>' Now go through each Student in Class i</FONT>
+      <FONT color=blue>For</FONT> j = 1 <FONT color=blue>To</FONT> 5 
+         ClassMark = ClassMark + myStudentMarks(i, j)  <FONT color=green>' Accumulate ClassMark of class i</FONT>
+         TotalMark = TotalMark + myStudentMarks(i, j) 
+      <FONT color=blue>Next</FONT> 
+      <FONT color=green>' Display ClassMark of class i. Note that txtClassMark Index starts at 0, NOT 1</FONT>
+      txtClassMark(i - 1).Text = CStr(ClassMark) 
+   <FONT color=blue>Next</FONT> 
+   txtTotal.Text = CStr(TotalMark)  <FONT color=green>' Display TotalMark</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR><B>Ghi 
+          chú:</B> Nếu bạn có một Array of Textboxes gồm chỉ có 2 Textboxes, rồi 
+          sau đó bạn Delete một Textbox và muốn dùng Textbox còn lại làm cái 
+          Textbox duy nhất, bạn vẫn phải refer (nhắc đến nó) bằng cách dùng 
+          Index (thí dụ: <B>txtClassMark(0)</B> ), dù rằng bây giờ nó là Textbox 
+          duy nhất mang tên ấy. Nếu bạn muốn dẹp cái vụ Index thì bạn phải vào 
+          Properties Window để Delete cái Index value của ArrayTextbox. Nếu bạn 
+          không lưu ý điểm nầy thì có khi bạn sẽ bứt tóc không hiểu tại sao mình 
+          dùng đúng tên mà VB6 vẫn nhất định rằng cái Textbox bạn nói đến không 
+          hiện hữu, vì VB6 cần Index value của Textbox. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=219 
+              src="Chuong 6 - Dung du kien_files/txtClassMark.jpg" width=261 
+              border=0></BLOCKQUOTE></BLOCKQUOTE><BR>Thỉnh thoảng, khi Declare Array 
+          bạn không biết rõ mình sẽ cần bao nhiêu Elements cho mỗi dimension. 
+          Trong trường hợp ấy bạn có thể dùng <B>Dynamic Arrays</B> và Declare 
+          một Array như sau: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> myStudentMarks() <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Vì 
+          bạn không để một con số ở giữa hai dấu ngoặc đơn nên VB6 biết là bạn 
+          muốn dùng Dynamic Array và dimension của nó có thể sẽ thay đổi trong 
+          tương lai. Khi nào muốn thay đổi dimension của Dynamic Array bạn dùng 
+          <B>ReDim</B> keyword: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>ReDim</FONT> myStudentMarks(10) 
+
+<FONT color=blue>ReDim</FONT> <FONT color=blue>Preserve</FONT> myStudentMarks(10) 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Cả 
+          hai statements trên đều đổi dimension của Array myStudentMarks thành 
+          11 (từ Element 0 đến Element 10), nhưng trong statement thứ nhì chữ 
+          <B>Preserve</B> giữ nguyên values của các Elements của Array. <BR>Khi 
+          làm việc với Array thỉnh thoảng bạn cần biết các Elements thấp nhất và 
+          cao nhất bằng cách dùng <B>LBound</B> và <B>UBound</B>.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> MyArray(10 to 20) <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+LowestNum = LBound(MyArray)  <FONT color=green>' LBound returns 10</FONT>
+HighestNum = UBound(MyArray)  <FONT color=green>' UBound returns 20</FONT>
+
+<FONT color=blue>Private</FONT> YourArray( 2 to 5, 10 to 15) <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+LowestNumOfFirstDimension = LBound(YourArray,1)  <FONT color=green>' LBound returns 2</FONT>
+HighestNumOfSecondDimension = UBound(YourArray,2)  <FONT color=green>' UBound returns 15</FONT>
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Ngoài 
+          ra nếu dùng Dynamic Array, bạn có thể assign một Array nầy cho một 
+          Array khác, thay vì phải dùng FOR ...LOOP để copy từng Array 
+          Element.<BR <Blockquote>
+          <BLOCKQUOTE>
+            <TABLE bgColor=#eeeeee>
+              <TBODY>
+              <TR>
+                <TD><PRE>     MyArray = HisArray
+
+</PRE></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR></FONT>
+        <H3><FONT face=Verdana color=green>Data Type của bạn </FONT></H3><FONT 
+        face=Verdana>Bạn có thể gom các mảnh Data của cùng một vật nào đó thành 
+        một nhóm và đặt tên cho loại Data Type ấy như sau:<BR>
+        <BLOCKQUOTE>
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>Type</FONT> EmployeeRec  <FONT color=green>' EmployeeRec as name of this new Data Type</FONT>
+   Firstname <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   Surname <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   Salary <FONT color=blue>As</FONT> <FONT color=blue>Single</FONT> 
+   DateOfBirth <FONT color=blue>As</FONT> <FONT color=blue>Date</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Type</FONT> 
+
+<FONT color=green>' Now declare a variable of the new data type</FONT>
+<FONT color=blue>Dim</FONT> MyEmployee <FONT color=blue>As</FONT> EmployeeRec 
+MyEmployee.Firstname = "David" 
+MyEmployee.Surname = "Smith" 
+MyEmployee.Salary = 25000 
+MyEmployee.DateOfBirth = #14/6/1963# 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Trong 
+        Software Engineering, người ta gọi loại Data Type nầy là <B>Structured 
+        Data Type</B> để phân biệt nó với các loại Simple Data Type như Integer, 
+        Boolean, Single .v.v.. Bạn để ý cách nói đến một mảnh data, 
+        MyEmployee.Firstname, giống như là Property Firstname của một control 
+        tên MyEmployee.<BR>Có một cách viết khác để tránh typing nhiều lần chữ 
+        MyEmployee bằng cách dùng keyword <B>With</B> như sau:<BR>
+        <BLOCKQUOTE>
+          <BLOCKQUOTE>
+            <TABLE bgColor=#f6f6f6>
+              <TBODY>
+              <TR>
+                <TD><FONT size=3><PRE><FONT color=blue>With</FONT> MyEmployee 
+   .Firstname = "David" 
+   .Surname = "Smith" 
+   .Salary = 25000 
+   .DateOfBirth = #14/6/1963# 
+<FONT color=blue>End</FONT> <FONT color=blue>With</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Mặc 
+        dầu định nghĩa và dùng Structured Data Type cách nầy rất tiện lợi, nhưng 
+        sau nầy ta có thể dùng <B>Class</B> để đạt được cùng một mục tiêu mà còn 
+        hữu hiệu hơn nữa. Trong Class chẳng những ta định nghĩa những mảnh data 
+        mà còn đề ra cách xử lý chúng nữa.<BR><BR>
+        <BLOCKQUOTE><IMG height=14 
+          src="Chuong 6 - Dung du kien_files/ball_red.gif" width=14>&nbsp;<A 
+          href="http://www.vovisoft.com/vovisoft/vblinks.htm">Các liên mạng VB 
+          khác</A></BLOCKQUOTE>
+        <BLOCKQUOTE>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><BR><A 
+          href="http://www.bangden.com/soncuoc/Dang/index.htm">Những câu hỏi về 
+          Visual Basic</A> 
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/Visualbasic/tipstricks/forms.htm">Những 
+          mẹo vặt của Visual Basic</A></P>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/VB.htm"><BR>Lập trình với 
+          VBA</A></P></BLOCKQUOTE><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc --><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc -->
+        <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+        width="100%" border=0>
+          <TBODY>
+          <TR>
+            <TD class=clsRaised width=785 bgColor=#6699cc>
+              <P align=center><FONT face=Verdana color=#ffffff size=1>Được cung 
+              cấp từ Vivosoft</FONT></P></TD></TR></TBODY></TABLE>
+        <P>&nbsp;</P></FONT></FONT></BLOCKQUOTE>&nbsp;<!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></HTML>

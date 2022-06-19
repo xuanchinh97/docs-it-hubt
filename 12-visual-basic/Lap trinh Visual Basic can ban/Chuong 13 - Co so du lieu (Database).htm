@@ -1,0 +1,321 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://www.vovisoft.com/visualbasic/VB6Chapter13.htm -->
+<HTML><HEAD><TITLE>Database</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 13 - Co so du lieu (Database)_files/topbottom.css" type=text/css 
+rel=stylesheet></HEAD>
+<BODY leftMargin=0 marginheight="0" marginwidth="0">
+<CENTER><A href="http://www.vovisoft.com/"><IMG height=77 alt="Logo of Vovisoft" 
+src="Chuong 13 - Co so du lieu (Database)_files/vs-logo4_10.gif" width=102 
+border=0> </A><BR>
+<H1><FONT face=Tahoma color=#000000>Khóa Hàm Thụ Visual Basic 6.0</FONT></H1>
+<H2><FONT face=Tahoma color=#800000>Chương Mười Ba - Cơ sở dữ liệu 
+(Database)</FONT></H2></CENTER>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <H3><FONT face=Tahoma color=green>Table, Record và Field</FONT></H3><FONT 
+    face=Tahoma>Nói đến cơ sở dữ liệu, ta lập tức nghĩ đến SQLServer, Access hay 
+    Oracle .v.v., những nơi chứa rất nhiều dữ liệu để ta có thể lưu trữ hay lấy 
+    chúng ra một cách tiện lợi và nhanh chóng. Hầu hết các chương trình ta viết 
+    đều có truy cập cơ sở dữ liệu, và ta dùng nó như một công cụ để làm việc với 
+    rất nhiều dữ liệu trong khi tập trung vào việc lập trình phần giao diện với 
+    người dùng (users).<BR><BR>Do đó ta cần có một kiến thức căn bản về kiến 
+    trúc của cơ sở dữ liệu để hiểu lý do tạo sao ta thiết kế hay truy cập nó 
+    theo những cách nhất định.<BR><BR>Ta sẽ dùng Access Database 
+    <B>biblio.mdb</B>, nằm ở <B>C:\Program Files\Microsoft Visual 
+    Studio\VB98\biblio.mdb</B> để minh họa các ý niệm cần biết về cơ sở dữ 
+    liệu.<BR><BR>Trong database nầy có 4 <FONT color=blue><B>tables</B></FONT>: 
+    <B>Authors</B> (tác giả), <B>Publishers</B> (nhà xuất bản), <B>Titles</B> 
+    (đề mục) và <B>Title Author</B>.<BR>
+    <BLOCKQUOTE><IMG height=174 
+      src="Chuong 13 - Co so du lieu (Database)_files/biblio.gif" 
+    width=393></BLOCKQUOTE>Table Authors chứa nhiều <FONT 
+    color=blue><B>records</B></FONT>. Mỗi record trong table Authors chứa 3 
+    <FONT color=blue><B>fields</B></FONT>: <B>Au_ID, Author</B> và <B>Year 
+    Born</B> (năm sanh). Ta có thể trình bày Table Authors dưới dạng một 
+    spreadsheet như sau: 
+    <BLOCKQUOTE><IMG height=291 
+      src="Chuong 13 - Co so du lieu (Database)_files/AuthorTable.gif" 
+    width=396></BLOCKQUOTE>Vì cùng một field của các records hiển thị trong cùng 
+    một cột của spreadsheet, nên ta cũng nói đến một field như một <FONT 
+    color=blue><B>column</B></FONT> (cột). Và vì mỗi data record chiếm một row 
+    (hàng) của spreadsheet, nên có khi ta cũng nói đến một record như một <FONT 
+    color=blue><B>row</B></FONT>.<BR><BR>Thật tình mà nói, ta không cần phải có 
+    một computer để lưu trữ hay làm việc với một table như Authors nầy. Ta đã có 
+    thể dùng một hộp cạt, trên mỗi cạt ta ghi các chi tiết Au_ID, Author và Year 
+    Born của một Author. Như thế mỗi tấm cạt tương đương với một record và 
+    nguyên cái hộp là tương đương với Table Authors.<BR><BR>Ta sẽ sắp các cạt 
+    trong hộp theo thứ tự của số Au_ID để có thể truy cập record nhanh chóng khi 
+    biết Au_ID. Chỉ khổ một nỗi, nếu muốn biết có bao nhiêu tác giả, trong số 
+    300 cạt trong hộp, già hơn 50 tuổi thì phải mất vài phút mới có thể trả lời 
+    được. Database trong computer nhanh hơn một hệ thống bằng tay (Manual) là ở 
+    chỗ đó.<BR><BR>
+    <H3><FONT face=Tahoma color=green>Primary Key và Index</FONT></H3>Để tránh 
+    sự trùng hợp, thường thường có một field của record, thí dụ như Au_ID trong 
+    Table Authors, được dành ra để chứa một trị số độc đáo (unique). Tức là 
+    trong Table Authors chỉ có một record với field Au_ID có trị số ấy mà thôi. 
+    Ta gọi nó là <FONT color=blue><B>Primary Key</B></FONT>.<BR><BR>
+    <BLOCKQUOTE><IMG height=240 
+      src="Chuong 13 - Co so du lieu (Database)_files/PrimaryIndex.gif" 
+      width=570></BLOCKQUOTE>Không phải lúc nào ta cũng muốn truy cập một record 
+    Author dựa vào Au_ID. Nhiều khi ta muốn dùng chính tên của Author để truy 
+    cập, do đó ta cũng cần phải sort sẵn các records theo thứ tự alphabet. Ta 
+    cũng có thể hợp nhiều fields lại để sort các records. Thật ra, chính các 
+    records không cần phải được dời đi để nằm đúng vị trí thứ tự. Ta chỉ cần nhớ 
+    vị trí của nó ở đâu trong table là đủ rồi.<BR><BR>Cái field hay tập hợp của 
+    nhiều fields (thí dụ surname và firstname ) để dùng vào việc sorting nầy 
+    được gọi là <FONT color=blue><B>Index</B></FONT> (ngón tay chỉ). Một Table 
+    có thể có một hay nhiều Index. Mỗi Index sẽ là một table nhỏ của những 
+    <B>pointers</B>, chứa vị trí của các records trong Table Authors. Nó giống 
+    như mục lục index ở cuối một cuốn sách chứa trang số để chỉ ta đến đúng phần 
+    ta muốn tìm trong quyển sách. <BR><BR>Khi thiết kế một Table ta chỉ định 
+    <B>Datatype</B> của mỗi field để có thể kiểm tra data cho vào có hợp lệ hay 
+    không. Các Datatypes thông dụng là Number, String (để chứa Text), Boolean 
+    (Yes/No), Currency (để chứa trị số tiền) và Date (để chứa date/time). 
+    Datatype Number lại gồm có nhiều loại datatypes về con số như Integer, Long 
+    (integer chiếm 32 bits), Single, Double, .v.v. <BR><BR>Dưới đây là Datatypes 
+    của các fields trong record Author: 
+    <BLOCKQUOTE><IMG height=355 
+      src="Chuong 13 - Co so du lieu (Database)_files/DesignView.gif" 
+    width=574></BLOCKQUOTE>Có loại Datatype đặc biệt tên là <B>AutoNumber</B>. 
+    Thật ra nó là Long nhưng trị số được phát sinh tự động mỗi khi ta thêm một 
+    record mới vào Table. Ta không làm gì hơn là phải chấp nhận con số 
+    ấy.<BR><BR>
+    <H3><FONT face=Tahoma color=green>Relationship và Foreign Key</FONT></H3>Bây 
+    giờ, nếu bạn đang chạy Microsoft Access để quan sát database biblio.mdb, bạn 
+    có thể dùng Menu Command <B>Tools | Relationships</B> như sau để xem sự liên 
+    hệ (relationships) giữa các tables. 
+    <BLOCKQUOTE><IMG height=281 
+      src="Chuong 13 - Co so du lieu (Database)_files/relationship.gif" 
+      width=739></BLOCKQUOTE>Access sẽ hiển thị giao thoại Relationships, trong đó 
+    mỗi table có chứa tên các fields. Mỗi table lại có một hay hai sợi dây nối 
+    qua các tables klhác. Mỗi sợi dây là một mối liên hệ (relationship), nó nối 
+    một field trong một table với một field có cùng tên trong table 
+    kia.<BR><BR>Thí dụ như giữa hai tables <B>Publishers</B> và <B>Titles</B> có 
+    mối liên hệ dựa trên field <B>PubID</B> (<B>Pub</B>lisher 
+    <B>ID</B>entification - số lý lịch của nhà xuất bản). Hơn nữa, nếu để ý bạn 
+    sẽ thấy ở đầu dây phía table Publishers có con số <B>1</B>, còn ở đầu dây 
+    bên phía table Titles có dấu vô cực (<FONT size=+1>∞</FONT>). Ta gọi mối 
+    liên hệ (<B>1-<FONT size=+1>∞</FONT></B> ) là <B>one-to-many</B>, ý nói 
+    <B>một</B> nhà xuất bản có thể phát hành <B>nhiều</B> đề mục 
+sách/CD.<BR><BR>
+    <BLOCKQUOTE><IMG height=287 
+      src="Chuong 13 - Co so du lieu (Database)_files/onetomany.gif" 
+    width=631></BLOCKQUOTE>Tương tự như vậy, trong mối liên hệ one-to-many giữa 
+    table Authors và Title Author, ta thấy một tác giả (bên đầu có con số 1) có 
+    thể sáng tác nhiều tác phẩm được đại diện bởi các record Title 
+    Author.<BR><BR>Trong khi đó giữa hai tables Titles và Title Author, ta có 
+    một mối liên hê <B>one-to-one</B>, tức là tương ứng với mỗi record Title chỉ 
+    có một record Title Author. Câu hỏi đặt ra là các mối liên hệ one-to-many có 
+    cái gì quan trọng.<BR><BR>Tưởng tượng khi ta làm việc với table Titles (tạm 
+    gọi là Tác phẩm), nhiều khi ta muốn biết chi tiết của nhà xuất bản của tác 
+    phẩm ấy. Thật ra ta đã có thể chứa chi tiết của nhà xuất bản của mỗi tác 
+    phẩm ngay trong table Titles. Tuy nhiên, làm như thế có điểm bất lợi là 
+    records của các tác phẩm có cùng nhà xuất bản sẽ chứa những dữ liệu giống 
+    nhau. Mỗi lần muốn sửa đổi chi tiết của một nhà xuất bản ta phải sửa chúng 
+    trong mỗi record Title thuộc nhà xuất bản ấy. Vì muốn chứa chi tiết của mỗi 
+    nhà xuất bản ở một chỗ duy nhất, tránh sự lập lại, nên ta đã chứa chúng 
+    trong một table riêng, tức là table Publishers.<BR><BR>Nếu giả sử ta bắt đầu 
+    thiết kế database với Table Titles, rồi quyết định tách các chi tiết về nhà 
+    xuất bản để vào một table mới, tên Publishers, thì kỹ thuật ấy được gọi là 
+    <B>normalization</B>. Nói một cách khác, normalization là thiết kế các 
+    tables trong database làm sao để mỗi loại mảnh dữ kiện (không phải là Key) 
+    chỉ xuất hiện ở một chỗ.<BR><BR>Trong mối liên hệ one-to-many giữa tables 
+    Publishers và Titles, field PubID là Primary Key trong table Publishers. 
+    Trong table Titles, field PubID được gọi là <FONT color=blue><B>Foreign 
+    Key</B></FONT>, có nghĩa rằng đây là Primary Key của một table lạ (foreign). 
+    Hay nói một cách khác, trong khi làm việc với table Titles, lúc nào cần chi 
+    tiết một nhà xuất bản, ta sẽ lấy chìa khóa lạ (Foreign Key) dùng làm Primary 
+    Key của Table Publishers để truy cập record ta muốn. Để ý là chính Table 
+    Titles có Primary Key <B>ISBN</B> của nó.<BR><BR>
+    <H3><FONT face=Tahoma color=green>Relational Database</FONT></H3>Một 
+    database có nhiều tables và hổ trợ các liên hệ, nhất là one-to-many, được 
+    gọi là <B>Relational Database</B>. Khi thiết kế một database, ta sẽ tìm cách 
+    sắp đặt các dữ liệu từ thế giới thật bên ngoài vào trong các tables. Ta sẽ 
+    quyết định chọn các cột (columns/fields) nào, chọn Primary Key, Index và 
+    thiết lập các mối liên hệ, tức là đặt các Foreign Key ở đâu.<BR><BR>
+    <H3><FONT face=Tahoma color=blue>Các lợi ích</FONT></H3>Trong số các lợi ích 
+    của một thiết kế Relational Database có: 
+    <UL>
+      <LI>Sửa đổi dữ kiện, cho vào records mới hay delete (gạch bỏ) records có 
+      sẵn rất hiệu quả (nhanh). 
+      <LI>Truy cập dữ kiện, làm báo cáo (Reports) cũng rất hiệu quả. 
+      <LI>Vì dữ kiện được sắp đặt thứ tự và có quy củ nên ta có thể tin cậy tính 
+      tình của database (không có ba trợn, khi thì thế nầy, khi thì thế khác - 
+      giựt giựt). 
+      <LI>Vì hầu hết dữ kiện nằm trong database, thay vì trong chương trình ứng 
+      dụng, nên database tự có documentation (tài liệu cắt nghĩa). 
+      <LI>Dễ sửa đổi chính cấu trúc của các tables. </LI></UL>
+    <H3><FONT face=Tahoma color=blue>Integrity Rules (các quy luật liêm 
+    chính)</FONT></H3><B>Integrity Rules</B> được dùng để nói về những qui luật 
+    cần phải tuân theo trong khi làm việc với database để đảm bảo là database 
+    còn tốt. Có hai loại quy luật: luật tổng quát (General Integrity Rules) và 
+    luật riêng cho database (Database-Specific Integrity Rules). Các luật riêng 
+    nầy thường tùy thuộc vào các quy luật về mậu dịch (Business Rules). 
+    <H4><FONT face=Tahoma color=blue>General Integrity Rules </FONT></H4>Có hai 
+    quy luật liêm chính liên hệ hoàn toàn vào database: Entity (bản thể) 
+    Integrity Rule và Referential (chỉ đến) Integrity Rule.<BR><BR><B>Entity 
+    Integrity Rule</B> nói rằng <B>Primary Key</B> không thể thiếu được, tức là 
+    không thể có trị số <B>NULL</B>. Quy luật nầy xác nhận là vì mỗi Primary Key 
+    đưa đến một row độc đáo trong table, nên dĩ nhiên nó phải có một trị số đàng 
+    hoàng.<BR><BR>Lưu ý là Primary Key có thể là một <B>Composite Key</B>, tức 
+    là tập hợp của một số keys (columns/fields), nên nhất định không có key nào 
+    trong số các columns là NULL được.<BR><BR><B>Referential Integrity Rule</B> 
+    nói rằng database không thể chứa một Foreign Key mà không có Primary Key 
+    tương ứng của nó trong một table khác. Điều ấy hàm ý rằng:<BR>
+    <UL>
+      <LI>Ta không thể thêm một Row vào trong một Table với trị số Foreign Key 
+      trong Row ấy không tìm thấy trong danh sách Primary Key của table bên phía 
+      <B>one</B> (1) mà nó liên hệ. 
+      <LI>Nếu có thay đổi trị số của Primary Key của một Row hay delete một Row 
+      trong table bên phía <B>one</B> (1) thì ta không thể để các records trong 
+      table bên phía <B>many</B> (<FONT size=+1>∞</FONT>) chứa những rows trở 
+      thành mồ côi (orphans). </LI></UL>Nói chung, có ba nhiệm ý (options) ta có 
+    thể chọn khi thay đổi trị số của Primary Key của một Row hay delete một Row 
+    trong table bên phía <B>one</B> (1): 
+    <OL>
+      <LI><B>Disallow</B> (không cho làm): Hoàn toàn không cho phép chuyện nầy 
+      xãy ra. 
+      <LI><B>Cascade</B> (ảnh hưởng dây chuyền): Nếu trị số Primary Key bị thay 
+      đổi thì trị số Foreign Key tương ứng trong các records của table bên phía 
+      <B>many</B> (<FONT size=+1>∞</FONT>) được thay đổi theo. <BR>Nếu Row chứa 
+      Primary Key bị deleted thì các records tương ứng trong table bên phía 
+      <B>many</B> (<FONT size=+1>∞</FONT>) bị deleted theo. 
+      <LI><B>Nullify</B> (cho thành NULL): Nếu Row chứa Primary Key bị deleted 
+      thì trị số Foreign Key tương ứng trong các records của table bên phía 
+      <B>many</B> (<FONT size=+1>∞</FONT>) được đổi thành NULL, để hàm ý đừng có 
+      đi tìm thêm chi tiết ở đâu cả. </LI></OL>
+    <H4><FONT face=Tahoma color=blue>Database-Specific Integrity Rules 
+    </FONT></H4>Những quy luật liêm chính nào khác không phải là Entity 
+    Integrity Rule hay Referential Integrity Rule thì được gọi là 
+    Database-Specific Integrity Rules. Những quy luật nầy dựa vào chính loại 
+    database và nhất là tùy thuộc vào các quy luật về mậu dịch (Business Rules) 
+    ta dùng cho database, thí dụ như mỗi record về tiền lương của công nhân phải 
+    có một field Số Thuế (Tax Number) do sở Thuế Vụ phát hành cho công dân. Lưu 
+    ý là các quy luật nầy cũng quan trọng không kém các quy luật tổng quát về 
+    liêm chính. Nếu ta không áp dụng các Database-Specific Integrity Rules 
+    nghiêm chỉnh thì database có thể bị hư và không còn dùng được. 
+    <H3><FONT face=Tahoma color=green>Microsoft Access Database Management 
+    System (MSAccess DBMS)</FONT></H3>Microsoft Access Database Management 
+    System gồm có Database Engine và những công cụ đi chung để cung cấp cho 
+    users một môi trường làm việc thân thiện với database, như Database Design 
+    (thiết kế các tables và mối liên hệ), Data entry và báo cáo (reports). Kèm 
+    theo với Visual Basic 6.0 khi ta mua là một copy của Database Engine của 
+    MSAccess. Tên nó là <B>Jet Database Engine</B>, cái lõi của MSAccess DBMS. 
+    Các chương trình VB6 có thể truy cập database qua Jet Database 
+    Engine.<BR><BR>Nếu trên computer của bạn có cài sẵn MSAccess, thì bạn có thể 
+    dùng đó để thiết kế các tables của database hay cho data vào các tables. 
+    <H3><FONT face=Tahoma color=blue>Properties Required và Allow Zero 
+    Length</FONT></H3>Khi thiết kế một table field, lưu ý property 
+    <B>Required</B> và nhất là property <B>Allow Zero Length</B> của Text. Nếu 
+    property <B>Required</B> của một field là <B>Yes</B> thì ta không thể update 
+    (viết) một record với field ấy có trị số NULL. Nếu một Text field có 
+    property <B>Allow Zero Length</B> là <B>No</B> thì thì ta không thể update 
+    một record khi field ấy chứa một empty string.<BR><BR><IMG height=365 
+    src="Chuong 13 - Co so du lieu (Database)_files/required.gif" 
+    width=870><BR><BR>Khi ta tạo một record lần đầu, nếu không cho trị số của 
+    một field, thì field ấy có trị số là <B>NULL</B>. Thường thường, Visual 
+    Basic 6.0 không thích NULL value nên ta phải thử một field với <B>Function 
+    IsNULL()</B> để đảm bảo nó không có trị số NULL trước khi làm việc với nó. 
+    Nếu IsNULL trả về trị số False thì ta có thể làm việc với field ấy. Nhớ là 
+    khi trị số NULL được dùng trong một expression, ngay cả khi chương trình 
+    không cho Error, kết quả cũng là NULL. 
+    <H3><FONT face=Tahoma color=blue>Làm việc với các versions khác 
+    nhau</FONT></H3>Nếu máy bạn đang chạy MSAccess2002 thì bạn có thể làm việc 
+    với Access database file version 97, 2000 và 2002. Nếu cần phải convert từ 
+    version nầy qua version khác, bạn có thể dùng Access DBMS Menu Command 
+    <B>Tools | Database Utilities | Convert Database | To Access 2002 File 
+    Format...</B>. Nếu muốn giữ nguyên version, bạn có thể convert database qua 
+    File Format 2002 để sửa đổi, rồi sau đó convert trở lại File Format cũ. 
+    <BLOCKQUOTE><IMG height=274 
+      src="Chuong 13 - Co so du lieu (Database)_files/fileformat.gif" 
+    width=752></BLOCKQUOTE>Access database file lớn lên rất nhanh, vì các 
+    records đã bị deleted vẫn còn nằm nguyên, nên mỗi tuần bạn nên nhớ nén nó 
+    lại để bỏ hết các records đã bị deleted bằng cách dùng Access DBMS Menu 
+    Command <B>Tools | Database Utilities | Compact and Repair Database...</B> 
+    hay dùng <B>function DBEngine.CompactDatabase</B> trong VB6.<BR><BR>
+    <H3><FONT face=Tahoma color=blue>Dùng Query để viết SQL</FONT></H3>Một cách 
+    để truy cập database là dùng ngôn ngữ <B>Structured Query Language (SQL)</B> 
+    theo chuẩn do ISO/IEC phát hành năm 1992, gọi tắt là <B>SQL92</B>. Tất cả 
+    mọi database thông dụng đều hỗ trợ SQL, mặc dầu nhiều khi chúng còn cho thêm 
+    nhiều chức năng rất hay nhưng không nằm trong chuẩn. Các lệnh SQL thông dụng 
+    là <B>SELECT, UPDATE, INSERT</B> và <B>DELETE</B>. Ta có thể dùng phương 
+    tiện thiết kế Query của MSAccess để viết SQL. Sau khi thiết kế Query bằng 
+    cách drag drop các fields, bạn có thể dùng Menu Command <B>View | View 
+    SQL</B> như sau: 
+    <BLOCKQUOTE><IMG height=433 
+      src="Chuong 13 - Co so du lieu (Database)_files/viewSQL.gif" 
+    width=786></BLOCKQUOTE>Tiếp theo đây là SQL statement của Query bên trên mà 
+    bạn có thể copy để paste vào trong code VB6: 
+    <BLOCKQUOTE><IMG height=80 
+      src="Chuong 13 - Co so du lieu (Database)_files/selectSQL.gif" 
+    width=511></BLOCKQUOTE>
+    <H3><FONT face=Tahoma color=blue>Dùng Link Table để làm việc trực tiếp với 
+    database loại khác</FONT></H3>Ta có thể dùng một database loại khác, như 
+    DBase, trực tiếp trong VB6 như dùng một Access database bình thường. Muốn 
+    thiết lập móc nối ấy, bạn dùng Menu Command <B>File | Get External Data | 
+    Link Tables...</B> rồi chọn loại DBase và chính file của table mà bạn muốn 
+    dùng để nhét nó vào Access database đang mở: 
+    <BLOCKQUOTE><IMG height=542 
+      src="Chuong 13 - Co so du lieu (Database)_files/linktable.gif" 
+    width=638></BLOCKQUOTE>
+    <H3><FONT face=Tahoma color=green>Database Server và một số ý 
+    niệm</FONT></H3>Dù Jet Database Engine là một relational database rất tốt và 
+    hiệu năng, nó thuộc loại <B>File Based database</B>, tức là nó thụ động, 
+    không chạy một mình nhưng phải tùy thuộc vào chương trình dùng nó. File 
+    Based database không thích hợp với những ứng dụng có nhiều người dùng cùng 
+    một lúc.<BR><BR>Trong khi đó, một Database Server như <B>SQLServer</B> chạy 
+    riêng để phục vụ bất cứ chương trình khách (client) nào cần. Database Server 
+    thich hợp cho các ứng dụng có nhiều users vì chỉ có một mình nó chịu trách 
+    nhiệm truy cập dữ liệu cho mọi clients. Nó có thể chứa nhiều routines địa 
+    phương, gọi là <B>Stored Procedures</B>, để thực hiện các công tác client 
+    yêu cầu rất hiệu năng. Database Server thường có cách đối phó hữu hiệu khi 
+    có sự cố về phần cứng như đĩa hư hay cúp điện. Ngoài ra, Database Server có 
+    sẵn các phương tiện về an ninh và backup. Nó cũng có thêm các chức năng để 
+    dùng cho mạng.<BR><BR>Ngày nay ta thâu thập dữ liệu dưới nhiều hình thức như 
+    Email, Word documents, Speadsheet. Không nhất thiết dữ liệu luôn luôn được 
+    chứa dưới dạng table của những records và không nhất thiết dữ liệu luôn luôn 
+    được lưu trữ trong một database đàng hoàng. Dù vậy, chúng vẫn được xem như 
+    database dưới mắt một chương trình ứng dụng. Do đó, ta dùng từ <B>Data 
+    Store</B> (Kho dữ liệu) thay thế cho database để nói đến nơi chứa dữ liệu. 
+    Và đối với chương trình tiêu thụ dữ liệu, ta nói đến <B>Data Source</B> 
+    (Nguồn dữ liệu) thay vì database.<BR><BR>Khi lập trình bằng VB6 để truy cập 
+    database, ta nhìn databse một cách trừu tượng, tức là dầu nó là Access, 
+    DBase, SQLServer hay Oracle ta cũng xem như nhau. Nếu có thay đổi loại 
+    database bên dưới, cách lập trình của ta cũng không thay đổi bao 
+    nhiêu.<BR><BR>Trong tương lai, một <B>XML file</B> cũng có thể được xem như 
+    một database nho nhỏ. Nó có thể đứng một mình hay là một table trích ra từ 
+    một database chính huy. XML là một chuẩn mà ta có thể dùng để import/export 
+    dữ liệu với tất cả mọi loại database hỗ trợ XML. Ta có thể trao đổi dữ liệu 
+    trên mạng Intenet dưới dạng XML. Ngoài ra, thay vì làm việc trực tiếp với 
+    một database lớn, ta có thể trích ra vài tables từ database ấy thành một XML 
+    file. Kế đó ta chỉ lập trình với XML file cho đến khi kết thúc sẽ hòa 
+    (merge/reconcile) XML file với database lớn. Nếu phần lớn các chương trình 
+    áp dụng được thiết kế để làm việc cách nầy, thì trong tương lai ta không cần 
+    một Database Server thật mạnh. <BR><BR><BR></BLOCKQUOTE><A 
+  href="http://www.vovisoft.com/"><IMG height=40 
+  src="Chuong 13 - Co so du lieu (Database)_files/homejump.gif" 
+  width=40><A>&nbsp;&nbsp;<A 
+  href="http://www.vovisoft.com/visualbasic/default.htm">Học Microsoft Visual 
+  Basic 6.0</A><BR><BR></BLOCKQUOTE>&nbsp; 
+<TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=clsRaised width=785 bgColor=#6699cc colSpan=5>
+      <P align=center><FONT face=Tahoma color=#ffffff size=1>Vovisoft © 2000. 
+      All rights reserved.</FONT></P></TD></TR>
+  <TR>
+    <TD width=256>
+      <P align=center><FONT face=Tahoma size=1>&nbsp;&nbsp; Last Updated: 28 
+      April 2002 </FONT></P></TD>
+    <TD width=181><FONT face=Tahoma size=1>&nbsp;</FONT></TD>
+    <TD width=258>
+      <P align=center><A href="mailto:dixon@vovisoft.com"><FONT face=Tahoma 
+      size=1>Webmaster</FONT></A></P></TD></TR></TBODY></TABLE></FONT></BODY></HTML>

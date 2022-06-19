@@ -1,0 +1,498 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://www.vovisoft.com/visualbasic/VB6Chapter15.htm -->
+<HTML><HEAD><TITLE>Programming DAO</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 15 - Lap trinh voi ky thuat  DAO_files/topbottom.css" type=text/css 
+rel=stylesheet></HEAD>
+<BODY leftMargin=0 marginheight="0" marginwidth="0">
+<CENTER><A href="http://www.vovisoft.com/"><IMG height=77 alt="Logo of Vovisoft" 
+src="Chuong 15 - Lap trinh voi ky thuat  DAO_files/vs-logo4_10.gif" width=102 
+border=0> </A><BR>
+<H1><FONT face=Tahoma color=#000000>Khóa Hàm Thụ Visual Basic 6.0</FONT></H1>
+<H2><FONT face=Tahoma color=#800000>Chương Mười Lăm - Lập trình với kỹ thuật 
+DAO</FONT></H2></CENTER>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <H3><FONT face=Tahoma color=blue>Reference DAO</FONT></H3><FONT 
+    face=Tahoma>Trong bài nầy ta sẽ học những cách lập trình căn bản với MS 
+    Access database qua kỹ thuật DAO mà không cần dùng đến <B>Control 
+    <I>Data</I></B>&nbsp; như trong bài trước. Ta sẽ cần đến vài Objects trong 
+    thư viện DAO, do đó nếu bạn mở một dự án VB6 mới thì hãy dùng Menu Command 
+    <B>Project | References...</B> để chọn <B>Microsoft DAO 3.51 Object 
+    Library</B> bằng cách click cái checkbox bên trái như trong hình dưới đây. 
+    (Một cách để nhớ tên của Object nầy là nhớ câu <I>"thằng cha cua ĐÀO 35 con 
+    dê"</I>). 
+    <BLOCKQUOTE><IMG height=364 
+      src="Chuong 15 - Lap trinh voi ky thuat  DAO_files/DAOObject.gif" 
+      width=449></BLOCKQUOTE>Sau đó trong code của Form chính ta sẽ declare 
+    variable <B>myDatabase</B> cho một instance của <B>DAO database</B> và 
+    variable <B>myRS</B> cho một <B>DAO recordset</B>. Ở đây ta nói rõ Database 
+    và Recordset là thuộc loại <B>DAO</B> để phân biệt với Database và Recordset 
+    thuộc loại <B>ADO (ActiveX Data Object)</B> sau nầy. Để ý là Intellisense 
+    giúp ta trong lúc viết code: 
+    <BLOCKQUOTE><IMG height=236 
+      src="Chuong 15 - Lap trinh voi ky thuat  DAO_files/myDAODB.gif" 
+    width=457></BLOCKQUOTE>Bây giờ bạn hãy đặt lên Form chính, tên 
+    <B>frmDAO</B>, 4 labels với captions: <B>Title, Year Published, ISBN</B> và 
+    <B>Publisher ID</B>. Kế đó cho thêm 4 textboxes tương ứng và đặt tên chúng 
+    là <B>txtTitle, txtYearPublished, txtISBN</B> và 
+    <B>txtPublisherID</B>.<BR><BR>Điều ta muốn làm là khi Form mới được loaded, 
+    nó sẽ lấy về từ database một Recordset chứa tất cả records trong <B>table 
+    Titles</B> theo thứ tự về mẫu tự (alphabetical order) của <B>field Title</B> 
+    và hiển thị record đầu tiên.<BR><BR>
+    <H3><FONT face=Tahoma color=blue>Dùng keyword SET</FONT></H3>Chuyện trước 
+    hết là mở một Database Object dựa vào tên đầy đủ (full path name) của Access 
+    database: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=green>' Open main database</FONT>
+<FONT color=blue>Set</FONT> myDB = OpenDatabase(AppFolder &amp; "BIBLIO.MDB") 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Để ý chữ <B>Set</B> 
+    trong câu code trên. Đó là vì myDB là một <B>Pointer</B> đến một Object. Mặc 
+    dầu từ rày về sau ta sẽ dùng myDB như một Database theo cách giống như bất 
+    cứ variable thuộc data type nào khác, nhưng khi chỉ định lần đầu là nó từ 
+    đâu đến thì ta dùng chữ Set, để nói rằng thật ra myDB không phải là Object 
+    Database, nhưng là Pointer đến Object Database. Điểm nầy càng nói đến càng 
+    khó hiểu.<BR><BR>Đại khái là VB6 runtime dynamically allocates (dành ra cho 
+    khi cần) một phần trong bộ nhớ (memory) để chứa Object Database khi ta nhận 
+    được nó từ execution của <B>Method OpenDatabase</B>. Dầu vị trí chỗ chứa 
+    Object Database trong bộ nhớ không nhất định, nhưng vì ta nắm cái cán chỉ 
+    đến vị trí ấy nên ta vẫn có thể làm việc với nó một cách bình thường. Cái 
+    cán ấy là value (trị số) của variable myDB. Vì value nầy không phải là 
+    Object, nhưng nó chứa <B>memory address</B> chỉ đến (<B>point to</B> hay 
+    <B>refer to</B>) Object Database, nên ta gọi nó là Pointer.<BR><BR>Lập trình 
+    dùng Pointer nói chung rất linh động là hiệu năng trong các ngôn ngữ như C, 
+    Pascal, C++ ,v.v.. Tuy nhiên, lập trình viên phải nhớ trả lại Operating 
+    System phần memory mình dùng khi không còn cần nó nữa để Operating System 
+    lại allocate cho Object khác. Nếu công việc quản lý dùng lại memory không ổn 
+    thỏa thì có những mảnh memory nằm lang bang mà Operating Sytem không biết. 
+    Lần lần Operating System sẽ không còn memory dư nữa. Ta gọi hiện tượng ấy là 
+    <B>memory leakage (rỉ)</B>. Các ngôn ngữ sau nầy như Java, C# đều không dùng 
+    Pointer nữa. Visual Basic không muốn lập trình viên dùng Pointer. Chỉ trong 
+    vài trường hợp đặc biệt VB6 mới lộ ra cho ta thấy thật ra ở trong hậu trường 
+    VB6 Runtime dùng Pointer, như trong trường hợp nầy.<BR><BR>Tương tự như vậy, 
+    vì Recordset là một Pointer đến một Object, ta cũng dùng <B>Set</B> khi chỉ 
+    định một DAO Recordset lấy về từ <B>Method OpenRecordset</B> của database 
+    myDB. 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=green>'Open recordset</FONT>
+<FONT color=blue>Set</FONT> myRS = myDB.OpenRecordset("Select * from Titles ORDER BY Title") 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Cái parameter loại 
+    String ta dùng cho method OpenRecordset là một <B>Lệnh (Statement) SQL</B>. 
+    Nó chỉ định cho database lấy tất cả mọi fields (columns) (<B><FONT 
+    color=blue>Select *</FONT>)</B> của mỗi record từ Table Titles (<B><FONT 
+    color=blue>from Titles</FONT></B>) làm một Recordset và sort các records 
+    trong Recordset ấy theo alphabetical order của field Title (<B><FONT 
+    color=blue>ORDER BY Title</FONT></B>).<BR><BR>Nhớ là Recordset nầy cũng 
+    giống như <B>property Recordset</B> của một Control Data mà ta dùng trong 
+    bài trước. Bây giờ có Recordset rồi, ta có thể hiển thị chi tiết của record 
+    đầu tiên nếu Recordset ấy có ít nhất một record. Ta kiểm tra điều ấy dựa vào 
+    <B>property RecordCount</B> của Recordset như trong code dưới đây: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_Load() 
+   <FONT color=green>' Fetch Folder where this program EXE resides</FONT>
+   AppFolder = App.Path 
+   <FONT color=green>' make sure it ends with a back slash</FONT>
+   <FONT color=blue>If</FONT> Right(AppFolder, 1) &lt;&gt; "\" <FONT color=blue>Then</FONT> AppFolder = AppFolder &amp; "\" 
+   <FONT color=green>' Open main database</FONT>
+   <FONT color=blue>Set</FONT> myDB = OpenDatabase(AppFolder &amp; "BIBLIO.MDB") 
+   <FONT color=green>'Open recordset</FONT>
+   <FONT color=blue>Set</FONT> myRS = myDB.OpenRecordset("Select * from Titles ORDER BY Title") 
+   <FONT color=green>' if Recordset is not empty then display the first record</FONT>
+   <FONT color=blue>If</FONT> myRS.RecordCount &gt; 0 <FONT color=blue>Then</FONT> 
+      myRS.MoveFirst  <FONT color=green>' move to first record</FONT>
+      Displayrecord  <FONT color=green>' display details of current record</FONT>
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Sau khi dùng <B>method 
+    MoveFirst</B> của Recordset để position <B>current record</B> ở Record đầu 
+    tiên, ta hiển thị trị số các fields của record bằng cách assign chúng vào 
+    các textboxes của Form như sau: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Displayrecord() 
+   <FONT color=green>' Assign record fields to the appropriate textboxes</FONT>
+   <FONT color=blue>With</FONT> myRS 
+      <FONT color=green>' Assign field Title to textbox txtTitle</FONT>
+      txtTitle.Text = .Fields("Title") 
+      txtYearPublished.Text = .Fields("[Year Published]") 
+      txtISBN.Text = .Fields("ISBN") 
+      txtPublisherID.Text = .Fields("PubID") 
+   <FONT color=blue>End</FONT> <FONT color=blue>With</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Để ý vì field <B>Year 
+    Publshed</B> gồm có hai chữ nên ta phải đặt tên của field ấy giữa hai dấu 
+    ngoặc vuông (<B>[]</B>). Để tránh bị phiền phức như trong trường hợp nầy, 
+    khi bạn đặt tên database field trong lúc thiết kế một table hãy dán dính các 
+    chữ lại với nhau, đừng để rời ra. Thí dụ như dùng <B>YearPublished</B> thay 
+    vì <B>Year&nbsp;Published</B>.<BR><BR>
+    <H3><FONT face=Tahoma color=blue>Các nút di chuyển</FONT></H3>Muốn có các 
+    nút Navigators tương đương với của một Control Data, bạn hãy đặt lên Form 4 
+    buttons mang tên <B>CmdFirst, CmdPrevious, CmNext</B> và <B>CmdLast</B> với 
+    captions: <FONT color=blue><B>&lt;&lt;</B>, <B>&lt;</B>, <B>&gt;</B>, 
+    <B>&gt;&gt;</B></FONT>.<BR><BR>Code cho các nút nầy cũng đơn giản, nhưng ta 
+    phải coi chừng khi user muốn di chuyển quá record cuối cùng hay record đầu 
+    tiên. Ta phải kiểm tra xem <B>EOF</B> có trở thành True khi user click 
+    CmdNext, hay <B>BOF</B> có trở thành True khi user click CmdPrevious: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdNext_Click() 
+   myRS.MoveNext  <FONT color=green>' Move to next record</FONT>
+   <FONT color=green>' Display record details if has not gone past the last record</FONT>
+   <FONT color=blue>If</FONT> <FONT color=blue>Not</FONT> myRS.EOF <FONT color=blue>Then</FONT> 
+      Displayrecord  <FONT color=green>' display details of current record</FONT>
+   <FONT color=blue>Else</FONT> 
+      myRS.MoveLast  <FONT color=green>' Move back to last record</FONT>
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdPrevious_Click() 
+   myRS.MovePrevious  <FONT color=green>' Move to previous record</FONT>
+   <FONT color=green>' Display record details if has not gone past the first record</FONT>
+   <FONT color=blue>If</FONT> <FONT color=blue>Not</FONT> myRS.BOF <FONT color=blue>Then</FONT> 
+      Displayrecord  <FONT color=green>' display details of current record</FONT>
+   <FONT color=blue>Else</FONT> 
+      myRS.MoveFirst  <FONT color=green>' Move back to first record</FONT>
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdFirst_Click() 
+   myRS.MoveFirst  <FONT color=green>' Move back to first record</FONT>
+   Displayrecord  <FONT color=green>' display details of current record</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdLast_Click() 
+   myRS.MoveLast  <FONT color=green>' Move back to last record</FONT>
+   Displayrecord  <FONT color=green>' display details of current record</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Khi chạy chương trình 
+    bạn sẽ thấy nó hiển thị chi tiết của Record đầu tiên khác với trong bài 
+    trước đây vì các records đã được sorted: 
+    <BLOCKQUOTE><IMG height=229 
+      src="Chuong 15 - Lap trinh voi ky thuat  DAO_files/DemoDAO.gif" 
+    width=378></BLOCKQUOTE>Bạn hãy thử dùng các Navigator buttons cây nhà, lá 
+    vườn của mình xem chúng làm việc có đúng không.<BR><BR>Tới đây, không biết 
+    bạn có để ý là dù user có vô tình sửa đổi một chi tiết nào trong các 
+    textboxes, không có record nào bị cập nhật hóa trong database khi user di 
+    chuyển từ record nầy đến record khác. Lý do là các Texboxes không có Data 
+    Bound với các Fields của Recordset. 
+    <H3><FONT face=Tahoma color=blue>Thêm bớt các Records</FONT></H3>Giống như 
+    chương trình trong bài rồi, ta sẽ thêm phương tiện để thêm (add), bớt 
+    (delete) các records. Bây giờ bạn hãy để vào Form 5 buttons tên: <B>cmdEdit, 
+    cmdNew, cmdDelete, cmdUpdate</B> và <B>cmdCancel</B>.<BR><BR>Chỗ nào trong 
+    chương trình trước ta dùng <B>Data1.Recordset</B> thì bây giờ ta dùng 
+    <B>myRS</B>.<BR><BR>Ta sẽ dùng lại <B>Sub SetControls</B> với parameter 
+    <B>Editing</B> có trị số False hay True tùy theo user đang Browse hay Edit. 
+    Trong <B>Browse mode</B>, các Textboxes bị Locked (khóa) và các nút 
+    <B>cmdUpdate</B> và <B>cmdCancel</B> trở nên bất lực. Trong <B>Edit 
+    mode</B>, các Textboxes được unlocked (mở khóa) và các nút <B>cmdNew, 
+    cmdDelete</B> và <B>cmdEdit</B> trở nên bất lực.<BR><BR>Vì ở đây không có 
+    Data Binding nên đợi cho đến khi <B>Update (cập nhật hóa)</B> ta mới đặt 
+    Recordset vào <B>AddNew</B> hay <B>Edit mode</B>. Do đó ta chỉ cần nhớ là 
+    khi user edits là đang Edit một record hiện hữu hay thêm một Record mới. Ta 
+    chứa trị số Boolean ấy trong variable <B>AddNewRecord</B>. Nếu user sắp thêm 
+    một record mới thì AddNewRecord&nbsp;=&nbsp;True, nếu User sắp Edit một 
+    record hiện hữu thì AddNewRecord&nbsp;=&nbsp;False.<BR><BR>Ngoài ra, khi 
+    User sắp thêm một record mới bằng cách click nút New thì ta phải tự clear 
+    (làm trắng) hết các textboxes bằng cách assign Empty string vào text 
+    property của chúng như sau: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=green>' If Editing existing record then AddNewRecord = False</FONT>
+<FONT color=green>' Else AddNewRecord = true</FONT>
+<FONT color=blue>Dim</FONT> AddNewRecord <FONT color=blue>As</FONT> <FONT color=blue>Boolean</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> ClearAllFields() 
+   <FONT color=green>' Clear all the textboxes</FONT>
+   txtTitle.Text = "" 
+   txtYearPublished.Text = "" 
+   txtISBN.Text = "" 
+   txtPublisherID.Text = "" 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> cmdNew_Click() 
+   <FONT color=green>' Remember that this is Adding a new record</FONT>
+   AddNewRecord = <FONT color=blue>True</FONT> 
+   <FONT color=green>' Clear all textboxes</FONT>
+   ClearAllFields 
+   <FONT color=green>' Place controls in Edit Mode</FONT>
+   SetControls (True) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdEdit_Click() 
+   <FONT color=green>' Place controls in Edit Mode</FONT>
+   SetControls (True) 
+   <FONT color=green>' Remember that this is Editing an existing record</FONT>
+   AddNewRecord = <FONT color=blue>False</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Nếu user clicks Cancel 
+    trong khi đang edit các textboxes, ta không cần gọi <B>method 
+    CancelUpdate</B> vì Recordset chưa bị đặt vào AddNew hay Edit mode. Ở đây ta 
+    chỉ cần hiển thị lại chi tiết của current record, tức là hủy bỏ những gì 
+    user đang đánh vào: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdCancel_Click() 
+   <FONT color=green>' Cancel update</FONT>
+   SetControls (False) 
+   <FONT color=green>' Redisplay details or current record</FONT>
+   Displayrecord 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Lúc user clicks Update, 
+    bạn có dịp để kiểm tra data xem có field nào bị bỏ trống (nhất là <B>Primary 
+    Key ISBN</B> bắt buộc phải có trị số) hay có gì không valid bằng cách gọi 
+    <B>Function GoodData</B>. Nếu GoodData trả lại một trị số False thì ta không 
+    xúc tiến với việc Update. Nếu GoodData trả về trị số True thì ta đặt 
+    Recordset vào AddNew hay Edit mode tùy theo trị số của Boolean variable 
+    AddNewRecord.<BR><BR>Giống như khi hiển thị chi tiết của một Record ta phải 
+    assign từng Field vào textbox, thì bây giờ khi Update ta phải làm ngược lại, 
+    tức là assign property Text của từng textbox vào Record Field tương ứng. Sau 
+    cùng ta gọi <B>method Update</B> của recordset và cho các controls trở lại 
+    Browse mode: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Function</FONT> GoodData() <FONT color=blue>As</FONT> <FONT color=blue>Boolean</FONT> 
+   <FONT color=green>' Check Data here. If Invalid Data then GoodData = False</FONT>
+   GoodData = <FONT color=blue>True</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Function</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdUpdate_Click() 
+   <FONT color=green>' Verify all data, if Bad then do not Update</FONT>
+   <FONT color=blue>If</FONT> <FONT color=blue>Not</FONT> GoodData <FONT color=blue>Then</FONT> <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+   <FONT color=green>' Assign record fields to the appropriate textboxes</FONT>
+   <FONT color=blue>With</FONT> myRS 
+      <FONT color=blue>If</FONT> AddNewRecord <FONT color=blue>Then</FONT> 
+         .AddNew  <FONT color=green>' Place Recordset in AddNew Mode</FONT>
+      <FONT color=blue>Else</FONT> 
+         .Edit  <FONT color=green>' Place Recordset in Edit Mode</FONT>
+      <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+      <FONT color=green>' Assign text of txtTitle to field Title</FONT>
+      .Fields("Title") = txtTitle.Text 
+      .Fields("[Year Published]") = txtYearPublished.Text 
+      .Fields("ISBN") = txtISBN.Text 
+      .Fields("PubID") = txtPublisherID.Text 
+      <FONT color=green>' Update data</FONT>
+      .Update 
+   <FONT color=blue>End</FONT> <FONT color=blue>With</FONT> 
+   <FONT color=green>' Return controls to Browse Mode</FONT>
+   SetControls (False) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Cũng vì không có Data 
+    Binding, nên khi User Delete một record, sau khi di chuyển qua record kế 
+    tiếp ta phải tự hiển thị chi tiết của record đó như sau: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdDelete_Click() 
+   <FONT color=blue>On</FONT> <FONT color=blue>Error</FONT> GoTo DeleteErr 
+   <FONT color=blue>With</FONT> myRS 
+      <FONT color=green>' Delete new record</FONT>
+      .Delete 
+      <FONT color=green>' Move to next record</FONT>
+      .MoveNext 
+      <FONT color=blue>If</FONT> .EOF <FONT color=blue>Then</FONT> .MoveLast 
+      <FONT color=green>' Display details of current record</FONT>
+      Displayrecord 
+      <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+   <FONT color=blue>End</FONT> <FONT color=blue>With</FONT> 
+DeleteErr: 
+   MsgBox Err.Description 
+   <FONT color=blue>Exit</FONT> <FONT color=blue>Sub</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+    <H3><FONT face=Tahoma color=blue>Tìm một record</FONT></H3>Tiếp theo đây, ta 
+    muốn liệt kê các sách có tiêu đề chứa một chữ hay câu nào đó, thí dụ như chữ 
+    "<B>Guide</B>". Kế đó user có thể chọn một sách bằng cách select tiêu đề 
+    sách ấy và click nút <B>Go</B>. Chương trình sẽ locate (tìm ra) record của 
+    sách ấy và hiển thị chi tiết của nó.<BR><BR>Bây giờ bạn hãy cho vào Form một 
+    textbox tên <B>txtSearch</B> và một Image tên <B>ImgSearch</B>. Kế đó đặt 
+    một frame tên <B>fraSearch</B> vào Form. Để lên frame nầy một listbox tên 
+    <B>List1</B> để hiển thị tiêu đề các sách, và hai buttons tên 
+    <B>CmdClose</B> và <B>CmdGo</B>, với caption Close và Go. Sau khi select một 
+    sách trong List1, user sẽ click nút <B>Go</B> để hiển thị chi tiết sách ấy. 
+    Nếu đổi ý, user sẽ click nút <B>Close</B> để làm biến mất frame 
+    fraSearch.<BR><BR>Bình thường frame fraSearch chỉ hiện ra khi cần, nên lúc 
+    đầu hãy set <B>property Visible</B> của nó thành False. Ta sẽ cho ImgSearch 
+    hiển thị hình một ống dòm nên bạn hãy click vào bên phải <B>property 
+    Picture</B> trong Properties Window để chọn Icon BINOCULR.ICO từ folder 
+    E:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Misc: 
+    <BR><BR><IMG height=557 
+    src="Chuong 15 - Lap trinh voi ky thuat  DAO_files/SearchRecord.gif" 
+    width=837><BR><BR>Cái Primary Key của table Titles là <B>ISBN</B>. Khi user 
+    select một sách ta muốn biết ISBN của sách ấy để locate (định chỗ) nó trong 
+    Recordset myRS. Do đó trong khi thêm tiêu đề của một sách vào List1, ta đồng 
+    thời thêm ISBN của sách ấy vào một Listbox thứ hai tên List2. Ta chỉ sẽ dùng 
+    List2 sau hậu trường, nên hãy set property Visible của nó thành False. Dưới 
+    đây là code để load tiêu đề sách và ISBN vào các Listboxes:<BR><BR>
+    <TABLE bgColor=#f6f6f6>
+      <TBODY>
+      <TR>
+        <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> ImgSearch_Click() 
+   <FONT color=green>' Show Search Frame</FONT>
+   fraSearch.Visible = <FONT color=blue>True</FONT> 
+   <FONT color=blue>Dim</FONT> SrchRS <FONT color=blue>As</FONT> DAO.Recordset 
+   <FONT color=blue>Dim</FONT> SQLCommand <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   <FONT color=green>' Define SQL statement</FONT>
+   SQLCommand = "Select * from Titles where Title LIKE '" &amp; "*" &amp; txtSearch &amp; "*" &amp; "' ORDER BY Title" 
+   <FONT color=green>' Fetch all records having Title containing the text pattern given by txtSearch</FONT>
+   <FONT color=blue>Set</FONT> SrchRS = myDB.OpenRecordset(SQLCommand) 
+   <FONT color=green>' If Recordset is not Empty then list the books' titles in List1</FONT>
+   <FONT color=blue>If</FONT> SrchRS.RecordCount &gt; 0 <FONT color=blue>Then</FONT> 
+      List1.Clear  <FONT color=green>' Clear List1</FONT>
+      <FONT color=green>' We use List2 to contain the Primary Key ISBN corresponding to the books in List1</FONT>
+      List2.Clear  <FONT color=green>' Clear List2</FONT>
+      <FONT color=blue>With</FONT> SrchRS 
+         <FONT color=green>' Iterate through the Recordset until EOF</FONT>
+         <FONT color=blue>Do</FONT> <FONT color=blue>While</FONT> <FONT color=blue>Not</FONT> SrchRS.EOF 
+            <FONT color=green>' Display Title in List1</FONT>
+            List1.AddItem .Fields("Title") 
+            <FONT color=green>' Store corresponding ISBN in List2</FONT>
+            List2.AddItem .Fields("ISBN") 
+            .MoveNext  <FONT color=green>' Move to next record in the Recordset</FONT>
+         <FONT color=blue>Loop</FONT> 
+      <FONT color=blue>End</FONT> <FONT color=blue>With</FONT> 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE><BR><BR>Khi user Click ImgSearch với 
+    text pattern là chữ <B>Guide</B>, ta sẽ thấy hình dưới đây: 
+    <BLOCKQUOTE><IMG height=265 
+      src="Chuong 15 - Lap trinh voi ky thuat  DAO_files/SearchFrame.gif" 
+      width=644></BLOCKQUOTE>Trong SELECT statement bên trên ta dùng operator 
+    <B>LIKE</B> trên text pattern, chữ <B>Guide</B>, có <B>wildcard character 
+    (*)</B> ở hai bên. Wildcard character là chỗ có (hay không có) chữ gì cũng 
+    được. Trong trường hợp nầy có nghĩa là hễ có chữ Guide trong tiêu đề sách là 
+    được, không cần biết nó nằm ở đâu. Ngoài ra sự chọn lựa nầy <B>Không có Case 
+    Sensitive</B>, tức là chữ <B>guide, Guide</B> hay <B>GUIDE</B> đều được 
+    cả.<BR><BR>Khi user clicks nút Go, ta sẽ dùng <B>method FindFirst</B> của 
+    Recordset myRS để định chỗ của record có trị số Primary Key là hàng text 
+    trong List2 tương ứng với tiêu đề dược chọn trong List1 như sau: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdGo_Click() 
+   <FONT color=blue>Dim</FONT> SelectedISBN <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   <FONT color=blue>Dim</FONT> SelectedIndex <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=blue>Dim</FONT> Criteria <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   <FONT color=green>' Index of line selected by user in List1</FONT>
+   SelectedIndex = List1.ListIndex 
+   <FONT color=green>' Obtain corresponding ISBN in List2</FONT>
+   SelectedISBN = List2.List(SelectedIndex) 
+   <FONT color=green>' Define Search criteria - use single quotes for selected text</FONT>
+   Criteria = "ISBN = '" &amp; SelectedISBN &amp; "'" 
+   <FONT color=green>' Locate the record, it will become the current record</FONT>
+   myRS.FindFirst Criteria 
+   <FONT color=green>' Display details of current record</FONT>
+   Displayrecord 
+   <FONT color=green>' Make fraSearch disappeared</FONT>
+   fraSearch.Visible = <FONT color=blue>False</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Lưu ý là trong string 
+    Criteria, vì ISBN thuộc loại text, chớ không phải là một con số, nên ta phải 
+    kẹp nó giữa hai dấu ngoặc đơn. 
+    <H3><FONT face=Tahoma color=blue>Bookmark</FONT></H3>Khi di chuyển từ record 
+    nầy đến record khác trong Recordset, đôi khi ta muốn đánh dấu vị trí của một 
+    record để có dịp sẽ trở lại. Ta có thể thực hiện điều ấy bằng cách ghi nhớ 
+    <B>Bookmark</B> của Recordset.<BR><BR>Thí dụ khi user clicks nút Go, ta muốn 
+    nhớ vị trí của record lúc ấy để sau nầy quay trở lại khi User clicks nút 
+    <B>Go Back</B>. Bạn hãy thêm vào Form một button tên <B>CmdGoBack</B> với 
+    Caption <B>Go Back</B>. Ta sẽ thêm một variable tên <B>LastBookmark</B> loại 
+    data type <B>Variant</B>: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Dim</FONT> LastBookMark <FONT color=blue>As</FONT> <FONT color=blue>Variant</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Lúc đầu button CmdGoBack 
+    invisible, và chỉ trở nên visible sau khi user clicks nút Go. Ta thêm các 
+    hàng codes sau vào Sub CmdGo_Click() như sau: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=green>' Remember location of current record</FONT>
+LastBookMark = myRS.BookMark 
+CmdGoback.Visible = <FONT color=blue>True</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Dưới đây là code để quay 
+    trở lại vị trí current record trước đây trong Recordset: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdGoback_Click() 
+   <FONT color=green>' Reposition record to last position</FONT>
+   myRS.BookMark = LastBookMark 
+   <FONT color=green>' Redisplay details or current record</FONT>
+   Displayrecord 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+    <H3><FONT face=Tahoma color=blue>LastModified</FONT></H3><B>LastModified</B> 
+    là vi trị của record vừa mới được sửa đổi hay thêm vào trong Recordset. Để 
+    thử điều nầy bạn hãy thêm một button invisible tên <B>CmdLastModified</B> 
+    với caption là <B>Last Modified</B>. Button nầy chỉ hiện ra sau khi user 
+    clicks Update. Bất cứ lúc nào bạn Click nút CmdLastModified, record mới vừa 
+    được sửa đổi hay thêm vào sẽ hiển thị: 
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdLastModified_Click() 
+   <FONT color=green>' Reposition record to last position</FONT>
+   myRS.BookMark = myRS.LastModified 
+   <FONT color=green>' Redisplay details or current record</FONT>
+   Displayrecord 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Dưới đây là hình của 
+    Form lúc đang được thiết kế: 
+    <BLOCKQUOTE><IMG height=265 
+      src="Chuong 15 - Lap trinh voi ky thuat  DAO_files/DesignDAO.gif" 
+      width=640></BLOCKQUOTE><BR><BR>Bạn có thể tải về chương trình nầy từ đây <A 
+    href="http://www.vovisoft.com/visualbasic/DAOPRJ.zip">DAOPRJ.zip</A>. Nhớ 
+    copy MS Access file BIBLIO.MDB, tức là database, vào trong cùng folder của 
+    chương trình trước khi chạy thử.<BR><BR>Ta sẽ học kỹ thuật ADO (ActiveX Data 
+    Object) trong bài tới.<BR><BR></BLOCKQUOTE><A 
+  href="http://www.vovisoft.com/"><IMG height=40 
+  src="Chuong 15 - Lap trinh voi ky thuat  DAO_files/homejump.gif" 
+  width=40><A>&nbsp;&nbsp;<A 
+  href="http://www.vovisoft.com/visualbasic/default.htm">Học Microsoft Visual 
+  Basic 6.0</A><BR><BR></BLOCKQUOTE>&nbsp; 
+<TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=clsRaised width=785 bgColor=#6699cc colSpan=5>
+      <P align=center><FONT face=Tahoma color=#ffffff size=1>Vovisoft © 2000. 
+      All rights reserved.</FONT></P></TD></TR>
+  <TR>
+    <TD width=256>
+      <P align=center><FONT face=Tahoma size=1>&nbsp;&nbsp; Last Updated: 9 May 
+      2002 </FONT></P></TD>
+    <TD width=181><FONT face=Tahoma size=1>&nbsp;</FONT></TD>
+    <TD width=258>
+      <P align=center><A href="mailto:dixon@vovisoft.com"><FONT face=Tahoma 
+      size=1>Webmaster</FONT></A></P></TD></TR></TBODY></TABLE></FONT></BODY></HTML>

@@ -1,0 +1,418 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0053)http://www.vovisoft.com/visualbasic/VB6Chapter12C.htm -->
+<HTML><HEAD><TITLE>Graphics (III)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 12 - Dung do hoa (phan 3)_files/topbottom.css" type=text/css 
+rel=stylesheet></HEAD>
+<BODY leftMargin=0 marginheight="0" marginwidth="0">
+<CENTER><A href="http://www.vovisoft.com/"><IMG height=77 alt="Logo of Vovisoft" 
+src="Chuong 12 - Dung do hoa (phan 3)_files/vs-logo4_10.gif" width=102 border=0> 
+</A><BR>
+<H1><FONT face=Tahoma color=#000000>Khóa Hàm Thụ Visual Basic 6.0</FONT></H1>
+<H2><FONT face=Tahoma color=#800000>Chương Mười Hai - Dùng Đồ Họa (Phần 
+III)</FONT></H2></CENTER>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><FONT face=Tahoma>
+    <H3><FONT face=Tahoma color=green>Graphics Methods</FONT></H3>Trong khi các 
+    Graphical Controls như Shape, Line cho ta vẽ hình lúc thiết kế thì 
+    <B>Graphics Methods</B> cho ta vẽ những thứ ấy lúc run-time. Ta cũng có thể 
+    chấm từng đóm (pixel) hay copy cả một Picture từ chỗ nầy đến chỗ khác. 
+    <BR><BR>Chỉ cần một chút kinh nghiệm bạn có thể làm hoạt họa (animation) hay 
+    tạo visual effects tuyệt diệu mà không cần phải đụng đến <B>Windows API 
+    (Application Programming Interface)</B> để dùng <B>Function BitBlt</B>. 
+    <H3><FONT face=Tahoma color=blue>Method PaintPicture</FONT></H3><B>Method 
+    PaintPicture</B> cho phép bạn copy rất nhanh một khối dữ kiện đồ họa, nói 
+    nôm na là một khu vực trong một hình graphic trên form, PictureBox hay 
+    Printer đến một nơi khác. Thí dụ bạn copy một hình từ chỗ nầy đến chỗ khác 
+    trong form, hay từ form/PictureBox ra Printer Object để một chốc sau bạn in 
+    nó ra.<BR><BR>Bạn hãy khởi động một dự án VB6 mới và DoubleClick lên 
+    PictureBox Icon trong ToolBox để đặt một PictureBox lên form. Đặt tên 
+    PictureBox ấy là <B>picGraphic</B> và set property Visible của nó ra False 
+    để ta không thấy nó lúc run-time. <BR><BR>Bây giờ load một hình vào property 
+    Picture của picGraphic bằng cách Browse một Bitmap file từ cửa sổ 
+    Properties. Ở đây ta chọn <B>INTL_NO.BMP</B> từ folder <B>\Program 
+    Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\Assorted</B> <BR><BR>
+    <BLOCKQUOTE><IMG height=454 
+      src="Chuong 12 - Dung do hoa (phan 3)_files/Internl.gif" 
+    width=661></BLOCKQUOTE><BR>Trong chương trình nầy ta muốn hễ khi đè nút trái 
+    của Mouse xuống và di chuyển Mouse cursor thì khi cursor đi đến đâu, hình 
+    INTL_NO được vẽ đến đó.<BR><BR>Ta sẽ dùng một <B>Flag</B> để đánh dấu 
+    nút-trái-của-Mouse-Down, đặt tên là <B>flgMouseDown</B>. Khi nhận được 
+    <B>Event MouseDown</B> ta set flgMouseDown thành <B>True</B>, và khi nhận 
+    được <B>Event MouseUp</B> ta reset flgMouseDown thành <B>False</B>. Mỗi lần 
+    nhận được Event MouseMove thì nếu flgMouseDown là True ta sẽ PaintPicture 
+    INTL_NO. <BR><BR>Để xóa background của form, ta thêm một button tên 
+    <B>CmdClearForm</B> để chạy graphic <B>method Cls</B>. Dưới đây là liệt kê 
+    code mẫu:<BR><BR>
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=green>' Flag that indicates that the Mouse's left button is depressed</FONT>
+<FONT color=blue>Dim</FONT> flgMouseDown <FONT color=blue>As</FONT> <FONT color=blue>Boolean</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_Load() 
+   <FONT color=green>' Initialise flgMouseDown to False</FONT>
+   flgMouseDown = <FONT color=blue>False</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_MouseDown(Button <FONT color=blue>As</FONT> Integer, Shift <FONT color=blue>As</FONT> Integer, X <FONT color=blue>As</FONT> Single, Y <FONT color=blue>As</FONT> Single) 
+   <FONT color=green>' Set Flag flgMouseDown </FONT>
+   flgMouseDown = <FONT color=blue>True</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_MouseMove(Button <FONT color=blue>As</FONT> Integer, Shift <FONT color=blue>As</FONT> Integer, X <FONT color=blue>As</FONT> Single, Y <FONT color=blue>As</FONT> Single) 
+   <FONT color=green>' Paint picGraphic if flgMouseDown is True</FONT>
+   <FONT color=blue>If</FONT> flgMouseDown <FONT color=blue>Then</FONT> 
+      <FONT color=green>' Paint full-size picGraphic at Mouse cursor location</FONT>
+      PaintPicture picGraphic.Picture, X, Y, picGraphic.Width, picGraphic.Height 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT>
+ 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_MouseUp(Button <FONT color=blue>As</FONT> Integer, Shift <FONT color=blue>As</FONT> Integer, X <FONT color=blue>As</FONT> Single, Y <FONT color=blue>As</FONT> Single) 
+   <FONT color=green>' Reset Flag flgMouseDown </FONT>
+   flgMouseDown = <FONT color=blue>False</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdClearForm_Click() 
+   <FONT color=green>' Clear the form</FONT>
+   Cls 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+    <BLOCKQUOTE><IMG height=352 
+      src="Chuong 12 - Dung do hoa (phan 3)_files/MouseMove.gif" 
+    width=517></BLOCKQUOTE><BR>Lưu ý là bạn phải declare variable 
+    <B>flgMouseDown</B> bên ngoài các Subs để mọi Sub đều thấy và có thể dùng 
+    nó. Muốn biết thêm chi tiết về cách dùng <B>method PaintPicture</B>, trong 
+    VB6 IDE DoubleClick lên chữ PaintPicture trong code editor để highlight chữ 
+    ấy rồi bấm nút <B>F1</B>.<BR><BR>Bạn có thể <A 
+    href="http://www.vovisoft.com/visualbasic/MouseMove.zip">tải về chương trình 
+    MouseMove.zip</A> tại đây. 
+    <H3><FONT face=Tahoma color=blue>Method PSet</FONT></H3>Ta dùng <B>method 
+    PSet</B> (đến từ chữ <B>Point Set</B>) để vẽ một pixel lên form. Ta cần cho 
+    biết PSet ở đâu và với màu gì, tức là ta cho nó tọa độ X,Y của pixel và một 
+    màu tính từ <B>function RGB</B>. <BR><BR>Dưới đây là code để vẽ pixels đủ 
+    màu lên form một cách bất chừng (randomly) về vị trí và màu sắc khi user 
+    clicks lên form chính:<BR><BR>
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_Click() 
+   <FONT color=blue>Dim</FONT> i <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=green>' Variables for pixel coordinates</FONT>
+   <FONT color=blue>Dim</FONT> iXCoord <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=blue>Dim</FONT> iYCoord <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=green>' Variable for primary colours</FONT>
+   <FONT color=blue>Dim</FONT> iRed <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=blue>Dim</FONT> iGreen <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=blue>Dim</FONT> iBlue <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=green>' Start the Random number generation</FONT>
+   Randomize 
+   <FONT color=green>' Plot 2000 dots randomly</FONT>
+   <FONT color=blue>For</FONT> i = 1 <FONT color=blue>To</FONT> 2000 
+      <FONT color=green>' get a random XCoord.</FONT>
+      <FONT color=green>' Note that Rnd(1) returns a real number between 0 and 1, eg: 0.384</FONT>
+      iXCoord = Int(Rnd(1) * ScaleWidth) 
+      <FONT color=green>' get a random YCoord.</FONT>
+      iYCoord = Int(Rnd(1) * ScaleHeight) 
+      <FONT color=green>' Get a random number between 0 and 254 for each primary colour</FONT>
+      iRed = Int(Rnd(1) * 255) 
+      iGreen = Int(Rnd(1) * 255) 
+      iBlue = Int(Rnd(1) * 255) 
+      <FONT color=green>' Plot the pixel at iXCoord,iYCoord</FONT>
+      PSet (iXCoord, iYCoord), RGB(iRed, iGreen, iBlue) 
+   <FONT color=blue>Next</FONT> 
+   MsgBox ("All done!") 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Trong thí dụ trên ta 
+    dùng <B>method Randomize</B> để generate sẵn trong bộ nhớ các con số real 
+    bất chừng từ 0 đến 0.999. Sau đó mỗi lần ta gọi <B>Function Rnd(1)</B> là nó 
+    sẽ trả về một con số real lấy bất chừng từ bộ số do method Randomize 
+    generated. Do đó, <B>Rnd(1) * ScaleWidth</B> sẽ cho ta một con số real có 
+    trị số từ 0 đến ScaleWidth. Muốn đổi con số real đó ra Integer, ta dùng 
+    <B>Function Int</B>.<BR><BR>Khi khởi động chương trình và Click lên form ta 
+    sẽ có hình giống như dưới đây: 
+    <BLOCKQUOTE><IMG height=309 
+      src="Chuong 12 - Dung do hoa (phan 3)_files/PSet.gif" 
+    width=455></BLOCKQUOTE><B>Mách nước</B>: Để xóa một đóm bạn Pset lại tại chỗ 
+    ấy một đóm mới có cùng màu với BackColor của form. <BR><BR>Bạn có thể <A 
+    href="http://www.vovisoft.com/visualbasic/PSet.zip">tải về chương trình 
+    PSet.zip</A> tại đây. 
+    <H3><FONT face=Tahoma color=blue>Method Line</FONT></H3><B>Method Line</B> 
+    vẽ một đường thẳng từ một tọa độ nầy đến một tọa độ khác trong màu do ta chỉ 
+    định. Với hai methods PSet và Line ta có thể làm được rất nhiều chuyện. Thí 
+    dụ muốn cho một vật di động, ta xóa vật ấy bằng cách vẽ lại nó với cùng màu 
+    của BackColor của form, rồi vẽ vật ấy ở vị trí mới. Muốn vẽ một đa giác như 
+    tam giác hay chữ nhật ta ráp nhiều đường thẳng lại với nhau, đầu của mỗi 
+    đường thẳng là cuối của đường thẳng vừa mới được vẽ trước. Muốn sơn Shade 
+    bên trong một hình chữ nhật ta dùng PSet..v.v.<BR><BR>Có ba cách để chỉ định 
+    tọa độ của hai đầu của một đường thẳng ta muốn vẽ: 
+    <OL>
+      <LI>Cho biết tọa độ của đầu và cuối đường thẳng:<BR>thí dụ: <B>Line (50, 
+      100)-(3000, 4000)</B><BR>Khi đường nầy được vẽ xong thì vị trí của graphic 
+      cursor có tọa độ là vị trí của cuối đường, tức là CurrentX=3000 và 
+      CurrentY=4000 trong trường hợp nầy.<BR><BR>
+      <LI>Chỉ cho biết tọa độ cuối đường thẳng:<BR>thí dụ: <B>Line -(3600, 
+      4500), vbMagenta</B><BR>Trong trường hợp nầy vị trí của graphic cursor 
+      (CurrentX, CurrentY) được lấy làm tọa độ của đầu đường thẳng khi vẽ. Tức 
+      là nếu trước khi execute dòng code nầy CurrentX=3000 và CurrentY=4000 thì 
+      dòng code tương đương với: 
+      <BLOCKQUOTE><B>Line (3000,4000)-(3600,4500), vbMagenta</B></BLOCKQUOTE>
+      <LI>Dùng chữ <B>Step</B> để nói sự khác biệt từ CurrentX và 
+      CurrentY:<BR>thí dụ: <B>Line Step(400, 600)-Step(800, -500), 
+      vbGreen</B><BR>Nếu trước khi execute dòng code nầy CurrentX=3600 và 
+      CurrentY=4500 thì dòng code tương đương với: 
+      <BLOCKQUOTE><B>Line (4000,5100)-(4800,4600), 
+    vbGreen</B></BLOCKQUOTE></LI></OL>Trong thí dụ dưới đây, một hình tam giác 
+    được vẽ bằng hai cách coding khác nhau. Khi chạy program để thử, bạn hãy lần 
+    lượt click <B>Triangle METHOD I</B> và <B>Triangle METHOD II</B> để thấy cả 
+    hai cách vẽ đều y như nhau, chỉ khác màu thôi.<BR><BR>
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdTrianI_Click() 
+   <FONT color=green>' Drawing a black triangle: METHOD I</FONT>
+   Line (700, 500)-(2800, 2400) 
+   Line (2800, 2400)-(1800, 900) 
+   Line (1800, 900)-(700, 500) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdTrianII_Click() 
+   <FONT color=green>' Drawing a red triangle: METHOD II</FONT>
+   <FONT color=green>' Draw a red line from Location(700, 500) to Location (2800, 24000)</FONT>
+   Line (700, 500)-(2800, 2400), vbRed 
+   <FONT color=green>' Draw a red line from Location(2800,2400) to Location (1800,900)</FONT>
+   Line -(1800, 900), vbRed 
+   <FONT color=green>' Draw a red line from Location(1800,900) to Location (700,500)</FONT>
+   Line -(700, 500), vbRed 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT>
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Để vẽ một hình chữ nhật, 
+    cách tiện nhất là dùng Step như dưới đây:<BR><BR>
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Rectangle(<FONT color=blue>ByVal</FONT> X1 <FONT color=blue>As</FONT> Integer, <FONT color=blue>ByVal</FONT> Y1 <FONT color=blue>As</FONT> Integer, <FONT color=blue>ByVal</FONT> X2 <FONT color=blue>As</FONT> Integer, <FONT color=blue>ByVal</FONT> Y2 <FONT color=blue>As</FONT> Integer) 
+   <FONT color=green>' Draw a rectangle</FONT>
+   Line (X1, Y1)-(X2, Y1) 
+   Line -(X2, Y2) 
+   Line -(X1, Y2) 
+   Line -(X1, Y1) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Ta còn có thể vẽ một 
+    hình chữ nhật với bốn góc tròn như sau:<BR><BR>
+    <TABLE bgColor=#f6f6f6>
+      <TBODY>
+      <TR>
+        <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> RoundCornerRectangle(<FONT color=blue>ByVal</FONT> X1 <FONT color=blue>As</FONT> Integer, <FONT color=blue>ByVal</FONT> Y1 <FONT color=blue>As</FONT> Integer, <FONT color=blue>ByVal</FONT> X2 <FONT color=blue>As</FONT> Integer, <FONT color=blue>ByVal</FONT> Y2 <FONT color=blue>As</FONT> Integer) 
+   <FONT color=blue>Const</FONT> Delta = 50 
+   <FONT color=green>' Draw a rectangle with round corner</FONT>
+   Line (X1 + Delta, Y1)-(X2 - Delta, Y1) 
+   Line -Step(Delta, Delta) 
+   Line -(X2, Y2 - Delta) 
+   Line -Step(-Delta, Delta) 
+   Line -(X1 + Delta, Y2) 
+   Line -Step(-Delta, -Delta) 
+   Line -(X1, Y1 + Delta) 
+   Line -Step(Delta, -Delta) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Ta cũng có thể sơn Shade bên trong 
+    hình chữ nhật bằng cách dùng method PSet để chấm các đóm cách nhau chừng 50 
+    pixels như sau:<BR><BR>
+    <TABLE bgColor=#f6f6f6>
+      <TBODY>
+      <TR>
+        <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Shade(<FONT color=blue>ByVal</FONT> X1 <FONT color=blue>As</FONT> Integer, <FONT color=blue>ByVal</FONT> Y1 <FONT color=blue>As</FONT> Integer, <FONT color=blue>ByVal</FONT> X2 <FONT color=blue>As</FONT> Integer, <FONT color=blue>ByVal</FONT> Y2 <FONT color=blue>As</FONT> Integer) 
+   <FONT color=green>' Shade a roundcorner rectangle by plotting dots using method Pset</FONT>
+   <FONT color=blue>Const</FONT> Delta = 50 
+   <FONT color=blue>Dim</FONT> i <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=blue>Dim</FONT> j <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=green>' Make sure that X1 is less than X2</FONT>
+   <FONT color=green>' Swap values of X1, X2 if X1 &gt; X2</FONT>
+   <FONT color=blue>If</FONT> X2 &lt; X1 <FONT color=blue>Then</FONT> 
+      Temp = X1 
+      X1 = X2 
+      X2 = Temp 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=green>' Make sure that Y1 is less than Y2</FONT>
+   <FONT color=green>' Swap values of Y1, Y2 if Y1 &gt; Y2</FONT>
+   <FONT color=blue>If</FONT> Y2 &lt; Y1 <FONT color=blue>Then</FONT> 
+      Temp = Y1 
+      Y1 = Y2 
+      Y2 = Temp 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=green>' Plotting dots inside the rectangle at 50 pixels apart</FONT>
+   <FONT color=blue>For</FONT> i = X1 + Delta <FONT color=blue>To</FONT> X2 - Delta <FONT color=blue>Step</FONT> 50 
+      <FONT color=blue>For</FONT> j = Y1 + Delta <FONT color=blue>To</FONT> Y2 - Delta <FONT color=blue>Step</FONT> 50 
+         PSet (i, j) 
+      <FONT color=blue>Next</FONT> 
+   <FONT color=blue>Next</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Muốn Shade đậm hơn, bạn có thể chấm 
+    các đóm gần nhau hơn, thí dụ cho cách nhau 30 pixels thay vì 50 pixels. Có 
+    một cách khác là tăng trị số của <B>DrawWidth</B>, độ dày của đường vẽ hay 
+    đóm. <BR><BR>Bây giờ phối hợp cách vẽ hình chữ nhật với method Shade nói 
+    trên và <B>method Print</B> ta có thể viết chữ bên trong một khung màu nhạt 
+    như sau:<BR><BR>
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdDrawFrame_Click() 
+   <FONT color=blue>Dim</FONT> X1 <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=blue>Dim</FONT> Y1 <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=blue>Dim</FONT> X2 <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=blue>Dim</FONT> Y2 <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=green>' Initialise Coordinates of rectangle</FONT>
+   X1 = 4200: Y1 = 1000 
+   X2 = 6200: Y2 = 2000 
+   <FONT color=green>' Draw a roundcorner rectangle</FONT>
+   RoundCornerRectangle X1, Y1, X2, Y2 
+   <FONT color=green>' Shade the rectangle</FONT>
+   Shade X1, Y1, X2, Y2 
+   <FONT color=green>' Position cursor to Print some text</FONT>
+   CurrentX = X1 + 50 
+   CurrentY = Y1 + 50 
+   <FONT color=green>' Define Font Size</FONT>
+   Font.Size = 18 
+   <FONT color=green>' Print the text at cursor location</FONT>
+   Print "Hello there!" 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Khi chạy chương trình 
+    nầy và click tất cả các buttons trên form, bạn sẽ có hình dưới đây: 
+    <BLOCKQUOTE><IMG height=325 
+      src="Chuong 12 - Dung do hoa (phan 3)_files/Lines.gif" 
+    width=585></BLOCKQUOTE>Hãy nhớ set property AutoDraw của form ra True để các 
+    graphic chương trình vẽ không bị mất khi user minimises form.<BR><BR>Bạn 
+    cũng có thể dùng những kỹ thuật nói trên với Object Printer để in các mẫu 
+    giấy điền chi tiết. <BR><BR>Bạn có thể <A 
+    href="http://www.vovisoft.com/visualbasic/Lines.zip">tải về chương trình 
+    Lines.zip</A> tại đây. 
+    <H3><FONT face=Tahoma color=blue>Method Circle</FONT></H3>Ta dùng <B>Method 
+    Circle</B> để vẽ hình tròn, hình bầu dục và đường cung, với bên trong trống 
+    rỗng hay được sơn đầy bằng một màu ta chỉ định. Ta phải cho biết tọa độ của 
+    tâm điểm vòng tròn và bán kính của nó.<BR><BR>Bạn hãy khởi động một dự án 
+    VB6 mới, đặt lên form một button với tên <B>frmCircle</B> và caption 
+    <B>Circle &amp; Lines</B>. DoubleClick lên button ấy và viết code sau 
+    đây:<BR><BR>
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdCircleLine_Click() 
+   <FONT color=green>' Draw a circle centered at 2000,1500 with radius equal 800</FONT>
+   Circle (2000, 1500), 800 
+   <FONT color=green>' Draw a vertical line from center</FONT>
+   Line (2000, 1500)-Step(0, 800) 
+   <FONT color=green>' Draw a horizontal line from center</FONT>
+   Line (2000, 1500)-Step(800, 0) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Bây giờ hãy đặt lên form 
+    một button khác tên <B>CmdArc</B> và caption <B>Draw Arc</B>. Thay vì vẽ 
+    nguyên một vòng tròn, ta sẽ chỉ vẽ một hình vòng cung bằng màu đỏ. 
+    <BR><BR>Để chỉ định rằng ta sẽ vẽ từ vị trí nào trên vòng tròn đến vị trí 
+    nào khác, thí dụ từ 45độ đến 230độ, ta cần phải đổi degree ra đơn vị Radian 
+    bằng cách dùng <B>Function Rads</B> như sau:<BR><BR>
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Function</FONT> Rads(<FONT color=blue>ByVal</FONT> Degree <FONT color=blue>As</FONT> Single) <FONT color=blue>As</FONT> <FONT color=blue>Single</FONT> 
+   <FONT color=green>' Convert Degrees to Radian</FONT>
+   <FONT color=blue>Const</FONT> PI = 22 / 7 
+   Rads = Degree / 180 * PI 
+<FONT color=blue>End</FONT> <FONT color=blue>Function</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Vòng cung luôn luôn được 
+    vẽ ngược chiều kim đồng hồ. Dưới đây là code để vẽ một đường vòng cung màu 
+    đỏ bán kính 800, tâm điểm ở (4000, 2000), từ 45độ đến 230độ:<BR><BR>
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdArc_Click() 
+   Circle (4000, 2000), 800, vbRed, Rads(45), Rads(230) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Ta có thể cho sơn bên 
+    trong các hình tròn, hay Pie Slices (một phần của hình tròn) bằng cách set 
+    <B>FillStyle</B> bằng 0 và chỉ định màu <B>FillColor</B>. Một Pie Slice là 
+    một vòng cung đóng kính bởi hai đường thẳng bán kính ở hai đầu. Muốn vẽ một 
+    Pie Slice ta đánh thêm dấu trừ ("<B>-</B>") trước hai trị số Radian, tức là 
+    dùng <B>-Rads(45), -Rads(230)</B> thay vì <B>Rads(45), 
+    Rads(230)</B>.<BR><BR>Dưới đây là code vẽ hai Pie Slices, có tâm điểm lệch 
+    nhau một tí, đồng thời thêm chú thích 87.5% và 12.5%.<BR><BR>
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdPie_Click() 
+   FillStyle = 0  <FONT color=green>' Fill inside any closed shaped</FONT>
+   FillColor = vbYellow 
+   <FONT color=green>' Draw a Pie Slice from 90deg to 45deg in Yellow</FONT>
+   Circle (3000, 4000), 800, , -Rads(90), -Rads(45) 
+   <FONT color=green>' Position the graphic cursor to Print some text</FONT>
+   CurrentX = 2800: CurrentY = 4400 
+   Print "87.5%" 
+   FillColor = vbBlue 
+   <FONT color=green>' Draw a Pie Slice from 45deg to 90deg in Blue</FONT>
+   Circle (3050, 3900), 800, , -Rads(45), -Rads(90) 
+   <FONT color=green>' Position the graphic cursor to Print some text</FONT>
+   CurrentX = 3400: CurrentY = 3000 
+   Print "12.5%" 
+   FillStyle = 1  <FONT color=green>' No fill</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Cách dùng cuối cùng của 
+    method Circle là để vẽ một <B>hình bầu dục (Elllipse)</B>. Vẽ hình bầu dục 
+    giống như vẽ một hình tròn nhưng ta cần cho thêm một parameter gọi là 
+    <B>Aspect</B>. Aspect là sự liên hệ giữa bán kính vertical và bán kính 
+    horizontal. Thí dụ nếu Aspect=2 thì chiều cao của hình bầu dục gấp đôi chiều 
+    ngang, ngược lại, nếu Aspect=0.5 thì chiều ngang sẽ gấp đôi chiều 
+    cao.<BR><BR>Dưới đây là code ta dùng để vẽ hai hình bầu dục cùng cỡ, một cái 
+    màu tím nằm thẳng đứng và một cái màu xanh nằm ngang.<BR><BR>
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdEllipse_Click() 
+   Circle (1400, 3000), 800, vbMagenta, , , 2 
+   Circle (1400, 3000), 800, vbBlue, , , 0.5 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Nếu bạn khởi động chương 
+    trình và click cả bốn buttons bạn sẽ thấy hình sau đây:<BR><BR>
+    <BLOCKQUOTE><IMG height=364 
+      src="Chuong 12 - Dung do hoa (phan 3)_files/Circles.gif" 
+    width=451></BLOCKQUOTE><BR>Bạn có thể <A 
+    href="http://www.vovisoft.com/visualbasic/Circles.zip">tải về chương trình 
+    Circles.zip</A> tại đây.<BR><BR>
+    <H3><FONT face=Tahoma color=blue>Property DrawMode</FONT></H3>Thông thường 
+    khi ta vẽ, trị số default của <B>property DrawMode</B> là <B>13- Copy 
+    Pen</B>. Có một trị số DrawMode rất thích hợp cho áp dụng hoạt họa là <B>7- 
+    Xor Pen</B>. Muốn xóa một hình vừa vẽ xong ta chỉ cần vẽ lại hình ấy trong 
+    DrawMode Xor Pen, không cần biết trước đó background như thế nào, nó sẽ hiện 
+    ra trở lại. <BR><BR><A href="http://www.vovisoft.com/"><IMG height=40 
+    src="Chuong 12 - Dung do hoa (phan 3)_files/homejump.gif" 
+    width=40><A>&nbsp;&nbsp;<A 
+    href="http://www.vovisoft.com/visualbasic/default.htm">Học Microsoft Visual 
+    Basic 6.0</A><BR><BR></BLOCKQUOTE>&nbsp; 
+  <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+  width="100%" border=0>
+    <TBODY>
+    <TR>
+      <TD class=clsRaised width=785 bgColor=#6699cc colSpan=5>
+        <P align=center><FONT face=Tahoma color=#ffffff size=1>Vovisoft © 2000. 
+        All rights reserved.</FONT></P></TD></TR>
+    <TR>
+      <TD width=256>
+        <P align=center><FONT face=Tahoma size=1>&nbsp;&nbsp; Last Updated: 10 
+        Feb 2002 </FONT></P></TD>
+      <TD width=181><FONT face=Tahoma size=1>&nbsp;</FONT></TD>
+      <TD width=258>
+        <P align=center><A href="mailto:dixon@vovisoft.com"><FONT face=Tahoma 
+        size=1>Webmaster</FONT></A></P></TD></TR></TBODY></TABLE></FONT></BLOCKQUOTE></BODY></HTML>

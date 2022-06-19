@@ -1,0 +1,246 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0053)http://www.vovisoft.com/visualbasic/VB6Chapter12B.htm -->
+<HTML><HEAD><TITLE>Graphics (II)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 12 - Dung do hoa (phan 2)_files/topbottom.css" type=text/css 
+rel=stylesheet></HEAD>
+<BODY leftMargin=0 marginheight="0" marginwidth="0">
+<CENTER><A href="http://www.vovisoft.com/"><IMG height=77 alt="Logo of Vovisoft" 
+src="Chuong 12 - Dung do hoa (phan 2)_files/vs-logo4_10.gif" width=102 border=0> 
+</A><BR>
+<H1><FONT face=Tahoma color=#000000>Khóa Hàm Thụ Visual Basic 6.0</FONT></H1>
+<H2><FONT face=Tahoma color=#800000>Chương Mười Hai - Dùng Đồ Họa (Phần 
+II)</FONT></H2></CENTER>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><FONT face=Tahoma>
+    <H3><FONT face=Tahoma color=green>In trên màn ảnh</FONT></H3>VB6 có 
+    <B>method Print</B> cho ta in thẳng trên Form, PictureBox hay Printer. Ba 
+    loại control nầy được coi như những khung vải mà họa sĩ vẽ lên.<BR><BR>Bạn 
+    hãy khởi động một chương trình VB6 mới. Đặt lên form một PictureBox tên 
+    Picture1 và một button tên CmdPrintTenLines với Caption <B>Print Ten 
+    Lines</B>. DoubleClick lên button nầy và viết code dưới đây:<BR><BR>
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdPrintTenLines_Click() 
+   <FONT color=blue>Dim</FONT> i <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=green>' String variable used for display</FONT>
+   <FONT color=blue>Dim</FONT> strLine <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   <FONT color=green>' Write 10 lines, one under the other</FONT>
+   <FONT color=blue>For</FONT> i = 1 <FONT color=blue>To</FONT> 10 
+      strLine = "This is line " &amp; CStr(i) 
+      Me.Print strLine  <FONT color=green>' Print on Form</FONT>
+      Picture1.Print strLine  <FONT color=green>' Print on Picture1</FONT>
+   <FONT color=blue>Next</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Bạn hãy chạy thử program 
+    rồi click nút <B>Print Ten Lines</B>. Trong trường hợp nầy ta dùng default 
+    Font và Color để in 10 hàng. Sau mỗi Print, chương trình tự động xuống hàng. 
+    <BR><BR>Kế đó, thêm một button tên CmdPrintFontSizes với Caption <B>Print 
+    Font Sizes</B>. DoubleClick lên button nầy và viết code dưới đây:<BR><BR>
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdPrintFontSizes_Click() 
+   <FONT color=blue>Dim</FONT> i <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   <FONT color=green>' Print numbers 1 to 10, one after the other on the same line</FONT>
+   <FONT color=blue>For</FONT> i = 1 <FONT color=blue>To</FONT> 10 
+      <FONT color=green>' Define Font size</FONT>
+      Me.Font.Size = Me.Font.Size + i 
+      <FONT color=green>' Define Color using Function QBColor</FONT>
+      Me.ForeColor = QBColor(i) 
+      <FONT color=green>' Print without moving to next line. Note the semicolon ";"</FONT>
+      Me.Print Str(i); 
+   <FONT color=blue>Next</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Trong Sub 
+    CmdPrintFontSizes_Click, ta thay đổi cở kiểu chữ để cho các con số được in 
+    ra lớn lên dần dần và thay đổi màu của các con số bằng cách dùng <B>function 
+    QBColor</B>. Để in các con số liên tục không xuống hàng ta dùng method Print 
+    với semicolon (<B>;</B>). Bạn hãy chạy chương trình lại. Click nút <B>Print 
+    Ten Lines</B> rồi click nút <B>Print Font Sizes</B>, kết quả sẽ giống như 
+    dưới đây: <BR><BR>
+    <BLOCKQUOTE><IMG height=304 
+      src="Chuong 12 - Dung do hoa (phan 2)_files/PrintDemo.gif" 
+    width=526></BLOCKQUOTE>Bây giờ bạn thử <B>minimize</B> cửa sổ của chương 
+    trình, kế đó restore nó lại kích thước cũ. Bạn sẽ thấy các hàng ta in lúc 
+    nãy không còn trong form hay PictureBox nữa.<BR><BR>Lý do là khi ta Print 
+    lên form hay PictureBox, các hình ấy được vẽ trong graphic địa phương chớ 
+    không được VB6 kể là một phần của cửa sổ. Muốn tránh trở ngại nầy ta phải 
+    dặn VB6 nhớ vẽ lại bằng cách set <B>property AutoRedraw</B> của form và 
+    Picture1 ra <B>True</B>.<BR><BR>
+    <BLOCKQUOTE><IMG height=216 
+      src="Chuong 12 - Dung do hoa (phan 2)_files/AutoRedraw.gif" 
+    width=286></BLOCKQUOTE>
+    <H3><FONT face=Tahoma color=green>Hệ thống tọa độ</FONT></H3>Khi đặt một 
+    Object hay vẽ một cái gì lên màn ảnh (screen) hay form .v.v.. ta cần phải 
+    chỉ định Object ấy nằm chỗ nào kể từ (with reference to) cái góc Trên Trái 
+    (Top Left) của màn ảnh hay form.<BR><BR>Cái góc Trên Trái là Trung tâm tọa 
+    độ của screen hay form. Ở đó tọa độ X và Y đều bằng 0, ta viết là 
+    <B>0,0</B>. Nếu ta đi lần qua phải theo chiều rộng của screen thì tọa độ X 
+    tăng lên. Nếu ta đi dọc xuống dưới theo chiều cao của screen thì tọa độ của 
+    Y tăng lên.<BR><BR>Kế đến là đơn vị đo lường ta dùng để biểu diễn khoảng 
+    cách. Trong bài trước ta đã nói đến độ mịn của màn ảnh (screen resolution) 
+    dựa vào <B>pixel</B>. Ta có thể dùng đơn vị pixel để nói một Object có tọa 
+    độ X và Y mỗi chiều bao nhiêu pixels tính từ trung tâm tọa độ.<BR><BR>Như 
+    thế, ngay cả trên cùng một màn ảnh khi ta tăng độ mịn nó lên thì một Object 
+    đã được đặt lên màn ảnh theo đơn vị pixel sẽ xích qua trái và lên trên một 
+    ít vì kích thước một pixel bây giờ nhỏ hơn lúc trước một chút.<BR><BR>Hình 
+    dưới đây minh họa các kích thước của màn ảnh và Form. 
+    <BLOCKQUOTE><IMG height=325 
+      src="Chuong 12 - Dung do hoa (phan 2)_files/Scales.gif" 
+    width=531></BLOCKQUOTE>Điểm cần biết là có những phần như <B>title bar</B> 
+    và <B>border</B> của một form ta không thể vẽ lên được. Do đó diện tích còn 
+    lại của form được gọi là <B>Client Area</B>. Chiều rộng và chiều cao của 
+    Client Area được gọi là <B>ScaleWidth</B> và <B>ScaleHeight</B>.<BR><BR>Nếu 
+    muốn khoảng cách từ một Object đến trung tâm tọa độ, hay kích thước của 
+    chính Object, không hề thay đổi dù ta có tăng, giảm độ mịn của màn ảnh hay 
+    in hình ra printer (thí dụ ta muốn nó luôn luôn dài 5cm chẳng hạn) thì ta 
+    dùng hệ thống tọa độ theo đơn vị <B>twips</B> của form.<BR><BR>Twips là 
+    Default Coordinate System của VB6. Trong hệ thống nầy mỗi điểm là tương 
+    đương với 1/567 centimeter. Do đó, nếu bạn vẽ một dường dài 567 twips nó sẽ 
+    hiển thị dài 1cm trên màn ảnh, và khi bạn in nó ra, nó cũng dài 1cm trên 
+    giấy. Tức là độ dài thật của Object không tùy thuộc vào loại màn ảnh (độ mịn 
+    cao hay thấp) hay printer. Người ta nói nó là <B>Device independent</B> 
+    coordinate system (Hệ thống tọa độ độc lập với dụng cụ). Nói một cách khác 
+    Twips cho ta thật sự <B>what you see is what you get (WYSIWYG - thấy sao có 
+    vậy)</B>, rất thích hợp với Desktop publishing.<BR><BR>Bạn có thể thay đổi 
+    hệ thống tọa độ của một form bằng cách edit <B>property ScaleMode</B> qua 
+    cửa sổ Properties như sau:<BR><BR>
+    <BLOCKQUOTE><IMG height=331 
+      src="Chuong 12 - Dung do hoa (phan 2)_files/CoordSystem.gif" 
+    width=234></BLOCKQUOTE><B>Ghi chú:</B> Thay đổi trị số ScaleMode không có 
+    hiệu lực ngay mà chỉ ảnh hưởng những gì được thiết kế sau đó.<BR><BR>Giống 
+    như khi ta Edit Text trong Notepad, Text Cursor (thanh <B>|</B> chớp chớp) 
+    là vị trí hiện tại, nơi sẽ hiển thị cái chữ ta đánh sắp tới, trong graphic 
+    ta có một Cursor vô hình, nơi sẽ hiển thị cái gì ta sắp <B>Print</B>. Ta chỉ 
+    định vị trí của graphic cursor ấy bằng cách cho trị số của <B>CurrentX</B> 
+    và <B>CurrentY</B>.<BR><BR>Bạn hãy khởi động một dự án VB6 mới và viết code 
+    cho <B>Event Resize</B> của form chính như sau:<BR><BR>
+    <BLOCKQUOTE><IMG height=212 
+      src="Chuong 12 - Dung do hoa (phan 2)_files/Resize.gif" 
+    width=525></BLOCKQUOTE>Thử chạy chương trình và Resize form. Mỗi khi bạn 
+    Resize form, chữ <B>X</B> sẽ được dời đến vị trí khoảng chính giữa của 
+    Client Area của form. 
+    <BLOCKQUOTE><IMG height=240 
+      src="Chuong 12 - Dung do hoa (phan 2)_files/ClientArea.gif" 
+    width=320></BLOCKQUOTE>
+    <H3><FONT face=Tahoma color=green>Dùng Graphics</FONT></H3>Đã có một chút 
+    căn bản về graphics của VB6, bây giờ ta có thể đặt những graphics lên form. 
+    Có hai cách để làm chuyện ấy:<BR>
+    <UL>
+      <LI>Dùng <B>Graphical Controls</B>: Ta có <B>PictureBox</B> và 
+      <B>Image</B> có thể chứa hình ảnh. Trong khi <B>Line</B> và <B>Shape</B> 
+      có thể vẽ đường thẳng hay các hình chữ nhật, tròn .v.v.. trên form, lúc 
+      thiết kế. 
+      <LI>Dùng <B>Graphics Methods</B>: Đây là những mệnh lệnh cho ta vẽ trực 
+      tiếp lên form lúc run-time. Các mệnh lệnh VB6 cho ta là <B>Cls, Pset, 
+      Point, Line</B> và <B>Circle</B>. </LI></UL><BR>
+    <BLOCKQUOTE><IMG height=269 
+      src="Chuong 12 - Dung do hoa (phan 2)_files/GraphicControls.gif" 
+    width=344></BLOCKQUOTE><BR>Tùy theo hoàn cảnh, bạn có thể lựa chọn cách nào 
+    tiện dụng. 
+    <H3><FONT face=Tahoma color=blue>PictureBox và Image</FONT></H3>Dùng 
+    PictureBox hay Image là cách dễ nhất để hiển thị một graphic trong form. Lúc 
+    thiết kế, bạn có thể đánh thẳng tên của graphic vào <B>property Picture</B> 
+    trong cửa sổ Properties. Form cũng nhận property Picture. Bạn cũng có thể 
+    click lên bên phải chữ property Picture để browse và chọn một graphic, 
+    thường là Bitmap hay Icon. <BR><BR>
+    <BLOCKQUOTE><IMG height=315 
+      src="Chuong 12 - Dung do hoa (phan 2)_files/PictureBox.gif" 
+    width=708></BLOCKQUOTE>Sự khác biệt chí giữa Image và PictureBox là Image có 
+    <B>property Stretch</B> mà ta có thể set thành True để kéo dãn graphic ra 
+    cho chiếm trọn diện tích của Image. Image là một grapgic control 
+    <B>lightweight</B> (nhẹ ký), tức là nó không đòi hỏi nhiều memory và chạy 
+    nhanh hơn PictureBox. Lý do là PictureBox là một container, tức là nó có thể 
+    chứa các controls khác. Ngoài ra, PictureBox cũng cho phép ta vẽ lên trên nó 
+    giống như trên form.<BR><BR>Trong hình dưới đây, trong lúc thiết kế ta đặt 
+    một PictureBox và một Image cùng một cỡ lên cùng một form. Kế đó ta assign 
+    cùng một picture hình <B>happy.bmp</B> cho cả hai. Riêng với Image, ta set 
+    property <B>Stretch</B> của nó ra <B>True</B>. 
+    <BLOCKQUOTE><IMG height=338 
+      src="Chuong 12 - Dung do hoa (phan 2)_files/Stretch.gif" 
+    width=616></BLOCKQUOTE>
+    <H3><FONT face=Tahoma color=blue>Chỉ định hình ảnh lúc 
+    run-time</FONT></H3>Trong lúc program đang chạy, ta có thể thay đổi hình ảnh 
+    chứa trong PictureBox hay Image bằng cách dùng <B>Function LoadPicture</B>. 
+    Nhớ là ta không thể assign trực tiếp vào Property Picture của hai graphical 
+    controls nầy. Lý do là Property Picture chỉ là một cách thân thiện cho ta 
+    chỉ định một graphic trong lúc thiết kế. Khi một hình ảnh đã được chỉ định 
+    rồi, VB6 chứa cả hình ấy vào file có cùng tên với file của form nhưng với 
+    extension <B>.frx</B>. Tức là nếu tên của form là <B>Form1</B> thì graphic 
+    của Property Picture được chứa chung với các graphics khác của form trong 
+    file <B>Form1.frx</B>.<BR><BR>Do đó, vì VB6 program chứa luôn graphic chung 
+    với nó, ta không cần phải nhắc đến tên của graphic file khi dùng hay deploy, 
+    tức là không cần đính kèm tên graphic file trong Setup file cho người ta 
+    install. Dưới đây là code mẫu để lúc run-time ta load một graphic tên 
+    <B>sad.bmp</B> nằm trong Subfolder tên <B>images</B> của App.path vào Image 
+    control tên Image1.<BR><BR>
+    <BLOCKQUOTE>
+      <TABLE bgColor=#f6f6f6>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdLoad_Click() 
+   <FONT color=blue>Dim</FONT> LocalDir <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   <FONT color=green>' Assign Folder where program resides to LocalDir</FONT>
+   LocalDir = App.Path 
+   <FONT color=green>' Append right backslash if last character is not "\"</FONT>
+   <FONT color=blue>If</FONT> Right(LocalDir, 1) &lt;&gt; "\" <FONT color=blue>Then</FONT> 
+      LocalDir = LocalDir &amp; "\" 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=green>' Load graphic "sad.bmp" from SubFolder "images" into Image1</FONT>
+   Image1.Picture = LoadPicture(LocalDir &amp; "images\sad.bmp") 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Dĩ nhiên, nếu ta muốn 
+    load graphic lúc run-time thì phải cung cấp graphic file riêng. <BR><BR>
+    <H3><FONT face=Tahoma color=blue>Control Shape</FONT></H3><B>Control 
+    Shape</B> cho phép bạn vẽ những hình đơn giản như đường thẳng, hộp, vòng 
+    tròn trên form, lúc thiết kế. Sau khi DoubleClick lên control Shape trong 
+    Toolbox để thêm một control Shape vào form, bạn chọn loại Shape của nó từ 
+    cửa sổ Properties rồi nắm vào một góc của Shape trên form drag lớn nhỏ tùy 
+    ý.<BR><BR>Muốn sơn bên trong một Shape, bạn chọn màu từ <B>property 
+    FillColor</B>. Property FillColor cũng giống như BackColor của các controls 
+    khác, nhưng nó chỉ có hiệu lực khi bạn cho <B>property FillStyle</B> một trị 
+    số khác hơn là <B>1- Transparent</B> (trong suốt), thí dụ như <B>0- 
+    Solid</B> (dày đặc).<BR><BR>
+    <BLOCKQUOTE><IMG height=454 
+      src="Chuong 12 - Dung do hoa (phan 2)_files/FillStyle.gif" 
+    width=229></BLOCKQUOTE><BR>
+    <H3><FONT face=Tahoma color=blue>Control Line</FONT></H3>Tương tự với các 
+    properties Fill của Shape, đối với <B>Line</B> bạn có các <B>properties 
+    BorderColor, BorderStyle và BorderWidth</B>. Border color chỉ định màu của 
+    chính đường thẳng, BorderStyle để cho bạn lựa đường liên tục hay gạch chấm, 
+    và BorderWidth để làm cho đường dày to hơn. Các properties nầy cũng áp dụng 
+    cho chu vi (đường bao quanh) của các hình chữ nhật, tròn .v.v.<BR><BR>
+    <BLOCKQUOTE><IMG height=438 
+      src="Chuong 12 - Dung do hoa (phan 2)_files/Oval.gif" 
+    width=742></BLOCKQUOTE><BR>Bạn có thể <A 
+    href="http://www.vovisoft.com/visualbasic/graphics.zip">tải về chương trình 
+    Graphics.zip</A> tại đây. <BR><BR><A href="http://www.vovisoft.com/"><IMG 
+    height=40 src="Chuong 12 - Dung do hoa (phan 2)_files/homejump.gif" 
+    width=40><A>&nbsp;&nbsp;<A 
+    href="http://www.vovisoft.com/visualbasic/default.htm">Học Microsoft Visual 
+    Basic 6.0</A><BR><BR></BLOCKQUOTE>&nbsp; 
+  <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+  width="100%" border=0>
+    <TBODY>
+    <TR>
+      <TD class=clsRaised width=785 bgColor=#6699cc colSpan=5>
+        <P align=center><FONT face=Tahoma color=#ffffff size=1>Vovisoft © 2000. 
+        All rights reserved.</FONT></P></TD></TR>
+    <TR>
+      <TD width=256>
+        <P align=center><FONT face=Tahoma size=1>&nbsp;&nbsp; Last Updated: 7 
+        Feb 2002 </FONT></P></TD>
+      <TD width=181><FONT face=Tahoma size=1>&nbsp;</FONT></TD>
+      <TD width=258>
+        <P align=center><A href="mailto:dixon@vovisoft.com"><FONT face=Tahoma 
+        size=1>Webmaster</FONT></A></P></TD></TR></TBODY></TABLE></FONT></BLOCKQUOTE></BODY></HTML>

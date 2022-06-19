@@ -1,0 +1,415 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://www.bangden.com/soncuoc/visualbasic/VB6Chapter7B.htm -->
+<!-- saved from url=(0052)http://www.vovisoft.com/VisualBasic/VB6Chapter7B.htm --><HTML><HEAD><TITLE>Using List Controls (Part II)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 7 - Dung List Controls (bai thu hai)_files/topbottom.css" 
+type=text/css rel=stylesheet>
+<META content="t, default" name="Microsoft Border"></HEAD>
+<BODY leftMargin=0 topMargin=65 marginwidth="0" marginheight="0"><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+      height=20 cellSpacing=0 cellPadding=0 width="130%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="51%" bgColor=#0000ff height=20><B><FONT face=Verdana 
+            color=#ffff00 size=2><SPAN style="BACKGROUND-COLOR: #0000ff">Trung 
+            tâm Dạy nghề và Phổ cập Tin học Miền núi ABC - Tỉnh Yên Bái 
+            </SPAN></FONT></B></TD>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="35%" height=20><FONT face=Verdana><IMG height=20 src="" 
+            width=136 border=0></FONT></TD></TR></TBODY></TABLE>
+      <P 
+      style="MARGIN: 0px; WORD-SPACING: 0px; TEXT-INDENT: 0px; LINE-HEIGHT: 100%"><FONT 
+      face=Verdana size=2><A 
+      href="http://www.bangden.com/soncuoc/index.htm">&lt;Home&gt;&nbsp;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Tho.htm">&lt;Thơ&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/laptrinh.htm">&lt;Lập trình&gt;</A> 
+      <A href="http://www.bangden.com/soncuoc/giaoan.htm">&lt;Giáo 
+      án&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/BaiViet.htm">&lt;Bài 
+      viết&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Vui.htm">&lt;Chuyện 
+      vui&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Traodoi.htm">&lt;Trao 
+      đổi&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/lienket.htm">&lt;Liên kết&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/moi.htm">&lt;Bài 
+      Mới&gt;</A></FONT></P></TD></TR><!--msnavigation--></TBODY></TABLE><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=top>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE>&nbsp;</BLOCKQUOTE></BLOCKQUOTE>
+      <CENTER>
+      <H1><FONT face=Verdana color=#000000>Khóa Hàm Thụ Visual Basic 
+      6.0</FONT></H1>
+      <H2><FONT face=Verdana color=#800000>Chương Bảy - Dùng List Controls (bài 
+      thứ hai)</FONT></H2></CENTER>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE><FONT face=Verdana>
+          <H3><FONT face=Verdana color=green>Listbox </FONT></H3>
+          <H4><FONT face=Verdana color=blue>Cách dùng MultiSelect 
+          </FONT></H4><FONT face=Verdana>Cho đến giờ User click vào Listbox để 
+          chọn chỉ một Item. Khi một Item được chọn thì hàng ấy trở nên 
+          highlighted với background màu xanh đậm. Nếu kế đó ta click một hàng 
+          khác thì hàng cũ được display trở lại bình thường và hàng mới đuợc 
+          selected sẽ trở nên highlighted. <BR>Listbox cho ta có thể select 
+          nhiều Items cùng một lúc bằng cách set <B>Property MultiSelect = 
+          Extended</B><BR>
+          <BLOCKQUOTE><IMG height=264 
+            src="Chuong 7 - Dung List Controls (bai thu hai)_files/MultiSelect.jpg" 
+            width=759 border=0></BLOCKQUOTE><BR>Ðối với MultiSelected Listbox, ta 
+          chọn một nhóm Items liên tục bằng cách click Item đầu rồi nhấn nút 
+          <B>Shift</B> trong khi click Item cuối. Ta cũng có thể tiếp tục 
+          Select/Deselect thêm bằng cách ấn nút <B>Ctrl</B> trong khi click các 
+          Items. Nếu ta click một Item chưa được selected thì nó sẽ trở nên 
+          selected (highlighted màu xanh), nếu ta click một Item đã được 
+          selected rồi thì nó sẽ trở nên deselected (không còn màu xanh nữa). 
+          Thí dụ trong program bạn click "Peter Jones", kế đó ấn nút Shift trong 
+          khi click "Sue Rose", kế đó buông nút Shift ra để ấn nút Ctrl trong 
+          khi click "Kevin White", bạn sẽ có những selected Items như trong hình 
+          dưới đây:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=233 
+              src="Chuong 7 - Dung List Controls (bai thu hai)_files/MultiSelectName.jpg" 
+              width=421 border=0></BLOCKQUOTE></BLOCKQUOTE><BR>Ngoài ra bạn cũng có 
+          thể MultiSelect nhiều Items trong một Listbox bằng cách dùng mouse để 
+          drag, tức là bạn click lên Item đầu rồi tiếp tục đè mousebutton trong 
+          khi kéo mousepointer đến Item cuối cùng mới buông mousebutton 
+          ra.</FONT> 
+          <H4><FONT face=Verdana color=blue>Cái Bug ác ôn </FONT></H4><FONT 
+          face=Verdana>Bây giờ giả sử ta muốn delete tất cả những Items vừa được 
+          selected (highlighted). Bạn hãy đặt một CommandButton mới tên 
+          CmdDeleteSelectedItems vào Form. Ta sẽ dùng Event Click của Button nầy 
+          để delete những selected Items. Một selected Item của lstNames sẽ có 
+          property Selected của nó bằng True. Tức là nếu Item thứ ba 
+          (ListIndex=2) được selected thì ta có <B>lstNames.Selected(2) = 
+          True</B>. Ta có ý định sẽ iterate through mọi Items của lstNames, để 
+          xem Item nào được selected thì mình sẽ delete nó bằng cách dùng method 
+          RemoveItem. Ta sẽ viết code cho Sub CmdDeleteSelectedItems_Click() như 
+          sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdDeleteSelectedItems_Click() 
+   <FONT color=blue>Dim</FONT> i 
+   <FONT color=blue>For</FONT> i = 0 <FONT color=blue>To</FONT> lstNames.ListCount - 1 
+      <FONT color=blue>If</FONT> lstNames.Selected(i) = <FONT color=blue>True</FONT> <FONT color=blue>Then</FONT> 
+         lstNames.RemoveItem i 
+      <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=blue>Next</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Bạn 
+          hãy chạy chương trình, click Load để populate lstNames với các tên đọc 
+          từ text file, rồi MultiSelect các tên như trong hình phía trên. Kế đó 
+          click button DeleteSelectedItems. Program sẽ té (crash) và có hình như 
+          sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=248 
+              src="Chuong 7 - Dung List Controls (bai thu hai)_files/BugAcOn.jpg" 
+              width=585 border=0></BLOCKQUOTE></BLOCKQUOTE><BR>Nếu bạn click nút 
+          Debug, program sẽ ngừng tại dòng code gặp error và highlight nó với 
+          background màu vàng. Ðể mousepointer lên trên chữ i của 
+          lstNames.Selected(i), VB6 sẽ popup message nho nhỏ <B>i = 4</B>. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=185 
+              src="Chuong 7 - Dung List Controls (bai thu hai)_files/BugAcOnIndex.jpg" 
+              width=442 border=0></BLOCKQUOTE></BLOCKQUOTE><BR>Bạn để ý thấy trong 
+          hình lúc nầy lstNames chỉ còn có 4 Items (Ron, Trevor, John và Alan), 
+          vì các Items kia đã bị removed.<BR>Bạn có biết tại sao program crashed 
+          không? Ðó là vì program đang refer đến property Selected của Item thứ 
+          năm ( ArrayIndex i = 4) của lstNames trong khi lstNames bây giờ chỉ 
+          còn có 4 Items. Vì vậy program crashed với message <B>"Runtime error 
+          '381': Invalid property array index"</B>.<BR>Thủ phạm của cái Bug ác 
+          ôn nầy là statement <B>For i = 0 To lstNames.ListCount - 1</B>. VB6 
+          chỉ tính value của <B>lstNames.ListCount -1 </B>một lần lúc khởi sự 
+          For..Loop mà thôi (tức là lstNames.ListCount -1 = 6), nó không lưu ý 
+          là ListCount giảm value mỗi lần một Item bị Removed. Ngoài ra ta thấy 
+          tên "Trevor Kennedy" cũng không bị removed, tức là nó bị lọt sổ nếu ta 
+          dùng For..Loop theo cách nầy. Lý do là sau khi ta Remove "Peter Jones" 
+          (Item thứ hai), "Trevor Kennedy" bị đẩy lên và trở thành Item thứ hai 
+          mới. Kế đó ta increment value của <B>i</B> thành 2 rồi process Item 
+          thứ ba, tức là "Sue Rose", nên "Trevor Kennedy" không hề được 
+          processed.<BR><BR>Bạn có thể <A 
+          href="http://www.vovisoft.com/VisualBasic/BugList.zip">download 
+          program có bug nầy</A> để chạy thử cho biết. <BR><BR>Sub 
+          CmdDeleteSelectedItems_Click cần phải được viết lại để dùng While ... 
+          Loop, thay vì For...Loop. Trong While...Loop, <B>lstNames.ListCount - 
+          1</B> được evaluated (tính) để test ở mỗi iteration. Khi nào ta Remove 
+          một Item thì ta không increment <B>i</B>, vì Item ngay dưới removed 
+          Item được đẩy lên. Listing mới như sau: <BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdDeleteSelectedItems_Click() 
+   <FONT color=blue>Dim</FONT> i 
+   i = 0  <FONT color=green>' Initialise value of i to start from first Item</FONT>
+   <FONT color=green>' Note that lstNames.ListCount is evaluated freshly at each iteration</FONT>
+   <FONT color=blue>Do</FONT> <FONT color=blue>While</FONT> i &lt;= (lstNames.ListCount - 1) 
+      <FONT color=blue>If</FONT> lstNames.Selected(i) = <FONT color=blue>True</FONT> <FONT color=blue>Then</FONT> 
+         lstNames.RemoveItem i 
+         <FONT color=green>' No need to increment i here because the item below is pushed up</FONT>
+      <FONT color=blue>Else</FONT> 
+         i = i + 1  <FONT color=green>' increment i to process the next item</FONT>
+      <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=blue>Loop</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR></FONT>
+          <H4><FONT face=Verdana color=blue>Dùng Listbox để display Event Log 
+          </FONT></H4><FONT face=Verdana>Trong thí dụ sau đây ta muốn display 
+          input từ một serial COM port (Ðể đọc data thật qua serial COM port ta 
+          phải dùng control MsCOMM có hình telephone màu vàng trong ToolBox). 
+          Nhưng để tiện việc biểu diển, thay vì đọc một message từ một serial 
+          COM port, ta sẽ emulate nó bằng cách dùng một ComboBox. Khi user 
+          select một hàng từ ComboBox cboInput thì ta xem cboInput.text như data 
+          đọc từ serial COM port. Lập tức lúc ấy ta sẽ display input message 
+          trong hai dạng: ASCII và HEX. Mỗi hàng input message được prefix với 
+          ngày và giờ trước khi được cho vào hai Listboxes lstASCII và 
+          lstHexadecimal.<BR>Hình dưới đây cho thấy Form đang display trong 
+          ASCII mode.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=164 
+              src="Chuong 7 - Dung List Controls (bai thu hai)_files/ASCIIForm.gif" 
+              width=512 border=0></BLOCKQUOTE></BLOCKQUOTE><BR>Nếu bạn click button 
+          <B>Display in HEX</B> thì caption của button đổi thành <B>Display in 
+          ASCII</B>, lstASCII trở nên vô hình và lstHexadecimal sẽ hiện ra như 
+          sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=164 
+              src="Chuong 7 - Dung List Controls (bai thu hai)_files/HexForm.gif" 
+              width=512 border=0></BLOCKQUOTE></BLOCKQUOTE><BR>Dưới đây là listing 
+          của Function HexDisplay để convert từ ASCII string ra Hexadecimal 
+          string.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Function</FONT> HexDisplay(InASCII) <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   <FONT color=green>' Convert an ASCII string to HEX string</FONT>
+   <FONT color=blue>Dim</FONT> InLen, i, msg, HexStr 
+   InLen = Len(InASCII)  <FONT color=green>' Get length of input string</FONT>
+   <FONT color=green>' Convert each ASCII character to Hex</FONT>
+   <FONT color=blue>For</FONT> i = 1 <FONT color=blue>To</FONT> InLen 
+      HexStr = Hex(Asc(Mid(InASCII, i, 1))) 
+      <FONT color=green>' If HEX has only one digit then prefix it with 0</FONT>
+      <FONT color=blue>If</FONT> Len(HexStr) = 1 <FONT color=blue>Then</FONT> HexStr = "0" &amp; HexStr 
+      msg = msg + HexStr &amp; " " 
+   <FONT color=blue>Next</FONT> i 
+   HexDisplay = msg  <FONT color=green>' Return result string for Function</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Function</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Trong 
+          program nầy, khi Listbox đạt đến 1000 items thì mỗi lần một hàng mới 
+          được thêm vào, hàng cũ nhất sẽ bị removed. Ðể cho hàng mới nhất không 
+          bị dấu ta phải nhớ cho ListIndex của Listbox bằng Listcount-1 để 
+          Listbox tự động scrollup và highlight hàng cuối.<BR>Mỗi khi ta thêm 
+          một hàng vào Listbox lstHexadecimal, ta cũng đồng thời viết nó vào một 
+          LogFile. Tên của LogFile nầy dựa vào ngày lấy từ Computer System và có 
+          dạng như <B>Hex30Jun01.log</B>. Tức là ta sẽ dùng một LogFile khác cho 
+          mỗi ngày. Mỗi khi qua ngày mới, program tự động dùng một LogFile mới. 
+          Nhớ là khi muốn viết vào một text file theo tên gì đó, nếu file chưa 
+          hiện hữu thì ta phải create nó và viết vào, nếu file đã hiện hữu rồi 
+          ta chỉ cần append hàng mới vào cuối file (phải cẩn thận chỗ nầy, vì 
+          nếu không, ta vô ý overwrite cái file và mất hết những gì nó chứa 
+          trước đây). 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Sub</FONT> DisplayInHEX(inString) 
+   <FONT color=blue>Dim</FONT> Mess, LogFileName 
+   <FONT color=green>' Convert ASCII to Hex</FONT>
+   Mess = HexDisplay(inString) 
+   <FONT color=green>' Prefix with date and time and add it to the bottom of Listbox</FONT>
+   lstHexadecimal.AddItem Format(Now, "dd/mm/yyyy hh:nn:ss") &amp; " " &amp; Mess 
+   <FONT color=green>' Keep only the latest 1000 events</FONT>
+   <FONT color=blue>If</FONT> lstHexadecimal.ListCount &gt;= 1000 <FONT color=blue>Then</FONT> 
+      <FONT color=green>' Remove the first Item, i.e. the oldest item</FONT>
+      lstHexadecimal.RemoveItem 0 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=green>' Highlight the lattest item in the Listbox</FONT>
+   lstHexadecimal.ListIndex = lstHexadecimal.ListCount - 1 
+   <FONT color=green>' Use different log file each day. Filename has format like Hex15Jun01.log</FONT>
+   LogFileName = "Hex" &amp; Format(Now, "ddmmmyy") &amp; ".log" 
+   <FONT color=green>' Log to file including Date and Time</FONT>
+   LogEvent LogFileName, Mess, False, 2 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE>
+          <H4><FONT face=Verdana color=blue>In ra content của Listbox 
+          </FONT></H4>Dưới đây là một áp dụng của Listbox MutiSelect để in ra cả 
+          Listbox hay chỉ những hàng được selected. Sub PrintList nhận:<BR>
+          <UL>
+            <LI>Listbox mà ta muốn in 
+            <LI>một Boolean value mà nếu True thì in cả Listbox 
+            <LI>Title của Printout </LI></UL><BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Sub</FONT> PrintList(theList <FONT color=blue>As</FONT> ListBox, PrintAll as Boolean, Title <FONT color=blue>As</FONT> String) 
+   <FONT color=green>' Print the whole lot or only selected lines in a listbox</FONT>
+   <FONT color=green>' PrintAll = True means printing the whole content of the listbox</FONT>
+   <FONT color=blue>Const</FONT> MaxLinesPerPage = 50 
+   <FONT color=blue>Dim</FONT> msg, i, j, PageNo, NumLines, HasSome, Margin 
+   HasSome = <FONT color=blue>False</FONT>  <FONT color=green>' Flag indicating existence of data</FONT>
+   Margin = Space(10)  <FONT color=green>' Make a margin of 5 characters</FONT>
+   Title = vbLf &amp; vbLf &amp; Title + vbCrLf &amp; vbLf 
+   NumLines = 0  <FONT color=green>' Init number of lines on this page</FONT>
+   PageNo = 1  <FONT color=green>' init Page number</FONT>
+   msg = Title  <FONT color=green>' Msg will contain everything starting with Title</FONT>
+   Printer.FontName = "Courier New"  <FONT color=green>' Initialise Printer Fontname</FONT>
+   Printer.FontSize = 10  <FONT color=green>' Initialise Printer FontSize</FONT>
+   Screen.MousePointer = vbHourglass  <FONT color=green>' Change mousepointer shape to Hourglass.</FONT>
+   <FONT color=blue>If</FONT> theList.ListCount &gt; 0 <FONT color=blue>Then</FONT> 
+      <FONT color=green>' get here if the listbox is not empty</FONT>
+      <FONT color=blue>For</FONT> i = 0 <FONT color=blue>To</FONT> theList.ListCount - 1  <FONT color=green>' Go thru each line of text in the listbox</FONT>
+         <FONT color=blue>If</FONT> theList.Selected(i)<FONT color=blue> Or </FONT>PrintAll <FONT color=blue>Then</FONT> 
+            <FONT color=green>' print a line of text if it's selected or PrinAll is true</FONT>
+            DoEvents  <FONT color=green>' Let other processes have a chance to run</FONT>
+            HasSome = <FONT color=blue>True</FONT> 
+            NumLines = NumLines + 1  <FONT color=green>' Increment count of lines</FONT>
+            <FONT color=blue>If</FONT> Left(theList.List(i), 1) = "'" <FONT color=blue>Then</FONT> 
+            ' if first character is "'" then use this as an indication to force a new page 
+            <FONT color=blue>If</FONT> NumLines &gt; 0 <FONT color=blue>Then</FONT> 
+               <FONT color=green>' Add extra blank lines to make up a page before inserting page number</FONT>
+               <FONT color=blue>For</FONT> j = NumLines - 1 <FONT color=blue>To</FONT> MaxLinesPerPage 
+                  msg = msg &amp; vbCrLf 
+               <FONT color=blue>Next</FONT> j 
+               <FONT color=green>' Insert Page number at end of page</FONT>
+               msg = msg &amp; Space$(35) &amp; "Page-" &amp; CStr(PageNo) 
+               Printer.Print msg 
+               Printer.NewPage  <FONT color=green>' Send new page.</FONT>
+               NumLines = 1  <FONT color=green>' reset Number of lines, counting this current line</FONT>
+               PageNo = PageNo + 1  <FONT color=green>' Increment Page number</FONT>
+               msg = Title  <FONT color=green>' Reset Msg to contain Title for new page</FONT>
+               ' Append this current line, ignoring character "'" 
+               msg = msg &amp; Margin &amp; Mid(theList.List(i), 2) &amp; vbCrLf 
+            <FONT color=blue>Else</FONT> 
+               ' Blank page so far - so just appending this line, ignoring character "'" 
+               msg = msg &amp; Margin &amp; Mid(theList.List(i), 2) &amp; vbCrLf 
+            <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+         <FONT color=blue>Else</FONT> 
+            <FONT color=green>' Normal line - just keep appending it to Msg</FONT>
+            msg = msg + Margin &amp; theList.List(i) &amp; vbCrLf 
+         <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+         theList.Selected(i) = <FONT color=blue>False</FONT>  <FONT color=green>' Clear highlight of selected line, ie. deselect it</FONT>
+         <FONT color=blue>If</FONT> NumLines &gt; MaxLinesPerPage <FONT color=blue>Then</FONT>  <FONT color=green>' Start new page if page already full</FONT>
+            <FONT color=blue>If</FONT> PageNo &gt; 1 <FONT color=blue>Then</FONT>  <FONT color=green>' Insert page number at the bottom, except for first page</FONT>
+               msg = msg + vbCrLf &amp; Space$(35) &amp; "Page-" &amp; CStr(PageNo) 
+            <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+            Printer.Print msg  <FONT color=green>' Output all data of this page</FONT>
+            Printer.NewPage  <FONT color=green>' Send new page.</FONT>
+            NumLines = 0 
+            PageNo = PageNo + 1 
+            msg = Title 
+         <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+      <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   <FONT color=blue>Next</FONT> i 
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=green>' Get here after going thru all lines in the listbox</FONT>
+<FONT color=blue>If</FONT> NumLines &gt; 0 <FONT color=blue>Then</FONT>  <FONT color=green>' complete the last page by inserting page number</FONT>
+   <FONT color=blue>For</FONT> i = NumLines <FONT color=blue>To</FONT> MaxLinesPerPage 
+      msg = msg &amp; vbCrLf 
+   <FONT color=blue>Next</FONT> i 
+   <FONT color=blue>If</FONT> PageNo &gt; 1 <FONT color=blue>Then</FONT> 
+      msg = msg + vbCrLf &amp; Space$(35) &amp; "Page-" &amp; Str$(PageNo) 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   Printer.Print msg  <FONT color=green>' Output all data of this page</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>If</FONT> HasSome <FONT color=blue>Then</FONT> 
+   Printer.EndDoc  <FONT color=green>' Initiate the actual Print.</FONT>
+<FONT color=blue>Else</FONT> 
+   Beep 
+   MsgBox "Nothing to print, try selecting a range of lines first" 
+<FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+Screen.MousePointer = vbDefault  <FONT color=green>' Change mousepointer shape back to normal</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Ta 
+          gọi PrintList để in những Items đã được selected trong Listbox 
+          lstNames như sau:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdPrint_Click() 
+   PrintList lstHexadecimal, True, "*** EVENT LOG IN HEX ***" 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+          <H4><FONT face=Verdana color=blue>Thêm Horizontal Scrollbar vào 
+          Listbox </FONT></H4><FONT face=Verdana>Có lẽ bạn để ý thấy cả hai 
+          Listboxes lstASCII và lstHexadecimal đều có Horizontal Scrollbar phía 
+          dưới. By default, Listbox không có Horizontal Scrollbar. Muốn tạo ra 
+          nó bạn phải thêm hai câu dưới đây vào một Basic module:<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Public</FONT> <FONT color=blue>Declare</FONT> <FONT color=blue>Function</FONT> SendMessage <FONT color=blue>Lib</FONT> "user32" Alias "SendMessageA" (<FONT color=blue>ByVal</FONT> hwnd <FONT color=blue>As</FONT> Long, <FONT color=blue>ByVal</FONT> wMsg <FONT color=blue>As</FONT> Long, <FONT color=blue>ByVal</FONT> wParam <FONT color=blue>As</FONT> Long, lParam <FONT color=blue>As</FONT> Any) <FONT color=blue>As</FONT> <FONT color=blue>Long</FONT> 
+<FONT color=blue>Global</FONT> <FONT color=blue>Const</FONT> LB_SETHORIZONTALEXTENT = &amp;H194 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Kế 
+          đó trong Sub Form_Load gọi Function SendMessage qua Application 
+          Programming Interface (API) để yêu cầu Listbox cho hiện ra Horizontal 
+          Scrollbar.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Dim</FONT> VLong <FONT color=blue>As</FONT> <FONT color=blue>Long</FONT> 
+<FONT color=green>' make a horizontal scrollbar for both Listboxes</FONT>
+VLong = SendMessage(lstAscii.hwnd, LB_SETHORIZONTALEXTENT, lstAscii.Width, <FONT color=blue>ByVal</FONT> 0) 
+VLong = SendMessage(lstHexadecimal.hwnd, LB_SETHORIZONTALEXTENT, lstHexadecimal.Width, <FONT color=blue>ByVal</FONT> 0) 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>Bạn 
+          có thể <A 
+          href="http://www.vovisoft.com/VisualBasic/Eventlog.zip">download 
+          source code của program <B>Eventlog.zip</B> nầy</A> để có đầy đủ. 
+          <BR><BR>Trong bài tới ta sẽ học thêm các áp dụng còn lại của ListBox. 
+          <BR><BR></BLOCKQUOTE>
+        <BLOCKQUOTE><IMG height=14 
+          src="Chuong 7 - Dung List Controls (bai thu hai)_files/ball_red.gif" 
+          width=14>&nbsp;<A 
+          href="http://www.vovisoft.com/vovisoft/vblinks.htm">Các liên mạng VB 
+          khác</A></BLOCKQUOTE>
+        <BLOCKQUOTE>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><BR><A 
+          href="http://www.bangden.com/soncuoc/Dang/index.htm">Những câu hỏi về 
+          Visual Basic</A> 
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/visualbasic/tipstricks/forms.htm">Những 
+          mẹo vặt của Visual Basic</A></P>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/VB.htm"><BR>Lập trình với 
+          VBA</A></P></BLOCKQUOTE><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc --><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc -->
+        <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+        width="100%" border=0>
+          <TBODY>
+          <TR>
+            <TD class=clsRaised width=785 bgColor=#6699cc>
+              <P align=center><FONT face=Verdana color=#ffffff size=1>Được cung 
+              cấp từ Vivosoft</FONT></P></TD></TR></TBODY></TABLE>
+        <P>&nbsp;</P></FONT></FONT></FONT></BLOCKQUOTE>&nbsp;<!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></HTML>

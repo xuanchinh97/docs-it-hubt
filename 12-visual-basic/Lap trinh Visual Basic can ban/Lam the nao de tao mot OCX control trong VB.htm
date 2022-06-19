@@ -1,0 +1,170 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0074)http://www.bangden.com/soncuoc/Visualbasic/HowToCreateAnActiveXControl.htm -->
+<!-- saved from url=(0067)http://www.vovisoft.com/visualbasic/HowToCreateAnActiveXControl.htm --><HTML><HEAD><TITLE>Unicode Converter</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, Vietnamese VB tutorials, ActiveX Control Tutorial, Custom Control Tutorial" 
+name=keywords><LINK 
+href="Lam the nao de tao mot OCX control trong VB_files/topbottom.css" 
+type=text/css rel=stylesheet>
+<SCRIPT language=JavaScript 
+src="Lam the nao de tao mot OCX control trong VB_files/vscroll.js"></SCRIPT>
+
+<META content="t, default" name="Microsoft Border"></HEAD>
+<BODY leftMargin=0 topMargin=0 marginwidth="0" marginheight="0"><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+      height=20 cellSpacing=0 cellPadding=0 width="130%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="51%" bgColor=#0000ff height=20><B><FONT face=Verdana 
+            color=#ffff00 size=2><SPAN style="BACKGROUND-COLOR: #0000ff">Trung 
+            tâm Dạy nghề và Phổ cập Tin học Miền núi ABC - Tỉnh Yên Bái 
+            </SPAN></FONT></B></TD>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="35%" height=20><FONT face=Verdana><IMG height=20 src="" 
+            width=136 border=0></FONT></TD></TR></TBODY></TABLE>
+      <P 
+      style="MARGIN: 0px; WORD-SPACING: 0px; TEXT-INDENT: 0px; LINE-HEIGHT: 100%"><FONT 
+      face=Verdana size=2><A 
+      href="http://www.bangden.com/soncuoc/index.htm">&lt;Home&gt;&nbsp;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Tho.htm">&lt;Thơ&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/laptrinh.htm">&lt;Lập trình&gt;</A> 
+      <A href="http://www.bangden.com/soncuoc/giaoan.htm">&lt;Giáo 
+      án&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/BaiViet.htm">&lt;Bài 
+      viết&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Vui.htm">&lt;Chuyện 
+      vui&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Traodoi.htm">&lt;Trao 
+      đổi&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/lienket.htm">&lt;Liên kết&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/moi.htm">&lt;Bài 
+      Mới&gt;</A></FONT></P></TD></TR><!--msnavigation--></TBODY></TABLE><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=top>
+      <P align=center>&nbsp;</P><!-- End of Top Menu --><!-- Cut and paste your content after this line --><FONT 
+      face=Verdana>
+      <CENTER>
+      <H2><FONT face=Verdana color=#800000>Làm thế nào để tạo một OCX control 
+      trong VB ?</FONT></H2></CENTER>
+      <BLOCKQUOTE>
+        <P><FONT face=Verdana><I>Ðể đọc và hiểu bài viết này bạn phải học Visual 
+        Basic ít nhất vài tháng và hiểu khá rõ về cách sử dụng những intrinsic 
+        control (Command Button, ListBox...) cũng như những ActiveX 
+        controls(Listview, Treeview...). Nếu bạn đã học Visual Basic hơn 6 tháng 
+        và cảm thấy rất tự tin về khả năng lập trình của mình thì hãy đọc tiếp 
+        vì bài này không phải viết dành cho người mới bắt đầu học VB.</I> 
+        </FONT></P>
+        <P><FONT face=Verdana><FONT color=green size=6>N</FONT>hư bạn đã biết, 
+        VB cho phép chúng ta viết các ứng dụng trên Windows dễ dàng nhờ các 
+        Controls có sẵn nằm trên toolbox. Có 2 loại controls là <B>Intrinsic 
+        control</B>( hay Built-in control) và <B>ActiveX control</B>. Intrinsic 
+        control là những control xuất hiện khi ta mở một standard Exe project, 
+        các control này đã có từ các version trước đây của VB. Còn ActiveX 
+        control là những control được xây dựng trên công nghệ ActiveX của 
+        Microsoft chúng ta có thể dễ dàng thấy chúng khi mở một VB Professional( 
+        hay Enterprise) Edition Control project. Ðó là những control như 
+        Listview, Treeview, Progressbar.... Các ActiveX control có extension là 
+        ".OCX" nên còn được gọi là <B>OCX control</B>. </FONT></P>
+        <P><FONT face=Verdana>Tuy có khá nhiều ActiveX controls đi chung với VB 
+        Professional version nhưng đôi khi các control đó không đủ các tính năng 
+        mà ta cần do đó VB cho phép ta tạo ra các <B>custom control</B> hay 
+        <B>user control</B> hay <B>third-party control</B> để thực hiện các chức 
+        năng mà ta muốn. Nếu bạn thấy hứng thú xin mời đọc tiếp. Ðây là bài đầu 
+        tiên trong loạt bài về ActiveX control nên chúng tôi sẽ cố gắng giải 
+        thích cũng như cung cấp những kiến thức căn bản về cách tạo một ActiveX 
+        control trong VB như thế nào. </FONT></P>
+        <P><FONT color=blue size=4>khái niệm cần biết về ActiveX control 
+        </FONT></P>
+        <P><FONT face=Verdana>Có 3 loại ActiveX control chúng ta có thể tạo ra 
+        trong VB: </FONT></P>
+        <UL>
+          <LI><U>Loại tự thiết kế</U> (<B>User-drawn control</B>): đây là loại 
+          control mà ta phải thiết kế từ đầu đến đuôi. Chúng ta phải kiểm soát 
+          và chịu trách nhiệm mọi hoạt động cũng như hình dáng của nó. Loại 
+          control này khó thực hiện nhất vì tính phức tạp của nó. 
+          <LI><U>Loại control cải tiến</U> (<B>Enhancing existing control</B>): 
+          Ðây là loại control được cải tiến từ một control có sẵn trong VB và ta 
+          chỉ việc thừa kế phần lớn các tính năng của control đó sau đó thêm các 
+          chứa năng mà control nguyên thủy không có( Ví dụ như làm một Listbox 
+          có thanh kéo nằm ngang (horizontal scroll bar). Ðây là loại dễ làm 
+          nhất. 
+          <LI><U>Loại control được xây dựng từ một số control có sẵn</U> 
+          (<B>Building with constituent control</B>): loại này có thể sử dụng 
+          các tính năng của các control thành phần và đôi khi có chức năng tổng 
+          hợp mà các control thành phần không có khi đứng một mình. </LI></UL>
+        <P><FONT face=Verdana>ActiveX control <B>tương tự như Class</B> ở chỗ nó 
+        có các Properties, Methods, Events nhưng khác ở chỗ nó có <B>Graphical 
+        User Interface</B>(giao diện với người sử dụng) mà Class thường không 
+        có. Bạn sẽ thấy ở một góc độ nào đó ActiveX control lại <B>rất giống với 
+        Form control</B> vì ta có thể thiết kế mọi thứ trên đó như đang thiết kế 
+        trên một form. Nhưng điểm khác nhau là ở chỗ nó không thể chạy được nếu 
+        không nằm trên một container nào đó. Container đó không nhất định là một 
+        <B>Form</B> mà còn có thể là <B>Internet Explorer</B>. </FONT></P>
+        <P><FONT face=Verdana>Khi bạn viết một chương trình trong VB tiến trình 
+        thiết kế thường diễn ra như sau: đặt các control lên trên form, viết 
+        code, cho chạy thử sau đó trở về thiết kế tiếp và lặp lại chu trình trên 
+        cho đến khi hoàn thành. Chúng ta có thể tóm tắt chu trình trên bằng hình 
+        vẽ sau:<BR><BR><IMG height=100 
+        src="Lam the nao de tao mot OCX control trong VB_files/DesignProcess.gif" 
+        width=600 border=0> <BR><BR></FONT></P>
+        <P><FONT face=Verdana>Trong tiến trình trên chúng ta có thể đặt các 
+        ActiveX control lên form. Do đó một ActiveX control hoạt động ở 2 dạng 
+        (2 modes of operation): 
+        <UL>
+          <LI><B>Design-Time behavior</B> 
+          <LI><B>Run-Time behavior</B> </LI></UL></FONT>
+        <P></P>
+        <P><FONT face=Verdana>Hãy thử hình dung một người programmer sử dụng 
+        control do ta thiết kế vào một ứng dụng nào đó. Khi anh ta đặt control 
+        lên form thì lúc đó control của chúng ta đang chạy ở <B>Design-time 
+        mode</B> của người programmer đó, còn khi chạy ứng dụng trên thì control 
+        của chúng ta đang chạy ở <B>Run-time mode</B> của anh ta. Xin nhấn mạnh 
+        ở đây là control của chúng ta <B>luôn luôn đang chạy</B> (at run-time 
+        mode) cho dù anh ta đang ở design hay run time mode chỉ có khác là 
+        <B>behavior của cái control ở mỗi mode có thể khác nhau</B>. Khi thiết 
+        kế một ActiveX control bạn phải luôn hiểu rõ điều này. Nói một cách khác 
+        bạn phải luôn nhớ rằng khi thiết kế ActiveX control ta luôn có 2 user đó 
+        là anh <B>programmer</B> và người user thật sự sử dụng ứng dụng do anh 
+        ta viết (<B>end user</B>) . Vì thế bạn sẽ là bên thứ ba 
+        (<B>Third-party</B>) <BR><BR><IMG height=250 
+        src="Lam the nao de tao mot OCX control trong VB_files/UserDiagram.gif" 
+        width=550 border=0> <BR><BR></FONT></P>
+        <P><FONT color=blue size=4><A 
+        href="http://www.vovisoft.com/visualbasic/CreateSimpleControlUseWizard.htm">Tạo 
+        một control đơn giản dùng <B>ActiveX Control Interface 
+        Wizard</B>.</A>&nbsp;</FONT> </P>
+        <P 
+        style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+        href="http://www.bangden.com/soncuoc/Visualbasic/default.htm"><FONT 
+        face=Verdana>Học Microsoft Visual Basic 6.0</FONT></A><BR><A 
+        href="http://www.bangden.com/soncuoc/Dang/index.htm">Những câu hỏi về 
+        Visual Basic</A> 
+        <P 
+        style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+        href="http://www.bangden.com/soncuoc/Visualbasic/tipstricks/forms.htm">Những 
+        mẹo vặt của Visual Basic</A></P></FONT>
+        <P 
+        style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><FONT 
+        face=Verdana><A href="http://www.bangden.com/soncuoc/VB.htm"><BR>Lập 
+        trình với VBA</A></FONT></P></BLOCKQUOTE><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc --><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc -->
+      <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+      width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD class=clsRaised width=785 bgColor=#6699cc>
+            <P align=center><FONT face=Verdana color=#ffffff size=1>Được cung 
+            cấp từ Vivosoft</FONT></P></TD></TR></TBODY></TABLE><BR><!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></HTML>

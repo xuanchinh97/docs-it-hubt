@@ -1,0 +1,429 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://www.bangden.com/soncuoc/visualbasic/VB6Chapter8.htm -->
+<!-- saved from url=(0051)http://www.vovisoft.com/VisualBasic/VB6Chapter8.htm --><HTML><HEAD><TITLE>Creating Objects</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 8 - Tu tao Objects_files/topbottom.css" type=text/css 
+rel=stylesheet>
+<META content="t, default" name="Microsoft Border"></HEAD>
+<BODY leftMargin=0 marginwidth="0" marginheight="0"><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+      height=20 cellSpacing=0 cellPadding=0 width="130%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="51%" bgColor=#0000ff height=20><B><FONT face=Verdana 
+            color=#ffff00 size=2><SPAN style="BACKGROUND-COLOR: #0000ff">Trung 
+            tâm Dạy nghề và Phổ cập Tin học Miền núi ABC - Tỉnh Yên Bái 
+            </SPAN></FONT></B></TD>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="35%" height=20><FONT face=Verdana><IMG height=20 src="" 
+            width=136 border=0></FONT></TD></TR></TBODY></TABLE>
+      <P 
+      style="MARGIN: 0px; WORD-SPACING: 0px; TEXT-INDENT: 0px; LINE-HEIGHT: 100%"><FONT 
+      face=Verdana size=2><A 
+      href="http://www.bangden.com/soncuoc/index.htm">&lt;Home&gt;&nbsp;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Tho.htm">&lt;Thơ&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/laptrinh.htm">&lt;Lập trình&gt;</A> 
+      <A href="http://www.bangden.com/soncuoc/giaoan.htm">&lt;Giáo 
+      án&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/BaiViet.htm">&lt;Bài 
+      viết&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Vui.htm">&lt;Chuyện 
+      vui&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Traodoi.htm">&lt;Trao 
+      đổi&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/lienket.htm">&lt;Liên kết&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/moi.htm">&lt;Bài 
+      Mới&gt;</A></FONT></P></TD></TR><!--msnavigation--></TBODY></TABLE><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=top>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE>&nbsp;</BLOCKQUOTE></BLOCKQUOTE>
+      <CENTER>
+      <H1><FONT face=Verdana color=#000000>Khóa Hàm Thụ Visual Basic 
+      6.0</FONT></H1>
+      <H2><FONT face=Verdana color=#800000>Chương Tám - Tự tạo 
+      Object</FONT></H2></CENTER>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE><FONT face=Verdana><FONT color=green size=6>T</FONT>ừ 
+          trước đến giờ, ta lập trình VB6 bằng cách thiết kế các Forms rồi viết 
+          codes để xử lý các Events của những controls trên Form khi Users click 
+          một Button hay Listbox, .v.v.. <BR>Nói chung, cách ấy cũng hữu hiệu để 
+          triển khai, nhưng nếu ta có thể hưởng được các lợi ích sau đây thì 
+          càng tốt hơn nữa: 
+          <OL>
+            <LI>Dùng lại được code đã viết trước đây trong một dự án khác 
+            <LI>Dễ nhận diện được một lỗi (error) phát xuất từ đâu 
+            <LI>Dễ triển khai một dự án lớn bằng cách phân phối ra thành nhiều 
+            dự án nhỏ 
+            <LI>Dễ bảo trì </LI></OL>Mỗi lần dùng lại code, nếu để y nguyên xi con 
+          là lý tưởng. Việc ấy được gọi là <B>Reusability</B>. Nói cho đúng ra, 
+          <B>dùng lại được</B> thật sự là khi ta chỉ cần dùng <B>object 
+          code</B>, đó là code đã được <B>compiled</B> rồi, tức là hoàn toàn 
+          không đụng đến <B>source code</B>. Vì hể cho phép User sửa source code 
+          là tạo cơ hội cho <B>bugs</B> xuất hiện, rồi lại phải debug một lần 
+          nữa.<BR>Sự thách đố chính của việc triển khai một dự án phần mềm lớn 
+          là thực hiện đúng thời hạn (on time), không lố tài khóa (within 
+          budget) và dễ bảo trì (ease of maintenance). Muốn đạt được các mục 
+          tiêu ấy, ta phải triển khai nhanh và làm sao cho chương trình ít có 
+          bugs, dễ bảo trì. <BR><BR>Giả dụ bạn đứng ra tổ chức một đám cưới. Thử 
+          tưởng tượng biết bao nhiêu chuyện phải làm: từ danh sách quan khách, 
+          thiệp mời, ẩm thực, xe cộ, chụp hình, quay phim, văn nghệ cho đến thủ 
+          tục nghi lễ, tiếp tân, hoạt náo viên ..v.v.. Nếu chỉ một mình bạn lo 
+          thật không biết làm sao nhớ cho hết. Cũng may là nhà hàng sẽ đảm trách 
+          luôn cả việc in ấn thiệp mời, ban nhạc văn nghệ và cả hoạt náo viên. 
+          Thủ tục nghi lễ thì không ai qua được bác Sáu Đạt, và bác đã nhận lời 
+          mua quà cáp, lo về tiếp tân, xe cộ và thủ tục, nghi lễ. Bác cũng sẽ 
+          liên lạc với Mục sư chủ lễ để dặn chỗ nhà thờ và sắp đặt ngừơi giựt 
+          chuông và người đàn. Anh Tư Thông có người bạn làm chủ tiệm hình, nên 
+          anh nhận trách nhiệm mướn người lo chụp hình, quay phim. Như thế việc 
+          bạn tổ chức cái đám cưới nay rút lại chỉ còn soạn danh sách quan 
+          khách, các bài diễn văn, sắp chỗ ngồi và dặn chỗ cho cặp vợ chồng mới 
+          đi hưởng tuần trăng mật.<BR><BR>Sở dĩ bạn cảm thấy trách nhiệm tổ chức 
+          không nặng nề vì nhà hàng, bác Sáu Đạt và anh Tư Thông tự lo gánh vác 
+          các khâu rắc rối. Cái hay ở đây là những người nầy tự lo quyết định 
+          mọi chi tiết của những gì cần phải làm trong khâu của họ. Chỉ khi nào 
+          cần lắm, họ mới liên lạc để lấy ý kiến của bạn. Họ giống như những 
+          người <B>thầu</B> của bạn. Chắc bạn đã lưu ý rằng cái thí dụ tổ chức 
+          đám cưới nầy cho thấy nói chung muốn triển khai dự án lớn nào ta cần 
+          phải nhờ những người thầu giúp đở. Quả thật, đó là cách các quản trị 
+          viên những công trình đã làm từ xưa đến nay. <BR><BR>Bây giờ trở lại 
+          chuyện lập trình, phải chi ta có thể tổ chức cách triển khai dự án 
+          phần mềm giống như tổ chức cái đám cưới nói trên thì tốt quá. Thật ra, 
+          không phải các lý thuyết gia phần mềm không nghĩ đến chuyện ấy trước 
+          đây, nhưng để thực hiện được việc ấy người ta cần triển khai các 
+          phương tiện, dụng cụ thích hợp. Chỉ trong vòng 15 năm trở lại đây, 
+          việc ấy mới trở nên cụ thể qua các Operating Systems tinh vi, nhất là 
+          dùng Windows, và các ngôn ngữ lập trình như Eiffel, SmallTalk, C++ 
+          .v.v.. 
+          <H3><FONT face=Verdana color=green>Lập trình theo hướng đối tượng 
+          (Object Oriented Programming) </FONT></H3><FONT face=Verdana>Nói một 
+          cách nôm na, lập trình theo hướng đối tượng là thiết kế các bộ phận 
+          phần mềm của chương trình, gọi là <B>Objects</B> sao cho mỗi bộ phận 
+          có thể tự lo liệu công tác của nó giống như một người <B>thầu</B> 
+          ngoài đời vậy. Chắc có lẽ bạn sẽ hỏi thế thì các <B>Sub</B> hay 
+          <B>Function</B> mà bạn đã từng viết để xử lý từng giai đoạn trong 
+          chương trình có thể đảm trách vai trò của một thầu không?<BR>Người 
+          thầu chẳng những có thể làm được công tác (Subs và Functions) gì mà 
+          còn chịu trách nhiệm luôn cả mọi thứ vật dụng cần thiết (data) cho 
+          việc ấy nữa.<BR>Có một cách định nghĩa khác cho Object là một Object 
+          gồm có data structure và các Subs/Functions làm việc trên các data ấy. 
+          Thông thường, khi ta dùng Objects ít khi giám thị chúng, ngược lại nếu 
+          khi có sự cố gì thì ta muốn chúng báo cáo cho ta biết.<BR><BR>Trong 
+          VB6, các Forms, Controls hay ActiveX là những Objects mà ta vẫn dùng 
+          lâu nay. Lấy thí dụ như Listbox. Một Listbox tự quản lý các items hiển 
+          thị bên trong nó. Ta biết listbox List1 đang có bao nhiêu items bằng 
+          cách hỏi List1.ListCount. Ta biết item nào vừa mới được selected bằng 
+          cách hỏi List1.ListIndex. Ta thêm một item vào listbox bằng cách gọi 
+          method AddItem của List1, ..v.v.. Nói cho đúng ra, Object là một thực 
+          thể của một Class. Nếu Listbox là một Class thì List1, List2 là các 
+          thực thể của Listbox. Cũng giống như Bà Tư Cháo Lòng và Dì Sáu Bánh 
+          Tầm là các thực thể của Class Đầu Bếp.<BR>Ngay cả một form tên 
+          frmMyForm mà ta viết trong VB6 chẳng hạn, nó cũng là một Class. Thường 
+          thường ta dùng thẳng frmMyForm như sau: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE>    frmMyForm.Show
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE>Trong 
+          trường hợp nầy thật ra frmMyForm tuy là một Class nhưng được dùng y 
+          như một Object. Chớ nếu muốn, ta có thể tạo ra hai, ba Objects của 
+          Class frmMyForm cùng một lúc như trong thí dụ sau: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE><FONT color=blue>Dim</FONT> firstForm <FONT color=blue>As</FONT> frmMyForm 
+<FONT color=blue>Dim</FONT> secondForm <FONT color=blue>As</FONT> frmMyForm 
+<FONT color=blue>Set</FONT> firstForm = <FONT color=blue>New</FONT> frmMyForm 
+<FONT color=blue>Set</FONT> secondForm = <FONT color=blue>New</FONT> frmMyForm 
+firstForm.Show 
+secondForm.Show 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE>Trong 
+          thí dụ trên ta declare firstForm và secondForm là những Objects của 
+          Class frmMyForm. Sau đó ta làm nên (<B>instantiate</B>) các Objects 
+          firstForm và secondForm bằng statements <B>Set... = New... 
+          </B><BR>firstForm và secondForm còn được gọi là các <B>instances</B> 
+          của Class frmMyForm. Class giống như cái khuôn, còn Objects giống như 
+          những cái bánh làm từ khuôn ấy. Chắc bạn đã để ý thấy trong VB6 từ 
+          dùng hai từ Class và Object lẫn lộn nhau. Đều nầy cũng không quan 
+          trọng, miễn là bạn nắm vững ý nghĩa của chúng.<BR><BR>VB6 có yểm trợ 
+          <B>Class</B> mà ta có thể triển khai và instantiate các Objects của nó 
+          khi dùng. Một Class trong VB6 có chứa <B>data</B> riêng của nó, có 
+          những <B>Subs</B> và <B>Functions</B> mà ta có thể gọi. Ngoài ra Class 
+          còn có thể Raise <B>Events</B>, tức là báo cho ta biết khi chuyện gì 
+          xãy ra bên trong nó. Cũng giống như Event Click của CommandButton, khi 
+          User clicks lên button thì nó Raise Event Click để cho ta xử lý trong 
+          Sub myCommandButton_Click(), chẳng hạn. Classtrong VB6 không có hổ trợ 
+          Visual components, tức là không có chứa những controls như TextBox, 
+          Label .v.v.. Tuy nhiên, ta có thể lấy những control có sẵn từ bên 
+          ngoài rồi đưa cho Object của Class dùng. <BR><BR>Bây giờ chúng ta hãy 
+          bắt đầu viết một Class. Bạn hãy mở một Project mới loại Standard EXE 
+          Visual Basic. Sau đó dùng Menu Command chọn <B>Add Class 
+          Module</B>:<BR>
+          <BLOCKQUOTE><IMG height=151 
+            src="Chuong 8 - Tu tao Objects_files/AddClass.gif" 
+          width=169></BLOCKQUOTE><BR>Khi Add Class Module dialog hiện ra chọn 
+          <B>Class Module</B> và click Open.<BR>
+          <BLOCKQUOTE><IMG height=369 
+            src="Chuong 8 - Tu tao Objects_files/ClassModule.gif" 
+          width=446></BLOCKQUOTE><BR>Bạn sẽ thấy mở ra một khung trắng và 
+          Project Explorer với Properties Window. Trong Properties Window, hãy 
+          sửa Name property của Class thành clsBox như dưới đây:<BR>
+          <BLOCKQUOTE><IMG height=427 
+            src="Chuong 8 - Tu tao Objects_files/ClassScr.gif" 
+          width=791></BLOCKQUOTE>Kế đó đánh vào những dòng code dưới đây, hay <A 
+          href="http://www.vovisoft.com/VisualBasic/ClassBox.zip">download 
+          source code của chương trình <B>ClassBox.zip</B></A>, trong đó có biểu 
+          diển cách dùng Class clsBox.<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Option</FONT> <FONT color=blue>Explicit</FONT> 
+<FONT color=blue>Private</FONT> mX <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+<FONT color=blue>Private</FONT> mY <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+<FONT color=blue>Private</FONT> mWidth <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+<FONT color=blue>Private</FONT> mHeight <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+
+<FONT color=blue>Public</FONT> <FONT color=blue>Property</FONT> Let X(<FONT color=blue>ByVal</FONT> vValue <FONT color=blue>As</FONT> Integer) 
+   mX = vValue 
+<FONT color=blue>End</FONT> <FONT color=blue>Property</FONT> 
+
+<FONT color=blue>Public</FONT> <FONT color=blue>Property</FONT> Get X() <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   X = mX 
+<FONT color=blue>End</FONT> <FONT color=blue>Property</FONT> 
+
+<FONT color=blue>Public</FONT> <FONT color=blue>Property</FONT> Let Y(<FONT color=blue>ByVal</FONT> vValue <FONT color=blue>As</FONT> Integer) 
+   mY = vValue 
+<FONT color=blue>End</FONT> <FONT color=blue>Property</FONT> 
+
+<FONT color=blue>Public</FONT> <FONT color=blue>Property</FONT> Get Y() <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   Y = mY 
+<FONT color=blue>End</FONT> <FONT color=blue>Property</FONT> 
+
+<FONT color=blue>Public</FONT> <FONT color=blue>Property</FONT> Let Width(<FONT color=blue>ByVal</FONT> vValue <FONT color=blue>As</FONT> Integer) 
+   mWidth = vValue 
+<FONT color=blue>End</FONT> <FONT color=blue>Property</FONT> 
+
+<FONT color=blue>Public</FONT> <FONT color=blue>Property</FONT> Get Width() <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   Width = mWidth 
+<FONT color=blue>End</FONT> <FONT color=blue>Property</FONT> 
+
+<FONT color=blue>Public</FONT> <FONT color=blue>Property</FONT> Let Height(<FONT color=blue>ByVal</FONT> vValue <FONT color=blue>As</FONT> Integer) 
+   mHeight = vValue 
+<FONT color=blue>End</FONT> <FONT color=blue>Property</FONT> 
+
+<FONT color=blue>Public</FONT> <FONT color=blue>Property</FONT> Get Height() <FONT color=blue>As</FONT> <FONT color=blue>Integer</FONT> 
+   Height = mHeight 
+<FONT color=blue>End</FONT> <FONT color=blue>Property</FONT> 
+
+<FONT color=blue>Public</FONT> <FONT color=blue>Sub</FONT> DrawBox(Canvas <FONT color=blue>As</FONT> Object) 
+   Canvas.Line (mX, mY)-(mX + mWidth, mY + mHeight), , B 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Public</FONT> <FONT color=blue>Sub</FONT> ClearBox(Canvas <FONT color=blue>As</FONT> Object) 
+   Canvas.Line (mX, mY)-(mX + mWidth, mY + mHeight), Canvas.BackColor, B 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Class clsBox có 4 Properties: 
+          X, Y, Width và Height. Ta sẽ instantiate một Box từ clsBox. Mỗi Box có 
+          tọa độ (X,Y) và kích thước chiều rộng và chiều cao (width, height) của 
+          nó. Thật ra ta có thể dùng Public statement để declare các biến X, Y, 
+          Width và Height. Nhưng ở đây ta cố ý declare chúng là Private, dưới 
+          dạng mX, mY, mWidth và mHeight. Khi ta muốn thay đổi các trị số của 
+          chúng, ta sẽ dùng cùng một cách viết code như bình thường (thí dụ: 
+          myBox.X = 80 ). Nhưng khi chương trình xử lý assignment statement ấy, 
+          nó sẽ execute một loại method (giống như Sub) gọi là <B>Property Let X 
+          (vValue)</B>. Ta thấy ở đây vValue được assigned cho mX (i.e. mX = 
+          vValue ), cái Private variable của X. Như thế công việc nầy cũng chẳng 
+          khác gì sửa đổi một Public variable X. Tuy nhiên, ở đây ta có thể viết 
+          thêm code trong Property Let X để nó làm gì cũng được. <BR>Bạn có nhớ 
+          trong khi thiết kế một Label, mỗi lần bạn dùng Property Window để edit 
+          Font size, forcolor hay backcolor thì chẳng những các properties ấy 
+          của Label thay đổi, mà kết quả của sự thay đổi được có hiệu lực ngay 
+          lập tức, nghĩa là Label được hiển thị trở lại với trị số mới của 
+          property. Đó là vì trong method Property có cả code bảo Label 
+          redisplay.<BR>Ngược lại, khi ta dùng property X của Object myBox, 
+          không phải ta chỉ đọc trị số thôi mà còn execute cả cái method 
+          <B>Property Get X</B>. Nói tóm lại, Property cho ta cơ hội để execute 
+          một method mỗi khi User đọc hay viết trị số variable ấy.<BR>Thí dụ như 
+          nếu ta muốn kiểm soát để chỉ chấp nhận trị số tọa độ X mới khi nó 
+          không phải là số âm. Ta sẽ sửa Property Let X lại như sau:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Public</FONT> <FONT color=blue>Property</FONT> Let X(<FONT color=blue>ByVal</FONT> vValue <FONT color=blue>As</FONT> Integer) 
+   <FONT color=blue>If</FONT> (vValue &gt;= 0) <FONT color=blue>Then</FONT> 
+      mX = vValue 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Property</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Property có thể là <B>Read 
+          Only</B> hay <B>Write Only</B>. Nếu muốn một Property là Read Only thì 
+          ta không cung cấp Property Let. Nếu muốn một Property là Write Only 
+          thì ta không cung cấp Property Get. Ngoài ra nếu làm việc với 
+          <B>Object</B>, thay vì Data type thông thường, thì ta phải dùng 
+          <B>Property Set</B>, thay vì Property Let.<BR>Thí dụ ta cho clsBox một 
+          Property mới, gọi là Font dùng object của class stdFont của VB6. Trong 
+          clsBox ta declare một Private variable mFont và viết một <B>Property 
+          Set Font</B> như sau:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> mFont <FONT color=blue>As</FONT> StdFont 
+<FONT color=blue>Public</FONT> <FONT color=blue>Property</FONT> <FONT color=blue>Set</FONT> Font(<FONT color=blue>ByVal</FONT> newFont <FONT color=blue>As</FONT> StdFont) 
+   <FONT color=blue>Set</FONT> mFont = newFont 
+<FONT color=blue>End</FONT> <FONT color=blue>Property</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Ta sẽ dùng property Font của 
+          myBox (thuộc Class clsBox) như sau:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=green>' Declare an object of Class StdFont of VB6</FONT>
+<FONT color=blue>Dim</FONT> myFont <FONT color=blue>As</FONT> StdFont 
+<FONT color=blue>Set</FONT> myFont = <FONT color=blue>New</FONT> StdFont 
+myFont.Name = "Arial" 
+myFont.Bold = <FONT color=blue>True</FONT> 
+<FONT color=blue>Dim</FONT> myBox <FONT color=blue>As</FONT> clsBox 
+<FONT color=blue>Set</FONT> myBox = <FONT color=blue>New</FONT> clsBox 
+<FONT color=blue>Set</FONT> myBox.Font = myFont  <FONT color=green>' Call the Property Set method</FONT>
+</PRE></FONT></TD></TR></TBODY></TABLE>Class clsBox có hai Public 
+          Subs, <B>DrawBox</B> và <B>ClearBox</B>. ClearBox cũng vẽ một box như 
+          DrawBox, nhưng nó dùng BackColor của màn ảnh (canvas), nên coi như xóa 
+          cái box có sẵn. Do đó, nếu muốn, bạn có thể sửa Sub DrawBox lại một 
+          chút để nhận một Optional draw color như sau:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Public</FONT> <FONT color=blue>Sub</FONT> DrawBox(Canvas <FONT color=blue>As</FONT> Object, <FONT color=blue>Optional</FONT> fColor <FONT color=blue>As</FONT> Long) 
+   <FONT color=blue>If</FONT> IsMissing(fColor) <FONT color=blue>Then</FONT> 
+      Canvas.Line (mX, mY)-(mX + mWidth, mY + mHeight), , B 
+   <FONT color=blue>Else</FONT> 
+      Canvas.Line (mX, mY)-(mX + mWidth, mY + mHeight), fColor, B 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Trong thí dụ trên, Optional 
+          parameter fColor được tested bằng function <B>IsMissing</B>. Nếu 
+          fColor là BackColor của canvas thì ta sẽ có hiệu quả của 
+          ClearBox.<BR>Trong form chính của chương trình dùng để test clsBox, 
+          mỗi khi ta refer đến một object thuộc class clsBox, IDE Intellisense 
+          sẽ hiển thị các Properties và Subs/Functions của clsBox như trong hình 
+          dưới đây:<BR><BR>
+          <BLOCKQUOTE><IMG height=270 
+            src="Chuong 8 - Tu tao Objects_files/ClassIntelli.gif" 
+          width=284></BLOCKQUOTE><BR>Trong chương trình nầy, mỗi khi ta click 
+          nút <B>Draw</B> thì một Box được instantiate, cho tọa độ X,Y và kích 
+          thước Width, Height, rồi được vẽ ra ngay trên form. Chữ <B>Me</B> 
+          trong code nói đến chính cái form <B>frmClass</B>. 
+          <BLOCKQUOTE><IMG height=333 
+            src="Chuong 8 - Tu tao Objects_files/DrawBox.gif" 
+          width=473></BLOCKQUOTE><BR>Để cho chương trình thú vị hơn, khi user 
+          clicks nút <B>Animate</B>, ta sẽ cho một box màu đỏ chạy từ trái qua 
+          phải. <BR>Khi user clicks nút <B>Two Boxes</B> ta sẽ vẽ hai boxes, hộp 
+          trong màu xanh, hộp ngoài màu đỏ, và cho chúng chạy từ trái sang phải. 
+          Ở đây ta biểu diễn cho thấy mình muốn instantiate bao nhiêu boxes từ 
+          clsBox cũng được, và dĩ nhiên mỗi box có một bộ properties với giá trị 
+          riêng của nó.<BR><BR>
+          <BLOCKQUOTE><IMG height=237 
+            src="Chuong 8 - Tu tao Objects_files/twoBoxes.gif" 
+          width=371></BLOCKQUOTE><BR>Ta có thể lập trình để cho Object báo cáo 
+          program chủ của nó khi có một biến cố (Event) xãy ra bên trong 
+          Class.<BR>Ta thử declare một Event tên Draw trong clsBox, và viết code 
+          để mỗi khi Sub DrawBox executes thì Class sẽ Raise một event 
+          Draw.<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Public</FONT> Event Draw(X <FONT color=blue>As</FONT> Integer, Y <FONT color=blue>As</FONT> Integer) 
+<FONT color=blue>Public</FONT> <FONT color=blue>Sub</FONT> DrawBox(Canvas <FONT color=blue>As</FONT> Object, <FONT color=blue>Optional</FONT> fColor <FONT color=blue>As</FONT> Long) 
+   <FONT color=blue>If</FONT> IsMissing(fColor) <FONT color=blue>Then</FONT> 
+      Canvas.Line (mX, mY)-(mX + mWidth, mY + mHeight), , B 
+   <FONT color=blue>Else</FONT> 
+      Canvas.Line (mX, mY)-(mX + mWidth, mY + mHeight), fColor, B 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+   RaiseEvent Draw(mX, mY) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>
+          <BLOCKQUOTE><IMG height=266 
+            src="Chuong 8 - Tu tao Objects_files/WithEvent.gif" 
+          width=379></BLOCKQUOTE><BR>Bây giờ, trong frmClass thay vì chỉ declare 
+          <B>Dim myBox as clsBox</B>, ta sẽ declare <B>Private WithEvents myBox 
+          as clsBox</B>. Ngay sau đó, chữ <B>myBox</B> sẽ hiện ra trong danh 
+          sách các Object có hổ trợ Event của frmClass. Kế đó ta sẽ viết code để 
+          handle Event Draw của myBox, tức là ta cung cấp code cho <B>Private 
+          Sub myBox_Draw (X as Integer, Y as Integer)</B>. Ở đây ta chỉ hiển thị 
+          một sứ điệp báo cáo một hộp vừa được vẽ ở đâu.<BR><BR>
+          <BLOCKQUOTE><IMG height=150 
+            src="Chuong 8 - Tu tao Objects_files/myBoxDraw.gif" 
+          width=593></BLOCKQUOTE><BR>Khi chạy program, mỗi lần một clsBox object 
+          executes Sub DrawBox ta sẽ thấy frmClass display một message giống như 
+          dưới đây.<BR><BR>
+          <BLOCKQUOTE><IMG height=240 
+            src="Chuong 8 - Tu tao Objects_files/EventRaised.gif" 
+          width=372></BLOCKQUOTE><BR>Nhớ rằng, ta declare một Object với 
+          WithEvents khi ta muốn handle các Events của nó. Trong thí dụ trên 
+          frmClass là chủ của myBox và nó handles Event Draw của myBox. Tương tự 
+          như vậy, ngay cả ở bên trong một Class, nếu Class ấy được giao cho một 
+          Object có thể Raise Events (thí dụ như TextBox, ListBox, Timer 
+          .v.v..), bạn cũng có thể declare Object ấy WithEvents để nó có thể 
+          handle Events của Object. <BR>Trong thí dụ dưới đây ta viết codes nầy 
+          trong một Class đã được giao cho một Textbox khi form chính gọi Sub 
+          InitObject để đưa cho Object một TextBox:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>WithEvents</FONT> mTextBox <FONT color=blue>As</FONT> TextBox 
+
+<FONT color=blue>Public</FONT> <FONT color=blue>Sub</FONT> InitObject(givenTextBox <FONT color=blue>As</FONT> TextBox) 
+   <FONT color=blue>Set</FONT> mTextBox = givenTextBox 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> mTextBox_KeyPress(KeyAscii <FONT color=blue>As</FONT> Integer) 
+   <FONT color=green>' Place your code here to handle this event within the Class Object</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Để học thêm về cách dùng Class, 
+          mời bạn đọc qua các Classes trong phần <B>Source Code VB6</B> của 
+          trang chủ <A 
+          href="http://www.vovisoft.com/VisualBasic/default.htm">Học Microsoft 
+          Visual Basic 6.0</A>. </BLOCKQUOTE>
+        <BLOCKQUOTE><IMG height=14 
+          src="Chuong 8 - Tu tao Objects_files/ball_red.gif" width=14>&nbsp;<A 
+          href="http://www.vovisoft.com/vovisoft/vblinks.htm">Các liên mạng VB 
+          khác</A></BLOCKQUOTE>
+        <BLOCKQUOTE>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><BR><A 
+          href="http://www.bangden.com/soncuoc/Dang/index.htm">Những câu hỏi về 
+          Visual Basic</A> 
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/visualbasic/tipstricks/forms.htm">Những 
+          mẹo vặt của Visual Basic</A></P>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/VB.htm"><BR>Lập trình với 
+          VBA</A></P></BLOCKQUOTE><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc --><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc -->
+        <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+        width="100%" border=0>
+          <TBODY>
+          <TR>
+            <TD class=clsRaised width=785 bgColor=#6699cc>
+              <P align=center><FONT face=Verdana color=#ffffff size=1>Được cung 
+              cấp từ Vivosoft</FONT></P></TD></TR></TBODY></TABLE>
+        <P>&nbsp;</P></FONT></FONT></BLOCKQUOTE>&nbsp;<!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></HTML>

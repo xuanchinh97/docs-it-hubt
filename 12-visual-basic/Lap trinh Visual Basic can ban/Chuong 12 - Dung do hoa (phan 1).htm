@@ -1,0 +1,387 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://www.bangden.com/soncuoc/Visualbasic/VB6Chapter12.htm -->
+<!-- saved from url=(0052)http://www.vovisoft.com/VisualBasic/VB6Chapter12.htm --><HTML><HEAD><TITLE>Graphics (I)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 12 - Dung do hoa (phan 1)_files/topbottom.css" type=text/css 
+rel=stylesheet>
+<META content="t, default" name="Microsoft Border"></HEAD>
+<BODY leftMargin=0 marginwidth="0" marginheight="0"><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+      height=20 cellSpacing=0 cellPadding=0 width="130%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="51%" bgColor=#0000ff height=20><B><FONT face=Verdana 
+            color=#ffff00 size=2><SPAN style="BACKGROUND-COLOR: #0000ff">Trung 
+            tâm Dạy nghề và Phổ cập Tin học Miền núi ABC - Tỉnh Yên Bái 
+            </SPAN></FONT></B></TD>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="35%" height=20><FONT face=Verdana><IMG height=20 src="" 
+            width=136 border=0></FONT></TD></TR></TBODY></TABLE>
+      <P 
+      style="MARGIN: 0px; WORD-SPACING: 0px; TEXT-INDENT: 0px; LINE-HEIGHT: 100%"><FONT 
+      face=Verdana size=2><A 
+      href="http://www.bangden.com/soncuoc/index.htm">&lt;Home&gt;&nbsp;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Tho.htm">&lt;Thơ&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/laptrinh.htm">&lt;Lập trình&gt;</A> 
+      <A href="http://www.bangden.com/soncuoc/giaoan.htm">&lt;Giáo 
+      án&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/BaiViet.htm">&lt;Bài 
+      viết&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Vui.htm">&lt;Chuyện 
+      vui&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Traodoi.htm">&lt;Trao 
+      đổi&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/lienket.htm">&lt;Liên kết&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/moi.htm">&lt;Bài 
+      Mới&gt;</A></FONT></P></TD></TR><!--msnavigation--></TBODY></TABLE><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=top>
+      <CENTER><BR>
+      <H1><FONT face=Verdana color=#000000>Khóa Hàm Thụ Visual Basic 
+      6.0</FONT></H1>
+      <H2><FONT face=Verdana color=#800000>Chương Mười Hai - Dùng Đồ Họa (Phần 
+      I)</FONT></H2></CENTER>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE><FONT face=Verdana><FONT color=green size=6>T</FONT>ục ngữ 
+          Anh có câu: "Một hình ảnh đáng giá một ngàn chữ (a picture is worth a 
+          thousand words)", ý nói khi ta dùng hình ảnh để diễn tả sẽ giúp người 
+          xem hiểu nhanh hơn khi ta chỉ có nói thôi. <BR><BR>Visual Basic 6 có 
+          cho ta một số phương tiện về đồ họa (graphics) để trang điểm cho các 
+          cửa sổ phong phú, thân thiện, dễ làm việc với, và thú vị. Dù rằng các 
+          phương tiện về đồ thị nầy không nhanh đủ cho ta viết những chương 
+          trình trò chơi (games) nhưng tương đối cũng đủ khả năng để đáp ứng các 
+          nhu cầu cần thiết thông thường.<BR><BR>Khi nói đến đồ họa, ta muốn 
+          phân biệt nó với Text thông thường. Thí dụ ta dùng Notepad để edit một 
+          bài thơ trong một cửa sổ. Trong lúc bài thơ đang được hiển thị ta có 
+          thể sửa đổi dễ dàng bằng cách dùng bàn phím để đánh thêm các chữ mới 
+          vào, dùng các nút <B>Delete</B>, <B>Backspace</B> để xóa các chữ. Đó 
+          là ta làm việc với <B>Text</B>.<BR><BR>Bây giờ, trong khi bài thơ còn 
+          đang hiển thị, ta dùng một chương trình Graphic như <B>PhotoImpact 
+          Capture</B> của <B>ULead</B> để chụp cái hình cửa sổ của bài thơ 
+          (active window) thành giống như một photo, thì ta có một 
+          <B>Graphic</B>. Sau đó, muốn sửa đổi bài thơ từ graphic nầy ta phải 
+          dùng một graphic editor như <B>MSPaint, PaintShopPro</B>,.v.v.. Các 
+          chữ trong hình cũng có cùng dạng graphic như ta thấy một photo, nên 
+          muốn edit phải dùng một cọ với màu sơn.<BR><BR>Dưới đây là graphic của 
+          một cửa sổ Notepad sau khi được thêm chữ <B>g</B> và dấu chấm hỏi ở 
+          cuối bằng cách dùng MSPaint. 
+          <BLOCKQUOTE><IMG height=245 
+            src="Chuong 12 - Dung do hoa (phan 1)_files/tinhgia.gif" 
+          width=431></BLOCKQUOTE><BR>
+          <H3><FONT face=Verdana color=green>Màu (color) và độ mịn 
+          (resolution)</FONT></H3>Ta nói một tấm hình tốt vì nó có màu sắc sảo 
+          và rõ ràng. Bạn có còn nhớ trong ngày Lễ khai mạc Thế Vận Hội Moscow, 
+          người ta cho hiển thị nhiều hình rất hay bằng cách nhờ khán giả, trong 
+          một khu hình chữ nhật, mỗi người cầm đưa lên một tấm cạt-tông màu. 
+          Hàng ngàn tấm cạt-tông đưa lên ráp lại thành ra một hình tuyệt 
+          đẹp.<BR><BR>Một graphic trong Windows cũng gồm có nhiều đóm nhỏ, mỗi 
+          đóm, được gọi là một <B>pixel</B>, có khả nằng hiển thị 16, 256, ... 
+          màu khác nhau. 
+          <H3><FONT face=Verdana color=blue>Độ mịn (resolution)</FONT></H3>Thông 
+          thường độ mịn (resolution) của màn ảnh ta dùng là 800x600, tức là 
+          chiều ngang có 800 pixels và chiều cao có 600 pixels. Sau nầy, để xem 
+          các hình rõ hơn ta còn dùng độ mịn 1028x768 với cạt SuperVGA và 
+          Monitor tốt. Ta nói cạt SuperVGA có đến 2MB RAM, tại sao phải cần đến 
+          2MB để hiển thị graphic đẹp?<BR><BR>Nếu màu của mỗi pixel được biểu 
+          diễn bởi một byte dữ kiện thì với một byte ta có thể chứa một con số 
+          từ 0 đến 255. Người ta đồng ý với nhau theo một quy ước rằng số 0 
+          tượng trưng cho màu đen, số 255 tượng trưng cho màu trắng chẳng hạn. 
+          Nếu độ mịn của màn ảnh là 1024x768 thì ta sẽ cần 1024x768=786432 
+          bytes, tức là gần 0,8 MB. <BR><BR>Một byte có 8 bits. Đôi khi ta nghe 
+          nói 16 bit color, ý nói thay vì một byte, người ta dùng đến 2 bytes 
+          cho mỗi pixel. Như vậy mỗi pixel nầy có khả năng hiển thị 
+          2<SUP>16</SUP> = 65536 màu khác nhau. Muốn dùng 16 bit color cho 
+          SuperVGA, ta cần phải có 1024x768x2 =1572864 bytes, tức là gần 1,6 MB. 
+          Đó là lý do tại sao ta cần 2MB RAM. Lưu ý là RAM của VGA (Vector 
+          Graphic Adapter) card không liên hệ gì với RAM của bộ nhớ computer. 
+          <BR><BR>Không ngờ các cụ Ăng-Lê ngày xưa đã biết Tin Học nên nói 
+          trước:"Một hình ảnh đáng giá một ngàn chữ". Chữ <B>word</B> thời IBM 
+          gồm có 4 bytes, nên một màn ảnh đáng giá 400 ngàn chữ, như vậy các cụ 
+          không chính xác lắm, nhưng coi như đúng.<BR><BR>Nên nhớ rằng cùng một 
+          graphic hiển thị trên hai màn ảnh có cùng độ mịn, thí dụ như 800x600, 
+          nhưng kích thước khác nhau, thí dụ như 14 inches và 17 inches, thì dĩ 
+          nhiên hình trên màn ảnh 17 inches sẽ lớn hơn, nhưng nó vẫn có cùng một 
+          số pixels, có điều pixel của nó lớn hơn pixel của màn ảnh 14 
+          inches.<BR><BR>Nói một cách khác, nếu ta dùng màn ảnh lớn hơn thì 
+          graphic sẽ lớn hơn nhưng không có nghĩa là nó rõ hơn. Muốn thấy rõ chi 
+          tiết, ta phải làm cho graphic có độ mịn cao hơn. Trở lại câu chuyện 
+          Thế Vận Hội Moscow, muốn có hình rõ hơn, thì trong cùng một diện tích, 
+          ta phải nhờ bà con ngồi xích lại gần nhau để khoảng đất chứa nhiều 
+          người hơn và mỗi người cầm một tấm cạt-tông nhỏ hơn.<BR><BR>Ta thay 
+          đổi <B>Display Properties</B> của một màn ảnh bằng cách right click 
+          lên desktop rồi select <B>Properties</B>, kế đó click Tab 
+          <B>Settings</B> rồi chọn <B>Screen resolution</B> và <B>Color 
+          quality</B> giống như hình dưới đây:<BR>
+          <BLOCKQUOTE><IMG height=455 
+            src="Chuong 12 - Dung do hoa (phan 1)_files/ScreenSettings.gif" 
+            width=404></BLOCKQUOTE><BR>Khi ta tăng độ mịn của màn ảnh, các hình 
+          ảnh sẽ nhỏ lại vì kích thước của pixel được thu nhỏ lại. Do đó, ta có 
+          thể cho hiển thị nhiều thứ hơn trên desktop. Phẩm chất của các graphic 
+          vẫn không thay đổi, mặc dầu hình nhỏ hơn. Nhớ là muốn hình rõ hơn thì 
+          khi cấu tạo và chứa graphic, ta phải dùng một độ mịn cao. Giống như 
+          khi chụp hình, muốn hình đẹp ta cần cái máy chụp hình dùng phim lớn 
+          của thợ chuyên nghiệp và focus kỹ lưỡng, thay vì dùng máy rẽ tiền tự 
+          động, chỉ đưa lên là bấm chụp được. 
+          <H3><FONT face=Verdana color=blue>Màu (color)</FONT></H3>Khi ta dùng 
+          chỉ có một bit (chỉ có trị số 0 hay 1) cho mỗi pixel thì ta chỉ có 
+          trắng hay đen. Lúc ấy ta có thể dùng một byte (8 bits) cho 8 pixels. 
+          Dầu vậy, nếu độ mịn của graphic cao đủ, thì hình cũng đẹp. Thử xem các 
+          tuyệt tác photos trắng đen của Cao Đàm, Cao Lĩnh thì biết. Các máy Fax 
+          dùng nguyên tắc scan hình giấy cở A4 ra thành những pixels trắng đen 
+          rồi gởi qua đường dây điện thoại qua đầu kia để tái tạo lại hình từ 
+          những dữ kiện pixels.<BR><BR>Visual Basic 6 cho ta chỉ định một con số 
+          vào mỗi màu VB có thể hiển thị, hay chọn trực tiếp một màu từ Dialog. 
+          Có bốn cách: 
+          <UL>
+            <LI>Bạn chỉ định trực tiếp một con số hay chọn một màu từ cái 
+            Palette. 
+            <BLOCKQUOTE><IMG height=396 
+              src="Chuong 12 - Dung do hoa (phan 1)_files/ColorPalette.gif" 
+              width=272></BLOCKQUOTE>
+            <LI>Bạn chọn một trong các hằng số định nghĩa sẵn trong VB, gọi là 
+            <B>intrinsic color constants</B> (intrinsic có nghĩa nôm na là cây 
+            nhà lá vườn hay in-built), chẳng hạn như <B>vbRed , vbBlue</B>. Danh 
+            sách của intrinsic color constants lấy từ VB6 online help được liệt 
+            kê dưới đây: 
+            <BLOCKQUOTE><IMG height=273 
+              src="Chuong 12 - Dung do hoa (phan 1)_files/ColorConstants.gif" 
+              width=580></BLOCKQUOTE>
+            <LI>Dùng <B>Function QBColor</B> để chọn một trong 16 màu. Function 
+            QBColor xuất phát từ thời Quick Basic (QBasic) của Microsoft. QBsic 
+            là tiền thân của Visual Basic. Trong QBasic bạn có thể dùng các con 
+            số 1,2,3 .. để chỉ định các màu Blue, Green, Cyan , .v.v..Function 
+            QBColor giản tiện hóa cách dùng màu, user không cần phải bận tâm về 
+            cách trộn ba thứ màu căn bản Red, Green, Blue. Bạn viết code một 
+            cách đơn giản như:<BR>
+            <BLOCKQUOTE><IMG height=38 
+              src="Chuong 12 - Dung do hoa (phan 1)_files/QBColor.gif" 
+            width=368></BLOCKQUOTE>Dưới đây là trị số các màu ta có thể dùng với 
+            Function QBColor. 
+            <BLOCKQUOTE>
+              <BLOCKQUOTE>
+                <TABLE id=AutoNumber1 style="BORDER-COLLAPSE: collapse" 
+                borderColor=#111111 cellSpacing=5 cellPadding=5 width="46%" 
+                border=1>
+                  <TBODY>
+                  <TR>
+                    <TD align=middle width="25%" bgColor=#c0c0c0><B>Trị 
+                    số</B></TD>
+                    <TD align=middle width="25%" bgColor=#c0c0c0><B>Màu</B></TD>
+                    <TD align=middle width="25%" bgColor=#c0c0c0><B>Trị 
+                    số</B></TD>
+                    <TD align=middle width="25%" 
+                  bgColor=#c0c0c0><B>Màu</B></TD></TR>
+                  <TR>
+                    <TD width="25%" bgColor=#ffffcc>0</TD>
+                    <TD width="25%" bgColor=#ffffcc>Black</TD>
+                    <TD width="25%" bgColor=#ffffcc>8</TD>
+                    <TD width="25%" bgColor=#ffffcc>Gray</TD></TR>
+                  <TR>
+                    <TD width="25%" bgColor=#ffffcc>1</TD>
+                    <TD width="25%" bgColor=#ffffcc>Blue</TD>
+                    <TD width="25%" bgColor=#ffffcc>9</TD>
+                    <TD width="25%" bgColor=#ffffcc>Light Blue</TD></TR>
+                  <TR>
+                    <TD width="25%" bgColor=#ffffcc>2</TD>
+                    <TD width="25%" bgColor=#ffffcc>Green</TD>
+                    <TD width="25%" bgColor=#ffffcc>10</TD>
+                    <TD width="25%" bgColor=#ffffcc>Light Green</TD></TR>
+                  <TR>
+                    <TD width="25%" bgColor=#ffffcc>3</TD>
+                    <TD width="25%" bgColor=#ffffcc>Cyan</TD>
+                    <TD width="25%" bgColor=#ffffcc>11</TD>
+                    <TD width="25%" bgColor=#ffffcc>Light Cyan</TD></TR>
+                  <TR>
+                    <TD width="25%" bgColor=#ffffcc>4</TD>
+                    <TD width="25%" bgColor=#ffffcc>Red</TD>
+                    <TD width="25%" bgColor=#ffffcc>12</TD>
+                    <TD width="25%" bgColor=#ffffcc>Light Red</TD></TR>
+                  <TR>
+                    <TD width="25%" bgColor=#ffffcc>5</TD>
+                    <TD width="25%" bgColor=#ffffcc>Magenta</TD>
+                    <TD width="25%" bgColor=#ffffcc>13</TD>
+                    <TD width="25%" bgColor=#ffffcc>Light Magenta</TD></TR>
+                  <TR>
+                    <TD width="25%" bgColor=#ffffcc>6</TD>
+                    <TD width="25%" bgColor=#ffffcc>Yellow</TD>
+                    <TD width="25%" bgColor=#ffffcc>14</TD>
+                    <TD width="25%" bgColor=#ffffcc>Light Yellow</TD></TR>
+                  <TR>
+                    <TD width="25%" bgColor=#ffffcc>7</TD>
+                    <TD width="25%" bgColor=#ffffcc>White</TD>
+                    <TD width="25%" bgColor=#ffffcc>15</TD>
+                    <TD width="25%" bgColor=#ffffcc>Bright 
+                White</TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE>
+            <LI>Dùng <B>Function RGB</B> để trộn ba màu <B>R</B>ed, <B>G</B>reen 
+            và <B>B</B>lue. Trong cái bảng liệt kê các intrinsic color constants 
+            phía trên, nếu để ý bạn sẽ thấy vbWhite(0xFFFFFF) là tổng số của 
+            vbRed(0x0000FF), vbGreen(0x00FF00) và vbBlue(0xFF0000). Một màu được 
+            biểu diễn bằng sự pha trộn của ba thành phần màu căn bản, mỗi màu 
+            bằng một byte có trị số từ 0 đến 255. 0 là không dùng màu ấy, 255 là 
+            dùng tối đa màu ấy.<BR><BR>Hệ thống số ta dùng hằng ngày là Thập 
+            Phân. Trị số 0xFF của vbRed là con số 255 viết dưới dạng Thập lục 
+            phân (Hexadecimal hay <B>Hex</B> cho gọn và ở đây được đánh dấu bằng 
+            <B>0x</B> trước con số để phân biệt với số Thập phân). Trong hệ 
+            thống số Hex ta đếm từ 0 đến 9 rồi A,B,C,D,E,F rồi qua số hàng thập 
+            lục 10, 11,.., 19, 1A, 1B, ..1E,1F,20,21..v.v. Tức là thay vì chỉ 
+            dùng 10 symbols từ 0 đến 9 trong Thập phân, ta dùng 16 symbols từ 0 
+            đến F. Muốn biết thêm về hệ thống số Hex hãy đọc bài <A 
+            href="http://www.vovisoft.com/mcse/rks/tnt/binarynumber.htm">Cơ số 
+            Nhị Phân</A>.<BR><BR>Trong hình dưới đây là một thí dụ cho thấy màu 
+            xanh nhạt đã được chọn gồm ba thành phần Blue(0x990000= 
+            153*256*256), Green(0xCC00= 204*256) và Red(0xFF= 255): 
+            <BLOCKQUOTE><IMG height=373 
+              src="Chuong 12 - Dung do hoa (phan 1)_files/RGB.gif" 
+            width=498></BLOCKQUOTE>
+            <BLOCKQUOTE><B>Ghi chú:</B> Bạn có thể dùng Windows Calculator để 
+              hoán chuyển số giữa các dạng Decimal, Binary và Hexadecimal. Chọn 
+              <B>View|Scientific</B> thay vì <B>View|Standard</B>.</BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=317 
+              src="Chuong 12 - Dung do hoa (phan 1)_files/SciCalculator.gif" 
+              width=480></BLOCKQUOTE></LI></UL>
+          <H3><FONT face=Verdana color=blue>Function RGB</FONT></H3>Để áp dụng 
+          Function RGB, ta sẽ viết một chương trình VB6. Bạn hãy khởi động một 
+          chương trình VB6 mới, bỏ vào một Label tên Label1 với Caption 
+          <B>Red</B> và một Vertical Scroll tên <B>VScroll1</B>. Kế đó select cả 
+          hai Label1 và VScroll1 rồi Copy và Paste hai lần để là thêm hai cặp. 
+          Đổi Caption của hai Label mới nầy ra <B>Green</B> và <B>Blue</B>. Bây 
+          giờ ta có một Array ba Vertical Scrolls cùng tên VScroll1, với index 
+          là 0,1 và 2.<BR><BR>Đặt một PictureBox tên <B>picColor</B> vào bên 
+          phải ba cái VScrolls. Thêm một Label phía dưới, đặt tên nó là 
+          <B>lblRGBValue</B>, nhớ clear caption của nó, đừng có để chữ Label1 
+          như dưới đây: 
+          <BLOCKQUOTE><IMG height=513 
+            src="Chuong 12 - Dung do hoa (phan 1)_files/RGBDesign.gif" 
+          width=514></BLOCKQUOTE>Bây giờ select cả ba VScrolls và edit value của 
+          <B>property Max</B> trong cửa sổ Properties thành <B>255</B>, ý nói 
+          khi kéo cái bar của một VScroll1 lên xuống ta giới hạn trị số của nó 
+          từ Min là 0 đến Max là 255. 
+          <BLOCKQUOTE><IMG height=429 
+            src="Chuong 12 - Dung do hoa (phan 1)_files/Max255.gif" 
+          width=733></BLOCKQUOTE>Chuyện chính ta phải làm là viết code để xử lý 
+          <B>Event Change</B> của các VScrolls. Vì chúng là một Array nên ta có 
+          thể dùng một Sub duy nhất để handle events đến từ cả ba VScrolls. Mỗi 
+          lúc một trong 3 VScrolls thay đổi trị số ta sẽ trộn ba màu Red, Green, 
+          Blue biểu diễn bởi trị số của 3 VScrolls thành màu <B>BackColor</B> 
+          của PictureBox <B>picColor</B>. Đồng thời ta cho hiển thị trị số của 
+          ba thành phần màu Red, Green và Blue trong Label <B>lblRGBValue</B>. 
+          Bạn hãy double click lên một trong 3 VScrolls rồi viết code như 
+          sau:<BR><BR>
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> VScroll1_Change(Index <FONT color=blue>As</FONT> Integer) 
+   <FONT color=green>' Use Function RGB to mix 3 colors VScroll1(0) for Red,</FONT>
+   <FONT color=green>' VScroll1(1) for Green and VScroll1(2) for Blue</FONT>
+   <FONT color=green>' and assign the result to BackColor of PictureBox picColor</FONT>
+   picColor.BackColor = RGB(VScroll1(0).Value, VScroll1(1).Value, VScroll1(2).Value) 
+   <FONT color=green>' Variable used to prepare display string</FONT>
+   <FONT color=blue>Dim</FONT> strRGB <FONT color=blue>As</FONT> <FONT color=blue>String</FONT> 
+   <FONT color=green>' Description of what is displayed</FONT>
+   strRGB = "picColor.BackColor = RGB(Red, Green, Blue) " &amp; vbCrLf 
+   <FONT color=green>' Values of Red, Green, Blue in Decimal</FONT>
+   strRGB = strRGB &amp; " Decimal: " &amp; VScroll1(0).Value &amp; ", " &amp; VScroll1(1).Value &amp; ", " &amp; VScroll1(2).Value &amp; vbCrLf 
+   <FONT color=green>' Values of Red, Green, Blue in Hexadecimal</FONT>
+   strRGB = strRGB &amp; " Hex: 0x" &amp; Hex(VScroll1(0).Value) &amp; ", 0x" &amp; Hex(VScroll1(1).Value) &amp; ", 0x" &amp; Hex(VScroll1(2).Value) 
+   <FONT color=green>' Assign the resultant string to caption of Label lblRGBValue</FONT>
+   lblRGBValue.Caption = strRGB 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>Bạn hãy khởi động 
+        chương trình rồi nắm các bar của 3 VScrolls kéo lên, kéo xuống để xem 
+        kết quả. Cửa sổ của chương trình sẽ có dạng giống như dưới đây:<BR>
+        <BLOCKQUOTE><IMG height=373 
+          src="Chuong 12 - Dung do hoa (phan 1)_files/RGBDemo.gif" 
+        width=388></BLOCKQUOTE><BR>Bạn có thể <A 
+        href="http://www.vovisoft.com/VisualBasic/VScrollColor.zip">download 
+        source code của program VScrollColor</A> nầy tại đây.<BR><BR>
+        <H3><FONT face=Verdana color=blue>Color Mapping</FONT></H3>Nếu dùng Hex 
+        Calculator đổi con số 0xFFFFFF ra decimal ta sẽ được 16777215, nếu kể cả 
+        số 0 ta sẽ có tổng cộng 16777216 màu. Lúc nãy ta bàn về 8bit (1 byte) và 
+        16bit (2 bytes) color, nhưng ở đây ta nói chuyện 3 byte color. Như thế 
+        có thể màn ảnh không đủ khả năng để cung cấp mọi màu mà Function RGB 
+        tính ra. Vậy VGA card sẽ làm sao?<BR><BR>Thí dụ một cạt VGA chỉ hổ trợ 
+        đến 8 bits. Nó sẽ cung cấp 256 màu khác nhau. Nếu Function RGB đói hỏi 
+        một màu mà VGA card có thể cung cấp chính xác thì tốt, nếu không nó sẽ 
+        tìm cách dùng hai hay ba đóm gần nhau để trộn màu và cho ta ảo tưởng màu 
+        ta muốn. Công tác nầy được gọi là <B>Color Mapping</B> và cái màu được 
+        làm ra được gọi là <B>custom color</B>. 
+        <H3><FONT face=Verdana color=blue>Dùng Intrinsic Color 
+        Constants</FONT></H3>Một trong những features của MSWindows là cho ta 
+        chọn Color Scheme của Windows theo sở thích. Bình thường, Color Scheme 
+        của Windows là Blue, nhưng ta có thể chọn Olive Green hay Silver, nếu ta 
+        muốn. <BR><BR>
+        <BLOCKQUOTE><IMG height=455 
+          src="Chuong 12 - Dung do hoa (phan 1)_files/ColorScheme.gif" 
+        width=404></BLOCKQUOTE>Chỉ khổ nổi nếu ta đã dùng một màu đỏ đậm để hiển 
+        thị tuyệt đẹp thứ gì trong chương trình VB6 mà bây giờ user tự nhiên 
+        thay đổi Color Scheme thành Olive Green chẳng hạn khiến cho màu đỏ đậm 
+        ấy coi chẳng giống ai trong cái Color Scheme mới. <BR><BR>Để tránh 
+        trường hợp ấy, thay vì nói thẳng ra là màu gì (xanh hay đỏ) ta nói dùng 
+        màu <B>vbActiveTitlebar</B> hay <B>vbDesktop</B>, .v.v.<BR>Dùng 
+        Intrinsic Color Constant sẽ bảo đảm màu ta dùng sẽ được biến đổi theo 
+        Color Scheme mà user chọn để khỏi bị trường hợp cái màu trở nên chẳng 
+        giống ai. Lúc thiết kế, ta cũng có thể chọn Intrinsic Color Constant từ 
+        Tab <B>System</B> khi chọn màu. 
+        <BLOCKQUOTE><IMG height=169 
+          src="Chuong 12 - Dung do hoa (phan 1)_files/SystemColor.gif" 
+        width=153></BLOCKQUOTE>
+        <H3><FONT face=Verdana color=blue>Graphic files</FONT></H3>Khi một hình 
+        Graphic được lưu trử theo dạng số pixels với màu của chúng như đã nói 
+        trên thì ta gọi là một <B>Bit Map</B> và tên file của nó trong disk có 
+        extension <B>BMP</B> thí dụ như <B>House.bmp</B>. Lưu trử kiểu nầy cần 
+        rất nhiều memory và rất bất tiện để gởi đi hay hiển thị trên một trang 
+        Web. Do đó người ta dùng những kỹ thuật để giảm thiểu lượng memory cần 
+        để chứa graphic nhưng vẫn giữ được chất lượng của hình ảnh. Có hai dạng 
+        Graphic files rất thông dụng trên Web, mang tên với extensions là 
+        <B>JPG</B> và <B>GIF</B>. Đặc biệt với GIF files ta có thể chứa cả hoạt 
+        họa (animation), tức là một GIF file có thể chứa nhiều hình (gọi là 
+        <B>Frames</B>) để chúng lần lượt thay nhau hiển thị, cho người xem có 
+        cảm tưởng một vật đang di động. <BR><BR>
+        <BLOCKQUOTE><IMG height=14 
+          src="Chuong 12 - Dung do hoa (phan 1)_files/ball_red.gif" 
+          width=14>&nbsp;<A 
+          href="http://www.vovisoft.com/vovisoft/vblinks.htm">Các liên mạng VB 
+          khác</A></BLOCKQUOTE>
+        <BLOCKQUOTE>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><BR><A 
+          href="http://www.bangden.com/soncuoc/Dang/index.htm">Những câu hỏi về 
+          Visual Basic</A> <FONT face=Verdana>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/Visualbasic/tipstricks/forms.htm">Những 
+          mẹo vặt của Visual Basic</A></P></FONT>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/VB.htm"><BR>Lập trình với 
+          VBA</A></P>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><FONT 
+          face=Verdana color=#800000><A 
+          href="http://www.bangden.com/soncuoc/Visualbasic/CreateSimpleControlUseWizard.htm">Tạo 
+          một control đơn giản dùng <B>ActiveX Control Interface Wizard</B> 
+          </A></FONT></P></BLOCKQUOTE><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc --><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc -->
+        <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+        width="100%" border=0>
+          <TBODY>
+          <TR>
+            <TD class=clsRaised width=785 bgColor=#6699cc>
+              <P align=center><FONT face=Verdana color=#ffffff size=1>Được cung 
+              cấp từ Vivosoft</FONT></P></TD></TR></TBODY></TABLE>
+        <P>&nbsp;</P></FONT></BLOCKQUOTE>&nbsp;<!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></HTML>

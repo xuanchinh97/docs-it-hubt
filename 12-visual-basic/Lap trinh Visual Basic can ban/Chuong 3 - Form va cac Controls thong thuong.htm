@@ -1,0 +1,582 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://www.bangden.com/soncuoc/Visualbasic/VB6Chapter3.htm -->
+<!-- saved from url=(0051)http://www.vovisoft.com/visualbasic/VB6Chapter3.htm --><HTML><HEAD><TITLE>Common Controls</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META http-equiv=Content-Language content=vi>
+<META 
+content="Visual Basic, VB Programming in Vietnamese, &#13;&#10;Vovisoft, VB6, VB Tutorials, Learn Visual Basic, Internet, Unicode, &#13;&#10;Vietnamese VB tutorials, Database, Asp, Java, Javascript, VBscript, &#13;&#10;FrontPage 2000, XML, Ms Office 2000" 
+name=keywords>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="Chuong 3 - Form va cac Controls thong thuong_files/topbottom.css" 
+type=text/css rel=stylesheet>
+<META content="t, default" name="Microsoft Border"></HEAD>
+<BODY leftMargin=0 topMargin=65 marginwidth="0" marginheight="0"><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-COLLAPSE: collapse; BORDER-RIGHT-WIDTH: 0px" 
+      height=20 cellSpacing=0 cellPadding=0 width="130%" border=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="51%" bgColor=#0000ff height=20><B><FONT face=Verdana 
+            color=#ffff00 size=2><SPAN style="BACKGROUND-COLOR: #0000ff">Trung 
+            tâm Dạy nghề và Phổ cập Tin học Miền núi ABC - Tỉnh Yên Bái 
+            </SPAN></FONT></B></TD>
+          <TD 
+          style="BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+          width="35%" height=20><FONT face=Verdana><IMG height=20 src="" 
+            width=136 border=0></FONT></TD></TR></TBODY></TABLE>
+      <P 
+      style="MARGIN: 0px; WORD-SPACING: 0px; TEXT-INDENT: 0px; LINE-HEIGHT: 100%"><FONT 
+      face=Verdana size=2><A 
+      href="http://www.bangden.com/soncuoc/index.htm">&lt;Home&gt;&nbsp;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Tho.htm">&lt;Thơ&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/laptrinh.htm">&lt;Lập trình&gt;</A> 
+      <A href="http://www.bangden.com/soncuoc/giaoan.htm">&lt;Giáo 
+      án&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/BaiViet.htm">&lt;Bài 
+      viết&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Vui.htm">&lt;Chuyện 
+      vui&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/Traodoi.htm">&lt;Trao 
+      đổi&gt;</A>&nbsp;<A 
+      href="http://www.bangden.com/soncuoc/lienket.htm">&lt;Liên kết&gt;</A> <A 
+      href="http://www.bangden.com/soncuoc/moi.htm">&lt;Bài 
+      Mới&gt;</A></FONT></P></TD></TR><!--msnavigation--></TBODY></TABLE><!--msnavigation-->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=top>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE>&nbsp;</BLOCKQUOTE></BLOCKQUOTE>
+      <CENTER>
+      <H1><FONT face=Verdana color=#000000>Khóa Hàm Thụ Visual Basic 
+      6.0</FONT></H1>
+      <H2><FONT face=Verdana color=#800000>Chương Ba - Form và các Controls 
+      thông thường</FONT></H2></CENTER>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE><FONT face=Verdana><FONT color=green size=6>H</FONT>ầu hết 
+          các chương trình VB6 đều có ít nhất một Form. Khi ta chạy chương 
+          trình, Form nầy sẽ hiện ra trước hết để ta ra lệnh nó làm chuyện gì. 
+          Cái Form trống không chả làm được gì nhiều, nên ta đặt lên Form những 
+          controls như Textbox(hộp để đánh chữ vào), Label(nhãn), 
+          Commandbutton(nút bấm mệnh lệnh), .v.v.. Các controls cho ta enter các 
+          dữ kiện để chương trình dùng xử lý, và các controls cũng hiển thị 
+          (display) kết quả cho chúng ta xem.<BR></FONT>
+          <H3><FONT face=Verdana color=green>Sắp đặt controls lên Form 
+          </FONT></H3><FONT face=Verdana>Ta hãy bắt đầu thiết kế một chương 
+          trình mới (New Project) bằng cách chọn Standard EXE, môi trường triển 
+          khai lập trình (IDE) cho bạn sẵn một Form tên là Form1. Muốn đặt một 
+          Control lên Form, click hình cái Control trong Toolbox rồi Drag (bấm 
+          nút trái của con chuột rồi kéo cho thành hình chữ nhật trước khi buông 
+          nút trái ra) con chuột trên Form vẽ thành cở của Control. Một cách 
+          khác để đặt một control lên Form là doubleclick cái Control trong 
+          Toolbox, một hình control sẽ hiện ra trên Form. Kế đó bạn dời control 
+          đi đến chỗ mình muốn và resize nó. Nếu bất cứ lúc nào bạn không thấy 
+          Túi đồ nghề (Toolbox) nằm bên trái, bạn có thể dùng mệnh lệnh <B>Menu 
+          View|Toolbox</B> để bắt nó hiện ra. Có một cách khác là click lên 
+          toolbox icon trên toolbar chính của VB6.<BR><BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=82 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/toolboxicon.jpg" 
+              width=252></BLOCKQUOTE></BLOCKQUOTE>Nên nhớ rằng Toolbox cũng là một 
+          window như các window khác. Khi nó hiện lên rồi bạn có thể nắm (bấm 
+          nút trái của con chuột và giữ như vậy chớ không buông ra) title nó để 
+          dời đi nơi khác. Bạn có thể đóng nó bằng cách click lên dấu <B>x</B> ở 
+          góc phải phía trên. Nếu right click trên Toolbox, nó sẽ display 
+          context sensitive menu, trong đó có property dockable (có thể đậu ở 
+          bến) . Nếu một window là dockable, sau khi bạn dời nó đi khỏi vi trí 
+          docked bình thường của nó, bạn có thể dock nó lại như củ bằng cách 
+          double click lên title của nó. </FONT>
+          <H3><FONT face=Verdana color=green>Resize và di chuyển control 
+          </FONT></H3><FONT face=Verdana>Khi bạn select một control (click lên 
+          nó), chung quanh control sẽ hiện ra resize handle, 8 nút đen dọc theo 
+          chu vi của control. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=87 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/resize.jpg" 
+              width=151></BLOCKQUOTE></BLOCKQUOTE>Click lên các nút đen của resize 
+          handle, bạn có thể resize control. Có một cách khác để resize control 
+          là dùng Shift + ArrowKey. Bấm nút Shift trong khi bấm một arrow key, 
+          control sẽ lớn ra hay thu hẹp theo chiều của ArrowKey.<BR><BR><I>Lưu 
+          ý: Một số control có kích thước tối thiểu, bạn không thể làm cho nó 
+          nhỏ hơn được. Thí dụ như Combobox, nó phải cao đủ để display một hàng 
+          text.</I><BR><BR>Tương tự như thế, bấm nút Ctrl trong khi bấm một 
+          arrow key, control sẽ di chuyển theo chiều của ArrowKey.<BR>Ngoài ra, 
+          nên nhớ rằng trong lúc chương trình chạy (at run-time), trong code ta 
+          có thể thay đổi kích thước và vị trí các controls dễ dàng, thậm chí có 
+          thể làm cho chúng hiện ra hay biến mất bằng cách sửa đổi value các 
+          property left, top, width, height và visible của các controls. 
+          <H3><FONT face=Verdana color=green>Alignment Grid </FONT></H3>Để giúp 
+          bạn sắp đặt ngay ngắn các controls trên một form, VB6 cho bạn 
+          Alignment Grid. Nó là những dấu đen của các hàng dọc và xuôi trên 
+          form. Bạn có thể làm cho các dấu đen của grid trên form biến mất bằng 
+          cách dùng menu command <B>Tools | Options</B> để display Option 
+          Dialog, kế đó chọn Tag General và clear checkbox "Show Grid":<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=349 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/optiongeneral.jpg" 
+              width=416></BLOCKQUOTE></BLOCKQUOTE>Bạn cũng có thể nhân dịp nầy thay 
+          đổi khoảng cách chiều rộng (Width) và chiều cao (Height) của các chấm 
+          đen của grid. Kích thước nhỏ nhất của Width hay Height là 24. Hãy so 
+          sánh hai trường hợp form có và không có Show Grid như dưới đây: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=157 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/formgrid.jpg" 
+              width=233>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<IMG height=158 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/formclear.jpg" 
+              width=233></BLOCKQUOTE></BLOCKQUOTE>
+          <H3><FONT face=Verdana color=green>Control Locking </FONT></H3><FONT 
+          face=Verdana>Một khi bạn đã sắp đặt kích thước và vị trí của các 
+          control trên form rồi, rất dễ ta tình cờ thay đổi các đặc tính ấy vì 
+          vô ý click lên một control. Do đó VB6 cho ta Menu command <B>Format | 
+          Lock Controls </B>để khóa chúng lại. Sau khi khóa, cái hình ống khóa 
+          trên menu bị chìm xuống. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=226 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/lockicon.jpg" 
+              width=134></BLOCKQUOTE></BLOCKQUOTE>Nếu sau nầy bạn muốn thay đổi kích 
+          thước hoặc vị trí của chúng thì nhớ dùng Menu command <B>Format | Lock 
+          Controls </B>lại. Sau khi mở khóa, cái hình ống khóa trên menu hiện ra 
+          bình thường. </FONT>
+          <H3><FONT face=Verdana color=green>Cài đặt các Properties của Form 
+          </FONT></H3><FONT face=Verdana>Nhiều property của một form ảnh hưởng 
+          đến diện mạo vật lý (physical appearance) của nó. Property Caption sẽ 
+          quyết định text được hiểu thị trong title. Nếu Property BorderStyle 
+          của form không phải là Sizable thì User không thể resize form at 
+          run-time. Property Icon quyết định hình icon đuợc dùng trong title của 
+          form, nhất là khi form thu nhỏ (minimized). Nếu bạn không muốn cho 
+          phép User minimize hay maximize form thì set value của property 
+          MinButton, MaxButton ra False. Nếu property ControlBox là False thì 
+          form sẽ không có nút minize, maximize hay close (<B>x</B>) trên góc 
+          phải của nó, đồng thời form cũng không display cả icon bên góc trái 
+          title như trong hình dưới đây: <BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=102 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/nocontrolbox.jpg" 
+              width=217></BLOCKQUOTE></BLOCKQUOTE><BR>Vị trí đầu tiên (top,left) của 
+          form có thể được thay đổi trong design time bằng cách di chuyển hình 
+          nhỏ của nó trong window Form Layout: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=228 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/layout.jpg" 
+              width=230></BLOCKQUOTE></BLOCKQUOTE>Property WindowState xác định Form 
+          sẽ có kích thước bình thường (normal=0), hay minimized (=1), maximized 
+          =(2).<BR>Lưu ý là property Font của Form sẽ được các control nằm trên 
+          nó thừa kế. Tức là khi bạn đặt một control lên form, property Font của 
+          control ấy sẽ tự động trở nên giống y như của form.<BR></FONT>
+          <H3><FONT face=Verdana color=green>Vài Event thông dụng của Form 
+          </FONT></H3><FONT face=Verdana>Nhìn từ một phương diện, Form cũng 
+          giống như Control. Ta có thể instantiate một form nhiều lần để có 
+          nhiều form tương tợ nhau. Trong thí dụ dưới đây, ta instantiate Form2 
+          hai lần để có MyForm và YourForm: 
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdCreateForms_Click() 
+   <FONT color=blue>Dim</FONT> MyForm, YourForm 
+   <FONT color=blue>Set</FONT> MyForm = <FONT color=blue>New</FONT> Form2 
+   MyForm.Caption = "This is My Form" 
+   MyForm.Show 
+   MyForm.Move 1000, 1000 
+   <FONT color=blue>Set</FONT> YourForm = <FONT color=blue>New</FONT> Form2 
+   YourForm.Caption = "YOUR FORM IS HERE" 
+   YourForm.Show 
+   YourForm.Move 2000, 2000 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Một Form cũng có nhiều Events 
+          rất hữu dụng. 
+          <BLOCKQUOTE>
+            <UL>
+              <LI><B>Form_Initialize</B>: Event nầy xãy ra trước nhất và chỉ một 
+              lần thôi khi ta instantiate form đầu tiên. Ta dùng Form_Initialize 
+              event để thực hiện những gì cần phải làm chung cho tất cả các 
+              instances của form nầy. 
+              <LI><B>Form_Load</B>: Event nầy xãy ra mỗi lần ta instantiate một 
+              form. Nếu ta chỉ dùng một instance duy nhất của một form trong 
+              chương trình thì Form_Load coi như tương đương với 
+              Form_Initialize. Ta dùng Form_Load event để initialise variables, 
+              controls v.v. cho instance nầy.<BR>Bên trong Form_Load bạn không 
+              thể dùng Setfocus cho một control nào trên form vì form chưa hẳn 
+              thành hình (ra đời). Muốn làm việc ấy bạn phải delay (trì hoản) 
+              một chút xíu bằng cách dùng Control Timer để đợi cho Form_Load 
+              được hoàn tất. Thí dụ: 
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE></PRE><PRE> 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_Load() 
+   Timer1.Interval = 500 
+   Timer1.Enabled = <FONT color=blue>True</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Timer1_Timer() 
+   Timer1.Enabled = <FONT color=blue>False</FONT>  <FONT color=green>' Timer1_Timer only execute once</FONT>
+   txtName.Setfocus  <FONT color=green>' Make Tab Cursor start at TextBox txtName</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>
+              <LI><B>Form_Activate</B>: Mỗi lần một form trở nên active 
+              (current) thì nó generate một Activate event. Ta có thể dùng event 
+              nầy để refresh display trên form. 
+              <LI><B>Form_QueryUnload</B>: Khi User click dấu <B>x</B> phía trên 
+              bên phải để close form thì nó generate QueryUnload event. Syntax 
+              của Sub nầy như dưới đây:<BR>
+              <TABLE bgColor=#f6f6f6>
+                <TBODY>
+                <TR>
+                  <TD><FONT size=3><PRE></PRE><PRE> 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_QueryUnload(Cancel <FONT color=blue>As</FONT> Integer, UnloadMode <FONT color=blue>As</FONT> Integer) 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Event nầy cho ta một dịp để 
+              cancel Close action của form (tức là không cho User close form) 
+              bằng cách set Cancel bằng 1. UnloadMode cho ta biết ai, task hay 
+              form nào muốn close form nầy.<BR>Ngoài ra, bạn cũng nên biết rằng 
+              một form tự động Load hay trở nên active nếu bạn nhắc đến nó, thí 
+              dụ như dùng <B>Form2.List1</B>. Khi một form đã được loaded rồi 
+              bạn có thể hide (làm cho biến mất) nó. Kế đó, khi bạn show form ra 
+              trở lại thì form không có gì thay đổi. Nhưng nếu bạn Unload một 
+              form (thí dụ bằng cách dùng <B>Unload Form2</B> ), rồi sau đó load 
+              trở lại bằng cách dùng Form2.Show chẳng hạn, thì Form phải trải 
+              qua quá trình Form_Load, và dĩ nhiên form mất tất cả những gì có 
+              trước đây. Ngoài ra, Hide/Show một form đã được loaded rồi thì rất 
+              nhanh, còn Unload/Load thì mất thì giờ hơn.<BR>Khi bạn Show một 
+              Form chưa hiện hữu thì form sẽ được loaded và show. Đôi khi bạn 
+              muốn Load một form, rồi làm việc với nó trước khi Show, trong 
+              trường hợp đó bạn dùng <B>Load Form2</B> rồi một chập sau dùng 
+              <B>Form2.Show</B>. </LI></UL></BLOCKQUOTE></FONT>
+          <H3><FONT face=Verdana color=green>MDI Form </FONT></H3><FONT 
+          face=Verdana>Đôi khi bạn muốn có một MDI form, tức là một form có thể 
+          chứa nhiều form con bên trong. Dạng MDIform nầy thường được dùng trong 
+          các application như wordprocessor để có thể mở nhiều document cùng một 
+          lúc, mỗi document được hiển thị trong một form con. Để có một MDIForm 
+          bạn cần phải dùng menu command <B>Project | Add MDI Form</B>. Mỗi VB6 
+          project chỉ có thể có tối đa một MDIform. Muốn một form trở thành một 
+          form con bạn set property MDI Child của nó thành True. At run-time bạn 
+          không thể hide (biến nó thành invisible) một MDIChild form, nhưng có 
+          thể minimize nó. Nếu bạn thật sự muốn hide nó thì phải dùng mánh lới 
+          là cho nó vị trí (top,left) số âm lớn hơn kích thước nó để nó nằm 
+          ngoài tầm hiển thị của form. Trong một chương trình dùng MDI Form, khi 
+          bạn click MDI Form nó không nhảy ra phía trước và che các form con, 
+          nhưng vẫn luôn luôn nằm ở dưới. </FONT>
+          <H3><FONT face=Verdana color=green>Controls là gì? </FONT></H3><FONT 
+          face=Verdana>Controls vừa có hình, vừa có code chạy bên trong một 
+          window nho nhỏ, giống như một form. Khi ta lập trình VB6 ta lấp ráp 
+          các controls (là những vật dụng tiền chế) trên một hay nhiều form để 
+          có một chương trình nhanh chóng. Ta giao dịch với một control qua ba 
+          đặc tính của control: 
+          <UL>
+            <LI><B>Properties:</B> tập hợp các đặc tính của control mà ta có thể 
+            ấn định lúc design time hay run-time. Có nhiều properties về diện 
+            mạo, nếu ta thay đổi at design time sẽ thấy kết quả hiện ra lập tức, 
+            thí dụ Font hay màu sắc. 
+            <LI><B>Methods:</B> những gì control thực hiện đuợc, tức là những 
+            khả năng của nó. 
+            <LI><B>Events:</B> những sự cố mà control sẽ thông báo cho chúng ta 
+            biết khi nó xãy ra với control. Khi một event xãy ra VB6 sẽ xử lý 
+            một Event Handler (thí dụ như Sub Command1_Click()), miễn là chúng 
+            ta viết code sẵn trong đó. Nếu không có code thì coi như chúng ta 
+            không thèm biết đến các event loại đó. Có một số Events mà chúng ta 
+            thường xử lý là: 
+            <BLOCKQUOTE>
+              <UL>
+                <LI>Click : xãy ra khi user click lên control. Ta thường dùng nó 
+                cho CommandButton và Listbox. 
+                <LI>MouseDown, MouseUp : mỗi khi User bấm một mouse button là có 
+                một MouseDown Event, khi User buông nó ra thì có một MouseUp 
+                Event. Ta thường dùng MouseDown Event để Popup context sensitive 
+                menu hay bắt đầu một diễn biến Drag. <BR>Thí dụ: 
+                <TABLE bgColor=#f6f6f6>
+                  <TBODY>
+                  <TR>
+                    <TD><FONT size=3><PRE></PRE><PRE> 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Foods_MouseDown(Button <FONT color=blue>As</FONT> Integer, Shift <FONT color=blue>As</FONT> Integer, X <FONT color=blue>As</FONT> Single, Y <FONT color=blue>As</FONT> Single) 
+   <FONT color=blue>If</FONT> Button = vbRightButton <FONT color=blue>Then</FONT>  <FONT color=green>' if Right button was pressed</FONT>
+      PopupMenu mnuActions  <FONT color=green>' popup a menu</FONT>
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+<FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> DrinkList_MouseDown(Button <FONT color=blue>As</FONT> Integer, Shift <FONT color=blue>As</FONT> Integer, X <FONT color=blue>As</FONT> Single, Y <FONT color=blue>As</FONT> Single) 
+   DrinkList.drag  <FONT color=green>' Displaying a drag icon to start the drag process</FONT>
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Để ý là Click không cho 
+                chúng ta thêm chi tiết gì về sự cố, trong khi MouseDown/MouseUp 
+                cho ta biết vị trí của cursor, button nào của Mouse được bấm và 
+                lúc ấy User có bấm nút Shift, Ctrl hay Alt không. Mỗi Click là 
+                đi đôi với một cặp MouseDown/MouseUp. Nếu bạn muốn xử lý vừa 
+                Click lẫn MouseDown thì phải cẩn thận. Thí dụ bạn muốn vừa 
+                handle Click event vừa handle Mouse Drag thì phải làm sao phân 
+                biệt hai trường hợp. Nếu không User chỉ muốn thấy kết quả của 
+                Click mà lại thấy control bắt đầu display một Drag icon thì sẽ 
+                bực mình. 
+                <LI>KeyPress : xãy ra khi user Press một key. Ta thường dùng nó 
+                cho TextBox để loại ra (filter out) các keystrokes ta không chấp 
+                nhận. KeyPress cho ta ASCII value, một con số có giá trị từ 1 
+                đến 255, của key.<BR>Trong thí dụ dưới đây, một Enter key sẽ 
+                được coi như một TAB key: 
+                <TABLE bgColor=#f6f6f6>
+                  <TBODY>
+                  <TR>
+                    <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Text1_KeyPress(KeyAscii <FONT color=blue>As</FONT> Integer) 
+   <FONT color=blue>If</FONT> KeyAscii = 13 <FONT color=blue>Then</FONT> 
+      KeyAscii = 0  <FONT color=green>' Swallow the character to avoid side effect</FONT>
+      SendKeys "{TAB}"  <FONT color=green>' Emulate entering a TAB</FONT>
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>
+                <LI>KeyDown, KeyUp : mỗi KeyPress event là cho ta một cặp 
+                KeyDown/KeyUp event. KeyDown/KeyUp cho ta KeyCode và Shift 
+                value. Để detect Function key ta cần dùng KeyDown 
+                event.<BR>Trong thí dụ dưới đây, ta display Function key User 
+                bấm:<BR>
+                <TABLE bgColor=#f6f6f6>
+                  <TBODY>
+                  <TR>
+                    <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Text3_KeyDown(KeyCode <FONT color=blue>As</FONT> Integer, Shift <FONT color=blue>As</FONT> Integer) 
+   <FONT color=blue>If</FONT> (KeyCode &gt;= 112) And (KeyCode &lt;= 123) <FONT color=blue>Then</FONT> 
+      MsgBox "You pressed the <FONT color=blue>Function</FONT> key: F" &amp; Trim(Str(KeyCode - 111)) 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>
+                <LI>GotFocus : Control trở nên active khi nó nhận được Focus. Nó 
+                sẽ generate một GotFocus Event. Ta có thể dùng nó để đổi màu 
+                background của một text box như trong thí dụ dưới đây: 
+                <TABLE bgColor=#f6f6f6>
+                  <TBODY>
+                  <TR>
+                    <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Text2_GotFocus() 
+   Text2.BackColor = vbYellow 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>
+                <LI>LostFocus : Thường thường hể một Control GotFocus thì trước 
+                đó có một Control LostFocus. Ta có thể dùng Event nầy để 
+                Validate entry data hay thu xếp công chuyện cho một control vừa 
+                mất Focus. <BR>Trong thí dụ dưới đây, nếu User không đánh vào 
+                một con số ở trong Textbox Text1 thì sẽ được thông báo và Tab 
+                Cursor sẽ trở lại Textbox Text1. 
+                <TABLE bgColor=#f6f6f6>
+                  <TBODY>
+                  <TR>
+                    <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Text1_LostFocus() 
+   <FONT color=blue>If</FONT> <FONT color=blue>Not</FONT> IsNumeric(Text1.Text) <FONT color=blue>Then</FONT> 
+      MsgBox "Please enter a number!" 
+      Text1.SetFocus 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>
+                <LI>DragDrop : xãy ra khi ta drop một cái gì lên control . 
+                Parameter Source cho ta biết Control nào đã được Drag và Drop. 
+                Nhiều khi một control có thể nhận drop từ nhiều control khác 
+                nhau. Trong trường hợp đó ta phải test xem hoặc Control Type, 
+                hoặc Name hoặc Tag value của Source control là gì để tùy nghi xử 
+                lý.<BR>Trong thí dụ dưới đây, khi User drop mouse xuống Textbox 
+                Text2, nếu Source là một Listbox, không cần biết Listbox nào, 
+                thì ta copy dòng được chọn trong Listbox ấy qua Textbox 
+                Text2.<BR>
+                <TABLE bgColor=#f6f6f6>
+                  <TBODY>
+                  <TR>
+                    <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Text2_DragDrop(Source <FONT color=blue>As</FONT> Control, X <FONT color=blue>As</FONT> Single, Y <FONT color=blue>As</FONT> Single) 
+   <FONT color=blue>If</FONT> TypeOf Source Is ListBox <FONT color=blue>Then</FONT> 
+      Text2.Text = Source.Text 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></LI></UL></BLOCKQUOTE></LI></UL></FONT>
+          <H3><FONT face=Verdana color=green>TextBox </FONT></H3><FONT 
+          face=Verdana>TextBox là control đuợc dùng nhiều nhất để display text 
+          và nhận keystroke của Userđể sửa đổi text có sẵn hay cho vào text mới. 
+          Property chính và default của Textbox là <B>text</B>, tức là thường 
+          thường Text2.text có thể được viết tắt là Text2. Ta có thể disable 
+          (khiến nó bất lực, không phản ứng gì hết và không cho sửa đổi) một 
+          text box bằng cách set Property Enable ra False (chữ sẽ bị mờ đi), hay 
+          Lock (không cho sửa đổi) một text box bằng cách set Property Locked ra 
+          True (chữ không bị mờ).<BR>Text có thể được Align (Alignment Property) 
+          để display bên trái, chính giữa hay bên phải của hộp nó. <BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=150 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/alignment.jpg" 
+              width=249></BLOCKQUOTE></BLOCKQUOTE><BR>Bạn có thể chọn BackColor và 
+          ForeColor cho background và text của TextBox. Dùng Tag Palette khi 
+          chọn màu để có đúng một màu bạn muốn. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=278 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/forcolor.jpg" 
+              width=332></BLOCKQUOTE></BLOCKQUOTE>Dĩ nhiên bạn có thể lựa chọn Font 
+          và cở chữ cho Text với Font Property.<BR>Bạn giới hạn số characters mà 
+          User có thể enter cho TextBox bằng cách set MaxLength Property.<BR>Nếu 
+          Property Multiline là True thì User có thể enter nhiều hàng. At Design 
+          time, nếu bạn muốn enter multiline thì phải nhớ bấm nút Ctrl khi press 
+          Enter mỗi khi xuống hàng. Nếu không VB6 IDE tưởng rằng bạn đã kết thúc 
+          editing.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=113 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/multiline.jpg" 
+              width=233></BLOCKQUOTE></BLOCKQUOTE>Muốn assign cho text box multiline 
+          text thì phải nhét vào mỗi cuối hàng CarriageReturn và LineFeed 
+          characters. Thí dụ như: 
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Command1_Click() 
+   <FONT color=blue>Dim</FONT> TextStr 
+   TextStr = "Bau ra bau lay ong cau" &amp; vbCrLf  <FONT color=green>' Note: vbCrLf = chr(13) &amp; chr(10)</FONT>
+   TextStr = TextStr &amp; "Bau cau ca bong ngat dau kho tieu" 
+   Text1.Text = TextStr 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE>Nếu bạn muốn mách nước cho User 
+          về cách dùng một textbox nào đó thì có thể dùng Property ToolTipText 
+          để nó display mách nước mỗi khi mouse cursor nằm lên textbox.<BR>
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=125 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/tooltip.jpg" 
+              width=234></BLOCKQUOTE></BLOCKQUOTE>Dùng Property TabIndex để ấn định 
+          thứ tự cho Tab Cursor dừng mỗi khi User bấm nút TAB để dời TAB Cursor 
+          đến Textbox kế tiếp. Nếu bạn không muốn Tab Cursor dừng ở một TextBox 
+          nào thì set Property TabStop nó thành False. Tab Cursor không dừng ở 
+          Textbox có Property Enabled bằng False, nhưng vẫn dừng ở Textbox có 
+          property Locked bằng True.<BR><BR>Nếu bạn muốn dùng Textbox làm một 
+          Password field thì set Property PasswordChar bằng "<B>*</B>". Làm như 
+          thế sẽ ép buộc Textbox display mọi character bằng PasswordChar, tức là 
+          "<B>*</B>", để người khác không đọc được trong khi User enter một 
+          Paswword. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=150 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/password.jpg" 
+              width=261></BLOCKQUOTE></BLOCKQUOTE><BR><BR><B>Properties SelLength, 
+          SelStart và SelText</B><BR>Nếu bạn muốn biết được tình hình hiện thời 
+          của Textbox: SelText cho bạn dãy chữ đang được selected. SelStart cho 
+          bạn vị trí của insertion point (chỗ cursor flashing). SelLength cho 
+          biết con số characters đã được selected.<BR>Nếu bạn muốn sửa đổi text 
+          trong Textbox: SelText cho bạn nhét vào một dãy chữ. SelStart cho bạn 
+          ấn định vị trí bắt đầu của dãy chữ bạn sắp select. SelLength ấn định 
+          số characters bạn muốn chọn, bắt đầu từ SelStart.<BR>Dưới đây là một 
+          thí dụ trong đó ta highlight text tìm được: 
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> Form_Click () 
+   <FONT color=blue>Dim</FONT> Search, Where  <FONT color=green>' Declare variables.</FONT>
+   <FONT color=green>' Get search string from user.</FONT>
+   Search = InputBox("Enter text to be found:") 
+   Where = InStr(Text1.Text, Search)  <FONT color=green>' Find the given string in Text1.Text.</FONT>
+   <FONT color=blue>If</FONT> Where &gt; 0 <FONT color=blue>Then</FONT>  <FONT color=green>' If found,</FONT>
+      Text1.SelStart = Where - 1  <FONT color=green>' set selection start and</FONT>
+      Text1.SelLength = Len(Search)  <FONT color=green>' set selection length.</FONT>
+   <FONT color=blue>Else</FONT> 
+      MsgBox "String not found."  <FONT color=green>' Notify user.</FONT>
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></FONT>
+          <H3><FONT face=Verdana color=green>CommandButton </FONT></H3><FONT 
+          face=Verdana>CommandButton rất tiện cho ta dùng vào việc xử lý một 
+          chuyện gì khi User click lên button. Event ta dùng thường nhất cho 
+          CommanButton là Click. Ta dùng Property Caption của CommandButton để 
+          enter cái gì ta muốn display trên button. Nếu muốn cho phép User dùng 
+          ALT+E (đè nút Atl trong lúc bấm nút E) để generate event click thì 
+          nhét dấu "<B>&amp;</B>" trước chữ E trong Caption của button. Caption 
+          sẽ display chữ E với một gạch dưới.<BR>Ngoài ra ta cũng có thể cho 
+          thêm một cái hình vào CommandButton bằng cách chọn một icon cho 
+          property Picture và set Property Style ra Graphical, thay vì Standard. 
+
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=83 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/exit.jpg" 
+              width=116></BLOCKQUOTE></BLOCKQUOTE>Lúc Run-time bạn có thể thay đổi 
+          hình hay Caption của CommandButton. Trong thí dụ dưới đây, Caption của 
+          CommandButton CmdOperation flip-flop giữa hai values Stop và Start: 
+          <TABLE bgColor=#f6f6f6>
+            <TBODY>
+            <TR>
+              <TD><FONT size=3><PRE><FONT color=blue>Private</FONT> <FONT color=blue>Sub</FONT> CmdOperation_Click() 
+   <FONT color=blue>If</FONT> CmdOperation.Caption = "&amp;Stop" <FONT color=blue>Then</FONT> 
+      CmdOperation.Caption = "St&amp;art" 
+   <FONT color=blue>Else</FONT> 
+      CmdOperation.Caption = "&amp;Stop" 
+   <FONT color=blue>End</FONT> <FONT color=blue>If</FONT> 
+<FONT color=blue>End</FONT> <FONT color=blue>Sub</FONT> 
+</PRE></FONT></TD></TR></TBODY></TABLE></FONT>
+          <H3><FONT face=Verdana color=green>Label </FONT></H3><FONT 
+          face=Verdana>Mục đích chính của Label là để display, không cho User 
+          Edit như Textbox. Do đó ta có thể dùng Property Font, ForeColor và 
+          Backcolor để làm cho nó đẹp. Ngoài ra Property BorderStyle có thể cho 
+          Label lỏm xuống nếu bạn set nó bằng Fixed Single. Nếu set property 
+          BackStyle bằng Transparent sẽ tránh trường hợp Backcolor của Label làm 
+          cho không đẹp.<BR>Label cũng có Property Tabindex. Nếu bạn muốn dùng 
+          ALT key để mang Tab Cursor về một Textbox, hãy để một Label với 
+          TabIndex bằng TabIndex của TextBox trừ 1. Giả sử Label có Caption là 
+          "&amp;Address" thì ALT+A sẽ mang Tab Cursor về TextBox màu vàng như 
+          trong thí dụ dưới đây: 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=171 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/ALTCursor.jpg" 
+              width=338></BLOCKQUOTE></BLOCKQUOTE>Ngoài ra nhớ rằng bạn có thể thay 
+          đổi Caption của Label lúc run-time. </FONT>
+          <H3><FONT face=Verdana color=green>CheckBox </FONT></H3><FONT 
+          face=Verdana>CheckBox được dùng để User xác nhận có đặc tính nào một 
+          cách nhanh chóng. Property Value của CheckBox có thể là Checked (làm 
+          cho hộp vuông có dấu, bằng 1), Unchecked (làm cho hộp vuông trống 
+          không, bằng 0) hay Grayed (làm cho hộp vuông có dấu màu nhạt, bằng 2). 
+          Một khi biết rằng CheckBox có Value bằng 1, ta có thể đọc Caption của 
+          CheckBox để dùng nếu cần. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=255 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/checkbox.jpg" 
+              width=294></BLOCKQUOTE></BLOCKQUOTE>Bạn có thể dùng Property Alignment 
+          để làm cho Caption đứng bên phải (Left Justify) hay bên trái (Right 
+          Justify) của hộp vuông. </FONT>
+          <H3><FONT face=Verdana color=green>OptionButton </FONT></H3><FONT 
+          face=Verdana>OptionButton ( còn gọi là RadioButton) có hình tròn với 
+          một chấm ở giữa, thay gì hình vuông với một gạch ở giữa như CheckBox. 
+          OptionButton luôn luôn được qui tụ thành một nhóm, chứa trong một 
+          container. Container là một Control có khả năng chứa các controls 
+          khác. Frame, PictureBox, hay chính Form đều là Container. Sau khi đặt 
+          một Container lên Form, nếu muốn để một OptionButton lên Container, 
+          trước hết ta phải Select container, rồi kế đó chọn OptionButton. Sở 
+          dĩ, tất cả OptionButtons phải nằm trong một container là vì bất cứ lúc 
+          nào, nhiều nhất là một OptionButton trong container có value True 
+          (vòng tròn có chấm ở giữa).<BR>Muốn biết một OptionButton có thật sự 
+          nằm trong một container, bạn thử kéo cái container đi chỗ khác. Nếu 
+          OptionButton bị dời theo container thì nó nằm trong container. Một 
+          cách khác là thử kéo OptionButton ra khỏi container. Nếu kéo ra được 
+          thì nó không nằm trong container.<BR>Muốn di chuyển một OptionButton 
+          từ container nầy sang container khác, bạn Cut OptionButton rồi Paste 
+          nó vô container kia. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=277 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/option.jpg" 
+              width=258></BLOCKQUOTE></BLOCKQUOTE>Đôi khi một container nằm che trên 
+          một control khác. Muốn mang một container ra phía sau các controls 
+          khác bạn Select container rồi dùng Menu command <B>Format | Order | 
+          Send to Back</B>. 
+          <BLOCKQUOTE>
+            <BLOCKQUOTE><IMG height=229 
+              src="Chuong 3 - Form va cac Controls thong thuong_files/sendtoback.jpg" 
+              width=288></BLOCKQUOTE></BLOCKQUOTE></FONT></BLOCKQUOTE>
+        <BLOCKQUOTE><FONT face=Verdana><IMG height=14 
+          src="Chuong 3 - Form va cac Controls thong thuong_files/ball_red.gif" 
+          width=14>&nbsp;<A 
+          href="http://www.vovisoft.com/vovisoft/vblinks.htm">Các liên mạng VB 
+          khác</A></FONT></BLOCKQUOTE><FONT face=Verdana>
+        <BLOCKQUOTE>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><BR><A 
+          href="http://www.bangden.com/soncuoc/Dang/index.htm">Những câu hỏi về 
+          Visual Basic</A></FONT> <FONT face=Verdana>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><A 
+          href="http://www.bangden.com/soncuoc/Visualbasic/tipstricks/forms.htm">Những 
+          mẹo vặt của Visual Basic</A></P></FONT>
+          <P 
+          style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px; LINE-HEIGHT: 100%"><FONT 
+          face=Verdana><A href="http://www.bangden.com/soncuoc/VB.htm"><BR>Lập 
+          trình với VBA</A></FONT></P></BLOCKQUOTE><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc --><!-- End of Cut and paste content --><!-- Start of bottom bar for copyright notice etc -->
+        <TABLE class=clsNavLinks id=tblFooterLinks cellSpacing=0 cellPadding=0 
+        width="100%" border=0>
+          <TBODY>
+          <TR>
+            <TD class=clsRaised width=785 bgColor=#6699cc>
+              <P align=center><FONT face=Verdana color=#ffffff size=1>Được cung 
+              cấp từ Vivosoft</FONT></P></TD></TR></TBODY></TABLE>
+        <P>&nbsp;</P></FONT></BLOCKQUOTE>&nbsp;<!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></HTML>
